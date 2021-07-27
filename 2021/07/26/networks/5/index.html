@@ -11,7 +11,7 @@
   
   <title>
     
-      计算机网络——1.物理层 
+      计算机网络——5.应用层 
       
       
       |
@@ -133,7 +133,7 @@ MathJax = {
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">计算机网络——1.物理层</div>
+      <div class="post-title">计算机网络——5.应用层</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime" title="Update time"></i>
@@ -153,81 +153,60 @@ MathJax = {
           
       </div>
       <div class="markdown-body">
-        <h1 id="物理层的基本概念"><a href="#物理层的基本概念" class="headerlink" title="物理层的基本概念"></a>物理层的基本概念</h1><p>物理层考虑的是怎样才能在连接各种计算机的传输媒体上传输数据比特流，而不是指具体的传输媒体。<br>物理层的作用是要尽可能地屏蔽掉不同传输媒体和通信手段的差异。<br>主要任务：确定与传输媒体的接口的一些特性。</p>
+        <h1 id="域名系统-DNS"><a href="#域名系统-DNS" class="headerlink" title="域名系统 DNS"></a>域名系统 DNS</h1><p><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/usage/%E5%9F%9F%E5%90%8D%E7%A9%BA%E9%97%B4%20.png" alt="域名空间">  </p>
+<h2 id="域名服务器"><a href="#域名服务器" class="headerlink" title="域名服务器"></a>域名服务器</h2><ul>
+<li>根域名服务器<br>  根域名服务器是最高层次的域名服务器，也是最重要的域名服务器。所有的根域名服务器都知道所有的顶级域名服务器的域名和 IP 地址。<br>不管是哪一个本地域名服务器，若要对互联网上任何一个域名进行解析，只要自己无法解析，就首先求助于根域名服务器。<br>在互联网上共有 13 个不同 IP 地址的根域名服务器，它们的名字是用一个英文字母命名，从 a  一直到 m（前 13 个字母）。   a.rootservers.net</li>
+</ul>
 <ul>
-<li>机械特性 ：指明接口所用接线器的形状和尺寸、引线数目和排列、固定和锁定装置等。</li>
-<li>电气特性：指明在接口电缆的各条线上出现的电压的范围。</li>
-<li>功能特性：指明某条线上出现的某一电平的电压的意义。</li>
-<li>过程特性 ：指明对于不同功能的各种可能事件的出现顺序。 </li>
+<li>顶级域名服务器<br>  顶级域名服务器（即 TLD 服务器）负责管理在该顶级域名服务器注册的所有二级域名。<br>当收到 DNS 查询请求时，就给出相应的回答（可能是最后的结果，也可能是下一步应当找的域名服务器的 IP 地址）。 </li>
 </ul>
-<h1 id="数据通信的基础知识"><a href="#数据通信的基础知识" class="headerlink" title="数据通信的基础知识"></a>数据通信的基础知识</h1><h2 id="数据通信系统的模型"><a href="#数据通信系统的模型" class="headerlink" title="数据通信系统的模型"></a>数据通信系统的模型</h2><p>一个数据通信系统包括三大部分：源系统（或发送端、发送方）、传输系统（或传输网络）和目的系统（或接收端、接收方）。 </p>
-<h2 id="有关信道的几个基本概念"><a href="#有关信道的几个基本概念" class="headerlink" title="有关信道的几个基本概念"></a>有关信道的几个基本概念</h2><h3 id="调制"><a href="#调制" class="headerlink" title="调制"></a>调制</h3><p>调频，调幅，调相  </p>
-<p>不是码元越多越好。若每一个码元可表示的比特数越多，则在接收端进行解调时要正确识别每一种状态就越困难，出错率增加。  </p>
-<p>码元传输的速率越高，或信号传输的距离越远，或传输媒体质量越差，在信道的输出端的波形的失真就越严重。  </p>
 <ul>
-<li>基带调制：仅对基带信号的波形进行变换，使它能够与信道特性相适应。变换后的信号仍然是基带信号。把这种过程称为编码 (coding)。</li>
-<li>带通调制：使用载波 (carrier)进行调制，把基带信号的频率范围搬移到较高的频段，并转换为模拟信号，这样就能够更好地在模拟信道中传输（即仅在一段频率范围内能够通过信道） 。<br>带通信号 ：经过载波调制后的信号。<h3 id="常用编码方式"><a href="#常用编码方式" class="headerlink" title="常用编码方式"></a>常用编码方式</h3></li>
-<li>不归零制：正电平代表 1，负电平代表 0。</li>
-<li>归零制：正脉冲代表 1，负脉冲代表 0。</li>
-<li>曼彻斯特编码：位周期中心的向上跳变代表 0，位周期中心的向下跳变代表 1。但也可反过来定义。</li>
-<li>差分曼彻斯特编码：在每一位的中心处始终都有跳变。位开始边界有跳变代表 0，而位开始边界没有跳变代表 1。  </li>
+<li><p>权限域名服务器<br>  负责一个区的域名服务器。<br>当一个权限域名服务器还不能给出最后的查询回答时，就会告诉发出查询请求的 DNS 客户，下一步应当找哪一个权限域名服务器。 </p>
+</li>
+<li><p>本地域名服务器<br>本地域名服务器对域名系统非常重要。<br>当一个主机发出 DNS 查询请求时，这个查询请求报文就发送给本地域名服务器。<br>每一个互联网服务提供者 ISP，或一个大学，甚至一个大学里的系，都可以拥有一个本地域名服务器，<br>这种域名服务器有时也称为默认域名服务器。</p>
+</li>
 </ul>
-<p>从信号波形中可以看出，曼彻斯特 (Manchester) 编码和差分曼彻斯特编码产生的信号频率比不归零制高。<br>从自同步能力来看，不归零制不能从信号波形本身中提取信号时钟频率（这叫做没有自同步能力），而曼彻斯特编码和差分曼彻斯特编码具有自同步能力。</p>
-<h2 id="信道的极限容量"><a href="#信道的极限容量" class="headerlink" title="信道的极限容量"></a>信道的极限容量</h2><p>限制码元在信道上的传输速率的因素有以下两个：</p>
+<h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><p>主机向本地域名服务器的查询一般都是采用递归查询<br>本地域名服务器向根域名服务器的查询通常是采用迭代查询<br>本地域名服务器采用递归查询（比较少用）   </p>
 <ul>
-<li>信道能够通过的频率范围</li>
-<li>信噪比</li>
+<li>每个域名服务器都维护一个高速缓存，存放最近用过的名字以及从何处获得名字映射信息的记录。</li>
+<li>可大大减轻根域名服务器的负荷，使互联网上的 DNS 查询请求和回答报文的数量大为减少。 </li>
+<li>为保持高速缓存中的内容正确，域名服务器应为每项内容设置计时<br>器，并处理超过合理时间的项（例如，每个项目只存放两天）。</li>
+<li>当权限域名服务器回答一个查询请求时，在响应中都指明绑定有效存在的时间值。增加此时间值可减少网络开销，而减少此时间值可提高域名转换的准确性。<h1 id="文件传送协议"><a href="#文件传送协议" class="headerlink" title="文件传送协议"></a>文件传送协议</h1><h2 id="FTP"><a href="#FTP" class="headerlink" title="FTP"></a>FTP</h2>当客户进程向服务器进程发出建立连接请求时，要寻找连接服务器进程的熟知端口 (21)，同时还要告诉服务器进程自己的另一个端口号码，用于建立数据传送连接。<br>接着，服务器进程用自己传送数据的熟知端口 (20) 与客户进程所提供的端口号码建立数据传送连接。<br>由于 FTP 使用了两个不同的端口号，所以数据连接与控制连接不会发生混乱。<h2 id="TFTP"><a href="#TFTP" class="headerlink" title="TFTP"></a>TFTP</h2>其熟知端口号码为  69<br>TFTP 使用客户服务器方式和使用 UDP 数据报，因此 TFTP 需要有自己的差错改正措施。<br>TFTP 的工作很像停止等待协议</li>
 </ul>
-<p><code>奈氏准则:</code>给出了在假定的理想条件下，为了避免码间串扰，码元的传输速率的上限值。</p>
-<p>在任何信道中，码元传输的速率是有上限的，否则就会出现码间串扰的问题，使接收端对码元的判决（即识别）成为不可能。    如果信道的频带越宽，也就是能够通过的信号高频分量越多，那么就可以用更高的速率传送码元而不出现码间串扰。  </p>
-<p><code>信噪比</code>就是信号的平均功率和噪声的平均功率之比。常记为S/N，并用分贝 (dB) 作为度量单位。即：   </p>
-<p><code>信噪比(dB) = 10 log10(S/N ) (dB)  </code></p>
-<p><code>香农公式</code><br>极限信息传输速率 C ;W 为信道的带宽（以 Hz 为单位）；S 为信道内所传信号的平均功率；N 为信道内部的高斯噪声功率。<br><code>C = W log2(1+S/N)    (bit/s) </code>  </p>
-<p>香农公式表明</p>
+<h1 id="远程终端协议-TELNET"><a href="#远程终端协议-TELNET" class="headerlink" title="远程终端协议 TELNET"></a>远程终端协议 TELNET</h1><p>TELNET 也使用客户服务器方式。在本地系统运行 TELNET 客户进程，而在远地主机则运行 TELNET 服务器进程。<br>和 FTP 的情况相似，服务器中的主进程等待新的请求，并产生从属进程来处理每一个连接。 </p>
+<h1 id="万维网-WWW"><a href="#万维网-WWW" class="headerlink" title="万维网 WWW"></a>万维网 WWW</h1><p>万维网以客户 - 服务器方式工作。<br>浏览器就是在用户计算机上的万维网客户程序。万维网文档所驻留的计算机则运行服务器程序，因此这个计算机也称为万维网服务器。</p>
 <ul>
-<li>信道的带宽或信道中的信噪比越大，则信息的极限传输速率就越高。 </li>
-<li>只要信息传输速率低于信道的极限信息传输速率，就一定可以找到某种办法来实现无差错的传输。 </li>
-<li>若信道带宽 W 或信噪比 S/N 没有上限（当然实际信道不可能是这样的），则信道的极限信息传输速率 C 也就没有上限。</li>
-<li>实际信道上能够达到的信息传输速率要比香农的极限传输速率低不少。 </li>
+<li>使用统一资源定位符 URL (Uniform Resource Locator) 来标志万维网上的各种文档。</li>
+<li> 用超文本传送协议 HTTP (HyperText Transfer Protocol)实现万维网上各种超链的链接</li>
+<li> 超文本标记语言 HTML (HyperText Markup Language) 使得万维网页面的设计者可以很方便地用一个超链从本页面的某处链接到互联网上的任何一个万维网页面</li>
 </ul>
-<h1 id="物理层下面的传输媒体"><a href="#物理层下面的传输媒体" class="headerlink" title="物理层下面的传输媒体"></a>物理层下面的传输媒体</h1><h2 id="导引型传输媒体"><a href="#导引型传输媒体" class="headerlink" title="导引型传输媒体"></a>导引型传输媒体</h2><p>双绞线<br>同轴电缆:具有很好的抗干扰特性，被广泛用于传输较高速率的数据。(50 Ω 同轴电缆 —— LAN / 数字传输常用;~~~75 Ω 同轴电缆 —— 有线电视 / 模拟传输常用)<br>光缆： 多模光纤 ，单模光纤<br>光纤通信优点</p>
-<ol>
-<li>通信容量非常大。</li>
-<li>传输损耗小，中继距离长。</li>
-<li>抗雷电和电磁干扰性能好。</li>
-<li>无串音干扰，保密性好。</li>
-<li>体积小，重量轻。</li>
-</ol>
-<h2 id="非导引型传输媒体"><a href="#非导引型传输媒体" class="headerlink" title="非导引型传输媒体"></a>非导引型传输媒体</h2><ul>
-<li>将自由空间称为“非导引型传输媒体”。</li>
-<li>无线传输所使用的频段很广。</li>
-<li>短波通信（即高频通信）主要是靠电离层的反射，但短波信道的通信质量较差，传输速率低。</li>
-<li>微波在空间主要是直线传播。</li>
-<li>传统微波通信有两种方式： 1.地面微波接力通信2.卫星通信 </li>
-</ul>
-<h1 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h1><p> 频分复用 FDM、时分复用 TDM、统计时分复用 STDM、波分复用 WDM、码分复用　CDM<br> 复用 (multiplexing) 是通信技术中的基本概念。<br>它允许用户使用一个共享信道进行通信，降低成本，提高利用率。　　　　</p>
-<p><code>掌握码分复用的习题</code></p>
-<h1 id="数字传输系统"><a href="#数字传输系统" class="headerlink" title="数字传输系统"></a>数字传输系统</h1><p>标准和同步问题</p>
-<p>在早期电话网中，从市话局到用户电话机的用户线是采用最廉价的双绞线电缆，而长途干线采用的是频分复用 FDM 的模拟传输方式。<br>与模拟通信相比，数字通信无论是在传输质量上还是经济上都有明显的优势。<br>目前，长途干线大都采用时分复用 PCM 的数字传输方式。<br>脉码调制 PCM 体制最初是为了在电话局之间的中继线上传送多路的电话。</p>
-<h1 id="宽带接入技术"><a href="#宽带接入技术" class="headerlink" title="宽带接入技术"></a>宽带接入技术</h1><h2 id="ADSL-技术"><a href="#ADSL-技术" class="headerlink" title="ADSL 技术"></a>ADSL 技术</h2><p>从宽带接入的媒体来看，可以划分为两大类：有线宽带接入，无线宽带接入<br>非对称数字用户线 ADSL (Asymmetric Digital Subscriber Line) 技术就是用数字技术对现有的模拟电话用户线进行改造，使它能够承载宽带业务。ADSL 技术就把 0~4 kHz 低端频谱留给传统电话使用，而把原来没有被利用的高端频谱留给用户上网使用。ADSL 在用户线（铜线）的两端各安装一个 ADSL 调制解调器。</p>
-<h2 id="光纤同轴混合网（HFC网）"><a href="#光纤同轴混合网（HFC网）" class="headerlink" title="光纤同轴混合网（HFC网）"></a>光纤同轴混合网（HFC网）</h2><ul>
-<li>HFC 网将原 CATV 网中的同轴电缆主干部分改换为光纤，并使用模拟光纤技术。</li>
-<li>在模拟光纤中采用光的振幅调制AM，这比使用数字光纤更为经济。</li>
-<li>模拟光纤从头端连接到光纤结点 (fiber node)，即光分配结点 ODN (Optical Distribution Node)。在光纤结点光信号被转换为电信号。在光纤结点以下就是同轴电缆。 </li>
-</ul>
-<h2 id="FTTx-技术"><a href="#FTTx-技术" class="headerlink" title="FTTx 技术"></a>FTTx 技术</h2><p>FTTx 是一种实现宽带居民接入网的方案，代表多种宽带光纤接入方式。<br>FTTx 表示 Fiber To The…（光纤到…），例如：</p>
+<p>持续连接的两种工作方式<br>非流水线方式，流水线方式</p>
+<h2 id="代理服务器"><a href="#代理服务器" class="headerlink" title="代理服务器"></a>代理服务器</h2><h2 id="http报文结构"><a href="#http报文结构" class="headerlink" title="http报文结构"></a>http报文结构</h2><p><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/usage/http_get.png" alt="http_get"><br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/usage/http_res.png" alt="http_res">   </p>
+<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>万维网站点可以使用 Cookie 来跟踪用户。<br>Cookie 表示在 HTTP 服务器和客户之间传递的状态信息。<br>使用 Cookie 的网站服务器为用户产生一个唯一的识别码。利用此识别码，网站就能够跟踪该用户在该网站的活动。 </p>
+<p>垂直搜索引擎 (Vertical Search Engine) 针对某一特定领域、特定人群或某一特定需求提供搜索服务。</p>
+<h1 id="电子邮件"><a href="#电子邮件" class="headerlink" title="电子邮件"></a>电子邮件</h1><p><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/usage/email.png" alt="email"><br>电子邮件地址的格式<br>:收件人邮箱名@邮箱所在主机的域名<br>SMTP 通信的三个阶段:连接建立,邮件传送,连接释放</p>
+<p>pop3和imap<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/usage/pop3_imap.png" alt="pop3_imap">   </p>
+<p><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/usage/www_email.png" alt="www_email"></p>
+<h1 id="动态主机配置协议-DHCP"><a href="#动态主机配置协议-DHCP" class="headerlink" title="动态主机配置协议 DHCP"></a>动态主机配置协议 DHCP</h1><p>在协议软件中，给协议参数赋值的动作叫做协议配置。<br>一个协议软件在使用之前必须是已正确配置的。<br>连接到互联网的计算机的协议软件需要配置的参数包括：<br>IP 地址<br>子网掩码<br>默认路由器的 IP 地址<br>域名服务器的 IP 地址<br>DHCP 使用客户 - 服务器方式<br>DHCP 中继代理(relay agent) </p>
+<p><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/usage/dhcp.png" alt="dhcp">   </p>
+<h1 id="简单网络管理协议-SNMP"><a href="#简单网络管理协议-SNMP" class="headerlink" title="简单网络管理协议 SNMP"></a>简单网络管理协议 SNMP</h1><p>网络管理的五大功能</p>
 <ul>
-<li>光纤到户 FTTH (Fiber To The Home)：光纤一直铺设到用户家庭，可能是居民接入网最后的解决方法。</li>
-<li>光纤到大楼 FTTB (Fiber To The Building)：光纤进入大楼后就转换为电信号，然后用电缆或双绞线分配到各用户。</li>
-<li>光纤到路边 FTTC (Fiber To The Curb)：光纤铺到路边，从路边到各用户可使用星形结构双绞线作为传输媒体。</li>
+<li>故障管理：故障检测、隔离和纠正。</li>
+<li>配置管理：初始化网络、并配置网络。</li>
+<li>计费管理：记录网络资源的使用。</li>
+<li>性能管理：估价系统资源的运行状况及通信效率等。</li>
+<li>网络安全管理：对授权机制、访问控制、加密和加密关键字的管理</li>
 </ul>
+<p>简单网络管理协议 SNMP (Simple Network Management Protocol) 中的管理程序和代理程序按客户–服务器方式工作。<br>管理程序运行 SNMP 客户程序，向某个代理程序发出请求（或命令），代理程序运行 SNMP 服务器程序，返回响应（或执行某个动作）。<br>在网管系统中，往往是一个（或少数几个）客户程序与很多的服务器程序进行交互</p>
+<h1 id="应用进程跨越网络的通信"><a href="#应用进程跨越网络的通信" class="headerlink" title="应用进程跨越网络的通信"></a>应用进程跨越网络的通信</h1><p>socket</p>
+<h1 id="P2P-应用"><a href="#P2P-应用" class="headerlink" title="P2P 应用"></a>P2P 应用</h1><p>具有集中目录服务器的 P2P 工作方式Napster<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/usage/napster.png" alt="napster"><br>具有全分布式结构的 P2P 文件共享程序Gnutella</p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2021/07/26/networks/2/" target="_self">
+              <a href="/2019/05/03/hello-world/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>Prev</span>
               </a>
@@ -253,7 +232,7 @@ MathJax = {
           </div>
           <div class="post-foot-prev">
             
-              <a href="/2021/07/26/networks/0/" target="_self">
+              <a href="/2021/07/26/networks/4/" target="_self">
                 <span>Next</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
@@ -269,7 +248,7 @@ MathJax = {
   <div class="post-catalog hidden" id="catalog">
     <div class="title">Contents</div>
     <div class="catalog-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">物理层的基本概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-text">数据通信的基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="toc-text">数据通信系统的模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E5%85%B3%E4%BF%A1%E9%81%93%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">有关信道的几个基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E5%88%B6"><span class="toc-text">调制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="toc-text">常用编码方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E7%9A%84%E6%9E%81%E9%99%90%E5%AE%B9%E9%87%8F"><span class="toc-text">信道的极限容量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82%E4%B8%8B%E9%9D%A2%E7%9A%84%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93"><span class="toc-text">物理层下面的传输媒体</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%BC%95%E5%9E%8B%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93"><span class="toc-text">导引型传输媒体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E5%AF%BC%E5%BC%95%E5%9E%8B%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93"><span class="toc-text">非导引型传输媒体</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E5%A4%8D%E7%94%A8%E6%8A%80%E6%9C%AF"><span class="toc-text">信道复用技术</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93%E7%B3%BB%E7%BB%9F"><span class="toc-text">数字传输系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%BD%E5%B8%A6%E6%8E%A5%E5%85%A5%E6%8A%80%E6%9C%AF"><span class="toc-text">宽带接入技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ADSL-%E6%8A%80%E6%9C%AF"><span class="toc-text">ADSL 技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E7%BA%A4%E5%90%8C%E8%BD%B4%E6%B7%B7%E5%90%88%E7%BD%91%EF%BC%88HFC%E7%BD%91%EF%BC%89"><span class="toc-text">光纤同轴混合网（HFC网）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FTTx-%E6%8A%80%E6%9C%AF"><span class="toc-text">FTTx 技术</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F-DNS"><span class="toc-text">域名系统 DNS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">域名服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="toc-text">域名解析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%BC%A0%E9%80%81%E5%8D%8F%E8%AE%AE"><span class="toc-text">文件传送协议</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#FTP"><span class="toc-text">FTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TFTP"><span class="toc-text">TFTP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E7%BB%88%E7%AB%AF%E5%8D%8F%E8%AE%AE-TELNET"><span class="toc-text">远程终端协议 TELNET</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%87%E7%BB%B4%E7%BD%91-WWW"><span class="toc-text">万维网 WWW</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">代理服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84"><span class="toc-text">http报文结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie"><span class="toc-text">cookie</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6"><span class="toc-text">电子邮件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E4%B8%BB%E6%9C%BA%E9%85%8D%E7%BD%AE%E5%8D%8F%E8%AE%AE-DHCP"><span class="toc-text">动态主机配置协议 DHCP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%8D%8F%E8%AE%AE-SNMP"><span class="toc-text">简单网络管理协议 SNMP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E8%BF%9B%E7%A8%8B%E8%B7%A8%E8%B6%8A%E7%BD%91%E7%BB%9C%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="toc-text">应用进程跨越网络的通信</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#P2P-%E5%BA%94%E7%94%A8"><span class="toc-text">P2P 应用</span></a></li></ol>
     </div>
   </div>
 

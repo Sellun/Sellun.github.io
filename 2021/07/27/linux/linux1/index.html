@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="John Doe" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      linux基本指令 
+      
+      
+      |
+    
+     Hexo
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Sellum</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">linux基本指令</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-07-27 15:47:35
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/linux/" title="linux">
+                    <b>#</b> linux
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="基础指令"><a href="#基础指令" class="headerlink" title="基础指令"></a>基础指令</h1><h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><p>-l：表示list，表示以详细列表的形式进行展示<br>-a：表示显示所有的文件/文件夹（包含了隐藏文件/文件夹）</p>
+<h2 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h2><p>打印当前路径  </p>
+<h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h2><h2 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h2><p>mkdir -p 一次性创建多层不存在的目录<br>mkdir 路径1 路径2 路径3 … 表示一次性创建多个目录 </p>
+<h2 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h2><p>文件名或路径</p>
+<h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><p>cp 被复制的文档路径 文档被复制到的路径<br>注意：Linux在复制过程中是可以重新对新位置的文件进行重命名的，但是如果不是必须的需要，则建议保持前后名称一致。<br>案例：使用cp命令来复制一个文件夹<br>注意：当使用cp命令进行文件夹复制操作的时候需要添加选项“-r”【-r表示递归复制】，否则目录将被忽略</p>
+<h2 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h2><h2 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h2><p>-f：force，强制删除，不提示是否删除<br>-r：表示递归<br>-rf<br>案例：要删除一个目录下有公共特性的文档，例如都以Linux开头<br>rm -rf linux*<br>星号称之为通配符，意思表示任意的字符，Linux*，则表示只要文件以Linux开头，后续字符则不管。  </p>
+<h2 id="输出重定向"><a href="#输出重定向" class="headerlink" title="输出重定向"></a>输出重定向</h2><p>1.&gt;：覆盖输出，会覆盖掉原先的文件内容<br>2.&gt;&gt;：追加输出，不会覆盖原始文件内容，会在原始内容末尾继续添加<br>语法：#正常执行的指令 &gt; / &gt;&gt; 文件的路径<br>注意：文件可以不存在，不存在则新建  </p>
+<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><p>作用1：cat有直接打开一个文件的功能。<br>语法1：#cat 文件的路径<br>作用2：cat还可以对文件进行合并<br>语法2：#cat 待合并的文件路径1 待合并的文件路径2 …. 文件路径n &gt; 合并之后的文件路径</p>
+<h1 id="进阶指令"><a href="#进阶指令" class="headerlink" title="进阶指令"></a>进阶指令</h1><h2 id="df"><a href="#df" class="headerlink" title="df"></a>df</h2><p>作用：查看磁盘的空间<br>语法：#df -h        -h表示以可读性较高的形式展示大小</p>
+<h2 id="free"><a href="#free" class="headerlink" title="free"></a>free</h2><p>作用：查看内存使用情况<br>语法：#free -m   -m表示以mb为单位查看  </p>
+<h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><p>作用：查看一个文件的前n行，如果不指定n，则默认显示前10行。<br>语法：#head -n 文件路径   【n表示数字】  </p>
+<h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><p>作用1：查看一个文件的未n行，如果n不指定默认显示后10行<br>语法：#tail -n 文件的路径    n同样表示数字<br>作用2：可以通过tail指令来查看一个文件的动态变化内容【变化的内容不能是用户手动增加的】<br>语法：#tail -f 文件路径<br>该命令一般用于查看系统的日志比较多。  </p>
+<h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><p>作用：查看文件，以较少的内容进行输出，按下辅助功能键（数字+回车、空格键+上下方向键）查看更多<br>语法：#less 需要查看的文件路径<br>在退出的只需要按下q键即可。  </p>
+<h2 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h2><p>作用：统计文件内容信息（包含行数、单词数、字节数）<br>语法：#wc -lwc 需要统计的文件路径<br>    -l：表示lines，行数<br>    -w：表示words，单词数   依照空格来判断单词数量<br>    -c：表示bytes，字节数  </p>
+<h2 id="date"><a href="#date" class="headerlink" title="date"></a>date</h2><p>作用：表示操作时间日期（读取、设置）<br>语法1：#date            输出的形式：2018年 3月 24日 星期六 15:54:28<br>语法2：#date  +%F    （等价于#date  “+%Y-%m-%d” ）    输出形式：2018-03-24<br>语法3：#date  “+%F %T”    引号表示让“年月日与时分秒”成为一个不可分割的整体<br>等价操作#date  “+%Y-%m-%d %H:%M:%S”<br>输出的形式：2018-03-24 16:01:00<br>语法4：获取之前或者之后的某个时间（备份）<br>date  -d  “-1 day”  “+%Y-%m-%d %H:%M:%S”<br>符号的可选值：+（之后） 或者 - （之前）<br>单位的可选值：day（天）、month（月份）、year（年）<br>%F：表示完整的年月日<br>%T：表示完整的时分秒<br>%Y：表示四位年份<br>%m：表示两位月份（带前导0）<br>%d：表示日期（带前导0）<br>%H：表示小时（带前导0）<br>%M：表示分钟（带前导0）<br>%S：表示秒数（带前导0）  </p>
+<h2 id="cal"><a href="#cal" class="headerlink" title="cal"></a>cal</h2><p>作用：用来操作日历的<br>语法1：#cal      等价于 #cal  -1        直接输出当前月份的日历<br>语法2：#cal  -3            表示输出上一个月+本月+下个月的日历<br>语法3：#cal  -y 年份          表示输出某一个年份的日历  </p>
+<h2 id="clear-ctrl-L"><a href="#clear-ctrl-L" class="headerlink" title="clear == ctrl + L"></a>clear == ctrl + L</h2><h2 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h2><p>管道符：|<br>作用：管道一般可以用于“过滤”，“特殊”，“扩展处理”。<br>语法：管道不能单独使用，必须需要配合前面所讲的一些指令来一起使用，其作用主要是辅助作用。  </p>
+<h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><p> grep 的作用是在文件中提取和匹配符合条件的字符串行。命令格式如下：<br>  grep  -A “搜索内容” 文件名<br>选项：  </p>
+<p>-A 数字：列出符合条件的行，并列出后续的 n 行；<br>-B 数字：列出符合条件的行，并列出前面的 n 行；<br>-c：统计找到的符合条件的字符串的次数；<br>-i：忽略大小写；<br>-n：输出行号；<br>-v：反向査找；<br>–color=auto：搜索出的关键字用颜色显示；<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lizhouwei/p/9991827.html">https://www.cnblogs.com/lizhouwei/p/9991827.html</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34366546/article/details/93424831">https://blog.csdn.net/weixin_34366546/article/details/93424831</a>  </p>
+<h2 id="hostname"><a href="#hostname" class="headerlink" title="hostname"></a>hostname</h2><p>作用：操作服务器的主机名（读取、设置）<br>语法1：#hostname            含义：表示输出完整的主机名<br>语法2：#hostname  -f            含义：表示输出当前主机名中的FQDN（全限定域名）  </p>
+<h2 id="id"><a href="#id" class="headerlink" title="id"></a>id</h2><p>作用：查看一个用户的一些基本信息（包含用户id，用户组id，附加组id…），该指令如果不指定用户则默认当前用户。<br>语法1：#id        默认显示当前执行该命令的用户的基本信息<br>语法2：#id  用户名        显示指定用户的基本信息  </p>
+<h2 id="whoami"><a href="#whoami" class="headerlink" title="whoami"></a>whoami</h2><p>显示当前登录的用户名  </p>
+<h2 id="ps-ef"><a href="#ps-ef" class="headerlink" title="ps -ef"></a>ps -ef</h2><p>-e：等价于“-A”，表示列出全部的进程<br>-f：显示全部的列（显示全字段）<br>#ps -ef|grep “进程名称”  </p>
+<h2 id="top"><a href="#top" class="headerlink" title="top"></a>top</h2><p>作用：查看服务器的进程占的资源（100%使用）<br>语法：<br>    进入命令：#top            （动态显示）<br>    退出命令：按下q键  </p>
+<h2 id="du-sh"><a href="#du-sh" class="headerlink" title="du -sh"></a>du -sh</h2><p>作用：查看目录的真实大小<br>语法：#du -sh 目录路径<br>选项含义：<br>    -s：summaries，只显示汇总的大小<br>    -h：表示以高可读性的形式进行显示  </p>
+<h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><p>作用：用于查找文件（其参数有55个之多）<br>语法：#find 路径范围 选项 选项的值<br>选项：<br>    -name：按照文档名称进行搜索（支持模糊搜索）<br>    -type：按照文档的类型进行搜索<br>        文档类型：“-”表示文件（在使用find的时候需要用f来替换），“d”表示文件夹</p>
+<p>案例：使用find来搜索httpd.conf<br>#find / -name httpd.conf  </p>
+<h2 id="service"><a href="#service" class="headerlink" title="service"></a>service</h2><p>作用：用于控制一些软件的服务启动/停止/重启<br>语法：#service 服务名 start/stop/restart</p>
+<h2 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h2><p>作用：表示杀死进程        （当遇到僵尸进程或者出于某些原因需要关闭进程的时候）<br>语法：#kill  进程PID        （语法需要配合ps一起使用）  </p>
+<h2 id="killall"><a href="#killall" class="headerlink" title="killall"></a>killall</h2><p>与kill命令作用相似但是比kill更加好用的杀死进程的命令：killall<br>语法：#killall 进程名称</p>
+<h2 id="ifconfig"><a href="#ifconfig" class="headerlink" title="ifconfig"></a>ifconfig</h2><p>获取网卡信息</p>
+<h2 id="reboot"><a href="#reboot" class="headerlink" title="reboot"></a>reboot</h2><h2 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h2><p>init 0<br>halt<br>poweroff<br>这些命令都可以关机   </p>
+<h2 id="uptime"><a href="#uptime" class="headerlink" title="uptime"></a>uptime</h2><p>作用：输出计算机的持续在线时间（计算机从开机到现在运行的时间）<br>语法：#uptime</p>
+<h2 id="uname"><a href="#uname" class="headerlink" title="uname"></a>uname</h2><p>作用：获取计算机操作系统相关信息<br>语法1：#uname            获取操作系统的类型<br>语法2：#uname  -a        all，表示获取全部的系统信息（类型、全部主机名、内核版本、发布时间、开源计划）</p>
+<h2 id="netstat-tnlp"><a href="#netstat-tnlp" class="headerlink" title="netstat -tnlp"></a>netstat -tnlp</h2><p>-r 路由表<br>作用：查看网络连接状态<br>语法：#netstat -tnlp<br>选项说明：   </p>
+<ul>
+<li>-t：表示只列出tcp协议的连接；</li>
+<li>-n：表示将地址从字母组合转化成ip地址，将协议转化成端口号来显示；</li>
+<li>-l：表示过滤出“state（状态）”列中其值为LISTEN（监听）的连接；</li>
+<li>-p：表示显示发起连接的进程pid和进程名称；</li>
+</ul>
+<h2 id="man"><a href="#man" class="headerlink" title="man"></a>man</h2><p>指令用法</p>
+<h1 id="运行模式"><a href="#运行模式" class="headerlink" title="运行模式"></a>运行模式</h1><h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><p>与该级别相关的几个命令：<br>#init 0 表示关机<br>#init 3 表示切换到不带桌面的模式<br>#init 5 切换到图形界面<br>#init 6 重启电脑   </p>
+<p>注意：init指令需要超级管理员的权限，普通用户无法执行。   </p>
+<p>这些命令其实都是调用的init进程，将数字（运行级别）传递给进程，进程去读配置文件执行对应的操作。   </p>
+<h2 id="关于ubuntu-root密码问题"><a href="#关于ubuntu-root密码问题" class="headerlink" title="关于ubuntu root密码问题"></a>关于ubuntu root密码问题</h2><p>sudo passwd 回车后按照操作设置unix密码</p>
+<h1 id="用户与用户组管理"><a href="#用户与用户组管理" class="headerlink" title="用户与用户组管理"></a>用户与用户组管理</h1><p>/etc/passwd                存储用户的关键信息<br>/etc/group                存储用户组的关键信息<br>/etc/shadow                存储用户的密码信息    </p>
+<h2 id="etc-passwd文件"><a href="#etc-passwd文件" class="headerlink" title="/etc/passwd文件"></a>/etc/passwd文件</h2><p>用户名:密码:用户ID:用户组ID:注释:家目录:解释器shell      </p>
+<p>用户名：创建新用户名称，后期登录的时候需要输入；<br>密码：此密码位置一般情况都是“x”，表示密码的占位；<br>用户ID：用户的识别符；<br>用户组ID：该用户所属的主组ID；<br>注释：解释该用户是做什么用的；<br>家目录：用户登录进入系统之后默认的位置；<br>解释器shell：等待用户进入系统之后，用户输入指令之后，该解释器会收集用户输入的指令，传递给内核处理；   </p>
+<h2 id="etc-group"><a href="#etc-group" class="headerlink" title="/etc/group"></a>/etc/group</h2><p>用户组的管理涉及用户组的添加、删除和修改。组的增加、删除和修改实际上就是对/etc/group文件的更新。<br>文件结构：<br>用户组名:密码:用户组ID:组内用户名   </p>
+<h2 id="useradd"><a href="#useradd" class="headerlink" title="useradd"></a>useradd</h2><p>常用语法：#useradd 选项 用户名<br>常用选项：<br>    -g：表示指定用户的用户主组，选项的值可以是用户组的id，也可以是组名<br>    -G：表示指定用户的用户附加组，选项的值可以是用户组的id，也可以是组名<br>    -u：uid，用户的id（用户的标识符），系统默认会从500之后按顺序分配uid，如果不想使用系统分配的，可以通过该选项自定义<br>    -c comment：添加注释<br>注意：<br>在不添加选项的时候，执行useradd之后会执行一系列的操作<br>    a. 创建同名的家目录；<br>    b. 创建同名的用户组；<br>注意：<br>查看用户的主组可以查看passwd文件，查看附加组可以查看group文件。   </p>
+<p>验证是否成功：<br>    a. 验证/etc/passwd的最后一行，查看是否有zhangsan的信息；<br>    b. 验证是否存在家目录（在Centos下创建好用户之后随之产生一个同名家目录）；</p>
+<h2 id="usermod"><a href="#usermod" class="headerlink" title="usermod"></a>usermod</h2><p>修改用户<br>常用语法： usermod 选项 用户名   </p>
+<p>常用选项：<br>    -g：表示指定用户的用户主组，选项的值可以是用户组的id，也可以是组名<br>    -G：表示指定用户的用户附加组，选项的值可以是用户组的id，也可以是组名<br>    -u：uid，用户的id（用户的标识符），系统默认会从500之后按顺序分配uid，如果不想使用系统分配的，可以通过该选项自定义【类似于腾讯QQ的自选靓号情况】<br>    -l：修改用户名   </p>
+<p>案例：修改zhangsan用户主组为500，附加组改为501<br>#usermod -g 500 -G 501 zhangsan<br>案例：修改zhangsan用户用户名，改为wangerma<br>#usermod -l 新的用户名 旧的用户名<br>#usermod -l wangerma zhangsan   </p>
+<h2 id="passwd"><a href="#passwd" class="headerlink" title="passwd"></a>passwd</h2><p>修改密码<br>#passwd 用户名</p>
+<h2 id="usersel"><a href="#usersel" class="headerlink" title="usersel"></a>usersel</h2><p>常用语法：#userdel 选项 用户名<br>    -r：表示删除用户的同时，删除其家目录；<br>注意：<br>已经登录的wangerma用户删除的时候提示删除失败，但是没有登录的用户可以正常删除。</p>
+<p>解决办法：简单粗暴，kill对应用户的全部进程</p>
+<h2 id="groupadd"><a href="#groupadd" class="headerlink" title="groupadd"></a>groupadd</h2><p>常用语法：#groupadd 选项 用户组名<br>常用选项：<br>    -g：类似用户添加里的“-u”，-g表示选择自己设置一个自定义的用户组ID数字，如果自己不指定，则默认从500之后递增；   </p>
+<h2 id="groupmod"><a href="#groupmod" class="headerlink" title="groupmod"></a>groupmod</h2><p>常用语法：#groupmod 选项 用户组名<br>常用选项：<br>    -g：类似用户修改里的“-u”，-g表示选择自己设置一个自定义的用户组ID数字<br>    -n：类似于用户修改“-l”，表示设置新的用户组的名称<br>案例：修改Administrators用户组，将组ID从502改成520，将名称改为admins</p>
+<h2 id="groupdel"><a href="#groupdel" class="headerlink" title="groupdel"></a>groupdel</h2><p>常用语法：#groupdel 用户组名<br>注意：当如果需要删除一个组，但是这个组是某个用户的主组时，则不允许删除；如果确实需要删除，则先从组内移出所有用户。</p>
+<h1 id="网络设置"><a href="#网络设置" class="headerlink" title="网络设置"></a>网络设置</h1><h2 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h2><p>ln -s 原始文件的路径 快捷方式的路径   </p>
+<h2 id="ifconfig-1"><a href="#ifconfig-1" class="headerlink" title="ifconfig"></a>ifconfig</h2><h2 id="ifdown"><a href="#ifdown" class="headerlink" title="ifdown"></a>ifdown</h2><p>停止某个网卡：#ifdown 网卡名</p>
+<h2 id="ifup"><a href="#ifup" class="headerlink" title="ifup"></a>ifup</h2><p>开启某个网卡：#ifup 网卡名</p>
+<h1 id="杂七杂八"><a href="#杂七杂八" class="headerlink" title="杂七杂八"></a>杂七杂八</h1><h2 id="sudo-dpkg-i-xxxxx"><a href="#sudo-dpkg-i-xxxxx" class="headerlink" title="sudo dpkg -i xxxxx"></a>sudo dpkg -i xxxxx</h2><p>安装命令</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/07/27/little_thing/algorithm/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-07-27 15:47:35
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/linux/" title="linux">
+                        <b>#</b> linux
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%8C%87%E4%BB%A4"><span class="toc-text">基础指令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ls"><span class="toc-text">ls</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pwd"><span class="toc-text">pwd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cd"><span class="toc-text">cd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mkdir"><span class="toc-text">mkdir</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#touch"><span class="toc-text">touch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cp"><span class="toc-text">cp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mv"><span class="toc-text">mv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rm"><span class="toc-text">rm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-text">输出重定向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cat"><span class="toc-text">cat</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%E6%8C%87%E4%BB%A4"><span class="toc-text">进阶指令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#df"><span class="toc-text">df</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#free"><span class="toc-text">free</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#head"><span class="toc-text">head</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tail"><span class="toc-text">tail</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#less"><span class="toc-text">less</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wc"><span class="toc-text">wc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#date"><span class="toc-text">date</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cal"><span class="toc-text">cal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clear-ctrl-L"><span class="toc-text">clear &#x3D;&#x3D; ctrl + L</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%A1%E9%81%93"><span class="toc-text">管道</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grep"><span class="toc-text">grep</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hostname"><span class="toc-text">hostname</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#id"><span class="toc-text">id</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#whoami"><span class="toc-text">whoami</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ps-ef"><span class="toc-text">ps -ef</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#top"><span class="toc-text">top</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#du-sh"><span class="toc-text">du -sh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#find"><span class="toc-text">find</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#service"><span class="toc-text">service</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kill"><span class="toc-text">kill</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#killall"><span class="toc-text">killall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ifconfig"><span class="toc-text">ifconfig</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reboot"><span class="toc-text">reboot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shutdown"><span class="toc-text">shutdown</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uptime"><span class="toc-text">uptime</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uname"><span class="toc-text">uname</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#netstat-tnlp"><span class="toc-text">netstat -tnlp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#man"><span class="toc-text">man</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F"><span class="toc-text">运行模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#init"><span class="toc-text">init</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8Eubuntu-root%E5%AF%86%E7%A0%81%E9%97%AE%E9%A2%98"><span class="toc-text">关于ubuntu root密码问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%B8%8E%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86"><span class="toc-text">用户与用户组管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#etc-passwd%E6%96%87%E4%BB%B6"><span class="toc-text">&#x2F;etc&#x2F;passwd文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#etc-group"><span class="toc-text">&#x2F;etc&#x2F;group</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#useradd"><span class="toc-text">useradd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#usermod"><span class="toc-text">usermod</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#passwd"><span class="toc-text">passwd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#usersel"><span class="toc-text">usersel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#groupadd"><span class="toc-text">groupadd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#groupmod"><span class="toc-text">groupmod</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#groupdel"><span class="toc-text">groupdel</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE"><span class="toc-text">网络设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ln"><span class="toc-text">ln</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ifconfig-1"><span class="toc-text">ifconfig</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ifdown"><span class="toc-text">ifdown</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ifup"><span class="toc-text">ifup</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB"><span class="toc-text">杂七杂八</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo-dpkg-i-xxxxx"><span class="toc-text">sudo dpkg -i xxxxx</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" href="">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="facebook" href="">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="twitter" href="">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" href="">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="weibo" href="">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="/atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  </body>
+</html>

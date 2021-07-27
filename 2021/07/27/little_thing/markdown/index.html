@@ -11,7 +11,7 @@
   
   <title>
     
-      archive_a: 2021 
+      markdown语法 
       
       
       |
@@ -105,138 +105,231 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2021</span>
-          </h2>
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">markdown语法</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-07-27 15:47:35
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/markdown/" title="markdown">
+                    <b>#</b> markdown
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>1-6个#或 ===或 -</p>
+<h1 id="字体-或"><a href="#字体-或" class="headerlink" title="字体 *或_"></a>字体 *或_</h1><p><em>1个代表斜体</em><br><strong>2个粗体</strong><br><em><strong>3个粗斜体</strong></em>  </p>
+<h1 id="线"><a href="#线" class="headerlink" title="线"></a>线</h1><h2 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h2><p>一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格</p>
+<hr>
+<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><p>如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线 ~~ 即可<br><del>哈哈哈哈哈</del>  </p>
+<h1 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h1><pre><code>创建脚注格式类似这样 [^ AAA]。
+
+[^AAA]: 脚注  
+</code></pre>
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><p>无序列表使用星号(*)、加号(+)或是减号(-)作为列表标记，这些标记后面要添加一个空格  </p>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项  <h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2>有序列表使用数字并加上 . 号来表示，如：</li>
+</ul>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项  <h2 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h2></li>
+</ol>
+<p>列表嵌套只需在子列表中的选项前面添加四个空格即可：</p>
+<ol>
+<li>第一项：<ul>
+<li>第一项嵌套的第一个元素</li>
+<li>第一项嵌套的第二个元素</li>
+</ul>
+</li>
+<li>第二项：<ul>
+<li>第二项嵌套的第一个元素</li>
+<li>第二项嵌套的第二个元素  <h1 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h1><h2 id="区块-1"><a href="#区块-1" class="headerlink" title="区块"></a>区块</h2>Markdown 区块引用是在段落开头使用 &gt; 符号 ，然后后面紧跟一个空格符号：<blockquote>
+<p>区块<br>qukuai   </p>
+</blockquote>
+<h2 id="嵌套区块"><a href="#嵌套区块" class="headerlink" title="嵌套区块"></a>嵌套区块</h2><blockquote>
+<p>第一个</p>
+<blockquote>
+<p>第二个</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>如果是段落上的一个函数或片段的代码可以用反引号把它包起来（在1旁边那个键），例如：<br><code>printf()</code>  函数</p>
+<p>  <code> //三个反引号来包含代码区块</code></p>
+<p>tab键或四个空格</p>
+<pre><code>//四个空格
+</code></pre>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><p>[名字] (地址)<br>例子<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sellun/">我的博客</a><br>&lt;地址 &gt;<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sellun/">https://www.cnblogs.com/sellun/</a></p>
+<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><p>! [alt 属性文本 ]  (<a target="_blank" rel="noopener" href="https://pic.cnblogs.com/avatar/2426787/20210619101310.png">https://pic.cnblogs.com/avatar/2426787/20210619101310.png</a>)<br>! [alt 属性文本  ]  (<a target="_blank" rel="noopener" href="https://pic.cnblogs.com/avatar/2426787/20210619101310.png">https://pic.cnblogs.com/avatar/2426787/20210619101310.png</a>  “可选标题”)<br>&lt; img src=”<a target="_blank" rel="noopener" href="https://pic.cnblogs.com/avatar/2426787/20210619101310.png&quot;">https://pic.cnblogs.com/avatar/2426787/20210619101310.png&quot;</a> width=”50%”&gt;</p>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><p>Markdown 制作表格使用 | 来分隔不同的单元格，使用 - 来分隔表头和其他行。</p>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+</tbody></table>
+<p>我们可以设置表格的对齐方式：</p>
+<p>-: 设置内容和标题栏居右对齐。<br>:- 设置内容和标题栏居左对齐。<br>:-: 设置内容和标题栏居中对齐。<br>实例如下：</p>
+<pre><code>| 左对齐 | 右对齐 | 居中对齐 |
+| :-----| ----: | :----: |
+| 单元格 | 单元格 | 单元格 |
+| 单元格 | 单元格 | 单元格 |
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">左对齐</th>
+<th align="right">右对齐</th>
+<th align="center">居中对齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+<tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+</tbody></table>
+<h1 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h1><p>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</p>
+<pre><code>\   反斜线
+`   反引号
+*   星号
+_   下划线
+&#123;&#125;  花括号
+[]  方括号
+()  小括号
+#   井字号
++   加号
+-   减号
+.   英文句点
+!   感叹号
+</code></pre>
+<h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 $$ 包裹 TeX 或 LaTeX 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 Mathjax 对数学公式进行渲染。如：</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/07/27/little_thing/other_blog/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-07-27 15:47:35
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/markdown/" title="markdown">
+                        <b>#</b> markdown
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/07/27/little_thing/c_language/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
       
-      <div class="post-item" title="linux基本指令">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/linux/linux1/">
-            <span>linux基本指令</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="算法课题小结">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/algorithm/">
-            <span>算法课题小结</span>
-          </a>
-        </div>
-      </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%87%E9%A2%98"><span class="toc-text">标题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E4%BD%93-%E6%88%96"><span class="toc-text">字体 *或_</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF"><span class="toc-text">线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E9%9A%94%E7%BA%BF"><span class="toc-text">分隔线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="toc-text">删除线</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%84%9A%E6%B3%A8"><span class="toc-text">脚注</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%97%E8%A1%A8"><span class="toc-text">列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-text">无序列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-text">有序列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E5%B5%8C%E5%A5%97"><span class="toc-text">列表嵌套</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8C%BA%E5%9D%97"><span class="toc-text">区块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%9D%97-1"><span class="toc-text">区块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E5%8C%BA%E5%9D%97"><span class="toc-text">嵌套区块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5"><span class="toc-text">链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E7%89%87"><span class="toc-text">图片</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC"><span class="toc-text">表格</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AC%E4%B9%89"><span class="toc-text">转义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F"><span class="toc-text">公式</span></a></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <div class="post-item" title="c语言">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/c_language/">
-            <span>c语言</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="markdown语法">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/markdown/">
-            <span>markdown语法</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="别人的博客">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/other_blog/">
-            <span>别人的博客</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——0.概述">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/0/">
-            <span>计算机网络——0.概述</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——1.物理层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/1/">
-            <span>计算机网络——1.物理层</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——2.链路层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/2/">
-            <span>计算机网络——2.链路层</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——3.网络层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/3/">
-            <span>计算机网络——3.网络层</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——4.运输层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/4/">
-            <span>计算机网络——4.运输层</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——5.应用层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/5/">
-            <span>计算机网络——5.应用层</span>
-          </a>
-        </div>
-      </div>
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2019</span>
-          </h2>
-        </div>
-      
-      <div class="post-item" title="hexo">
-        <div class="time-m-d">05-03</div>
-        <div class="title">
-          <a href="/2019/05/03/hello-world/">
-            <span>hexo</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         <div class="footer">
   <div class="social">

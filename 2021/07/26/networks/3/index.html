@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="John Doe" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      计算机网络——3.网络层 
+      
+      
+      |
+    
+     Hexo
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Sellum</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">计算机网络——3.网络层</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-07-26 12:03:35
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络">
+                    <b>#</b> 计算机网络
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="网络层提供的两种服务"><a href="#网络层提供的两种服务" class="headerlink" title="网络层提供的两种服务"></a>网络层提供的两种服务</h1><p><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/ip_tow_method.png" alt="ip层两种服务"></p>
+<h1 id="网际协议-IP"><a href="#网际协议-IP" class="headerlink" title="网际协议 IP"></a>网际协议 IP</h1><p>与 IP 协议配套使用的还有三个协议：   </p>
+<ul>
+<li>地址解析协议 ARP (Address Resolution Protocol)</li>
+<li>网际控制报文协议 ICMP (Internet Control Message Protocol)</li>
+<li>网际组管理协议 IGMP (Internet Group Management Protocol)<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/ip%E5%B1%82%E9%85%8D%E5%A5%97%E5%8D%8F%E8%AE%AE.png" alt="IP层配套协议"><h2 id="虚拟互连网络"><a href="#虚拟互连网络" class="headerlink" title="虚拟互连网络"></a>虚拟互连网络</h2>将网络互相连接起来要使用一些中间设备。<br>中间设备又称为中间系统或中继 (relay)系统。<br>有以下五种不同的中间设备：   </li>
+<li>物理层中继系统：转发器 (repeater)。</li>
+<li>数据链路层中继系统：网桥 或 桥接器 (bridge)。</li>
+<li>网络层中继系统：路由器 (router)。</li>
+<li>网桥和路由器的混合物：桥路器 (brouter)。</li>
+<li>网络层以上的中继系统：网关 (gateway)。 </li>
+</ul>
+<p>当中继系统是转发器或网桥时，一般并不称之为网络互连，因为这仅仅是把一个网络扩大了，而这仍然是一个网络。<br>网关由于比较复杂，目前使用得较少。<br>网络互连都是指用路由器进行网络互连和路由选择。</p>
+<p>虚拟互连网络的意义<br>所谓虚拟互连网络也就是逻辑互连网络，它的意思就是互连起来的各种物理网络的异构性本来是客观存在的，但是我们利用 IP 协议就可以使这些性能各异的网络从用户看起来好像是一个统一的网络。<br>使用 IP 协议的虚拟互连网络可简称为 IP 网。<br>使用虚拟互连网络的好处是：当互联网上的主机进行通信时，就好像在一个网络上通信一样，而看不见互连的各具体的网络异构细节。<br>如果在这种覆盖全球的 IP 网的上层使用 TCP 协议，那么就是现在的互联网 (Internet)。   </p>
+<h2 id="分类的-IP-地址"><a href="#分类的-IP-地址" class="headerlink" title="分类的 IP 地址"></a>分类的 IP 地址</h2><p>ip地址==网络号 net-id+主机号 host-id<br>各类ip地址<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/%E5%90%84%E7%B1%BBip%E5%9C%B0%E5%9D%80.png" alt="各类ip地址"><br>三类常用ip地址<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/%E4%B8%89%E7%B1%BB%E5%B8%B8%E7%94%A8ip%E5%9C%B0%E5%9D%80.png" alt="三类常用ip地址1"><br>特殊ip<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/%E7%89%B9%E6%AE%8Aip%E5%9C%B0%E5%9D%80.png" alt="特殊ip">   </p>
+<p>IP 地址的一些重要特点   </p>
+<ol>
+<li>IP 地址管理机构在分配 IP 地址时只分配网络号，而剩下的主机号则由得到该网络号的单位自行分配。这样就方便了 IP 地址的管理。     </li>
+<li>路由器仅根据目的主机所连接的网络号来转发分组（而不考虑目的主机号），这样就可以使路由表中的项目数大幅度减少，从而减小了路由表所占的存储空间。</li>
+</ol>
+<p>实际上 IP 地址是标志一个主机（或路由器）和一条链路的接口。</p>
+<ul>
+<li>当一个主机同时连接到两个网络上时，该主机就必须同时具有两个相应的 IP 地址，其网络号 net-id 必须是不同的。这种主机称为多归属主机 (multihomed host)。</li>
+<li>由于一个路由器至少应当连接到两个网络（这样它才能将 IP 数据报从一个网络转发到另一个网络），因此一个路由器至少应当有两个不同的 IP 地址。 </li>
+</ul>
+<p>用转发器或网桥连接起来的若干个局域网仍为一个网络，因此这些局域网都具有同样的网络号 net-id。   </p>
+<p>所有分配到网络号 net-id 的网络，无论是范围很小的局域网，还是可能覆盖很大地理范围的广域网，都是平等的。</p>
+<h2 id="地址解析协议-ARP"><a href="#地址解析协议-ARP" class="headerlink" title="地址解析协议 ARP"></a>地址解析协议 ARP</h2><p><code>ARP 作用</code>：从网络层使用的 IP 地址，解析出在数据链路层使用的硬件地址。</p>
+<p>不管网络层使用的是什么协议，在实际网络的链路上传送数据帧时，最终还是必须使用硬件地址。<br>每一个主机都设有一个 ARP 高速缓存 (ARP cache)，里面有所在的局域网上的各主机和路由器的 IP 地址到硬件地址的映射表。<br>TTL (Time To Live)：地址映射有效时间 。</p>
+<p>  <code> &lt; IP address；MAC address；TTL &gt;</code></p>
+<p><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/ip%E4%B8%8Emac.png" alt="ip与mac">  </p>
+<p>ARP特点</p>
+<ul>
+<li>ARP请求分组：包含发送方硬件地址 / 发送方 IP 地址 / 目标方硬件地址(未知时填 0) / 目标方 IP 地址。</li>
+<li>本地广播 ARP 请求（路由器不转发ARP请求）。</li>
+<li>ARP 响应分组：包含发送方硬件地址 / 发送方 IP地址 / 目标方硬件地址 / 目标方 IP 地址。</li>
+<li>ARP 分组封装在物理网络的帧中传输。</li>
+</ul>
+<p>ARP作用</p>
+<ul>
+<li>存放最近获得的 IP 地址到 MAC 地址的绑定，以减少 ARP 广播的数量。</li>
+<li>为了减少网络上的通信量，主机 A 在发送其 ARP 请求分组时，就将自己的 IP 地址到硬件地址的映射写入 ARP 请求分组。</li>
+<li>当主机 B 收到 A 的 ARP 请求分组时，就将主机 A 的这一地址映射写入主机 B 自己的 ARP 高速缓存中。这对主机 B 以后向 A 发送数据报时就更方便了。 </li>
+</ul>
+<p>应当注意的问题</p>
+<ul>
+<li>ARP 用于解决同一个局域网上的主机或路由器的 IP 地址和硬件地址的映射问题。</li>
+<li>如果所要找的主机和源主机不在同一个局域网上，那么就要通过ARP 找到一个位于本局域网上的某个路由器的硬件地址，然后把分组发送给这个路由器，让这个路由器把分组转发给下一个网络。剩下的工作就由下一个网络来做。</li>
+<li>从 IP 地址到硬件地址的解析是自动进行的，主机的用户对这种地址解析过程是不知道的。</li>
+<li>只要主机或路由器要和本网络上的另一个已知 IP 地址的主机或路由器进行通信，ARP 协议就会自动地将该 IP 地址解析为链路层所需要的硬件地址。 </li>
+</ul>
+<p><code>为什么不直接使用硬件地址进行通信</code></p>
+<ul>
+<li>由于全世界存在着各式各样的网络，它们使用不同的硬件地址。要使这些异构网络能够互相通信就必须进行非常复杂的硬件地址转换工作，因此几乎是不可能的事。</li>
+<li>IP 编址把这个复杂问题解决了。连接到互联网的主机只需各自拥有一个唯一的 IP 地址，它们之间的通信就像连接在同一个网络上那样简单方便，因为上述的调用 ARP 的复杂过程都是由计算机软件自动进行的，对用户来说是看不见这种调用过程的。</li>
+<li>因此，在虚拟的 IP 网络上用 IP 地址进行通信给广大的计算机用户带来了很大的方便。</li>
+</ul>
+<h2 id="IP-数据报的格式"><a href="#IP-数据报的格式" class="headerlink" title="IP 数据报的格式"></a>IP 数据报的格式</h2><p>一个 IP 数据报由首部和数据两部分组成。<br>首部的前一部分是固定长度，共 20 字节，是所有 IP 数据报必须具有的。<br>在首部的固定部分的后面是一些可选字段，其长度是可变的。<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/ip%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%A0%BC%E5%BC%8F.png" alt="ip数据包格式"></p>
+<ul>
+<li><code>版本</code> :占 4 位，指 IP 协议的版本。</li>
+<li><code>首部长度</code> :占 4 位，可表示的最大数值是 15 个单位(一个单位为 4 字节)，因此 IP 的首部长度的最大值是 60 字节。</li>
+<li><code>区分服务</code> :占 8 位，用来获得更好的服务。一般不用，只有在使用区分服务时才用</li>
+<li><code>总长度</code> ：占 16 位，指首部和数据之和的长度，单位为字节，因此数据报的最大长度为 65535 字节。总长度必须不超过最大传送单元MTU。</li>
+<li><code>标识(identification)</code> ——占 16 位，<br>它是一个计数器，用来产生 IP 数据报的标识。</li>
+<li><code>标志(flag)</code> ——占 3 位，目前只有前两位有意义。<br>标志字段的最低位是 MF (More Fragment)。<br>MF=1 表示后面“还有分片”。MF=0 表示最后一个分片。<br>标志字段中间的一位是 DF (Don’t Fragment) 。<br>只有当 DF=0 时才允许分片。</li>
+<li><code>片偏移</code> ：占13 位，指出：较长的分组在分片后<br>某片在原分组中的相对位置。<br>片偏移以 8 个字节为偏移单位。</li>
+<li><code>生存时间</code> ：占8 位，记为 TTL (Time To Live)，<br>指示数据报在网络中可通过的路由器数的最大值。</li>
+<li><code>协议</code> :占8位，指出此数据报携带的数据使用何种协议，<br>以便目的主机的 IP 层将数据部分上交给那个处理过程</li>
+<li><code>首部检验和</code>  :占16 位，只检验数据报的首部，<br>不检验数据部分。这里不采用 CRC 检验码而采用简单的计算方法。（求和取反码）  </li>
+<li><code>可变部分</code> :IP 首部的可变部分就是一个选项字段，用来支持排错、测量以及安全等措施，内容很丰富。<br>选项字段的长度可变，从 1 个字节到 40 个字节不等，取决于所选择的项目。<br>增加首部的可变部分是为了增加 IP 数据报的功能，但这同时也使得 IP 数据报的首部长度成为可变的。这就增加了每一个路由器处理数据报的开销。<br>实际上这些选项很少被使用。</li>
+</ul>
+<h2 id="IP-层转发分组的流程"><a href="#IP-层转发分组的流程" class="headerlink" title="IP 层转发分组的流程"></a>IP 层转发分组的流程</h2><p>按主机所在的网络地址来制作路由表<br>路由器分组转发算法</p>
+<ol>
+<li>从数据报的首部提取目的主机的 IP 地址 D, 得出目的网络地址为 N。</li>
+<li>若网络 N 与此路由器直接相连，则把数据报直接交付目的主机 D；否则是间接交付，执行 (3)。</li>
+<li>若路由表中有目的地址为 D 的特定主机路由，则把数据报传送给路由表中所指明的下一跳路由器；否则，执行 (4)。</li>
+<li>若路由表中有到达网络 N 的路由，则把数据报传送给路由表指明的下一跳路由器；否则，执行 (5)。</li>
+<li>若路由表中有一个默认路由，则把数据报传送给路由表中所指明的默认路由器；否则，执行 (6)。</li>
+<li>报告转发分组出错。 </li>
+</ol>
+<h1 id="划分子网和构造超网"><a href="#划分子网和构造超网" class="headerlink" title="划分子网和构造超网"></a>划分子网和构造超网</h1><h2 id="划分子网"><a href="#划分子网" class="headerlink" title="划分子网"></a>划分子网</h2><p>在 IP 地址中又增加了一个“子网号字段”，使两级的 IP 地址变成为三级的 IP 地址。这种做法叫做划分子网 (subnetting)   </p>
+<p>在 ARPANET 的早期，IP 地址的设计确实不够合理：<br>(1) IP 地址空间的利用率有时很低。<br>(2) 给每一个物理网络分配一个网络号会使路由表变得太大因而使网络性能变坏。<br>(3) 两级的 IP 地址不够灵活。  </p>
+<p>划分子网纯属一个单位内部的事情。单位对外仍然表现为没有划分子网的网络。<br>从主机号借用若干个位作为子网号 subnet-id，而主机号 host-id 也就相应减少了若干个位。<br><code>IP地址 ::= &#123;&lt;网络号&gt;, &lt;子网号&gt;, &lt;主机号&gt;&#125;     </code></p>
+<p>凡是从其他网络发送给本单位某个主机的 IP 数据报，仍然是根据 IP 数据报的目的网络号 net-id，先找到连接在本单位网络上的路由器。<br>然后此路由器在收到 IP 数据报后，再按目的网络号 net-id 和子网号 subnet-id 找到目的子网。<br>最后就将 IP 数据报直接交付目的主机。 </p>
+<p>优点：</p>
+<ol>
+<li>减少了 IP 地址的浪费</li>
+<li>使网络的组织更加灵活</li>
+<li>更便于维护和管理</li>
+</ol>
+<p>划分子网纯属一个单位内部的事情，对外部网络透明，对外仍然表现为没有划分子网的一个网络。</p>
+<p>子网掩码是一个网络或一个子网的重要属性。</p>
+<ul>
+<li>路由器在和相邻路由器交换路由信息时，必须把自己所在网络（或子网）的子网掩码告诉相邻路由器。</li>
+<li>路由器的路由表中的每一个项目，除了要给出目的网络地址外，还必须同时给出该网络的子网掩码。</li>
+<li>若一个路由器连接在两个子网上，就拥有两个网络地址和两个子网掩码。</li>
+</ul>
+<p>有固定长度子网和变长子网两种子网划分方法。<br>在采用固定长度子网时，所划分的所有子网的子网掩码都是相同的。<br>划分子网增加了灵活性，但却减少了能够连接在网络上的主机总数。   </p>
+<p>“子网号的位数”中没有 0, 1, 15 和 16 这四种情况，因为这没有意义。</p>
+<h2 id="使用子网时分组的转发"><a href="#使用子网时分组的转发" class="headerlink" title="使用子网时分组的转发"></a>使用子网时分组的转发</h2><p>与IP 层转发分组的流程相似，区别就是多了个与操作</p>
+<h2 id="无分类编址-CIDR（构造超网）"><a href="#无分类编址-CIDR（构造超网）" class="headerlink" title="无分类编址 CIDR（构造超网）"></a>无分类编址 CIDR（构造超网）</h2><p>无分类域间路由选择 CIDR (Classless Inter-Domain Routing)</p>
+<p>CIDR 最主要的特点</p>
+<ul>
+<li>CIDR 消除了传统的 A 类、B 类和 C 类地址以及划分子网的概念，因而可以更加有效地分配 IPv4 的地址空间。</li>
+<li>CIDR使用各种长度的“网络前缀”(network-prefix)来代替分类地址中的网络号和子网号。</li>
+<li>IP 地址从三级编址（使用子网掩码）又回到了两级编址。    </li>
+</ul>
+<p>无分类的两级编址<br><code>IP地址 ::= &#123;&lt;网络前缀&gt;, &lt;主机号&gt;&#125;   </code><br>CIDR 使用“斜线记法”(slash notation)，它又称为 CIDR 记法，即在 IP 地址面加上一个斜线“/”，然后写上网络前缀所占的位数（这个数值对应于三级编址中子网掩码中 1 的个数）。例如： 220.78.168.0/24<br>CIDR 把网络前缀都相同的连续的 IP 地址组成“CIDR 地址块”。</p>
+<p>路由聚合 (route aggregation)    </p>
+<ul>
+<li>一个 CIDR 地址块可以表示很多地址，这种地址的聚合常称为路由聚合，它使得路由表中的一个项目可以表示很多个（例如上千个）原来传统分类地址的路由。</li>
+<li>路由聚合有利于减少路由器之间的路由选择信息的交换，从而提高了整个互联网的性能。</li>
+<li>路由聚合也称为构成超网 (supernetting)。</li>
+<li>CIDR 虽然不使用子网了，但仍然使用“掩码”这一名词（但不叫子网掩码）。</li>
+<li>对于 /20  地址块，它的掩码是 20 个连续的 1。 斜线记法中的数字就是掩码中1的个数。 </li>
+</ul>
+<p>构成超网</p>
+<ul>
+<li>前缀长度不超过 23 位的 CIDR 地址块都包含了多个 C  类地址。</li>
+<li>这些 C 类地址合起来就构成了超网。</li>
+<li>CIDR 地址块中的地址数一定是 2 的整数次幂。</li>
+<li>网络前缀越短，其地址块所包含的地址数就越多。而在三级结构的IP地址中，划分子网是使网络前缀变长。</li>
+<li>CIDR 的一个好处是：可以更加有效地分配 IPv4 的地址空间，可根据客户的需要分配适当大小的 CIDR 地址块。 </li>
+</ul>
+<p>使用 CIDR 时，路由表中的每个项目由“网络前缀”和“下一跳地址”组成。在查找路由表时可能会得到不止一个匹配结果。 应当从匹配结果中选择具有最长网络前缀的路由：最长前缀匹配 (longest-prefix matching)。<br>网络前缀越长，其地址块就越小，因而路由就越具体 (more specific) 。</p>
+<h1 id="网际控制报文协议-ICMP"><a href="#网际控制报文协议-ICMP" class="headerlink" title="网际控制报文协议 ICMP"></a>网际控制报文协议 ICMP</h1><h2 id="ICMP-报文的种类"><a href="#ICMP-报文的种类" class="headerlink" title="ICMP 报文的种类"></a>ICMP 报文的种类</h2><p>为了更有效地转发 IP 数据报和提高交付成功的机会，在网际层使用了网际控制报文协议 ICMP (Internet Control Message Protocol)。ICMP 允许主机或路由器报告差错情况和提供有关异常情况的报告。<br>但 ICMP 不是高层协议（看起来好像是高层协议，因为 ICMP 报文是装在 IP 数据报中，作为其中的数据部分），而是 IP 层的协议。</p>
+<p>ICMP 报文的种类有两种，即 ICMP 差错报告报文和 ICMP 询问报文。 </p>
+<p>ICMP 差错报告报文共有 4 种</p>
+<ul>
+<li>终点不可达 </li>
+<li>时间超过 </li>
+<li>参数问题 </li>
+<li>改变路由（重定向）(Redirect) </li>
+</ul>
+<p>不应发送 ICMP 差错报告报文的几种情况</p>
+<ul>
+<li>对 ICMP 差错报告报文不再发送 ICMP 差错报告报文。</li>
+<li>对第一个分片的数据报片的所有后续数据报片都不发送 ICMP 差错报告报文。</li>
+<li>对具有多播地址的数据报都不发送 ICMP 差错报告报文。<br>对具有特殊地址（如127.0.0.0 或 0.0.0.0）的数据报不发送 ICMP 差错报告报文。</li>
+</ul>
+<h2 id="ICMP-的应用举例"><a href="#ICMP-的应用举例" class="headerlink" title="ICMP 的应用举例"></a>ICMP 的应用举例</h2><h3 id="PING-Packet-InterNet-Groper"><a href="#PING-Packet-InterNet-Groper" class="headerlink" title="PING (Packet InterNet Groper)"></a>PING (Packet InterNet Groper)</h3><p>PING 用来测试两个主机之间的连通性。<br>PING 使用了 ICMP 回送请求与回送回答报文。<br>PING 是应用层直接使用网络层 ICMP 的例子，它没有通过运输层的 TCP 或UDP。  </p>
+<h3 id="Traceroute"><a href="#Traceroute" class="headerlink" title="Traceroute"></a>Traceroute</h3><p>在 Windows 操作系统中这个命令是 tracert。<br>用来跟踪一个分组从源点到终点的路径。<br>它利用 IP 数据报中的 TTL 字段和 ICMP 时间超过差错报告报文实现对从源点到终点的路径的跟踪。</p>
+<h1 id="互联网的路由选择协议"><a href="#互联网的路由选择协议" class="headerlink" title="互联网的路由选择协议"></a>互联网的路由选择协议</h1><p>静态路由选择策略——即非自适应路由选择，其特点是简单和开销较小，但不能及时适应网络状态的变化。<br>动态路由选择策略——即自适应路由选择，其特点是能较好地适应网络状态的变化，但实现起来较为复杂，开销也比较大。   </p>
+<p>自治系统之间的路由选择也叫做域间路由选择 (interdomain routing)，在自治系统内部的路由选择叫做域内路由选择 (intradomain routing) 。</p>
+<h2 id="内部网关协议-IGP-Interior-Gateway-Protocol"><a href="#内部网关协议-IGP-Interior-Gateway-Protocol" class="headerlink" title="内部网关协议 IGP (Interior Gateway Protocol)"></a>内部网关协议 IGP (Interior Gateway Protocol)</h2><p>在一个自治系统内部使用的路由选择协议。 如 RIP 和 OSPF 协议。</p>
+<h3 id="RIP"><a href="#RIP" class="headerlink" title="RIP"></a>RIP</h3><p>RIP 是一种分布式的、基于距离向量的路由选择协议。</p>
+<p>RIP 允许一条路径最多只能包含 15 个路由器。<br>“距离”的最大值为 16 时即相当于不可达。可见 RIP 只适用于小型互联网。<br>RIP 不能在两个网络之间同时使用多条路由。RIP 选择一个具有最少路由器的路由（即最短路由），哪怕还存在另一条高速(低时延)但路由器较多的路由。    </p>
+<p>相邻路由器交换自己的全部信息，按固定时间交换信息，例如每隔30秒，RIP的收敛速度较快。<br><code>路由表更新算法</code><br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/RIP%E6%9B%B4%E6%96%B0.png" alt="路由表更新算法"><br><code>RIP 协议特点：好消息传播得快，坏消息传播得慢。</code>   </p>
+<p>优点：</p>
+<ol>
+<li>实现简单，开销较小。</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>RIP 限制了网络的规模，它能使用的最大距离为 15（16 表示不可达）。</li>
+<li>路由器之间交换的路由信息是路由器中的完整路由表，因而随着网络规模的扩大，开销也就增加。 </li>
+<li>“坏消息传播得慢”，使更新过程的收敛时间过长。</li>
+</ol>
+<h3 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h3><p>开放最短路径优先 OSPF (Open Shortest Path First)OSPF 的原理很简单，但实现起来却较复杂。<br>只有当链路状态发生变化时，路由器才用洪泛法向所有路由器发送链路状态信息。  </p>
+<ul>
+<li>由于各路由器之间频繁地交换链路状态信息，因此所有的路由器最终都能建立一个链路状态数据库。</li>
+<li>这个数据库实际上就是全网的拓扑结构图，它在全网范围内是一致的（这称为链路状态数据库的同步）。</li>
+<li>OSPF 的链路状态数据库能较快地进行更新，使各个路由器能及时更新其路由表。</li>
+<li>OSPF 的更新过程收敛得快是其重要优点。</li>
+</ul>
+<p>OSPF 划分区域<br>划分区域的好处就是将利用洪泛法交换链路状态信息的范围局限于每一个区域而不是整个的自治系统，这就减少了整个网络上的通信量。<br>在一个区域内部的路由器只知道本区域的完整网络拓扑，而不知道其他区域的网络拓扑的情况。</p>
+<p>OSPF 直接用 IP 数据报传送<br>OSPF 还规定每隔一段时间，如 30 分钟，要刷新一次数据库中的链路状态。 </p>
+<h2 id="外部网关协议-EGP-External-Gateway-Protocol"><a href="#外部网关协议-EGP-External-Gateway-Protocol" class="headerlink" title="外部网关协议 EGP (External Gateway Protocol)"></a>外部网关协议 EGP (External Gateway Protocol)</h2><p>使用一种协议将路由选择信息传递到另一个自治系统中。这样的协议就是外部网关协议 EGP。如BGP-4。 </p>
+<p>每一个自治系统的管理员要选择至少一个路由器作为该自治系统的“ BGP 发言人” (BGP speaker) 。<br>一般说来，两个 BGP 发言人都是通过一个共享网络连接在一起的，而 BGP 发言人往往就是 BGP 边界路由器，但也可以不是 BGP 边界路由器。 </p>
+<p>BGP 交换路由信息</p>
+<p>一个 BGP 发言人与其他自治系统中的 BGP 发言人要交换路由信息，就要先建立 TCP 连接，然后在此连接上交换 BGP 报文以建立 BGP 会话(session)，利用 BGP 会话交换路由信息。<br>使用 TCP 连接能提供可靠的服务，也简化了路由选择协议。<br>使用 TCP 连接交换路由信息的两个 BGP 发言人，彼此成为对方的邻站(neighbor)或对等站(peer) 。</p>
+<p>BGP 支持 CIDR，因此 BGP 的路由表也就应当包括目的网络前缀、下一跳路由器，以及到达该目的网络所要经过的各个自治系统序列。<br>在 BGP 刚刚运行时，BGP 的邻站是交换整个的 BGP 路由表。但以后只需要在发生变化时更新有变化的部分。这样做对节省网络带宽和减少路由器的处理开销都有好处。 </p>
+<p>路由器的主要作用是：</p>
+<ul>
+<li>连通不同的网络。</li>
+<li>选择信息传送的线路。选择通畅快捷的近路，能大大提高通信速度，减轻网络系统通信负荷，节约网络系统资源，提高网络系统畅通率，从而让网络系统发挥出更大的效益来。</li>
+</ul>
+<p><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E7%BB%93%E6%9E%84.png" alt="路由器结构"><br>路由器三种交换方法<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B8%89%E7%A7%8D%E4%BA%A4%E6%8D%A2%E6%96%B9%E6%B3%95.png" alt="路由器三种交换方法"></p>
+<h1 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h1><h2 id="IPv6-的基本首部"><a href="#IPv6-的基本首部" class="headerlink" title="IPv6 的基本首部"></a>IPv6 的基本首部</h2><p>IPv6 将首部长度变为固定的 40 字节，称为基本首部。<br>把首部中不必要的功能取消了，使得 IPv6 首部的字段数减少到只有 8 个。<br>ipv6数据报格式<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/ipv6.png" alt="ipv6">   </p>
+<h2 id="从-IPv4-向-IPv6-过渡"><a href="#从-IPv4-向-IPv6-过渡" class="headerlink" title="从 IPv4 向 IPv6 过渡"></a>从 IPv4 向 IPv6 过渡</h2><p>向 IPv6 过渡只能采用逐步演进的办法，同时，还必须使新安装的 IPv6 系统能够向后兼容：IPv6 系统必须能够接收和转发 IPv4 分组，并且能够为 IPv4 分组选择路由。</p>
+<h3 id="使用双协议栈"><a href="#使用双协议栈" class="headerlink" title="使用双协议栈"></a>使用双协议栈</h3><ul>
+<li>双协议栈 (dual stack) 是指在完全过渡到 IPv6 之前，使一部分主机（或路由器）装有两个协议栈，一个 IPv4 和一个 IPv6。 </li>
+<li>双协议栈的主机（或路由器）记为 IPv6/IPv4，表明它同时具有两种 IP 地址：一个 IPv6 地址和一个 IPv4 地址。</li>
+<li>双协议栈主机在和 IPv6 主机通信时是采用 IPv6 地址，而和 IPv4 主机通信时就采用 IPv4 地址。</li>
+<li>根据 DNS 返回的地址类型可以确定使用 IPv4 地址还是 IPv6 地址。</li>
+</ul>
+<h3 id="使用隧道技术"><a href="#使用隧道技术" class="headerlink" title="使用隧道技术"></a>使用隧道技术</h3><ul>
+<li>在 IPv6 数据报要进入 IPv4 网络时，把 IPv6 数据报封装成为 IPv4 数据报，整个的 IPv6 数据报变成了 IPv4 数据报的数据部分。</li>
+<li>当 IPv4 数据报离开 IPv4 网络中的隧道时，再把数据部分（即原来的 IPv6 数据报）交给主机的 IPv6 协议栈。</li>
+</ul>
+<h2 id="ICMPv6"><a href="#ICMPv6" class="headerlink" title="ICMPv6"></a>ICMPv6</h2><ul>
+<li>IPv6 也不保证数据报的可靠交付，因为互联网中的路由器可能会丢弃数据报。</li>
+<li>因此 IPv6 也需要使用 ICMP 来反馈一些差错信息。新的版本称为 ICMPv6。  </li>
+</ul>
+<p>地址解析协议 ARP 和网际组管理协议 IGMP 协议的功能都已被合并到 ICMPv6 中。</p>
+<h1 id="IP-多播"><a href="#IP-多播" class="headerlink" title="IP 多播"></a>IP 多播</h1><p>IP 多播 (multicast，以前曾译为组播) 已成为互联网的一个热门课题。<br>目的：更好地支持一对多通信。<br>一对多通信：一个源点发送到许多个终点。<br>例如，实时信息的交付（如新闻、股市行情等），软件更新，交互式会议及其他多媒体通信。</p>
+<p>多播路由选择协议在转发多播数据报时使用三种方法：<br>(1) 洪泛与剪除<br>(2) 隧道技术 (tunneling)<br>(3) 基于核心的发现技术</p>
+<h1 id="虚拟专用网-VPN-和网络地址转换-NAT"><a href="#虚拟专用网-VPN-和网络地址转换-NAT" class="headerlink" title="虚拟专用网 VPN 和网络地址转换 NAT"></a>虚拟专用网 VPN 和网络地址转换 NAT</h1><h2 id="虚拟专用网-VPN"><a href="#虚拟专用网-VPN" class="headerlink" title="虚拟专用网 VPN"></a>虚拟专用网 VPN</h2><p><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/%E4%B8%89%E4%B8%AA%E4%B8%93%E7%94%A8%20IP%20%E5%9C%B0%E5%9D%80%E5%9D%97png.png" alt="三个专用 IP 地址块">   </p>
+<h2 id="网络地址转换"><a href="#网络地址转换" class="headerlink" title="网络地址转换"></a>网络地址转换</h2><p><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E7%9A%84%E8%BF%87%E7%A8%8B.png" alt="网络地址转换的过程">  </p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/07/26/networks/4/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-07-26 12:03:35
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络">
+                        <b>#</b> 计算机网络
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/07/26/networks/2/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E6%8F%90%E4%BE%9B%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%9C%8D%E5%8A%A1"><span class="toc-text">网络层提供的两种服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E9%99%85%E5%8D%8F%E8%AE%AE-IP"><span class="toc-text">网际协议 IP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C"><span class="toc-text">虚拟互连网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E7%9A%84-IP-%E5%9C%B0%E5%9D%80"><span class="toc-text">分类的 IP 地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90%E5%8D%8F%E8%AE%AE-ARP"><span class="toc-text">地址解析协议 ARP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-%E6%95%B0%E6%8D%AE%E6%8A%A5%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="toc-text">IP 数据报的格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-%E5%B1%82%E8%BD%AC%E5%8F%91%E5%88%86%E7%BB%84%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-text">IP 层转发分组的流程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91%E5%92%8C%E6%9E%84%E9%80%A0%E8%B6%85%E7%BD%91"><span class="toc-text">划分子网和构造超网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91"><span class="toc-text">划分子网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%AD%90%E7%BD%91%E6%97%B6%E5%88%86%E7%BB%84%E7%9A%84%E8%BD%AC%E5%8F%91"><span class="toc-text">使用子网时分组的转发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80-CIDR%EF%BC%88%E6%9E%84%E9%80%A0%E8%B6%85%E7%BD%91%EF%BC%89"><span class="toc-text">无分类编址 CIDR（构造超网）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E9%99%85%E6%8E%A7%E5%88%B6%E6%8A%A5%E6%96%87%E5%8D%8F%E8%AE%AE-ICMP"><span class="toc-text">网际控制报文协议 ICMP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ICMP-%E6%8A%A5%E6%96%87%E7%9A%84%E7%A7%8D%E7%B1%BB"><span class="toc-text">ICMP 报文的种类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ICMP-%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B"><span class="toc-text">ICMP 的应用举例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PING-Packet-InterNet-Groper"><span class="toc-text">PING (Packet InterNet Groper)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Traceroute"><span class="toc-text">Traceroute</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E5%8D%8F%E8%AE%AE"><span class="toc-text">互联网的路由选择协议</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AE-IGP-Interior-Gateway-Protocol"><span class="toc-text">内部网关协议 IGP (Interior Gateway Protocol)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RIP"><span class="toc-text">RIP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSPF"><span class="toc-text">OSPF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E9%83%A8%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AE-EGP-External-Gateway-Protocol"><span class="toc-text">外部网关协议 EGP (External Gateway Protocol)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IPv6"><span class="toc-text">IPv6</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%A6%96%E9%83%A8"><span class="toc-text">IPv6 的基本首部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E-IPv4-%E5%90%91-IPv6-%E8%BF%87%E6%B8%A1"><span class="toc-text">从 IPv4 向 IPv6 过渡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%8F%8C%E5%8D%8F%E8%AE%AE%E6%A0%88"><span class="toc-text">使用双协议栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%9A%A7%E9%81%93%E6%8A%80%E6%9C%AF"><span class="toc-text">使用隧道技术</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ICMPv6"><span class="toc-text">ICMPv6</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IP-%E5%A4%9A%E6%92%AD"><span class="toc-text">IP 多播</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E4%B8%93%E7%94%A8%E7%BD%91-VPN-%E5%92%8C%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2-NAT"><span class="toc-text">虚拟专用网 VPN 和网络地址转换 NAT</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E4%B8%93%E7%94%A8%E7%BD%91-VPN"><span class="toc-text">虚拟专用网 VPN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2"><span class="toc-text">网络地址转换</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" href="">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="facebook" href="">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="twitter" href="">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" href="">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="weibo" href="">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="/atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  </body>
+</html>

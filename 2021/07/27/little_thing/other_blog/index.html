@@ -11,7 +11,7 @@
   
   <title>
     
-      archive_a: 2021 
+      别人的博客 
       
       
       |
@@ -105,138 +105,110 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2021</span>
-          </h2>
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">别人的博客</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-07-27 15:47:35
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/others/" title="others">
+                    <b>#</b> others
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <p>呃呃呃，学了一下git，后面发现廖雪峰的更好<br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Bf7uVhGiu47uOELjmC5uXQ">狂神说Git</a><br>实验室的电脑真是令人难受，我怀疑这是阉割版的还未激活的win10，好多服务感觉都莫得，打算用上面的linux系统了都，打开一看，发现要密码，然后问别人也不晓得密码，而且用访客登上去看磁盘空间分配的也好小，我还是老老实实的下这个ssh吧。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41601114/article/details/108052922">win10安装ssh服务</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/266578775">计算机组成原理</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31214779/article/details/107196488#t36">计算机组成原理大概版</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/FlyerBird/p/10251925.html">操作系统1</a><br><a target="_blank" rel="noopener" href="http://jennica.space/2017/03/21/os-principle/">操作系统面经</a></p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/07/26/networks/0/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-07-27 15:47:35
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/others/" title="others">
+                        <b>#</b> others
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/07/27/little_thing/markdown/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
       
-      <div class="post-item" title="linux基本指令">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/linux/linux1/">
-            <span>linux基本指令</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="算法课题小结">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/algorithm/">
-            <span>算法课题小结</span>
-          </a>
-        </div>
-      </div>
+
     
-      <div class="post-item" title="c语言">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/c_language/">
-            <span>c语言</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="markdown语法">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/markdown/">
-            <span>markdown语法</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="别人的博客">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/other_blog/">
-            <span>别人的博客</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——0.概述">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/0/">
-            <span>计算机网络——0.概述</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——1.物理层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/1/">
-            <span>计算机网络——1.物理层</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——2.链路层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/2/">
-            <span>计算机网络——2.链路层</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——3.网络层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/3/">
-            <span>计算机网络——3.网络层</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——4.运输层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/4/">
-            <span>计算机网络——4.运输层</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——5.应用层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/5/">
-            <span>计算机网络——5.应用层</span>
-          </a>
-        </div>
-      </div>
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2019</span>
-          </h2>
-        </div>
-      
-      <div class="post-item" title="hexo">
-        <div class="time-m-d">05-03</div>
-        <div class="title">
-          <a href="/2019/05/03/hello-world/">
-            <span>hexo</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         <div class="footer">
   <div class="social">

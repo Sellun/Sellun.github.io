@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="John Doe" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      算法课题小结 
+      
+      
+      |
+    
+     Hexo
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Sellum</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">算法课题小结</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-07-27 15:47:35
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法">
+                    <b>#</b> 算法
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="无线传感网络"><a href="#无线传感网络" class="headerlink" title="无线传感网络"></a>无线传感网络</h1><h2 id="粒子群算法（鸟群算法）"><a href="#粒子群算法（鸟群算法）" class="headerlink" title="粒子群算法（鸟群算法）"></a>粒子群算法（鸟群算法）</h2><p>设由 m个粒子组成的群体对Q 维空间（即每个粒子的维数）进行搜索。粒子i的位置表示为：Xi = (xi1，xi2  …  xiQ)，粒 子 i 对应的速度表示为 Vi = (vi1 ，vi2 ，…  viQ) ，每个粒子在搜索时要考虑两个因素：  </p>
+<ol>
+<li>搜索过的历史最优值  </li>
+<li>搜索到的所有最优值   </li>
+</ol>
+<p>粒子跟踪自己历史最优值和粒子跟踪群体最优值的权重系数，通常设置为 γ1 和γ2 ,是区间[0，1]内均匀分布的随机数；W表示为惯性权值。寻优过程中，应对微粒的速度Vi和位置Xi进行范围限制，粒子i的各维速度分向量和位置分向量的有效区间分别为：viQ [vmin ，vmax] ，xiQ [xmin ，xmax] 。 其中，vmin = -rand × xmax ，vmax = rand × xmax ，rand 表示 [0，1] 之间的随机数。当 viQ 离开这个范围，可将 viQ 设为 vmin 或者 vmax 。<br>对惯性全值的优化：<br>较大的惯性权值W可以加强粒子群算法的全局搜索能力，而较小的惯性权值W能加强粒子群算法的的局部搜索能力。且粒子群算法的早期收敛非常快。所以应尽快让算法进入局部搜索，才能获得更高的求解效率。<br>粒子群算法在寻优过程中容易陷入局部最优解。为了减少局部最优的陷阱，在粒子进化过程中，加入虚拟库仑力作为扰动因子来增强粒子群算法的节点位置更新能力，提高算法的收敛速度和整个网络的覆盖率。</p>
+<h2 id="花粉算法"><a href="#花粉算法" class="headerlink" title="花粉算法"></a>花粉算法</h2><p><img src="https://gitee.com/aqeb/cnblog/raw/master/%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%89%87/%E8%8A%B1%E7%B2%89%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt="花粉算法流程图"></p>
+<h1 id="垃圾分类"><a href="#垃圾分类" class="headerlink" title="垃圾分类"></a>垃圾分类</h1><p>感觉算法和使用的模型有一点乱，不好提炼，我也觉得它不会考，就不写了。</p>
+<h1 id="粮食预测"><a href="#粮食预测" class="headerlink" title="粮食预测"></a>粮食预测</h1><h2 id="自回归滑动平均模型-AR-MA-的时间序列分析预测粮食产量-："><a href="#自回归滑动平均模型-AR-MA-的时间序列分析预测粮食产量-：" class="headerlink" title="自回归滑动平均模型(AR-MA)的时间序列分析预测粮食产量 ："></a>自回归滑动平均模型(AR-MA)的时间序列分析预测粮食产量 ：</h2><p>时间序列是统计某一个指标在不同时间上的各个数值，按时间先后顺序排列而形成的序列。通过对一个区域进行一定时间段内的连续遥感观测，提取图像有关特征，并分析其变化过程与发展规模，综合趋势、周期、时期和不稳定因素四种因素，预测出结果。即根据事物发展的延续性，应用过去数据，再根据事物发展的随机性，应用加权平均法，推测事物的发展趋势。<br>时间序列建模基本步骤是：用观测、调查、统计、抽样等方法取得现实的、真实的一组数据；再根据动态数据进行相关分析，建立自相关函数模型，显示变化的趋势和周期以及跳点和拐点；测试及确定其适用性。</p>
+<h2 id="基于灰色-马尔科夫模型的粮食产量预测-10"><a href="#基于灰色-马尔科夫模型的粮食产量预测-10" class="headerlink" title="基于灰色-马尔科夫模型的粮食产量预测[10]"></a>基于灰色-马尔科夫模型的粮食产量预测[10]</h2><p>如果一个系统具有层次、结构关系的模糊性，动态变化的随机性，指标数据的不完备或不确定性，则称这些特性为灰色性。具有灰色性的系统称为灰色系统。对灰色系统建立的预测模型称为灰色模型(Grey Model)，简称GM模型。<br>由于粮食生产具有明显的灰度特征，因此可以使用灰色模型预测粮食产量。传统的灰色模型虽然能有效地预测少量数据的序列，但随着数据的增多和波动性的增大，该模型逐渐失去了它的优势，而马尔科夫模型预测可以应用于随机变化的时间序列中，弥补灰色模型的不足。因此，采用灰色 － 马尔科夫模型可以实现对粮食产量进行短期精准预测。<br><img src="https://gitee.com/aqeb/cnblog/raw/master/%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%89%87/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E7%B2%AE%E9%A3%9F%E9%A2%84%E6%B5%8B.png" alt="粮食预测马尔可夫流程图">  </p>
+<h2 id="回归线性方程在粮食产量预测中的应用"><a href="#回归线性方程在粮食产量预测中的应用" class="headerlink" title="回归线性方程在粮食产量预测中的应用"></a>回归线性方程在粮食产量预测中的应用</h2><ol>
+<li>建立模型</li>
+<li>模型求解与检验  </li>
+<li>拟合度测定</li>
+<li>估计标准误差<h1 id="旅行照片风格图像化"><a href="#旅行照片风格图像化" class="headerlink" title="旅行照片风格图像化"></a>旅行照片风格图像化</h1>我觉得这个考的几率也不大<h2 id="基于最大均值差异的风格迁移"><a href="#基于最大均值差异的风格迁移" class="headerlink" title="基于最大均值差异的风格迁移"></a>基于最大均值差异的风格迁移</h2>虽然是自己的课题，但我也看不懂，就不提炼了<h2 id="基于马尔科夫随机场的风格迁移"><a href="#基于马尔科夫随机场的风格迁移" class="headerlink" title="基于马尔科夫随机场的风格迁移"></a>基于马尔科夫随机场的风格迁移</h2>马尔可夫随机场是非参数图像合成的经典框架，它描述了具有同类特征 信息的集合。将图像特征映射分割成许多区域块并进行匹配，以提高合成图像在视觉上的合理性。<h2 id="基于深度图像类比的风格迁移"><a href="#基于深度图像类比的风格迁移" class="headerlink" title="基于深度图像类比的风格迁移"></a>基于深度图像类比的风格迁移</h2>图像类比的概念与深度学习结合提出了 一种通过区域块匹配迭代优化的深度图像类比方法。这种方法可以将图像 类比的概念应用到深层网络特征空间中，寻找语义上有意义的 稠密对应关 系，从而提高图像风格迁移的有效性。 深度图像类比的映射关系可以表示为 A ∶ A* ∶ ∶ B ∶ B* ，其 中， A* 和 B 为未知变量。在这个映射关系中具有两个约束条 件:A 和 A* 或 B 和 B* 具有相似的图像内容特征;A 和 B 或 A* 和 B* 具有相似的图像风 格特征。因此，图像映射关系可表示 为 A(p) = B(φa→b ( p))和 A* ( p) = B* (φa→b ( p))。φb→a 表示 逆映射，则有 φb→a (φa→b(p)) = p 和 φa→b(φb→a (p)) = p。 深度图像类比方法首先使用预训练 VGG 模型分别计算出 已知图像 A 和 B* 的各层抽象特征表示 FL A 和 FL B* ，其中，L 表 示使用预训练 VGG 模 型中的层数。在第 L 层中可以通过最近 邻域搜索(nearest neighbor field search，NNFS)求得深度图像类 比的映射关系。</li>
+</ol>
+<p>PatchMatch 是图像类比的经典算法：给定一组图片 A 和 B’，A 提供语 义和内容两大主要信息，B’提供外观性（例如颜色、光照、风格等）和细 节（例如纹理）信息，将两张图片都划分为固定大小的像素块，对于 A 中的 每一个像素块，在 B’中寻找与之最相近的像素块来代替。当像素块足够小， 且全部替代完成后进行平滑等处理后，即刻获得用 B’的风格表现 A 的风格</p>
+<h1 id="多目标方法解决旅游线路规划"><a href="#多目标方法解决旅游线路规划" class="headerlink" title="多目标方法解决旅游线路规划"></a>多目标方法解决旅游线路规划</h1><p>（个人感觉这个是重点）</p>
+<h2 id="线性加权遗传算法"><a href="#线性加权遗传算法" class="headerlink" title="线性加权遗传算法"></a>线性加权遗传算法</h2><p>线性加权法是在对各个目标函数进行分析的基础上，将多目标问题的各个目标函数按其重要程度分别赋予它们一个权重，然后多个目标函数加权运算来构造评价函数．</p>
+<p><img src="https://gitee.com/aqeb/cnblog/raw/master/%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%89%87/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%E6%97%85%E6%B8%B8%E8%B7%AF%E5%BE%84.png" alt="遗传算法路劲规划"></p>
+<h2 id="蚁群算法"><a href="#蚁群算法" class="headerlink" title="蚁群算法"></a>蚁群算法</h2><p>（我觉得这个可能性比较大）  </p>
+<ol>
+<li><p>算法介绍<br>蚁群算法是用来寻找优化路径的概率型算法。<br>这种算法具有分布计算、信息正反馈和启发式搜索的特征，本质上是进化算法中的一种启发式全局优化算法。<br>蚂蚁会在其经过的路径上释放一种可以称之为“信息素”的物质，蚁群内的蚂蚁对“信息素”具有感知能力，它们会沿着“信息素”浓度较高路径行走，而每只路过的蚂蚁都会在路上留下“信息素”，这就形成一种类似正反馈的机制，这样经过一段时间后，整个蚁群就会沿着最短路径到达食物源了。</p>
+</li>
+<li><p>算法原理<br>将蚁群算法应用于解决优化问题的基本思路为：用蚂蚁的行走路径表示待优化问题的可行解，整个蚂蚁群体的所有路径构成待优化问题的解空间。路径较短的蚂蚁释放的信息素量较多，随着时间的推进，较短的路径上累积的信息素浓度逐渐增高，选择该路径的蚂蚁个数也愈来愈多。最终，整个蚂蚁会在正反馈的作用下集中到最佳的路径上，此时对应的便是待优化问题的最优解。</p>
+</li>
+<li><p>实现方法<br>蚂蚁找到最短路径要归功于信息素和环境，假设有两条路可从蚁窝通向食物，开始时两条路上的蚂蚁数量差不多：当蚂蚁到达终点之后会立即返回，距离短的路上的蚂蚁往返一次时间短，重复频率快，在单位时间里往返蚂蚁的数目就多，留下的信息素也多，会吸引更多蚂蚁过来，会留下更多信息素。而距离长的路正相反，因此越来越多的蚂蚁聚集到最短路径上来。</p>
+</li>
+<li><p>优点</p>
+<ul>
+<li>采用正反馈机制，使得搜索过程不断收敛，最终逼近最优解。</li>
+<li>每个个体可以通过释放信息素来改变周围的环境，且每个个体能够感知周围环境的实时变化，个体间通过环境进行间接地通讯。</li>
+<li>搜索过程采用分布式计算方式，多个个体同时进行并行计算，大大提高了算法的计算能力和运行效率。</li>
+<li>启发式的概率搜索方式不容易陷入局部最优，易于寻找到全局最优解。</li>
+</ul>
+</li>
+</ol>
+<p>在移动过程中，主要参照各条路径上的信息素浓度，以此来决定转移方向。这种转移规则被称之为随机比例规则<br><img src="https://gitee.com/aqeb/cnblog/raw/master/%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%89%87/%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95.png" alt="蚁群算法流程"></p>
+<p>优化算法：灰狼算法。（还可以看看模拟退火）<br>仔细观察狼群围捕过程可以发现，在围捕的最后阶段狼群围绕猎物不断移动，但代价函数的输出却不再缩小，究其原因是狼群多样性缺失，α狼陷入局部最优，为此，本文提出为α狼增加主动搜索视野，使α狼不再被动局限于狼群更新带来的优化，同时也具备局部搜索的能力。    假设α狼具备看到β狼的视野，这样每次α狼、β狼、δ狼更新位置后α狼会在视野范围内寻找比当前更优的位置并移动到更优位置，为了减少参数数量，假设α狼每次视野内局部寻优进行次数与狼群迭代次数相同，即程序会在α狼视野范围内重复生成备选位置，与α狼比较并选取最优解。</p>
+<h1 id="旅游攻略语义"><a href="#旅游攻略语义" class="headerlink" title="旅游攻略语义"></a>旅游攻略语义</h1><p>（大概看了一下申请书，感觉不会考，主要是我看不懂，好像算法什么的少，主要是网络模型，和垃圾分类一样）</p>
+<h1 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h1><h2 id="Q-Learning-算法"><a href="#Q-Learning-算法" class="headerlink" title="Q-Learning 算法"></a>Q-Learning 算法</h2><p>Q -learning 算法首先建立一张 Q 值表，Agent 通过不断地狱环境交互，得<br>到反馈，对 Agent 的状态一动作对形成奖赏值，通过不断的迭代修改查抄表，<br>会使选择正奖赏的动作的概率会不断增加，而相应的得到负奖赏的动作的概率<br>会有不断减小的趋势，随着不断的与环境交互迭代筛选，更改动作策略集，会<br>使智能体的动作集最终趋于最优动作集。还有遗忘机制</p>
+<h2 id="Sarsa-算法"><a href="#Sarsa-算法" class="headerlink" title="Sarsa 算法"></a>Sarsa 算法</h2><p>其基本原理为:如果强化学习系统的某种行为能够获得环境正的奖赏, 那么系统<br>便会加强产生该动作的趋势, 这称之为正反馈过程;反之，系统便会减弱产生该<br>动作的趋势。</p>
+<h2 id="深度确定性策略梯度算法"><a href="#深度确定性策略梯度算法" class="headerlink" title="深度确定性策略梯度算法"></a>深度确定性策略梯度算法</h2><p>该算法在策略梯度算法的基础上，算法模拟的输入为状态空间，输<br>出不再是每个动作的概率，而是该状态空间对应的具体动作。</p>
+<h1 id="多机器人路径规划和编队"><a href="#多机器人路径规划和编队" class="headerlink" title="多机器人路径规划和编队"></a>多机器人路径规划和编队</h1><h2 id="VHF算法"><a href="#VHF算法" class="headerlink" title="VHF算法"></a>VHF算法</h2><p>VHF算法是一种基于未知威胁的动态航路搜索算法，实现简单，并且能够保证得到最优路径等优点。VHF算法由于其避障效率高等优点经常使用在机器人的实时避障上，但是不能保证规划的路径的最佳性能。<br>VFH路径规划算法是通过机器人自带传感器实时检测在视野范围内的障碍物，并实时的更新网状直方图的数据，由二维的笛卡尔网格直方图映射转化魏一维极坐标直方图，更具一维极坐标直方图选择机器人运动的合适的方向  </p>
+<pre><code>（1）初始化：根据障碍物向量信息建立向量场直方图。确定开始位置和结束位置。设定角分辨率f=5°，阀值为150，机器人和障碍物的距离/角度的目标方向。
+（2）Repeat
+机器人没有到达终点 
+    a.获取机器人360度范围视野内的障碍物分布图，计算极坐标障碍物密度。
+    b.计算出目标向量kt，
+    c.推算出最佳前进方向。
+    d.更新机器人下一坐标robot
+    Until St是终止状态
+（3）获得推算出来的路径
+</code></pre>
+<h2 id="人工势场算法"><a href="#人工势场算法" class="headerlink" title="人工势场算法"></a>人工势场算法</h2><ol>
+<li><p>简介 人工势场法起源于物理学中的势场，是Khatib在1986年提出。它的基本思想是障碍物产生一个斥力势场，障碍物对机器人产生斥力，避免机器人与之发生碰撞，目标点对物体产生引力，引导物体朝向其运动。机器人在引力和斥力的合力作用下驶向目标点。人工势场法中的一个核心问题是关于势场函数的设计。 </p>
+</li>
+<li><p>基本思想 人工势场法具体实现方法为：首先在移动机器人运行环境空间中构建一个人工虚拟势场，该势场由两部分组成，由目标点对移动机器人产生的引力场，方向由机器人指向目标点；由障碍物对移动机器人产生的斥力场，方向为由障碍物指向机器人。运行空间的总势场为斥力场和引力场共同叠加作用。从而通过引力和斥力的合力来控制移动机器人的移动。</p>
+<h2 id="基于行为的编队算法"><a href="#基于行为的编队算法" class="headerlink" title="基于行为的编队算法"></a>基于行为的编队算法</h2></li>
+<li><p>简介<br>基于行为的编队算法的控制策略展现出的智能、可靠、灵活等特点，研究了航天器编队位置和姿态多行为的控制问题。其研究建立了智能封锁雷自由运动模型、向预定地点运动模型、保持队形模型和异常情况处理模型。<br> 基于行为的编队算法，主要表现再智能体编队可以很好的实现分布式控制而且可以完成多种动作，有比较好的时效性，由器当出现多个竞争性目标时，通过行为抑制可以形成较为简单的控制策略。</p>
+</li>
+<li><p>基本思想<br>基于行为的编队控制思想是通过涉及各个智能体的局部动作，控制动作可以例如避障、队形改变、目标检测等等。当外部环境发生变化时，智能体接受外部的信息，经过控制器控制输入作用，使得智能体再运动方向和运动速度发生相应的变化，以实现相适应与环境变化的编队变化。<br>行为控制理论包括3种方法，矢量累加法、行为抑制法和模糊逻辑法。</p>
+<h2 id="领导者的编队算法"><a href="#领导者的编队算法" class="headerlink" title="领导者的编队算法"></a>领导者的编队算法</h2></li>
+<li><p> 概念<br>跟随领导者法的基本思想是在机器人群体中设定一个为领导者，其余设定为跟随者，跟随者以一定的相对距离和相对角度跟随领导者运动，从而保持指定的队形。跟随领导者编队控制方法的优点是所需的信息量相对较少，只需指定领导者的行为和运动轨迹即可，而且控制策略比较灵活。但该方法中由于没有明确的队形反馈，所以如果要获取每个跟随机器人的运动状态，需要进行逐个通讯，这将造成极大的通讯开销。若领导者的前进速度很快或者不能很好的进行避障有可能造成队形的崩溃，另一个缺点是如果领导者失效，将无法保持队形，即鲁棒性较低。</p>
+</li>
+<li><p> 基本思想<br>跟随领导者法又分为队形控制和队形控制。控制是通过领导者和两个跟随者之间的距离l来进行队形的控制；控制是指通过控制领导者和跟随者相对角度和距离来进行队形控制。跟随领导者法是将整个系统的全局编队问题。划分为局部领导者和跟随者之间的问题，领导者的运动轨迹决定整个队形的运动轨迹</p>
+</li>
+</ol>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/07/27/little_thing/c_language/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-07-27 15:47:35
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法">
+                        <b>#</b> 算法
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/07/27/linux/linux1/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E7%BD%91%E7%BB%9C"><span class="toc-text">无线传感网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%EF%BC%88%E9%B8%9F%E7%BE%A4%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-text">粒子群算法（鸟群算法）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8A%B1%E7%B2%89%E7%AE%97%E6%B3%95"><span class="toc-text">花粉算法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB"><span class="toc-text">垃圾分类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B2%AE%E9%A3%9F%E9%A2%84%E6%B5%8B"><span class="toc-text">粮食预测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%9B%9E%E5%BD%92%E6%BB%91%E5%8A%A8%E5%B9%B3%E5%9D%87%E6%A8%A1%E5%9E%8B-AR-MA-%E7%9A%84%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90%E9%A2%84%E6%B5%8B%E7%B2%AE%E9%A3%9F%E4%BA%A7%E9%87%8F-%EF%BC%9A"><span class="toc-text">自回归滑动平均模型(AR-MA)的时间序列分析预测粮食产量 ：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%81%B0%E8%89%B2-%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%B2%AE%E9%A3%9F%E4%BA%A7%E9%87%8F%E9%A2%84%E6%B5%8B-10"><span class="toc-text">基于灰色-马尔科夫模型的粮食产量预测[10]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E5%9C%A8%E7%B2%AE%E9%A3%9F%E4%BA%A7%E9%87%8F%E9%A2%84%E6%B5%8B%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">回归线性方程在粮食产量预测中的应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%85%E8%A1%8C%E7%85%A7%E7%89%87%E9%A3%8E%E6%A0%BC%E5%9B%BE%E5%83%8F%E5%8C%96"><span class="toc-text">旅行照片风格图像化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%9C%80%E5%A4%A7%E5%9D%87%E5%80%BC%E5%B7%AE%E5%BC%82%E7%9A%84%E9%A3%8E%E6%A0%BC%E8%BF%81%E7%A7%BB"><span class="toc-text">基于最大均值差异的风格迁移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E9%9A%8F%E6%9C%BA%E5%9C%BA%E7%9A%84%E9%A3%8E%E6%A0%BC%E8%BF%81%E7%A7%BB"><span class="toc-text">基于马尔科夫随机场的风格迁移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%9B%BE%E5%83%8F%E7%B1%BB%E6%AF%94%E7%9A%84%E9%A3%8E%E6%A0%BC%E8%BF%81%E7%A7%BB"><span class="toc-text">基于深度图像类比的风格迁移</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E7%9B%AE%E6%A0%87%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3%E6%97%85%E6%B8%B8%E7%BA%BF%E8%B7%AF%E8%A7%84%E5%88%92"><span class="toc-text">多目标方法解决旅游线路规划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%8A%A0%E6%9D%83%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95"><span class="toc-text">线性加权遗传算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95"><span class="toc-text">蚁群算法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5%E8%AF%AD%E4%B9%89"><span class="toc-text">旅游攻略语义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-text">强化学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Q-Learning-%E7%AE%97%E6%B3%95"><span class="toc-text">Q-Learning 算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sarsa-%E7%AE%97%E6%B3%95"><span class="toc-text">Sarsa 算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E7%A1%AE%E5%AE%9A%E6%80%A7%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-text">深度确定性策略梯度算法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92%E5%92%8C%E7%BC%96%E9%98%9F"><span class="toc-text">多机器人路径规划和编队</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VHF%E7%AE%97%E6%B3%95"><span class="toc-text">VHF算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E5%8A%BF%E5%9C%BA%E7%AE%97%E6%B3%95"><span class="toc-text">人工势场算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E8%A1%8C%E4%B8%BA%E7%9A%84%E7%BC%96%E9%98%9F%E7%AE%97%E6%B3%95"><span class="toc-text">基于行为的编队算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%86%E5%AF%BC%E8%80%85%E7%9A%84%E7%BC%96%E9%98%9F%E7%AE%97%E6%B3%95"><span class="toc-text">领导者的编队算法</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" href="">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="facebook" href="">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="twitter" href="">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" href="">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="weibo" href="">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="/atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  </body>
+</html>
