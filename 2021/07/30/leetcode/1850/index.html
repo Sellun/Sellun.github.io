@@ -11,7 +11,7 @@
   
   <title>
     
-      java多线程 
+      1850. 邻位交换的最小次数 
       
       
       |
@@ -133,19 +133,19 @@ MathJax = {
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">java多线程</div>
+      <div class="post-title">1850. 邻位交换的最小次数</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime" title="Update time"></i>
-          2021-07-30 16:03:35
+          2021-07-30 23:05:35
         </span>
         
               <span class="post-tags">
                 <i class="iconfont icon-tags" title="Tags"></i>
                 
                 <span class="span--tag">
-                  <a href="/tags/java%E5%9F%BA%E7%A1%80/" title="java基础">
-                    <b>#</b> java基础
+                  <a href="/tags/leetcode/" title="leetcode">
+                    <b>#</b> leetcode
                   </a>
                 </span>
                 
@@ -153,13 +153,53 @@ MathJax = {
           
       </div>
       <div class="markdown-body">
-        
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-adjacent-swaps-to-reach-the-kth-smallest-number">邻位交换的最小次数</a><br>    给你一个表示大整数的字符串 num ，和一个整数 k 。</p>
+<p>如果某个整数是 num 中各位数字的一个 排列 且它的 值大于 num ，则称这个整数为 妙数 。可能存在很多妙数，但是只需要关注 值最小 的那些。</p>
+<pre><code>例如，num = &quot;5489355142&quot; ：
+    第 1 个最小妙数是 &quot;5489355214&quot;
+    第 2 个最小妙数是 &quot;5489355241&quot;
+    第 3 个最小妙数是 &quot;5489355412&quot;
+    第 4 个最小妙数是 &quot;5489355421&quot;
+</code></pre>
+<p>返回要得到第 k 个 最小妙数 需要对 num 执行的 相邻位数字交换的最小次数 。</p>
+<p>测试用例是按存在第 k 个最小妙数而生成的。</p>
+<p>示例 1：</p>
+<p>输入：num = “5489355142”, k = 4<br>输出：2<br>解释：第 4 个最小妙数是 “5489355421” ，要想得到这个数字：</p>
+<ul>
+<li>交换下标 7 和下标 8 对应的位：”5489355142” -&gt; “5489355412”</li>
+<li>交换下标 8 和下标 9 对应的位：”5489355412” -&gt; “5489355421”</li>
+</ul>
+<p>示例 2：</p>
+<p>输入：num = “11112”, k = 4<br>输出：4<br>解释：第 4 个最小妙数是 “21111” ，要想得到这个数字：</p>
+<ul>
+<li>交换下标 3 和下标 4 对应的位：”11112” -&gt; “11121”</li>
+<li>交换下标 2 和下标 3 对应的位：”11121” -&gt; “11211”</li>
+<li>交换下标 1 和下标 2 对应的位：”11211” -&gt; “12111”</li>
+<li>交换下标 0 和下标 1 对应的位：”12111” -&gt; “21111”</li>
+</ul>
+<p>示例 3：</p>
+<p>输入：num = “00123”, k = 1<br>输出：1<br>解释：第 1 个最小妙数是 “00132” ，要想得到这个数字：</p>
+<ul>
+<li>交换下标 3 和下标 4 对应的位：”00123” -&gt; “00132”</li>
+</ul>
+<p>提示：</p>
+<pre><code>2 &lt;= num.length &lt;= 1000
+1 &lt;= k &lt;= 1000
+num 仅由数字组成
+</code></pre>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMinSwaps</span><span class="params">(String num, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] nums=strTonums(num);</span><br><span class="line">        <span class="keyword">int</span>[] begin=nums.clone();</span><br><span class="line">        <span class="keyword">while</span>(k--&gt;<span class="number">0</span>)</span><br><span class="line">        nextPermutation(nums);</span><br><span class="line">        <span class="keyword">int</span> c=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; begin.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(begin[i]!=nums[i])</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; begin.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]==begin[j])</span><br><span class="line">                &#123; </span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> q=j;q&gt;i;q--)</span><br><span class="line">                    &#123;</span><br><span class="line">                        swap(begin, q, q-<span class="number">1</span>);</span><br><span class="line">                        c++;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> c;        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] strTonums(String s) &#123;</span><br><span class="line">        <span class="keyword">char</span>[] ch=s.toCharArray();</span><br><span class="line">        <span class="keyword">int</span> [] nums= <span class="keyword">new</span> <span class="keyword">int</span>[ch.length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            nums[i]=ch[i]-<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">nextPermutation</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i=nums.length-<span class="number">2</span>,j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&gt;=<span class="number">0</span>&amp;&amp;nums[i]&gt;=nums[i+<span class="number">1</span>])i--;</span><br><span class="line">        <span class="keyword">if</span>(i&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> min=Integer.MAX_VALUE;</span><br><span class="line">            <span class="keyword">int</span> minindex=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (j = nums.length-<span class="number">1</span>; j &gt;i; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[j]&gt;nums[i]&amp;&amp;min&gt;nums[j])</span><br><span class="line">                &#123;</span><br><span class="line">                    min=nums[j];</span><br><span class="line">                    minindex=j;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            j=minindex;</span><br><span class="line">            swap(nums, i, j);</span><br><span class="line">            reverse(nums, i+<span class="number">1</span>, nums.length-<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        reverse(nums, <span class="number">0</span> , nums.length-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> [] nums,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> t=nums[i];</span><br><span class="line">        nums[i]=nums[j];</span><br><span class="line">        nums[j]=t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> []nums,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;=j)&#123;</span><br><span class="line">            swap(nums, i, j);</span><br><span class="line">            i++;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h1><ol>
+<li>找出第k个妙数</li>
+<li>原来的数与第k个妙数对比,贪心,计算结果</li>
+</ol>
+<p>踩坑: 相邻的两个交换,之前这里错了  </p>
+
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2021/07/30/leetcode/1937/" target="_self">
+              <a href="/2021/07/30/leetcode/31/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>Prev</span>
               </a>
@@ -168,15 +208,15 @@ MathJax = {
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime" title="Update time"></i>
-              2021-07-30 16:03:35
+              2021-07-30 23:05:35
             </span>
             
                   <span class="post-tags">
                     <i class="iconfont icon-tags" title="Tags"></i>
                     
                     <span class="span--tag">
-                      <a href="/tags/java%E5%9F%BA%E7%A1%80/" title="java基础">
-                        <b>#</b> java基础
+                      <a href="/tags/leetcode/" title="leetcode">
+                        <b>#</b> leetcode
                       </a>
                     </span>
                     
@@ -185,16 +225,26 @@ MathJax = {
           </div>
           <div class="post-foot-prev">
             
-              <a href="/2021/07/30/leetcode/31/" target="_self">
-                <span>Next</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
-            
           </div>
         </div>
       
     </div>
     
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E6%B3%95"><span class="toc-text">解法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%83%B3%E6%B3%95"><span class="toc-text">想法</span></a></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
 
     
       <div class="comments-container">
