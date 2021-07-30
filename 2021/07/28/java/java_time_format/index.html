@@ -11,7 +11,7 @@
   
   <title>
     
-      archive_a: 2021 
+      java时间日期相关 
       
       
       |
@@ -105,192 +105,225 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2021</span>
-          </h2>
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">java时间日期相关</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-07-28 17:03:35
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/java%E5%9F%BA%E7%A1%80/" title="java基础">
+                    <b>#</b> java基础
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import  java.util.*;</span><br><span class="line">import java.text.*;</span><br><span class="line"> </span><br><span class="line">public class DateDemo &#123;</span><br><span class="line">   public static void main(String args[]) &#123;</span><br><span class="line"> </span><br><span class="line">      Calendar c=Calendar.getInstance();</span><br><span class="line"></span><br><span class="line">      SimpleDateFormat ft = new SimpleDateFormat (&quot;yyyy-MM-dd hh:mm:ss&quot;);</span><br><span class="line"> </span><br><span class="line">      System.out.println(&quot;当前时间为: &quot; + ft.format(c.getTimeInMillis()));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">字母</th>
+<th align="center">描述</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">G</td>
+<td align="center">纪元标记</td>
+<td align="center">AD</td>
+</tr>
+<tr>
+<td align="center">y</td>
+<td align="center">四位年份</td>
+<td align="center">2001</td>
+</tr>
+<tr>
+<td align="center">M</td>
+<td align="center">月份</td>
+<td align="center">July or 07</td>
+</tr>
+<tr>
+<td align="center">d</td>
+<td align="center">一个月的日期</td>
+<td align="center">10</td>
+</tr>
+<tr>
+<td align="center">h</td>
+<td align="center">A.M./P.M. (1~12)格式小时</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td align="center">H</td>
+<td align="center">一天中的小时 (0~23)</td>
+<td align="center">22</td>
+</tr>
+<tr>
+<td align="center">m</td>
+<td align="center">分钟数</td>
+<td align="center">30</td>
+</tr>
+<tr>
+<td align="center">s</td>
+<td align="center">秒数</td>
+<td align="center">55</td>
+</tr>
+<tr>
+<td align="center">S</td>
+<td align="center">毫秒数</td>
+<td align="center">234</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center">星期几</td>
+<td align="center">Tuesday</td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="center">一年中的日子</td>
+<td align="center">360</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">一个月中第几周的周几</td>
+<td align="center">2 (second Wed. in July)</td>
+</tr>
+<tr>
+<td align="center">w</td>
+<td align="center">一年中第几周</td>
+<td align="center">40</td>
+</tr>
+<tr>
+<td align="center">W</td>
+<td align="center">一个月中第几周</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">a</td>
+<td align="center">A.M./P.M. 标记</td>
+<td align="center">PM</td>
+</tr>
+<tr>
+<td align="center">k</td>
+<td align="center">一天中的小时(1~24)</td>
+<td align="center">24</td>
+</tr>
+<tr>
+<td align="center">K</td>
+<td align="center">A.M./P.M. (0~11)格式小时</td>
+<td align="center">10</td>
+</tr>
+<tr>
+<td align="center">z</td>
+<td align="center">时区</td>
+<td align="center">Eastern Standard Time</td>
+</tr>
+</tbody></table>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/07/28/java/java_face_basis/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-07-28 17:03:35
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/java%E5%9F%BA%E7%A1%80/" title="java基础">
+                        <b>#</b> java基础
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/07/30/leetcode/1937/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
       
-      <div class="post-item" title="java多线程">
-        <div class="time-m-d">07-30</div>
-        <div class="title">
-          <a href="/2021/07/30/java/java_thread/">
-            <span>java多线程</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="1937. 扣分后的最大得分">
-        <div class="time-m-d">07-30</div>
-        <div class="title">
-          <a href="/2021/07/30/leetcode/1937/">
-            <span>1937. 扣分后的最大得分</span>
-          </a>
-        </div>
-      </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-text">格式化</span></a></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <div class="post-item" title="java时间日期相关">
-        <div class="time-m-d">07-28</div>
-        <div class="title">
-          <a href="/2021/07/28/java/java_time_format/">
-            <span>java时间日期相关</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="java面向对象">
-        <div class="time-m-d">07-28</div>
-        <div class="title">
-          <a href="/2021/07/28/java/java_face_basis/">
-            <span>java面向对象</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="linux软件安装">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/linux/install_software/">
-            <span>linux软件安装</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="linux环境变量">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/linux/add_env_path/">
-            <span>linux环境变量</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="linux基本指令">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/linux/linux1/">
-            <span>linux基本指令</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="算法课题小结">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/algorithm/">
-            <span>算法课题小结</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="c语言">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/c_language/">
-            <span>c语言</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="markdown语法">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/markdown/">
-            <span>markdown语法</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="别人的博客">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/other_blog/">
-            <span>别人的博客</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——0.概述">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/0/">
-            <span>计算机网络——0.概述</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——1.物理层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/1/">
-            <span>计算机网络——1.物理层</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——2.链路层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/2/">
-            <span>计算机网络——2.链路层</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——3.网络层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/3/">
-            <span>计算机网络——3.网络层</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——4.运输层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/4/">
-            <span>计算机网络——4.运输层</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——5.应用层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/5/">
-            <span>计算机网络——5.应用层</span>
-          </a>
-        </div>
-      </div>
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2019</span>
-          </h2>
-        </div>
-      
-      <div class="post-item" title="hexo">
-        <div class="time-m-d">05-03</div>
-        <div class="title">
-          <a href="/2019/05/03/hello-world/">
-            <span>hexo</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         <div class="footer">
   <div class="social">

@@ -11,7 +11,7 @@
   
   <title>
     
-      1937. 扣分后的最大得分 
+      java面向对象 
       
       
       |
@@ -133,25 +133,19 @@ MathJax = {
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">1937. 扣分后的最大得分</div>
+      <div class="post-title">java面向对象</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime" title="Update time"></i>
-          2021-07-30 15:47:35
+          2021-07-28 12:03:35
         </span>
         
               <span class="post-tags">
                 <i class="iconfont icon-tags" title="Tags"></i>
                 
                 <span class="span--tag">
-                  <a href="/tags/leetcode/" title="leetcode">
-                    <b>#</b> leetcode
-                  </a>
-                </span>
-                
-                <span class="span--tag">
-                  <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="动态规划">
-                    <b>#</b> 动态规划
+                  <a href="/tags/java%E5%9F%BA%E7%A1%80/" title="java基础">
+                    <b>#</b> java基础
                   </a>
                 </span>
                 
@@ -159,25 +153,79 @@ MathJax = {
           
       </div>
       <div class="markdown-body">
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-number-of-points-with-cost">1937. 扣分后的最大得分</a>   </p>
-<p>给你一个 m x n 的整数矩阵 points （下标从 0 开始）。一开始你的得分为 0 ，你想最大化从矩阵中得到的分数。</p>
-<p>你的得分方式为：每一行 中选取一个格子，选中坐标为 (r, c) 的格子会给你的总得分 增加 points[r][c] 。</p>
-<p>然而，相邻行之间被选中的格子如果隔得太远，你会失去一些得分。对于相邻行 r 和 r + 1 （其中 0 &lt;= r &lt; m - 1），选中坐标为 (r, c1) 和 (r + 1, c2) 的格子，你的总得分 减少 abs(c1 - c2) 。</p>
-<p>请你返回你能得到的 最大 得分。</p>
-<p>abs(x) 定义为：</p>
-<pre><code>如果 x &gt;= 0 ，那么值为 x 。
-如果 x &lt; 0 ，那么值为 -x 。
-</code></pre>
-<h1 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h1><p>输入：points = [[1,2,3],[1,5,1],[3,1,1]]<br>输出：9<br>解释：<br>蓝色格子是最优方案选中的格子，坐标分别为 (0, 2)，(1, 1) 和 (2, 0) 。<br>你的总得分增加 3 + 5 + 3 = 11 。<br>但是你的总得分需要扣除 abs(2 - 1) + abs(1 - 0) = 2 。<br>你的最终得分为 11 - 2 = 9 。</p>
-<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">//dp[i][j] =  points[i][j] + max&#123;dp[i-1][k] - abs(j -k)&#125;</span></span><br><span class="line">    <span class="comment">//dp[i][j]指取(i,j)下标的元素能达到的最大值</span></span><br><span class="line">    <span class="comment">//优化后变成</span></span><br><span class="line">    <span class="comment">//k&lt;=j k在j左边 dp[i][j] =  points[i][j] - j + max&#123;dp[i-1][k] + k&#125;</span></span><br><span class="line">    <span class="comment">//k&gt; j k在j右边 dp[i][j] =  points[i][j] + j + max&#123;dp[i-1][k] - k&#125;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">maxPoints</span><span class="params">(<span class="keyword">int</span>[][] points)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = points.length;</span><br><span class="line">        <span class="keyword">int</span> n = points[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">long</span>[] pre = <span class="keyword">new</span> <span class="keyword">long</span>[n];<span class="comment">//记录上一行的值</span></span><br><span class="line">        <span class="comment">//由于某行的dp值只与上一行的值有关，故只需要两个long[n]的数组作为dp数组做状态转移。</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] point : points) &#123;</span><br><span class="line">            <span class="keyword">long</span>[] cur = <span class="keyword">new</span> <span class="keyword">long</span>[n];<span class="comment">//记录这一行的dp值</span></span><br><span class="line">            <span class="keyword">long</span> best = Long.MIN_VALUE;</span><br><span class="line">            <span class="comment">//正序遍历</span></span><br><span class="line">            <span class="comment">//为何要正序，因为这时是在k在j左边的情况，那么max&#123;dp[i-1][k] + k&#125;中的k可取[0,j]</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                best = Math.max(best, pre[j] + j);<span class="comment">//相当于max&#123;dp[i-1][k] + k&#125;的操作</span></span><br><span class="line">                cur[j] = Math.max(cur[j], point[j] - j + best);</span><br><span class="line">            &#125;</span><br><span class="line">            best = Long.MIN_VALUE;</span><br><span class="line">            <span class="comment">//倒序遍历</span></span><br><span class="line">            <span class="comment">//为何要倒序，因为这时是k在j右边的情况，那么max&#123;dp[i-1][k] - k&#125;中的k可取[j,n-1]</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = n-<span class="number">1</span>;j&gt;=<span class="number">0</span>;j--)&#123;</span><br><span class="line">                best = Math.max(best, pre[j] - j);<span class="comment">//再倒序遍历，找上一行最大的dp[i-1][k]-k</span></span><br><span class="line">                cur[j] = Math.max(cur[j], best + point[j] + j);</span><br><span class="line">            &#125;</span><br><span class="line">            pre = cur;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Arrays.stream(pre).max().getAsLong();<span class="comment">//在最后一层找最大值</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h1><p>好难啊,我还是太菜了,感觉自己智商有问题,好难受啊……<br>先贴一个别人的解法,看了好久,还有一些迷糊,尤其是倒序遍历哪里.</p>
+        <p>面向对象是一种对现实世界理解和抽象的方法，万事万物皆为对象<br>达到了软件工程的三个主要目标：<code>可重用性、灵活性和扩展性</code><br>在Java语言中，编程的基本单位是类，类可以实例化成多个对象。面向<br>对象的概念包括：封装、继承、多态、类和对象、接口、包、属性、方法、<br>构造方法、修饰符、上溯下溯造型、泛型等  </p>
+<h1 id="四大特征"><a href="#四大特征" class="headerlink" title="四大特征"></a>四大特征</h1><ol>
+<li>抽象：指从众多的事物中舍弃个别的、非本质的部分，提炼出我们所关注的、共同的、本质的部分的过程。   </li>
+<li>封装：在Java中，类封装了属性、方法、构造方法、语句块、内部类等成员，可以通过权限修饰符来控制外部对类成员的可访问性，隐藏其实现细节。</li>
+<li>继承：以已有的类为基础来创建一个新的子类，子类继承父类的所有特性，并可以在此基础上扩充自己的特性，从而构造出更为复杂的类型。继承很好地解决了软件的可重用性问题。</li>
+<li>多态：指同一个实体同时具有多种形式，主要表现为方法的重载、方法的覆盖、对象的多态等三种形式。通过多态，就能对“通用情况”编程，而不是对“特定情况”进行编程。<h1 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h1><code>类</code>（Class）是对一类相似事物的描述，侧重对同类事物的共性进行抽象、概括、归纳。<br><code>对象</code>（Object）也叫实例（Instance），万事万物皆为对象。对象是信息系统必须觉察到的问题域中的人或事物的抽象，突出个性、特殊。在Java中，对象是通过类的实例化来创建的。 </li>
+</ol>
+<h1 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h1><p>参考自菜鸟教程<br>访问修饰符    </p>
+<ul>
+<li>default (即默认，什么也不写）: 在同一包内可见，不使用任何修饰符。使用对象：类、接口、变量、方法。</li>
+<li>private : 在同一类内可见。使用对象：变量、方法。 注意：不能修饰类（外部类）</li>
+<li>public : 对所有类可见。使用对象：类、接口、变量、方法</li>
+<li>protected : 对同一包内的类和所有子类可见。使用对象：变量、方法。 注意：不能修饰类（外部类）<br>非访问修饰符  </li>
+<li>static 修饰符，用来修饰类方法和类变量。</li>
+<li>final 修饰符，用来修饰类、方法和变量，final 修饰的类不能够被继承，修饰的方法不能被继承类重新定义，修饰的变量为常量，是不可修改的。</li>
+<li>abstract 修饰符，用来创建抽象类和抽象方法。</li>
+<li>synchronized 和 volatile 修饰符，主要用于线程的编程。<h1 id="继承与组合"><a href="#继承与组合" class="headerlink" title="继承与组合"></a>继承与组合</h1><h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2>Java采用<code>extends 父类名</code>的方式来实现单继承。Java采用<code>implements &lt;接口列表&gt;</code>的方式来间接实现多继承。<br>子类可以继承父类中除private之外的成员变量和方法，但不包括构造方法。在子类的类体中我们可以重写父类中的方法，增加新的属性和方法。所以，类除了自己的属性和方法外，还有从父类继承过来的属性和方法。<br>接口定义<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[接口修饰符] interface 接口名称 [extends 父接口列表]&#123;</span><br><span class="line">   //常量定义</span><br><span class="line">     //抽象方法的定义</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="组合与聚合"><a href="#组合与聚合" class="headerlink" title="组合与聚合"></a>组合与聚合</h2>组合关系：整体与部分之间具有<code>相同的生命周期</code>，联系非常紧密。例如：人的身体与头部、四肢、躯干之间就是组合关系。<br>聚合关系：成员组成一个整体，联系相对松散。例如：班级与班主任、学生之间就是聚合关系。<h1 id="this-and-super"><a href="#this-and-super" class="headerlink" title="this and super"></a>this and super</h1><h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2></li>
+<li>调用本类的构造方法：<code>this([实参数列表]);</code></li>
+<li>当局部变量与对象变量重名时,this用于区分局部变量和对象变量：this.成员变量;  <h2 id="super"><a href="#super" class="headerlink" title="super"></a>super</h2>子类是不继承父类的构造器（构造方法或者构造函数）的，它只是调用（隐式或显式）。如果父类的构造器带有参数，则必须在子类的构造器中显式地通过 super 关键字调用父类的构造器并配以适当的参数列表。<br>如果父类构造器没有参数，则在子类的构造器中不需要使用 super 关键字调用父类构造器，系统会自动调用父类的无参构造器。 </li>
+<li>调用父类的构造方法：<code>super([实参数列表]);</code>，调用父类的构造方法，只能出现在子类的构造方法中，且必须是第一行</li>
+<li>调用父类的方法：super.成员方法([实参数列表]);<h1 id="覆盖与重载"><a href="#覆盖与重载" class="headerlink" title="覆盖与重载"></a>覆盖与重载</h1><h2 id="覆盖（Override）"><a href="#覆盖（Override）" class="headerlink" title="覆盖（Override）"></a>覆盖（Override）</h2>子类改变父类中的方法   </li>
+<li>三个相同：方法名、形式参数、返回类型完全相同（返回类型可以是父类的派生类，java5之前要一样，java7以后可以不同）。</li>
+<li>两个不能：不能抛出比父类更多的异常，不能不能缩小父类方法的访问权限。</li>
+<li>不能交叉覆盖：static方法只能被static方法覆盖，非static方法只能被非static方法覆盖。</li>
+<li>final方法不能被覆盖，否则不能通过编译。<h2 id="重载（Overload）"><a href="#重载（Overload）" class="headerlink" title="重载（Overload）"></a>重载（Overload）</h2></li>
+<li>重载(overloading) 是在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。</li>
+<li>每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表。</li>
+<li>最常用的地方就是构造器的重载。<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">区别点</th>
+<th align="center">重载（Overload）</th>
+<th align="center">覆盖（Override）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">参数列表</td>
+<td align="center">必须修改</td>
+<td align="center">不能修改</td>
+</tr>
+<tr>
+<td align="center">返回类型</td>
+<td align="center">可以修改</td>
+<td align="center">不能修改</td>
+</tr>
+<tr>
+<td align="center">异常</td>
+<td align="center">可以修改</td>
+<td align="center">可以减少或删除，一定不能抛出新的或者更广的异常</td>
+</tr>
+<tr>
+<td align="center">访问</td>
+<td align="center">可以修改</td>
+<td align="center">一定不能做更严格的限制（可以降低限制）</td>
+</tr>
+</tbody></table>
+<h1 id="上溯造型和下溯造型"><a href="#上溯造型和下溯造型" class="headerlink" title="上溯造型和下溯造型"></a>上溯造型和下溯造型</h1><p>子类其实是一种特殊的父类，因此Java允许把一个子类对象直接赋值给一个父类引用变量，这种语法现象被称为上溯造型。上溯造型发生后，通过类型强制转换回到原来的子类，这种语法现象被称为下溯造型。只有曾经上溯造型过的对象才能进行下溯造型。对象不允许不经 过上溯造型而直接下溯造型。否则运行时会抛出java.lang.ClassCastException。 </p>
+<p>上溯造型的优点：我们可以把不同类型的子类上溯为同一个父类类型，方便我们统一处理它们。缺点：损失掉了子类新扩展增加的属性和方法（覆盖父类的方法不会损失掉）</p>
+<h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><ul>
+<li>Error类: 指较少发生的内部系统错误，由JVM生成并抛出，包括动态链接失败、JVM内部错误、资源耗尽等严重情况，程序员无能为力，只能让程序终止。</li>
+<li>Exception类: 解决由程序本身及环境所产生的异常，有补救或控制的可<br>能，程序员也可预先防范，增加程序的健壮性。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">... ...//可能产生异常的代码</span><br><span class="line">&#125;catch(异常类型1 异常对象1)&#123;</span><br><span class="line">... ...//异常处理代码</span><br><span class="line">&#125;catch(异常类型2 异常对象2)&#123;</span><br><span class="line">... ...//异常处理代码</span><br><span class="line">&#125;[finally&#123;</span><br><span class="line">... ...//不管异常发生与否都执行的代码</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+如果一个方法没有捕获可能引发的异常，就必须在方法首部声明可能发生异常，交由调用者来处理异常。<br>throws的语法格式：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;类修饰符&gt;&lt;返回值类型&gt;&lt;方法名&gt;([&lt;形式参数列表&gt;])[throws &lt;异常类型列表&gt;]&#123;</span><br><span class="line">     [&lt;语句&gt;]</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
+</ul>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2021/07/28/java/java_time_format/" target="_self">
+              <a href="/2021/07/27/linux/install_software/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>Prev</span>
               </a>
@@ -186,21 +234,15 @@ MathJax = {
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime" title="Update time"></i>
-              2021-07-30 15:47:35
+              2021-07-28 12:03:35
             </span>
             
                   <span class="post-tags">
                     <i class="iconfont icon-tags" title="Tags"></i>
                     
                     <span class="span--tag">
-                      <a href="/tags/leetcode/" title="leetcode">
-                        <b>#</b> leetcode
-                      </a>
-                    </span>
-                    
-                    <span class="span--tag">
-                      <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="动态规划">
-                        <b>#</b> 动态规划
+                      <a href="/tags/java%E5%9F%BA%E7%A1%80/" title="java基础">
+                        <b>#</b> java基础
                       </a>
                     </span>
                     
@@ -209,7 +251,7 @@ MathJax = {
           </div>
           <div class="post-foot-prev">
             
-              <a href="/2021/07/30/java/java_thread/" target="_self">
+              <a href="/2021/07/28/java/java_time_format/" target="_self">
                 <span>Next</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
@@ -225,7 +267,7 @@ MathJax = {
   <div class="post-catalog hidden" id="catalog">
     <div class="title">Contents</div>
     <div class="catalog-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B"><span class="toc-text">样例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E6%B3%95"><span class="toc-text">解法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%83%B3%E6%B3%95"><span class="toc-text">想法</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E5%A4%A7%E7%89%B9%E5%BE%81"><span class="toc-text">四大特征</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1"><span class="toc-text">类与对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">修饰符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF%E4%B8%8E%E7%BB%84%E5%90%88"><span class="toc-text">继承与组合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF"><span class="toc-text">继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E4%B8%8E%E8%81%9A%E5%90%88"><span class="toc-text">组合与聚合</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#this-and-super"><span class="toc-text">this and super</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#this"><span class="toc-text">this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#super"><span class="toc-text">super</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A6%86%E7%9B%96%E4%B8%8E%E9%87%8D%E8%BD%BD"><span class="toc-text">覆盖与重载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A6%86%E7%9B%96%EF%BC%88Override%EF%BC%89"><span class="toc-text">覆盖（Override）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E8%BD%BD%EF%BC%88Overload%EF%BC%89"><span class="toc-text">重载（Overload）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%88%AB"><span class="toc-text">区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8A%E6%BA%AF%E9%80%A0%E5%9E%8B%E5%92%8C%E4%B8%8B%E6%BA%AF%E9%80%A0%E5%9E%8B"><span class="toc-text">上溯造型和下溯造型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8"><span class="toc-text">异常</span></a></li></ol>
     </div>
   </div>
 
