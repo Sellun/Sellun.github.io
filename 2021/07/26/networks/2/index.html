@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="Sellun" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      计算机网络——2.链路层 
+      
+      
+      |
+    
+     Sellun
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Sellun</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">计算机网络——2.链路层</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-07-26 12:03:35
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/networks/" title="networks">
+                    <b>#</b> networks
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络">
+                    <b>#</b> 计算机网络
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <p>不同的链路层可能采用不同的数据链路层协议<br>数据链路层使用的信道  </p>
+<ol>
+<li>点对点信道:这种信道使用一对一的点对点通信方式。</li>
+<li>广播信道:使用一对多的广播通信方式。因此必须使用专用的共享信道协议来协调这些主机的数据发送。</li>
+</ol>
+<h1 id="使用点对点信道的数据链路层"><a href="#使用点对点信道的数据链路层" class="headerlink" title="使用点对点信道的数据链路层"></a>使用点对点信道的数据链路层</h1><h2 id="数据链路和帧"><a href="#数据链路和帧" class="headerlink" title="数据链路和帧"></a>数据链路和帧</h2><p><code>链路 (物理链路)</code> (link) 是一条无源的点到点的物理线路段，中间没有任何其他的交换结点。一条链路只是一条通路的一个组成部分<br><code>数据链路 (逻辑链路)</code>(data link) 除了物理线路外，还必须有通信协议来控制这些数据的传输。若把实现这些协议的硬件和软件加到链路上，就构成了数据链路。  </p>
+<p>现在最常用的方法是使用适配器（即网卡）来实现这些协议的硬件和软件。<br>一般的适配器都包括了数据链路层和物理层这两层的功能。 </p>
+<h3 id="三个基本问题"><a href="#三个基本问题" class="headerlink" title="三个基本问题"></a>三个基本问题</h3><p><code>封装成帧:</code>控制字符 SOH (Start Of Header) 放在一帧的最前面，表示帧的首部开始。另一个控制字符 EOT (End Of Transmission) 表示帧的结束。  </p>
+<p><code>透明传输:</code>字节填充或字符填充.发送端的数据链路层在数据中出现控制字符“SOH”或“EOT”的前面插入一个转义字符“ESC”(其十六进制编码是1B)。接收端的数据链路层在将数据送往网络层之前删除插入的转义字符。<br>如果转义字符也出现在数据当中，那么应在转义字符前面插入一个转义字符 ESC。当接收端收到连续的两个转义字符时，就删除其中前面的一个。<br>透明:指某一个实际存在的事物看起来却好像不存在一样.在数据链路层透明传送数据”表示无论发送什么样的比特组合的数据，这些数据都能够按照原样没有差错地通过这个数据链路层</p>
+<p><code>差错控制:</code> 在数据链路层传送的帧中，广泛使用了<code>循环冗余检验 CRC </code>的检错技术。传输错误的比特占所传输比特总数的比率称为误码率 BER (Bit Error Rate)误码率与信噪比有很大的关系。为了保证数据传输的可靠性，在计算机网络传输数据时，必须采用各种差错检测措施。</p>
+<p>数据后面添加上的冗余码称为<code>帧检验序列 FCS</code> (Frame Check Sequence)。  </p>
+<p>仅用循环冗余检验 CRC 差错检测技术只能做到无差错接受 (accept)<br>单纯使用 CRC 差错检测技术不能实现“无差错传输”或“可靠传输”。“无比特差错”与“无传输差错”是不同的概念,在数据链路层使用 CRC 检验，能够实现无比特差错的传输，但这还不是可靠传输。要做到“无差错传输”（即发送什么就收到什么）就必须再加上确认和重传机制。</p>
+<h1 id="点对点协议-PPP"><a href="#点对点协议-PPP" class="headerlink" title="点对点协议 PPP"></a>点对点协议 PPP</h1><h2 id="PPP-协议的特点"><a href="#PPP-协议的特点" class="headerlink" title="PPP 协议的特点"></a>PPP 协议的特点</h2><p>对于点对点的链路，目前使用得最广泛的数据链路层协议是点对点协议 PPP (Point-to-Point Protocol)。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>简单 —— 这是首要的要求。</li>
+<li>封装成帧 —— 必须规定特殊的字符作为帧定界符。</li>
+<li>透明性 —— 必须保证数据传输的透明性。</li>
+<li>多种网络层协议 —— 能够在同一条物理链路上同时支持多种网络层协议。</li>
+<li>多种类型链路 —— 能够在多种类型的链路上运行。</li>
+<li>差错检测 —— 能够对接收端收到的帧进行检测，并立即丢弃有差错的帧。</li>
+<li>检测连接状态 —— 能够及时自动检测出链路是否处于正常工作状态。</li>
+<li>最大传送单元 —— 必须对每一种类型的点对点链路设置最大传送单元  MTU 的标准默认值，促进各种实现之间的互操作性。</li>
+<li>网络层地址协商 —— 必须提供一种机制使通信的两个网络层实体能够通过协商知道或能够配置彼此的网络层地址。</li>
+<li>数据压缩协商 —— 必须提供一种方法来协商使用数据压缩算法。</li>
+</ul>
+<h3 id="PPP-协议不需要的功能"><a href="#PPP-协议不需要的功能" class="headerlink" title="PPP 协议不需要的功能"></a>PPP 协议不需要的功能</h3><p>纠错<br>流量控制<br>序号<br>多点线路<br>半双工或单工链路 </p>
+<h3 id="PPP-协议的组成"><a href="#PPP-协议的组成" class="headerlink" title="PPP 协议的组成"></a>PPP 协议的组成</h3><ol>
+<li>一个将 IP 数据报封装到串行链路的方法。</li>
+<li>链路控制协议 LCP (Link Control Protocol)。</li>
+<li>网络控制协议 NCP (Network Control Protocol)。 </li>
+</ol>
+<h2 id="PPP-协议的帧格式"><a href="#PPP-协议的帧格式" class="headerlink" title="PPP 协议的帧格式"></a>PPP 协议的帧格式</h2><p>PPP 是面向字节的，所有的 PPP 帧的长度都是整数字节。<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/ppp%E5%B8%A7%E6%A0%BC%E5%BC%8F.png" alt="ppp帧格式"></p>
+<h3 id="透明传输问题"><a href="#透明传输问题" class="headerlink" title="透明传输问题"></a>透明传输问题</h3><p>当 PPP 用在异步传输时，就使用一种特殊的字符填充法。<br>当 PPP 用在同步传输链路时，协议规定采用硬件来完成比特填充</p>
+<h4 id="字符填充"><a href="#字符填充" class="headerlink" title="字符填充"></a>字符填充</h4><p> 0x7E-&gt;(0x7D, 0x5E)<br> 0x7D-&gt;(0x7D, 0x5D)<br>若信息字段中出现 ASCII 码的控制字符（即数值小于 0x20 的字符），则在该字符前面要加入一个 0x7D 字节，同时将该字符的编码加以改变。 </p>
+<h4 id="零比特填充"><a href="#零比特填充" class="headerlink" title="零比特填充"></a>零比特填充</h4><p> 5 个连续 1，则立即填入一个 0</p>
+<h3 id="不提供使用序号和确认的可靠传输"><a href="#不提供使用序号和确认的可靠传输" class="headerlink" title="不提供使用序号和确认的可靠传输"></a>不提供使用序号和确认的可靠传输</h3><ol>
+<li>在数据链路层出现差错的概率不大时，使用比较简单的 PPP 协议较为合理。</li>
+<li>在因特网环境下，PPP 的信息字段放入的数据是 IP  数据报。数据链路层的可靠传输并不能够保证网络层的传输也是可靠的。</li>
+<li>帧检验序列 FCS 字段可保证无差错接受。<h2 id="PPP-协议的工作状态"><a href="#PPP-协议的工作状态" class="headerlink" title="PPP 协议的工作状态"></a>PPP 协议的工作状态</h2>PPP 协议已不是纯粹的数据链路层的协议，它还包含了物理层和网络层的内容<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/ppp%E5%8D%8F%E8%AE%AE%E7%8A%B6%E6%80%81%E5%9B%BE.png" alt="ppp协议状态图"><h1 id="用广播信道的数据链路层"><a href="#用广播信道的数据链路层" class="headerlink" title="用广播信道的数据链路层"></a>用广播信道的数据链路层</h1><h2 id="局域网的数据链路层"><a href="#局域网的数据链路层" class="headerlink" title="局域网的数据链路层"></a>局域网的数据链路层</h2><h3 id="局域网特点"><a href="#局域网特点" class="headerlink" title="局域网特点"></a>局域网特点</h3></li>
+<li>网络为一个单位所拥有；</li>
+<li>地理范围和站点数目均有限；<h3 id="局域网优点"><a href="#局域网优点" class="headerlink" title="局域网优点"></a>局域网优点</h3></li>
+<li>具有广播功能，从一个站点可很方便地访问全网。局域网上的主机可共享连接在局域网上的各种硬件和软件资源。 </li>
+<li>便于系统的扩展和逐渐地演变，各设备的位置可灵活调整和改变。</li>
+<li>提高了系统的可靠性、可用性和残存性。<h3 id="局域网拓扑结构"><a href="#局域网拓扑结构" class="headerlink" title="局域网拓扑结构"></a>局域网拓扑结构</h3>星形网，总线网，环形网<h3 id="媒体共享技术"><a href="#媒体共享技术" class="headerlink" title="媒体共享技术"></a>媒体共享技术</h3>静态划分信道：频分复用，时分复用，波分复用，码分复用<br>动态媒体接入控制（多点接入）：随机接入和控接入 ，如多点线路探询 (polling)，或轮询。<h3 id="以太网的两个标准"><a href="#以太网的两个标准" class="headerlink" title="以太网的两个标准"></a>以太网的两个标准</h3>DIX Ethernet V2 是世界上第一个局域网产品（以太网）的规约。<br>IEEE 802.3 是第一个 IEEE 的以太网标准。<br>DIX Ethernet V2 标准与 IEEE 的 802.3 标准只有很小的差别，因此可以将 802.3 局域网简称为“以太网”。<br>严格说来，“以太网”应当是指符合 DIX Ethernet V2 标准的局域网 。 <h3 id="数据链路层的两个子层"><a href="#数据链路层的两个子层" class="headerlink" title="数据链路层的两个子层"></a>数据链路层的两个子层</h3>逻辑链路控制 LLC (Logical Link Control)子层；<br>媒体接入控制 MAC (Medium Access Control)子层；<br>为了使数据链路层能更好地适应多种局域网标准，IEEE 802 委员会就将局域网的数据链路层拆成两个子层<br>与接入到传输媒体有关的内容都放在 MAC子层，而 LLC 子层则与传输媒体无关。<br>不管采用何种协议的局域网，对 LLC 子层来说都是透明的。LLC 子层看不见下面的局域网</li>
+</ol>
+<p>现在一般不考虑 LLC 子层，很多厂商生产的适配器上就仅装有 MAC 协议而没有 LLC 协议。 </p>
+<h3 id="适配器（网卡）"><a href="#适配器（网卡）" class="headerlink" title="适配器（网卡）"></a>适配器（网卡）</h3><p>作用：</p>
+<ol>
+<li>进行串行/并行转换。</li>
+<li>对数据进行缓存。</li>
+<li>在计算机的操作系统安装设备驱动程序。</li>
+<li>实现以太网协议。<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/%E7%BD%91%E5%8D%A1.png" alt="网卡作用"></li>
+</ol>
+<h3 id="以太网采取的两种重要的措施"><a href="#以太网采取的两种重要的措施" class="headerlink" title="以太网采取的两种重要的措施"></a>以太网采取的两种重要的措施</h3><ol>
+<li>采用较为灵活的无连接的工作方式   <ul>
+<li>不必先建立连接就可以直接发送数据。</li>
+<li>对发送的数据帧不进行编号，也不要求对方发回确认。<br>这样做的理由是局域网信道的质量很好，因信道质量产生差错的概率是很小的。</li>
+<li>以太网提供的服务是不可靠的交付，即尽最大努力的交付。</li>
+<li>当目的站收到有差错的数据帧时就丢弃此帧，其他什么也不做。差错的纠正由高层来决定。</li>
+<li>如果高层发现丢失了一些数据而进行重传，但以太网并不知道这是一个重传的帧，而是当作一个新的数据帧来发送。</li>
+</ul>
+</li>
+<li>以太网发送的数据都使用曼彻斯特 (Manchester) 编码<br>曼彻斯特编码缺点是：它所占的频带宽度比原始的基带信号增加了一倍。</li>
+</ol>
+<h2 id="CSMA-CD-协议"><a href="#CSMA-CD-协议" class="headerlink" title="CSMA/CD 协议"></a>CSMA/CD 协议</h2><p>CSMA/CD 含义：载波监听多点接入 / 碰撞检测  (Carrier Sense Multiple Access with Collision Detection) 。<br>CSMA/CD 协议工作流程<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/CSMACD%20%E5%8D%8F%E8%AE%AE%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png" alt="CSMA/CD 协议工作流程"></p>
+<h3 id="争用期"><a href="#争用期" class="headerlink" title="争用期"></a>争用期</h3><ul>
+<li>最先发送数据帧的站，在发送数据帧后至多经过时间 2 （两倍的端到端往返时延）就可知道发送的数据帧是否遭受了碰撞。</li>
+<li>以太网的端到端往返时延 2  称为争用期，或碰撞窗口。</li>
+<li>经过争用期这段时间还没有检测到碰撞，才能肯定这次发送不会发生碰撞。<h3 id="二进制指数类型退避算法"><a href="#二进制指数类型退避算法" class="headerlink" title="二进制指数类型退避算法"></a>二进制指数类型退避算法</h3>发生碰撞的站在停止发送数据后，要推迟（退避）一个随机时间才能再发送数据。</li>
+</ul>
+<ol>
+<li>基本退避时间取为争用期 2  。</li>
+<li>从整数集合 [0, 1, … , (2k - 1)] 中随机地取出一个数，记为 r。重传所需的时延就是 r 倍的基本退避时间。</li>
+<li>参数 k 按下面的公式计算：<br>k = Min[重传次数, 10]</li>
+<li>当 k ≤10 时，参数 k 等于重传次数。</li>
+<li>当重传达 16 次仍不能成功时即丢弃该帧，并向高层报告。  <h3 id="10-Mbit-s-以太网争用期的长度"><a href="#10-Mbit-s-以太网争用期的长度" class="headerlink" title="10 Mbit/s 以太网争用期的长度"></a>10 Mbit/s 以太网争用期的长度</h3></li>
+</ol>
+<ul>
+<li>10 Mbit/s 以太网取 51.2 s 为争用期的长度。</li>
+<li>对于 10 Mbit/s 以太网，在争用期内可发送 512 bit，即 64 字节。  </li>
+</ul>
+<p>这意味着：<br>以太网在发送数据时，若前 64 字节没有发生冲突，则后续的数据就不会发生冲突。</p>
+<p>以太网规定了最短有效帧长为 64 字节，凡长度小于 64 字节的帧都是由于冲突而异常中止的无效帧。</p>
+<p>在 10 Mbit/s 以太网 51.2 μs 的争用期内，信号能传输多远的距离？<br>以太网上最大的端到端单程时延必须小于争用期的一半（即 25.6 μs），这相当于以太网的最大端到端长度约为 5 km。</p>
+<ul>
+<li>使用 CSMA/CD 协议的以太网不能进行全双工通信而只能进行双向交替通信（半双工通信）。</li>
+<li>每个站在发送数据之后的一小段时间内，存在着遭遇碰撞的可能性。 </li>
+<li>这种发送的不确定性使整个以太网的平均通信量远小于以太网的最高数据率。<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/csma.png" alt="csma"><h2 id="使用集线器的星形拓扑"><a href="#使用集线器的星形拓扑" class="headerlink" title="使用集线器的星形拓扑"></a>使用集线器的星形拓扑</h2></li>
+<li>传统以太网最初是使用粗同轴电缆，后来演进到使用比较便宜的细同轴电缆，最后发展为使用更便宜和更灵活的双绞线。</li>
+<li>采用双绞线的以太网采用星形拓扑，在星形的中心则增加了一种可靠性非常高的设备，叫做集线器 (hub)。  </li>
+</ul>
+<p>传统以太网使用同轴电缆，采用总线形拓扑结构</p>
+<h3 id="星形以太网-10BASE-T"><a href="#星形以太网-10BASE-T" class="headerlink" title="星形以太网 10BASE-T"></a>星形以太网 10BASE-T</h3><ul>
+<li>使用无屏蔽双绞线，采用星形拓扑。</li>
+<li>每个站需要用两对双绞线，分别用于发送和接收。</li>
+<li>双绞线的两端使用 RJ-45 插头。</li>
+<li>集线器使用了大规模集成电路芯片，因此集线器的可靠性提高。 </li>
+<li>10BASE-T 的通信距离稍短，每个站到集线器的距离不超过 100m。</li>
+</ul>
+<p>这种 10 Mbit/s 速率的无屏蔽双绞线星形网的出现，既降低了成本，又提高了可靠性。 具有很高的性价比。<br>从此以太网的拓扑就从总线形变为更加方便的星形网络，而以太网也就在局域网中占据了统治地位。</p>
+<h3 id="集线器特点"><a href="#集线器特点" class="headerlink" title="集线器特点"></a>集线器特点</h3><ul>
+<li>集线器是使用电子器件来模拟实际电缆线的工作，因此整个系统仍然像一个传统的以太网那样运行。 </li>
+<li>使用集线器的以太网在逻辑上仍是一个总线网，各工作站使用的还是 CSMA/CD 协议，并共享逻辑上的总线。 </li>
+<li>集线器很像一个多接口的转发器，工作在物理层。</li>
+<li>集线器采用了专门的芯片，进行自适应串音回波抵消，减少了近端串音。</li>
+</ul>
+<h2 id="以太网的信道利用率"><a href="#以太网的信道利用率" class="headerlink" title="以太网的信道利用率"></a>以太网的信道利用率</h2><p><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/%E4%BF%A1%E9%81%93%E5%88%A9%E7%94%A8%E7%8E%87.png" alt="信道利用率"></p>
+<h2 id="以太网的-MAC-层"><a href="#以太网的-MAC-层" class="headerlink" title="以太网的 MAC 层"></a>以太网的 MAC 层</h2><ol>
+<li>MAC 层的硬件地址<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/mac%E5%B1%82%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%9C%B0%E5%9D%80.png" alt="MAC 层的硬件地址"><br>生产适配器时，6 字节的 MAC 地址已被固化在适配器的 ROM，因此，MAC 地址也叫做硬件地址 (hardware address) 或物理地址。</li>
+<li>MAC 帧的格式<br>常用的以太网 MAC 帧格式有两种标准：<br>DIX Ethernet V2 标准<br>IEEE 的 802.3 标准<br>最常用的 MAC 帧是以太网 V2 的格式。<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/%E4%BB%A5%E5%A4%AA%E7%BD%91%20V2%20%E7%9A%84%20MAC%20%E5%B8%A7%E6%A0%BC%E5%BC%8F.png" alt="以太网V2的MAC帧格式">    </li>
+</ol>
+<p>无效的 MAC 帧</p>
+<ul>
+<li>数据字段的长度与长度字段的值不一致；</li>
+<li>帧的长度不是整数个字节；</li>
+<li>用收到的帧检验序列 FCS 查出有差错；</li>
+<li>数据字段的长度不在 46 ~ 1500 字节之间。</li>
+<li>有效的 MAC 帧长度为 64 ~ 1518 字节之间</li>
+</ul>
+<p>帧间最小间隔</p>
+<ul>
+<li>帧间最小间隔为 9.6 us，相当于 96 bit 的发送时间。</li>
+<li>一个站在检测到总线开始空闲后，还要等待 9.6 us 才能再次发送数据。</li>
+<li>这样做是为了使刚刚收到数据帧的站的接收缓存来得及清理，做好接收下一帧的准备。 </li>
+</ul>
+<h1 id="扩展的以太网"><a href="#扩展的以太网" class="headerlink" title="扩展的以太网"></a>扩展的以太网</h1><h2 id="在物理层扩展以太网"><a href="#在物理层扩展以太网" class="headerlink" title="在物理层扩展以太网"></a>在物理层扩展以太网</h2><ul>
+<li>使用光纤扩展   <ol>
+<li>主机使用光纤（通常是一对光纤）和一对光纤调制解调器连接到集线器。 </li>
+<li>很容易使主机和几公里以外的集线器相连接。</li>
+</ol>
+</li>
+<li>使用集线器扩展   <ol>
+<li>将多个以太网段连成更大的、多级星形结构的以太网。</li>
+<li><code>优点</code>:使原来属于不同碰撞域的以太网上的计算机能够进行跨碰撞域的通信。扩大了以太网覆盖的地理范围。</li>
+<li><code>缺点</code>:碰撞域增大了，但总的吞吐量并未提高。如果不同的碰撞域使用不同的数据率，那么就不能用集线器将它们互连起来。 <h2 id="网桥与以太网交换机"><a href="#网桥与以太网交换机" class="headerlink" title="网桥与以太网交换机"></a>网桥与以太网交换机</h2>网桥</li>
+</ol>
+</li>
+<li>网桥工作在数据链路层。</li>
+<li>它根据 MAC 帧的目的地址对收到的帧进行转发和过滤。</li>
+<li>当网桥收到一个帧时，并不是向所有的接口转发此帧，而是先检查此帧的目的 MAC 地址，然后再确定将该帧转发到哪一个接口，或把它丢弃。   </li>
+</ul>
+<p>以太网交换机</p>
+<ul>
+<li>1990 年问世的交换式集线器 (switching hub) 可明显地提高以太网的性能。</li>
+<li>交换式集线器常称为以太网交换机 (switch) 或第二层交换机 (L2 switch)，强调这种交换机工作在数据链路层。</li>
+<li>以太网交换机实质上就是一个多接口的网桥。</li>
+<li>每个接口都直接与一个单台主机或另一个以太网交换机相连，并且一般都工作在全双工方式。</li>
+<li>以太网交换机具有并行性。</li>
+</ul>
+<h2 id="在数据链路层扩展以太网"><a href="#在数据链路层扩展以太网" class="headerlink" title="在数据链路层扩展以太网"></a>在数据链路层扩展以太网</h2><p>以太网交换机的每个接口是一个碰撞域<br>以太网交换机的接口有存储器，能在输出端口繁忙时把到来的帧进行缓存。<br>以太网交换机是一种即插即用设备，其内部的帧交换表（又称为地址表）是通过<code>自学习算法</code>自动地逐渐建立起来的。<br>以太网交换机使用了专用的交换结构芯片，用硬件转发，其转发速率要比使用软件转发的网桥快很多。<br>以太网交换机的性能远远超过普通的集线器，而且价格并不贵。</p>
+<p>以太网交换机的交换方式<br>存储转发方式<br>直通 (cut-through) 方式(提高了帧的转发速度。它不检查差错就直接将帧转发出去，因此有可能也将一些无效帧转发给其他的站。)</p>
+<h2 id="虚拟局域网"><a href="#虚拟局域网" class="headerlink" title="虚拟局域网"></a>虚拟局域网</h2><p>虚拟局域网其实只是局域网给用户提供的一种服务，而并不是一种新型局域网。<br>由于虚拟局域网是用户和网络资源的逻辑组合，因此可按照需要将有关设备和资源非常方便地重新组合，使用户从不同的服务器或数据库中存取所需的资源。<br>虚拟局域网（VLAN）技术具有以下主要优点：    </p>
+<ul>
+<li>改善了性能</li>
+<li>简化了管理</li>
+<li>降低了成本</li>
+<li>改善了安全性</li>
+</ul>
+<p>划分虚拟局域网的方法:</p>
+<ul>
+<li>基于交换机端口</li>
+<li>基于计算机网卡的MAC地址</li>
+<li>基于协议类型</li>
+<li>基于IP子网地址</li>
+<li>基于高层应用或服务</li>
+</ul>
+<h1 id="高速以太网"><a href="#高速以太网" class="headerlink" title="高速以太网"></a>高速以太网</h1><p>吉比特以太网工作在半双工方式时，就必须进行碰撞检测。<br>为保持 64 字节最小帧长度，以及 100 米的网段的最大长度，吉比特以太网增加了两个功能：</p>
+<ul>
+<li><p>载波延伸 (carrier extension)<br>使最短帧长仍为 64 字节（这样可以保持兼容性），同时将争用时间增大为 512 字节。<br>凡发送的 MAC 帧长不足 512 字节时，就用一些特殊字符填充在帧的后面，使MAC 帧的发送长度增大到 512 字节。接收端在收到以太网的 MAC 帧<br>后，要将所填充的特殊字符删除后才向高层交付。</p>
+</li>
+<li><p>分组突发 (packet bursting)<br>当很多短帧要发送时，第一个短帧要采用载波延伸方法进行填充，随后的一些短帧则可一个接一个地发送，只需留有必要的帧间最小间隔即可。这样就形成可一串分组的突发，直到达到 1500 字节或稍多一些为止</p>
+</li>
+</ul>
+<p>吉比特以太网工作在全双工方式时（即通信双方可同时进行发送和接收数据），不使用载波延伸和分组突发</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/07/26/networks/3/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-07-26 12:03:35
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/networks/" title="networks">
+                        <b>#</b> networks
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络">
+                        <b>#</b> 计算机网络
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/07/26/networks/1/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%82%B9%E5%AF%B9%E7%82%B9%E4%BF%A1%E9%81%93%E7%9A%84%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-text">使用点对点信道的数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%92%8C%E5%B8%A7"><span class="toc-text">数据链路和帧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98"><span class="toc-text">三个基本问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%82%B9%E5%AF%B9%E7%82%B9%E5%8D%8F%E8%AE%AE-PPP"><span class="toc-text">点对点协议 PPP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PPP-%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">PPP 协议的特点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PPP-%E5%8D%8F%E8%AE%AE%E4%B8%8D%E9%9C%80%E8%A6%81%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-text">PPP 协议不需要的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PPP-%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-text">PPP 协议的组成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PPP-%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%B8%A7%E6%A0%BC%E5%BC%8F"><span class="toc-text">PPP 协议的帧格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%8F%E6%98%8E%E4%BC%A0%E8%BE%93%E9%97%AE%E9%A2%98"><span class="toc-text">透明传输问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E5%A1%AB%E5%85%85"><span class="toc-text">字符填充</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%B6%E6%AF%94%E7%89%B9%E5%A1%AB%E5%85%85"><span class="toc-text">零比特填充</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E6%8F%90%E4%BE%9B%E4%BD%BF%E7%94%A8%E5%BA%8F%E5%8F%B7%E5%92%8C%E7%A1%AE%E8%AE%A4%E7%9A%84%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93"><span class="toc-text">不提供使用序号和确认的可靠传输</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PPP-%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81"><span class="toc-text">PPP 协议的工作状态</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8%E5%B9%BF%E6%92%AD%E4%BF%A1%E9%81%93%E7%9A%84%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-text">用广播信道的数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9A%84%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-text">局域网的数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E7%89%B9%E7%82%B9"><span class="toc-text">局域网特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BC%98%E7%82%B9"><span class="toc-text">局域网优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84"><span class="toc-text">局域网拓扑结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E5%85%B1%E4%BA%AB%E6%8A%80%E6%9C%AF"><span class="toc-text">媒体共享技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%A0%87%E5%87%86"><span class="toc-text">以太网的两个标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%AD%90%E5%B1%82"><span class="toc-text">数据链路层的两个子层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%82%E9%85%8D%E5%99%A8%EF%BC%88%E7%BD%91%E5%8D%A1%EF%BC%89"><span class="toc-text">适配器（网卡）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E9%87%87%E5%8F%96%E7%9A%84%E4%B8%A4%E7%A7%8D%E9%87%8D%E8%A6%81%E7%9A%84%E6%8E%AA%E6%96%BD"><span class="toc-text">以太网采取的两种重要的措施</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSMA-CD-%E5%8D%8F%E8%AE%AE"><span class="toc-text">CSMA&#x2F;CD 协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%89%E7%94%A8%E6%9C%9F"><span class="toc-text">争用期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E7%B1%BB%E5%9E%8B%E9%80%80%E9%81%BF%E7%AE%97%E6%B3%95"><span class="toc-text">二进制指数类型退避算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-Mbit-s-%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%89%E7%94%A8%E6%9C%9F%E7%9A%84%E9%95%BF%E5%BA%A6"><span class="toc-text">10 Mbit&#x2F;s 以太网争用期的长度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%9B%86%E7%BA%BF%E5%99%A8%E7%9A%84%E6%98%9F%E5%BD%A2%E6%8B%93%E6%89%91"><span class="toc-text">使用集线器的星形拓扑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%9F%E5%BD%A2%E4%BB%A5%E5%A4%AA%E7%BD%91-10BASE-T"><span class="toc-text">星形以太网 10BASE-T</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E7%BA%BF%E5%99%A8%E7%89%B9%E7%82%B9"><span class="toc-text">集线器特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E7%9A%84%E4%BF%A1%E9%81%93%E5%88%A9%E7%94%A8%E7%8E%87"><span class="toc-text">以太网的信道利用率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E7%9A%84-MAC-%E5%B1%82"><span class="toc-text">以太网的 MAC 层</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E7%9A%84%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-text">扩展的以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E7%89%A9%E7%90%86%E5%B1%82%E6%89%A9%E5%B1%95%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-text">在物理层扩展以太网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E6%A1%A5%E4%B8%8E%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-text">网桥与以太网交换机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E6%89%A9%E5%B1%95%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-text">在数据链路层扩展以太网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-text">虚拟局域网</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%AB%98%E9%80%9F%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-text">高速以太网</span></a></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/Sellun">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" target="_blank" rel="noopener" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=GCksLSwrKS0vLixYaWk2e3d1">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" target="_blank" rel="noopener" href="https://gitee.com/aqeb/cnblog/raw/master/wechat.jpg">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://sellun.github.io/">Copyright © Sellun 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  </body>
+</html>
