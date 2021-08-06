@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Sellun</title>
+  <icon>http://example.com/icon.png</icon>
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2021-08-05T05:18:30.623Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>Sellun</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>1856. 子数组最小乘积的最大值</title>
+    <link href="http://example.com/2021/08/05/leetcode/1856/"/>
+    <id>http://example.com/2021/08/05/leetcode/1856/</id>
+    <published>2021-08-05T09:47:35.000Z</published>
+    <updated>2021-08-05T05:18:30.623Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;ol start=&quot;1856&quot;&gt;
+&lt;li&gt;子数组最小乘积的最大值&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;一个数组的 最小乘积 定义为这个数组中 最小值</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>316. 去除重复字母</title>
+    <link href="http://example.com/2021/08/04/leetcode/316/"/>
+    <id>http://example.com/2021/08/04/leetcode/316/</id>
+    <published>2021-08-04T11:47:35.000Z</published>
+    <updated>2021-08-06T04:18:00.082Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+    <category term="单调栈" scheme="http://example.com/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>581. 最短无序连续子数组</title>
+    <link href="http://example.com/2021/08/04/leetcode/581/"/>
+    <id>http://example.com/2021/08/04/leetcode/581/</id>
+    <published>2021-08-04T09:57:35.000Z</published>
+    <updated>2021-08-04T07:41:54.272Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>91. 股票价格跨度</title>
+    <link href="http://example.com/2021/08/04/leetcode/91/"/>
+    <id>http://example.com/2021/08/04/leetcode/91/</id>
+    <published>2021-08-04T09:47:35.000Z</published>
+    <updated>2021-08-06T04:17:50.870Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;编写一个 StockSpanner</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+    <category term="单调栈" scheme="http://example.com/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>84. 柱状图中最大的矩形</title>
+    <link href="http://example.com/2021/08/03/leetcode/84/"/>
+    <id>http://example.com/2021/08/03/leetcode/84/</id>
+    <published>2021-08-03T07:47:35.000Z</published>
+    <updated>2021-08-06T04:17:53.270Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+    <category term="单调栈" scheme="http://example.com/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试题 17.21. 直方图的水量</title>
+    <link href="http://example.com/2021/08/02/leetcode/%E9%9D%A2%E8%AF%95%E9%A2%98%2017.21.%20%E7%9B%B4%E6%96%B9%E5%9B%BE%E7%9A%84%E6%B0%B4%E9%87%8F/"/>
+    <id>http://example.com/2021/08/02/leetcode/%E9%9D%A2%E8%AF%95%E9%A2%98%2017.21.%20%E7%9B%B4%E6%96%B9%E5%9B%BE%E7%9A%84%E6%B0%B4%E9%87%8F/</id>
+    <published>2021-08-02T09:47:35.000Z</published>
+    <updated>2021-08-03T07:59:16.688Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java多线程</title>
+    <link href="http://example.com/2021/08/01/java/java_thread/"/>
+    <id>http://example.com/2021/08/01/java/java_thread/</id>
+    <published>2021-08-01T05:03:35.000Z</published>
+    <updated>2021-08-02T03:12:33.141Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Thread&quot;&gt;&lt;a href=&quot;#Thread&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="http://example.com/categories/java/"/>
+    
+    
+    <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java常用实例</title>
+    <link href="http://example.com/2021/07/31/java/java_ofen_using_example/"/>
+    <id>http://example.com/2021/07/31/java/java_ofen_using_example/</id>
+    <published>2021-07-31T03:03:35.000Z</published>
+    <updated>2021-08-02T03:40:57.388Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.runoob.com/java/java-examples.html&quot;&gt;参考资料&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;字符串&quot;&gt;&lt;a href=&quot;#字符串&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="http://example.com/categories/java/"/>
+    
+    
+    <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>1850. 邻位交换的最小次数</title>
+    <link href="http://example.com/2021/07/30/leetcode/1850/"/>
+    <id>http://example.com/2021/07/30/leetcode/1850/</id>
+    <published>2021-07-30T15:05:35.000Z</published>
+    <updated>2021-07-30T15:15:15.558Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>31. 下一个排列</title>
+    <link href="http://example.com/2021/07/30/leetcode/31/"/>
+    <id>http://example.com/2021/07/30/leetcode/31/</id>
+    <published>2021-07-30T09:47:35.000Z</published>
+    <updated>2021-07-30T13:10:08.589Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/next-permutation&quot;&gt; 31.</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+    <category term="经典" scheme="http://example.com/tags/%E7%BB%8F%E5%85%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>1849. 将字符串拆分为递减的连续值</title>
+    <link href="http://example.com/2021/07/30/leetcode/1849/"/>
+    <id>http://example.com/2021/07/30/leetcode/1849/</id>
+    <published>2021-07-30T07:47:35.000Z</published>
+    <updated>2021-07-31T02:09:27.084Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+    <category term="dfs" scheme="http://example.com/tags/dfs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>1937. 扣分后的最大得分</title>
+    <link href="http://example.com/2021/07/30/leetcode/1937/"/>
+    <id>http://example.com/2021/07/30/leetcode/1937/</id>
+    <published>2021-07-30T07:47:35.000Z</published>
+    <updated>2021-07-30T08:38:59.834Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+    <category term="动态规划" scheme="http://example.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java时间日期相关</title>
+    <link href="http://example.com/2021/07/28/java/java_time_format/"/>
+    <id>http://example.com/2021/07/28/java/java_time_format/</id>
+    <published>2021-07-28T09:03:35.000Z</published>
+    <updated>2021-07-30T08:14:07.987Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;格式化&quot;&gt;&lt;a href=&quot;#格式化&quot; class=&quot;headerlink&quot; title=&quot;格式化&quot;&gt;&lt;/a&gt;格式化&lt;/h1&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="http://example.com/categories/java/"/>
+    
+    
+    <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java面向对象</title>
+    <link href="http://example.com/2021/07/28/java/java_face_basis/"/>
+    <id>http://example.com/2021/07/28/java/java_face_basis/</id>
+    <published>2021-07-28T04:03:35.000Z</published>
+    <updated>2021-07-30T08:13:54.331Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;面向对象是一种对现实世界理解和抽象的方法，万事万物皆为对象&lt;br&gt;达到了软件工程的三个主要目标：&lt;code&gt;可重用性、灵活性和扩展性&lt;/code&gt;&lt;br&gt;在Java语言中，编程的基本单位是类，类可以实例化成多个对象。面向&lt;br&gt;对象的概念包括：封装、继承、多态、类和对象、接</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="http://example.com/categories/java/"/>
+    
+    
+    <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux软件安装</title>
+    <link href="http://example.com/2021/07/27/linux/install_software/"/>
+    <id>http://example.com/2021/07/27/linux/install_software/</id>
+    <published>2021-07-27T11:18:35.000Z</published>
+    <updated>2021-07-27T12:10:27.985Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;源码安装&quot;&gt;&lt;a href=&quot;#源码安装&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://example.com/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://example.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux环境变量</title>
+    <link href="http://example.com/2021/07/27/linux/add_env_path/"/>
+    <id>http://example.com/2021/07/27/linux/add_env_path/</id>
+    <published>2021-07-27T11:03:35.000Z</published>
+    <updated>2021-07-27T11:18:50.307Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;临时&quot;&gt;&lt;a href=&quot;#临时&quot; class=&quot;headerlink&quot; title=&quot;临时&quot;&gt;&lt;/a&gt;临时&lt;/h1&gt;&lt;p&gt;XXX 表示所配置环境变量的路径&lt;br&gt;&lt;code&gt;export PATH=XXX:$PATH&lt;/code&gt;&lt;/p&gt;
+&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://example.com/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://example.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux基本指令</title>
+    <link href="http://example.com/2021/07/27/linux/linux1/"/>
+    <id>http://example.com/2021/07/27/linux/linux1/</id>
+    <published>2021-07-27T07:47:35.000Z</published>
+    <updated>2021-07-27T07:57:26.237Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;基础指令&quot;&gt;&lt;a href=&quot;#基础指令&quot; class=&quot;headerlink&quot; title=&quot;基础指令&quot;&gt;&lt;/a&gt;基础指令&lt;/h1&gt;&lt;h2 id=&quot;ls&quot;&gt;&lt;a href=&quot;#ls&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="little_thing" scheme="http://example.com/categories/little-thing/"/>
+    
+    
+    <category term="linux" scheme="http://example.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法课题小结</title>
+    <link href="http://example.com/2021/07/27/little_thing/algorithm/"/>
+    <id>http://example.com/2021/07/27/little_thing/algorithm/</id>
+    <published>2021-07-27T07:47:35.000Z</published>
+    <updated>2021-07-27T07:55:08.488Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;无线传感网络&quot;&gt;&lt;a href=&quot;#无线传感网络&quot; class=&quot;headerlink&quot; title=&quot;无线传感网络&quot;&gt;&lt;/a&gt;无线传感网络&lt;/h1&gt;&lt;h2 id=&quot;粒子群算法（鸟群算法）&quot;&gt;&lt;a href=&quot;#粒子群算法（鸟群算法）&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="little_thing" scheme="http://example.com/categories/little-thing/"/>
+    
+    
+    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>c语言</title>
+    <link href="http://example.com/2021/07/27/little_thing/c_language/"/>
+    <id>http://example.com/2021/07/27/little_thing/c_language/</id>
+    <published>2021-07-27T07:47:35.000Z</published>
+    <updated>2021-07-27T07:54:57.552Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;int64&quot;&gt;&lt;a href=&quot;#int64&quot; class=&quot;headerlink&quot; title=&quot;__int64&quot;&gt;&lt;/a&gt;__int64&lt;/h1&gt;&lt;p&gt;scanf(“%I64d”, &amp;amp;x);&lt;br&gt;printf(“%I64d”,</summary>
+        
+      
+    
+    
+    
+    <category term="little_thing" scheme="http://example.com/categories/little-thing/"/>
+    
+    
+    <category term="C" scheme="http://example.com/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>markdown语法</title>
+    <link href="http://example.com/2021/07/27/little_thing/markdown/"/>
+    <id>http://example.com/2021/07/27/little_thing/markdown/</id>
+    <published>2021-07-27T07:47:35.000Z</published>
+    <updated>2021-07-27T07:54:01.372Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=&quot;标题&quot;&gt;&lt;/a&gt;标题&lt;/h1&gt;&lt;p&gt;1-6个#或 ===或 -&lt;/p&gt;
+&lt;h1 id=&quot;字体-或&quot;&gt;&lt;a href=&quot;#字体-或&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="little_thing" scheme="http://example.com/categories/little-thing/"/>
+    
+    
+    <category term="markdown" scheme="http://example.com/tags/markdown/"/>
+    
+  </entry>
+  
+</feed>
