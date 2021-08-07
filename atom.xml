@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-08-07T08:46:28.953Z</updated>
+  <updated>2021-08-07T08:59:46.862Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="http://example.com/2021/08/07/xtuoj/1040/"/>
     <id>http://example.com/2021/08/07/xtuoj/1040/</id>
     <published>2021-08-07T08:47:35.000Z</published>
-    <updated>2021-08-07T08:46:28.953Z</updated>
+    <updated>2021-08-07T08:59:46.862Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;零件&quot;&gt;&lt;a href=&quot;#零件&quot; class=&quot;headerlink&quot; title=&quot;零件&quot;&gt;&lt;/a&gt;零件&lt;/h1&gt;&lt;p&gt;Description&lt;br&gt;有一种工业零件，分成左右两半，它们的形状由’X’和空格表示的二维图形表示，比如：左半的零件形状如下：</summary>
+    <summary type="html">&lt;h1 id=&quot;零件&quot;&gt;&lt;a href=&quot;#零件&quot; class=&quot;headerlink&quot; title=&quot;零件&quot;&gt;&lt;/a&gt;零件&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
         
       
     
