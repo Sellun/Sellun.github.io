@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-08-07T08:59:46.862Z</updated>
+  <updated>2021-08-08T08:48:49.281Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最长递增子序列</title>
+    <link href="http://example.com/2021/08/08/leetcode/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/"/>
+    <id>http://example.com/2021/08/08/leetcode/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/</id>
+    <published>2021-08-08T07:47:35.000Z</published>
+    <updated>2021-08-08T08:48:49.281Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+    <category term="动态规划" scheme="http://example.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
   
   <entry>
     <title>1040. 零件</title>
@@ -505,31 +532,6 @@
     
     
     <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>c语言</title>
-    <link href="http://example.com/2021/07/27/little_thing/c_language/"/>
-    <id>http://example.com/2021/07/27/little_thing/c_language/</id>
-    <published>2021-07-27T07:47:35.000Z</published>
-    <updated>2021-08-07T08:20:00.188Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;int64&quot;&gt;&lt;a href=&quot;#int64&quot; class=&quot;headerlink&quot; title=&quot;__int64&quot;&gt;&lt;/a&gt;__int64&lt;/h1&gt;&lt;p&gt;scanf(“%I64d”, &amp;amp;x);&lt;br&gt;printf(“%I64d”,</summary>
-        
-      
-    
-    
-    
-    <category term="little_thing" scheme="http://example.com/categories/little-thing/"/>
-    
-    
-    <category term="C" scheme="http://example.com/tags/C/"/>
     
   </entry>
   
