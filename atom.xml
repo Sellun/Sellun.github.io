@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-08-08T08:48:49.281Z</updated>
+  <updated>2021-08-12T08:36:01.112Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,141 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>回文串,子序列</title>
+    <link href="http://example.com/2021/08/12/leetcode/%E5%9B%9E%E6%96%87%E4%B8%B2%E5%AD%90%E5%BA%8F%E5%88%97/"/>
+    <id>http://example.com/2021/08/12/leetcode/%E5%9B%9E%E6%96%87%E4%B8%B2%E5%AD%90%E5%BA%8F%E5%88%97/</id>
+    <published>2021-08-12T09:47:35.000Z</published>
+    <updated>2021-08-12T08:36:01.112Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;最长回文子串&quot;&gt;&lt;a href=&quot;#最长回文子串&quot; class=&quot;headerlink&quot; title=&quot;最长回文子串&quot;&gt;&lt;/a&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+    <category term="动态规划" scheme="http://example.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>等差数列</title>
+    <link href="http://example.com/2021/08/11/leetcode/%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/"/>
+    <id>http://example.com/2021/08/11/leetcode/%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/</id>
+    <published>2021-08-11T09:47:35.000Z</published>
+    <updated>2021-08-11T09:19:39.330Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;413-等差数列划分&quot;&gt;&lt;a href=&quot;#413-等差数列划分&quot; class=&quot;headerlink&quot; title=&quot;413. 等差数列划分&quot;&gt;&lt;/a&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+    <category term="动态规划" scheme="http://example.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>平衡字符串</title>
+    <link href="http://example.com/2021/08/10/leetcode/%E5%B9%B3%E8%A1%A1%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>http://example.com/2021/08/10/leetcode/%E5%B9%B3%E8%A1%A1%E5%AD%97%E7%AC%A6%E4%B8%B2/</id>
+    <published>2021-08-10T09:47:35.000Z</published>
+    <updated>2021-08-11T08:56:32.122Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+    <category term="贪心" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>丑数</title>
+    <link href="http://example.com/2021/08/09/leetcode/%E4%B8%91%E6%95%B0/"/>
+    <id>http://example.com/2021/08/09/leetcode/%E4%B8%91%E6%95%B0/</id>
+    <published>2021-08-09T09:47:35.000Z</published>
+    <updated>2021-08-11T08:51:54.470Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;丑数&quot;&gt;&lt;a href=&quot;#丑数&quot; class=&quot;headerlink&quot; title=&quot;丑数&quot;&gt;&lt;/a&gt;丑数&lt;/h1&gt;&lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+    <category term="动态规划" scheme="http://example.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>二分查找</title>
+    <link href="http://example.com/2021/08/09/little_thing/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+    <id>http://example.com/2021/08/09/little_thing/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</id>
+    <published>2021-08-09T09:47:35.000Z</published>
+    <updated>2021-08-11T09:18:17.934Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;code&gt;int middle = left + ((right - left) / 2);// 防止溢出 等同于(left + right)/2&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;第一个，最基本的二分查找算法：&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;因为我们初始化</summary>
+        
+      
+    
+    
+    
+    <category term="little_thing" scheme="http://example.com/categories/little-thing/"/>
+    
+    
+    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>最长递增子序列</title>
@@ -406,132 +541,6 @@
     
     
     <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java面向对象</title>
-    <link href="http://example.com/2021/07/28/java/java_face_basis/"/>
-    <id>http://example.com/2021/07/28/java/java_face_basis/</id>
-    <published>2021-07-28T04:03:35.000Z</published>
-    <updated>2021-07-30T08:13:54.331Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;面向对象是一种对现实世界理解和抽象的方法，万事万物皆为对象&lt;br&gt;达到了软件工程的三个主要目标：&lt;code&gt;可重用性、灵活性和扩展性&lt;/code&gt;&lt;br&gt;在Java语言中，编程的基本单位是类，类可以实例化成多个对象。面向&lt;br&gt;对象的概念包括：封装、继承、多态、类和对象、接</summary>
-        
-      
-    
-    
-    
-    <category term="java" scheme="http://example.com/categories/java/"/>
-    
-    
-    <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux软件安装</title>
-    <link href="http://example.com/2021/07/27/linux/install_software/"/>
-    <id>http://example.com/2021/07/27/linux/install_software/</id>
-    <published>2021-07-27T11:18:35.000Z</published>
-    <updated>2021-07-27T12:10:27.985Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;源码安装&quot;&gt;&lt;a href=&quot;#源码安装&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://example.com/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://example.com/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux环境变量</title>
-    <link href="http://example.com/2021/07/27/linux/add_env_path/"/>
-    <id>http://example.com/2021/07/27/linux/add_env_path/</id>
-    <published>2021-07-27T11:03:35.000Z</published>
-    <updated>2021-07-27T11:18:50.307Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;临时&quot;&gt;&lt;a href=&quot;#临时&quot; class=&quot;headerlink&quot; title=&quot;临时&quot;&gt;&lt;/a&gt;临时&lt;/h1&gt;&lt;p&gt;XXX 表示所配置环境变量的路径&lt;br&gt;&lt;code&gt;export PATH=XXX:$PATH&lt;/code&gt;&lt;/p&gt;
-&lt;h1</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://example.com/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://example.com/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux基本指令</title>
-    <link href="http://example.com/2021/07/27/linux/linux1/"/>
-    <id>http://example.com/2021/07/27/linux/linux1/</id>
-    <published>2021-07-27T07:47:35.000Z</published>
-    <updated>2021-07-27T07:57:26.237Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;基础指令&quot;&gt;&lt;a href=&quot;#基础指令&quot; class=&quot;headerlink&quot; title=&quot;基础指令&quot;&gt;&lt;/a&gt;基础指令&lt;/h1&gt;&lt;h2 id=&quot;ls&quot;&gt;&lt;a href=&quot;#ls&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="little_thing" scheme="http://example.com/categories/little-thing/"/>
-    
-    
-    <category term="linux" scheme="http://example.com/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法课题小结</title>
-    <link href="http://example.com/2021/07/27/little_thing/algorithm/"/>
-    <id>http://example.com/2021/07/27/little_thing/algorithm/</id>
-    <published>2021-07-27T07:47:35.000Z</published>
-    <updated>2021-07-27T07:55:08.488Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;无线传感网络&quot;&gt;&lt;a href=&quot;#无线传感网络&quot; class=&quot;headerlink&quot; title=&quot;无线传感网络&quot;&gt;&lt;/a&gt;无线传感网络&lt;/h1&gt;&lt;h2 id=&quot;粒子群算法（鸟群算法）&quot;&gt;&lt;a href=&quot;#粒子群算法（鸟群算法）&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="little_thing" scheme="http://example.com/categories/little-thing/"/>
-    
-    
-    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

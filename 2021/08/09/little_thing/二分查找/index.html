@@ -11,7 +11,7 @@
   
   <title>
     
-      Tag 
+      二分查找 
       
       
       |
@@ -129,19 +129,141 @@ MathJax = {
 
 
   
-  <!-- 分类页 url形式：https://yoursite/categories/ -->
-  <div class="container category-index">
-    <div>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/little-thing/">little_thing</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/networks/">networks</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hello/">hello</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/xtuoj/">xtuoj</a><span class="category-list-count">1</span></li></ul>
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">二分查找</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-08-09 17:47:35
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/little-thing/" title="little_thing">
+                    <b>#</b> little_thing
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法">
+                    <b>#</b> 算法
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <p><code>int middle = left + ((right - left) / 2);// 防止溢出 等同于(left + right)/2</code></p>
+<p><code>第一个，最基本的二分查找算法：</code></p>
+<p>因为我们初始化 right = nums.length - 1<br>所以决定了我们的「搜索区间」是 [left, right]<br>所以决定了 while (left &lt;= right)<br>同时也决定了 left = mid+1 和 right = mid-1</p>
+<p>因为我们只需找到一个 target 的索引即可<br>所以当 nums[mid] == target 时可以立即返回</p>
+<p><code>第二个，寻找左侧边界的二分查找：</code></p>
+<p>因为我们初始化 right = nums.length<br>所以决定了我们的「搜索区间」是 [left, right)<br>所以决定了 while (left &lt; right)<br>同时也决定了 left = mid+1 和 right = mid</p>
+<p>因为我们需找到 target 的最左侧索引<br>所以当 nums[mid] == target 时不要立即返回<br>而要收紧右侧边界以锁定左侧边界</p>
+<p><code>第三个，寻找右侧边界的二分查找：</code></p>
+<p>因为我们初始化 right = nums.length<br>所以决定了我们的「搜索区间」是 [left, right)<br>所以决定了 while (left &lt; right)<br>同时也决定了 left = mid+1 和 right = mid</p>
+<p>因为我们需找到 target 的最右侧索引<br>所以当 nums[mid] == target 时不要立即返回<br>而要收紧左侧边界以锁定右侧边界</p>
+<p>又因为收紧左侧边界时必须 left = mid + 1<br>所以最后无论返回 left 还是 right，必须减一</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span>[] searchRange(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">		<span class="keyword">int</span> res[] = &#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">       </span><br><span class="line">		<span class="keyword">int</span> l = <span class="number">0</span>, r = nums.length;</span><br><span class="line">        </span><br><span class="line">		res[<span class="number">0</span>] = findLeftBound(l, r, nums, target);</span><br><span class="line">		res[<span class="number">1</span>] = findRightBound(l, r, nums, target);</span><br><span class="line">		<span class="keyword">return</span> res;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">findRightBound</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">			mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span> (nums[mid] &lt;= target)</span><br><span class="line">				l = mid + <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				r = mid;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (l  == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span> nums[l - <span class="number">1</span>] == target ? l-<span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">findLeftBound</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">			mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span> (nums[mid] &gt;= target)</span><br><span class="line">				r = mid;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				l = mid + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// target 比所有数都大</span></span><br><span class="line">		<span class="keyword">if</span> (l  == nums.length) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">		<span class="comment">// 类似之前算法的处理方式</span></span><br><span class="line">		<span class="keyword">return</span> nums[l ] == target ? l  : -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/fCf5QbPDtE6SSlZ1yh_q8Q">边界问题</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/kyoner/p/11080078.html">左右边界及边界详解</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29611345/article/details/103080287">大于等于</a></p>
+<p>某人说记模板会吃亏的,嗯,吃过亏了,所以花了一个下午来补二分</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/08/08/leetcode/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-08-09 17:47:35
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/little-thing/" title="little_thing">
+                        <b>#</b> little_thing
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法">
+                        <b>#</b> 算法
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/08/09/leetcode/%E4%B8%91%E6%95%B0/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol>
     </div>
   </div>
-  
 
   
+<script src="/js/catalog.js"></script>
 
-  
 
-  
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
 
         <div class="footer">
   <div class="social">
