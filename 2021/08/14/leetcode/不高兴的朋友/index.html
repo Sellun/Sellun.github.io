@@ -11,7 +11,7 @@
   
   <title>
     
-      Tag 
+      不高兴的朋友 
       
       
       |
@@ -127,21 +127,164 @@ MathJax = {
 </script>
 
 
-  <!-- 标签页 url形式：https://yoursite/tags/ -->
-  <div class="container tag-index">
-    <div>
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/" rel="tag">dfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/" rel="tag">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/others/" rel="tag">others</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xtuoj/" rel="tag">xtuoj</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" rel="tag">单调栈</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E5%85%B8/" rel="tag">经典</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a><span class="tag-list-count">1</span></li></ul>
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">不高兴的朋友</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-08-14 17:47:35
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/leetcode/" title="leetcode">
+                    <b>#</b> leetcode
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/leetcode/" title="leetcode">
+                    <b>#</b> leetcode
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="1583-统计不开心的朋友"><a href="#1583-统计不开心的朋友" class="headerlink" title="1583. 统计不开心的朋友"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-unhappy-friends/">1583. 统计不开心的朋友</a></h1><p>给你一份 n 位朋友的亲近程度列表，其中 n 总是 偶数 。</p>
+<p>对每位朋友 i，preferences[i] 包含一份 按亲近程度从高到低排列 的朋友列表。换句话说，排在列表前面的朋友与 i 的亲近程度比排在列表后面的朋友更高。每个列表中的朋友均以 0 到 n-1 之间的整数表示。</p>
+<p>所有的朋友被分成几对，配对情况以列表 pairs 给出，其中 pairs[i] = [xi, yi] 表示 xi 与 yi 配对，且 yi 与 xi 配对。</p>
+<p>但是，这样的配对情况可能会是其中部分朋友感到不开心。在 x 与 y 配对且 u 与 v 配对的情况下，如果同时满足下述两个条件，x 就会不开心：</p>
+<p>x 与 u 的亲近程度胜过 x 与 y，且<br>u 与 x 的亲近程度胜过 u 与 v<br>返回 不开心的朋友的数目 。</p>
+<p>示例 1：</p>
+<p>输入：n = 4, preferences = [[1, 2, 3], [3, 2, 0], [3, 1, 0], [1, 2, 0]], pairs = [[0, 1], [2, 3]]<br>输出：2<br>解释：<br>朋友 1 不开心，因为：</p>
+<ul>
+<li>1 与 0 配对，但 1 与 3 的亲近程度比 1 与 0 高，且</li>
+<li>3 与 1 的亲近程度比 3 与 2 高。<br>朋友 3 不开心，因为：</li>
+<li>3 与 2 配对，但 3 与 1 的亲近程度比 3 与 2 高，且</li>
+<li>1 与 3 的亲近程度比 1 与 0 高。<br>朋友 0 和 2 都是开心的。  </li>
+</ul>
+<p>示例 2：</p>
+<p>输入：n = 2, preferences = [[1], [0]], pairs = [[1, 0]]<br>输出：0<br>解释：朋友 0 和 1 都开心。</p>
+<p>示例 3：</p>
+<p>输入：n = 4, preferences = [[1, 3, 2], [2, 3, 0], [1, 3, 0], [0, 2, 1]], pairs = [[1, 3], [0, 2]]<br>输出：4</p>
+<p>提示：</p>
+<pre><code>2 &lt;= n &lt;= 500
+n 是偶数
+preferences.length == n
+preferences[i].length == n - 1
+0 &lt;= preferences[i][j] &lt;= n - 1
+preferences[i] 不包含 i
+preferences[i] 中的所有值都是独一无二的
+pairs.length == n/2
+pairs[i].length == 2
+xi != yi
+0 &lt;= xi, yi &lt;= n - 1
+每位朋友都 恰好 被包含在一对中
+</code></pre>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>共有 nn 位朋友，每位朋友都对应一个其余 n-1n−1 位朋友的亲近程度从高到低排列的朋友列表，列表中的下标越小的朋友亲近程度越高。</p>
+<p>题目已经给出了二维数组 \textit{preferences}preferences 表示每位朋友对应的按亲近程度从高到低排列的朋友列表，但是并没有直接给出其余 n-1n−1 位朋友对应的亲近程度下标，因此需要进行预处理，存储每位朋友的其余 n-1n−1 位朋友对应的亲近程度下标。</p>
+<p>具体而言，创建 nn 行 nn 列的二维数组 \textit{order}order，其中 \textit{order}[i][j]order[i][j] 表示朋友 jj 在 ii 的朋友列表中的亲近程度下标。遍历 \textit{preferences}preferences 即可填入 \textit{order}order 中的全部元素的值。</p>
+<p>所有的朋友被分成 \frac{n}{2}<br>2<br>n<br>​<br>  对，为了快速知道每位朋友的配对的朋友，对于配对情况也需要进行预处理。创建长度为 nn 的数组 \textit{match}match，如果 xx 和 yy 配对，则有 \textit{match}[x]=ymatch[x]=y 以及 \textit{match}[y]=xmatch[y]=x。</p>
+<p>进行预处理之后，即可统计不开心的朋友的数目。</p>
+<p>作者：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-unhappy-friends/solution/tong-ji-bu-kai-xin-de-peng-you-by-leetcode-solutio/">LeetCode-Solution</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">unhappyFriends</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>[][] preferences, <span class="keyword">int</span>[][] pairs)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> [][] a=<span class="keyword">new</span> <span class="keyword">int</span>[n][n];</span><br><span class="line">    	<span class="keyword">int</span> match[]= <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;  preferences.length; i++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;  preferences[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">				a[i][preferences[i][j]]=j;<span class="comment">//预处理，值越小的亲密度越高</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span>[] i : pairs) &#123;<span class="comment">//预处理，匹配，避免后续在pairs中寻找</span></span><br><span class="line">			match[i[<span class="number">0</span>]]=i[<span class="number">1</span>];</span><br><span class="line">			match[i[<span class="number">1</span>]]=i[<span class="number">0</span>];</span><br><span class="line">		&#125;</span><br><span class="line">    	<span class="keyword">int</span> c=<span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; n; x++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> u = <span class="number">0</span>; u &lt;n; u++) &#123;</span><br><span class="line">				<span class="keyword">if</span>(u==x)</span><br><span class="line">					<span class="keyword">continue</span>;</span><br><span class="line">				<span class="keyword">if</span>(a[x][u]&lt;a[x][match[x]]&amp;&amp;a[u][x]&lt;a[u][match[u]])</span><br><span class="line">				&#123;</span><br><span class="line">					c++;<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">    	<span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h1><p>预处理,匹配</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/08/13/leetcode/%E6%95%B0%E5%AD%971%E7%9A%84%E4%B8%AA%E6%95%B0/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-08-14 17:47:35
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/leetcode/" title="leetcode">
+                        <b>#</b> leetcode
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/leetcode/" title="leetcode">
+                        <b>#</b> leetcode
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1583-%E7%BB%9F%E8%AE%A1%E4%B8%8D%E5%BC%80%E5%BF%83%E7%9A%84%E6%9C%8B%E5%8F%8B"><span class="toc-text">1583. 统计不开心的朋友</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%83%B3%E6%B3%95"><span class="toc-text">想法</span></a></li></ol>
     </div>
   </div>
-  
 
   
+<script src="/js/catalog.js"></script>
 
-  
 
-  
 
-  
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
 
         <div class="footer">
   <div class="social">

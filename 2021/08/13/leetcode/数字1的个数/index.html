@@ -11,7 +11,7 @@
   
   <title>
     
-      archive_a: 2021/8 
+      数字1的个数 
       
       
       |
@@ -110,363 +110,155 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2021</span>
-          </h2>
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">数字1的个数</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-08-13 17:47:35
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/leetcode/" title="leetcode">
+                    <b>#</b> leetcode
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/leetcode/" title="leetcode">
+                    <b>#</b> leetcode
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="233-数字-1-的个数"><a href="#233-数字-1-的个数" class="headerlink" title="233. 数字 1 的个数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-digit-one/">233. 数字 1 的个数</a></h1><p>给定一个整数 n，计算所有小于等于 n 的非负整数中数字 1 出现的个数。</p>
+<p>示例 1：</p>
+<p>输入：n = 13<br>输出：6<br>示例 2：</p>
+<p>输入：n = 0<br>输出：0</p>
+<p>提示：</p>
+<p>0 &lt;= n &lt;= 2 * 109</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p><img src="https://gitee.com/aqeb/cnblog/raw/master/leetcodeImg/1.png"></p>
+<p>注意溢出</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">countDigitOne</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">long</span> digit=<span class="number">1</span>;</span><br><span class="line">    	<span class="keyword">long</span> sum=<span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">long</span> k=n;</span><br><span class="line">    	<span class="keyword">while</span>(k&gt;<span class="number">0</span>)</span><br><span class="line">    	&#123;</span><br><span class="line">    		<span class="keyword">long</span> r=k%<span class="number">10</span>;</span><br><span class="line">    		k/=<span class="number">10</span>;</span><br><span class="line">    		<span class="keyword">if</span>(r&gt;<span class="number">1</span>)</span><br><span class="line">    			sum+=n/(digit*<span class="number">10</span>)*digit+digit;</span><br><span class="line">    		<span class="keyword">else</span> <span class="keyword">if</span>(r==<span class="number">1</span>)</span><br><span class="line">    			sum+=n/(digit*<span class="number">10</span>)*digit+n%digit+<span class="number">1</span>;</span><br><span class="line">    		<span class="keyword">else</span></span><br><span class="line">    			sum+=(n/(digit*<span class="number">10</span>)-<span class="number">1</span>)*digit+digit;</span><br><span class="line">    		<span class="keyword">if</span>(n/(digit*<span class="number">10</span>)==<span class="number">0</span>)</span><br><span class="line">    			<span class="keyword">break</span>;</span><br><span class="line">    		digit*=<span class="number">10</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">return</span> (<span class="keyword">int</span>)sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/08/12/leetcode/%E5%9B%9E%E6%96%87%E4%B8%B2%E5%AD%90%E5%BA%8F%E5%88%97/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-08-13 17:47:35
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/leetcode/" title="leetcode">
+                        <b>#</b> leetcode
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/leetcode/" title="leetcode">
+                        <b>#</b> leetcode
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/08/14/leetcode/%E4%B8%8D%E9%AB%98%E5%85%B4%E7%9A%84%E6%9C%8B%E5%8F%8B/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
       
-      <div class="post-item" title="不高兴的朋友">
-        <div class="time-m-d">08-14</div>
-        <div class="title">
-          <a href="/2021/08/14/leetcode/%E4%B8%8D%E9%AB%98%E5%85%B4%E7%9A%84%E6%9C%8B%E5%8F%8B/">
-            <span>不高兴的朋友</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="数字1的个数">
-        <div class="time-m-d">08-13</div>
-        <div class="title">
-          <a href="/2021/08/13/leetcode/%E6%95%B0%E5%AD%971%E7%9A%84%E4%B8%AA%E6%95%B0/">
-            <span>数字1的个数</span>
-          </a>
-        </div>
-      </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#233-%E6%95%B0%E5%AD%97-1-%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="toc-text">233. 数字 1 的个数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <div class="post-item" title="回文串,子序列">
-        <div class="time-m-d">08-12</div>
-        <div class="title">
-          <a href="/2021/08/12/leetcode/%E5%9B%9E%E6%96%87%E4%B8%B2%E5%AD%90%E5%BA%8F%E5%88%97/">
-            <span>回文串,子序列</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="等差数列">
-        <div class="time-m-d">08-11</div>
-        <div class="title">
-          <a href="/2021/08/11/leetcode/%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/">
-            <span>等差数列</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="平衡字符串">
-        <div class="time-m-d">08-10</div>
-        <div class="title">
-          <a href="/2021/08/10/leetcode/%E5%B9%B3%E8%A1%A1%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-            <span>平衡字符串</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="丑数">
-        <div class="time-m-d">08-09</div>
-        <div class="title">
-          <a href="/2021/08/09/leetcode/%E4%B8%91%E6%95%B0/">
-            <span>丑数</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="二分查找">
-        <div class="time-m-d">08-09</div>
-        <div class="title">
-          <a href="/2021/08/09/little_thing/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">
-            <span>二分查找</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="最长递增子序列">
-        <div class="time-m-d">08-08</div>
-        <div class="title">
-          <a href="/2021/08/08/leetcode/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">
-            <span>最长递增子序列</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="1040. 零件">
-        <div class="time-m-d">08-07</div>
-        <div class="title">
-          <a href="/2021/08/07/xtuoj/1040/">
-            <span>1040. 零件</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="1856. 子数组最小乘积的最大值">
-        <div class="time-m-d">08-05</div>
-        <div class="title">
-          <a href="/2021/08/05/leetcode/1856/">
-            <span>1856. 子数组最小乘积的最大值</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="316. 去除重复字母">
-        <div class="time-m-d">08-04</div>
-        <div class="title">
-          <a href="/2021/08/04/leetcode/316/">
-            <span>316. 去除重复字母</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="581. 最短无序连续子数组">
-        <div class="time-m-d">08-04</div>
-        <div class="title">
-          <a href="/2021/08/04/leetcode/581/">
-            <span>581. 最短无序连续子数组</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="91. 股票价格跨度">
-        <div class="time-m-d">08-04</div>
-        <div class="title">
-          <a href="/2021/08/04/leetcode/91/">
-            <span>91. 股票价格跨度</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="84. 柱状图中最大的矩形">
-        <div class="time-m-d">08-03</div>
-        <div class="title">
-          <a href="/2021/08/03/leetcode/84/">
-            <span>84. 柱状图中最大的矩形</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="面试题 17.21. 直方图的水量">
-        <div class="time-m-d">08-02</div>
-        <div class="title">
-          <a href="/2021/08/02/leetcode/%E9%9D%A2%E8%AF%95%E9%A2%98%2017.21.%20%E7%9B%B4%E6%96%B9%E5%9B%BE%E7%9A%84%E6%B0%B4%E9%87%8F/">
-            <span>面试题 17.21. 直方图的水量</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="java多线程">
-        <div class="time-m-d">08-01</div>
-        <div class="title">
-          <a href="/2021/08/01/java/java_thread/">
-            <span>java多线程</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="java常用实例">
-        <div class="time-m-d">07-31</div>
-        <div class="title">
-          <a href="/2021/07/31/java/java_ofen_using_example/">
-            <span>java常用实例</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="1850. 邻位交换的最小次数">
-        <div class="time-m-d">07-30</div>
-        <div class="title">
-          <a href="/2021/07/30/leetcode/1850/">
-            <span>1850. 邻位交换的最小次数</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="31. 下一个排列">
-        <div class="time-m-d">07-30</div>
-        <div class="title">
-          <a href="/2021/07/30/leetcode/31/">
-            <span>31. 下一个排列</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="1849. 将字符串拆分为递减的连续值">
-        <div class="time-m-d">07-30</div>
-        <div class="title">
-          <a href="/2021/07/30/leetcode/1849/">
-            <span>1849. 将字符串拆分为递减的连续值</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="1937. 扣分后的最大得分">
-        <div class="time-m-d">07-30</div>
-        <div class="title">
-          <a href="/2021/07/30/leetcode/1937/">
-            <span>1937. 扣分后的最大得分</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="java时间日期相关">
-        <div class="time-m-d">07-28</div>
-        <div class="title">
-          <a href="/2021/07/28/java/java_time_format/">
-            <span>java时间日期相关</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="java面向对象">
-        <div class="time-m-d">07-28</div>
-        <div class="title">
-          <a href="/2021/07/28/java/java_face_basis/">
-            <span>java面向对象</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="linux软件安装">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/linux/install_software/">
-            <span>linux软件安装</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="linux环境变量">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/linux/add_env_path/">
-            <span>linux环境变量</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="linux基本指令">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/linux/linux1/">
-            <span>linux基本指令</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="算法课题小结">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/algorithm/">
-            <span>算法课题小结</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="c语言">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/c_language/">
-            <span>c语言</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="markdown语法">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/markdown/">
-            <span>markdown语法</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="别人的博客">
-        <div class="time-m-d">07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/other_blog/">
-            <span>别人的博客</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——0.概述">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/0/">
-            <span>计算机网络——0.概述</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——1.物理层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/1/">
-            <span>计算机网络——1.物理层</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——2.链路层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/2/">
-            <span>计算机网络——2.链路层</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——3.网络层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/3/">
-            <span>计算机网络——3.网络层</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——4.运输层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/4/">
-            <span>计算机网络——4.运输层</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——5.应用层">
-        <div class="time-m-d">07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/5/">
-            <span>计算机网络——5.应用层</span>
-          </a>
-        </div>
-      </div>
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2019</span>
-          </h2>
-        </div>
-      
-      <div class="post-item" title="hexo">
-        <div class="time-m-d">05-03</div>
-        <div class="title">
-          <a href="/2019/05/03/hello-world/">
-            <span>hexo</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         <div class="footer">
   <div class="social">
