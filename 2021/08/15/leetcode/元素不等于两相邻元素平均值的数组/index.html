@@ -11,9 +11,9 @@
   
   <title>
     
-      Category 
+      元素不等于两相邻元素平均值的数组 
       
-       : little_thing
+      
       |
     
      Sellun
@@ -110,75 +110,147 @@
 
 
       <div class="flex-container">
-        <!-- 标签详情页，展示某个标签下的文章列表，url形式：https://yoursite/tags/某个标签/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<div class="container category-details">
-  <div class="content-title">
-    <h2>
-      <span>little_thing</span>
-    </h2>
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">元素不等于两相邻元素平均值的数组</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-08-15 17:47:35
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/leetcode/" title="leetcode">
+                    <b>#</b> leetcode
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/leetcode/" title="leetcode">
+                    <b>#</b> leetcode
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="5832-构造元素不等于两相邻元素平均值的数组"><a href="#5832-构造元素不等于两相邻元素平均值的数组" class="headerlink" title="5832. 构造元素不等于两相邻元素平均值的数组"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/array-with-elements-not-equal-to-average-of-neighbors/">5832. 构造元素不等于两相邻元素平均值的数组</a></h1><p>给你一个 下标从 0 开始 的数组 nums ，数组由若干 互不相同的 整数组成。你打算重新排列数组中的元素以满足：重排后，数组中的每个元素都 不等于 其两侧相邻元素的 平均值 。</p>
+<p>更公式化的说法是，重新排列的数组应当满足这一属性：对于范围 1 &lt;= i &lt; nums.length - 1 中的每个 i ，(nums[i-1] + nums[i+1]) / 2 不等于 nums[i] 均成立 。</p>
+<p>返回满足题意的任一重排结果。</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p> 数组排序后分成两部分<br> 前半部分小的放偶数位,后半部分大的放奇数位</p>
+<p> 第一部分的任何一个元素一定小于第二部分的任意一个元素。这也意味着，第一部分任意两个元素的平均值一定不会等于第二部分的任意一个元素，反之亦然。</p>
+<p> 元素是互不相同的<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] rearrangeArray(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">    	Arrays.sort(nums);</span><br><span class="line">    	<span class="keyword">int</span> res[]= <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">    	<span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; res.length; i=i+<span class="number">2</span>) &#123;</span><br><span class="line">			res[i]=nums[j++];</span><br><span class="line">		&#125;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; res.length; i=i+<span class="number">2</span>) &#123;</span><br><span class="line">    		res[i]=nums[j++];</span><br><span class="line">		&#125;</span><br><span class="line">    	<span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/08/15/little_thing/%E5%BF%AB%E9%80%9F%E5%B9%82/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-08-15 17:47:35
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/leetcode/" title="leetcode">
+                        <b>#</b> leetcode
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/leetcode/" title="leetcode">
+                        <b>#</b> leetcode
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
   </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="快速幂">
-        <span class="time-m-d">2021-08-15</span>
-        <a href="/2021/08/15/little_thing/%E5%BF%AB%E9%80%9F%E5%B9%82/">
-          <span>快速幂</span>
-        </a>
-      </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#5832-%E6%9E%84%E9%80%A0%E5%85%83%E7%B4%A0%E4%B8%8D%E7%AD%89%E4%BA%8E%E4%B8%A4%E7%9B%B8%E9%82%BB%E5%85%83%E7%B4%A0%E5%B9%B3%E5%9D%87%E5%80%BC%E7%9A%84%E6%95%B0%E7%BB%84"><span class="toc-text">5832. 构造元素不等于两相邻元素平均值的数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a></li></ol>
     </div>
+  </div>
+
   
-    <div class="post-list">
-      <div class="post-item" title="二分查找">
-        <span class="time-m-d">2021-08-09</span>
-        <a href="/2021/08/09/little_thing/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">
-          <span>二分查找</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="算法课题小结">
-        <span class="time-m-d">2021-07-27</span>
-        <a href="/2021/07/27/little_thing/algorithm/">
-          <span>算法课题小结</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="c语言">
-        <span class="time-m-d">2021-07-27</span>
-        <a href="/2021/07/27/little_thing/c_language/">
-          <span>c语言</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="markdown语法">
-        <span class="time-m-d">2021-07-27</span>
-        <a href="/2021/07/27/little_thing/markdown/">
-          <span>markdown语法</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="别人的博客">
-        <span class="time-m-d">2021-07-27</span>
-        <a href="/2021/07/27/little_thing/other_blog/">
-          <span>别人的博客</span>
-        </a>
-      </div>
-    </div>
-  
-  <nav class="post-navigation">
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-    <span class="page-num">1 / 1</span>
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
     
-  </nav>
-</div>
+  </div>
+
 
         <div class="footer">
   <div class="social">
