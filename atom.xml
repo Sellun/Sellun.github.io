@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-08-15T05:56:13.849Z</updated>
+  <updated>2021-08-16T14:38:26.910Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>3的最大倍数</title>
+    <link href="http://example.com/2021/08/16/leetcode/3%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%8D%E6%95%B0/"/>
+    <id>http://example.com/2021/08/16/leetcode/3%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%8D%E6%95%B0/</id>
+    <published>2021-08-16T09:47:35.000Z</published>
+    <updated>2021-08-16T14:38:26.910Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1363-形成三的最大倍数&quot;&gt;&lt;a href=&quot;#1363-形成三的最大倍数&quot; class=&quot;headerlink&quot; title=&quot;1363. 形成三的最大倍数&quot;&gt;&lt;/a&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>元素不等于两相邻元素平均值的数组</title>
@@ -510,31 +535,6 @@
     
     
     <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1850. 邻位交换的最小次数</title>
-    <link href="http://example.com/2021/07/30/leetcode/1850/"/>
-    <id>http://example.com/2021/07/30/leetcode/1850/</id>
-    <published>2021-07-30T15:05:35.000Z</published>
-    <updated>2021-07-30T15:15:15.558Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
-    
-    
-    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
     
   </entry>
   
