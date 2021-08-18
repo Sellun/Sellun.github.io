@@ -8,10 +8,13 @@
   <meta name="author" content="Sellun" />
   <meta name="description" content="" />
   
-    <meta name="robots" content="noindex" />
-  
   
   <title>
+    
+      1264. 字符不重复子串 
+      
+      
+      |
     
      Sellun
   </title>
@@ -107,151 +110,150 @@
 
 
       <div class="flex-container">
-        <div class="container index">
-  <div class="post-list">
-    <!-- 遍历渲染文章 -->
-    
-      <div class="post-item" title="linux基本指令">
-        <div class="time-m-d">2021-07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/linux/linux1/">
-            
-              
-                <span>linux基本指令</span>
-              
-            
-          </a>
-        </div>
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">1264. 字符不重复子串</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-08-18 16:47:35
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/xtuoj/" title="xtuoj">
+                    <b>#</b> xtuoj
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/xtuoj/" title="xtuoj">
+                    <b>#</b> xtuoj
+                  </a>
+                </span>
+                
+              </span>
+          
       </div>
-    
-      <div class="post-item" title="算法课题小结">
-        <div class="time-m-d">2021-07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/algorithm/">
-            
-              
-                <span>算法课题小结</span>
-              
-            
-          </a>
-        </div>
+      <div class="markdown-body">
+        <h1 id="1264-字符不重复子串"><a href="#1264-字符不重复子串" class="headerlink" title="1264. 字符不重复子串"></a>1264. 字符不重复子串</h1><p>给一个只含英文小写的字符串，求其最长的字符不重复的子串。比如字符串”abcabc”，最长字符不重复子串长度为3，最长字符不重复子串为”abc”,”bca”,”cab”；字符串”aaaaa”，最长字符不重复子串长度为1，字符串为”a”。</p>
+<p>输入<br>存在多个样例，每行输入一个字符串，串长不超过10000。</p>
+<p>输出<br>每个样例先输出最长的字符不重复子串的长度，然后按字典序输出这些不重复子串，每个子串输出一行。</p>
+<p>样例输入<br>abcabc<br>aaaaa<br>样例输出<br>3<br>abc<br>bca<br>cab<br>1<br>a</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><ul>
+<li>先将每个字符出现的位置用hashmap记录下来,为了便于后续查找,使用treeset来记录同一个字符出现的不同位置</li>
+<li>定义dp[i]为以第i个字符为后缀的最长的长度(刚开始我是直接用的同一个字符的两个不同位置作为差值,没考虑到可能两个位置之间还有重复字符出现的问题,经过改进后有<code>dp[i]=Math.min(dp[i-1]+1, dp[i]);</code>)</li>
+<li>遍历dp[i],将符合条件的String放入treeset中,然后输出.<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">w1264</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		Scanner  in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		String s=<span class="string">&quot;&quot;</span>;</span><br><span class="line">		<span class="keyword">while</span>(in.hasNext())</span><br><span class="line">		&#123;</span><br><span class="line">			s=in.next();</span><br><span class="line">			HashMap&lt;Character,TreeSet&lt;Integer&gt;&gt; map=<span class="keyword">new</span> HashMap&lt;Character, TreeSet&lt;Integer&gt;&gt;();</span><br><span class="line">			<span class="keyword">char</span> [] ch = s.toCharArray();</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ch.length; i++) &#123;</span><br><span class="line">				TreeSet&lt;Integer&gt; t=map.getOrDefault(ch[i], <span class="keyword">null</span>);</span><br><span class="line">				<span class="keyword">if</span>(t==<span class="keyword">null</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					t = <span class="keyword">new</span> TreeSet&lt;Integer&gt;();</span><br><span class="line">				&#125;</span><br><span class="line">				t.add(i);</span><br><span class="line">				map.put(ch[i],t);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">int</span> dp[] = <span class="keyword">new</span> <span class="keyword">int</span> [ch.length];</span><br><span class="line">			<span class="keyword">int</span> max=-<span class="number">1</span>;</span><br><span class="line">			dp[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; dp.length; i++) &#123;</span><br><span class="line">				TreeSet&lt;Integer&gt; t=map.get(ch[i]);</span><br><span class="line">				dp[i]= t.lower(i)==<span class="keyword">null</span> ?i+<span class="number">1</span>:i-t.lower(i);</span><br><span class="line">				dp[i]=Math.min(dp[i-<span class="number">1</span>]+<span class="number">1</span>, dp[i]);</span><br><span class="line">				max=Math.max(max, dp[i]);</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">			TreeSet&lt;String&gt; set= <span class="keyword">new</span> TreeSet&lt;String&gt;((a,b)-&gt;a.compareTo(b));</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dp.length; i++) &#123;</span><br><span class="line">				<span class="keyword">if</span>(dp[i]==max)</span><br><span class="line">					set.add(s.substring(i-max+<span class="number">1</span>,i+<span class="number">1</span>));</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(max);</span><br><span class="line">			<span class="keyword">for</span> (String string : set) &#123;</span><br><span class="line">				System.out.println(string);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
       </div>
-    
-      <div class="post-item" title="c语言">
-        <div class="time-m-d">2021-07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/c_language/">
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
             
-              
-                <span>c语言</span>
-              
+              <a href="/2021/08/18/leetcode/%E5%AD%A6%E7%94%9F%E5%87%BA%E5%8B%A4%E8%AE%B0%E5%BD%95/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
             
-          </a>
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-08-18 16:47:35
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/xtuoj/" title="xtuoj">
+                        <b>#</b> xtuoj
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/xtuoj/" title="xtuoj">
+                        <b>#</b> xtuoj
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
         </div>
-      </div>
+      
+    </div>
     
-      <div class="post-item" title="markdown语法">
-        <div class="time-m-d">2021-07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/markdown/">
-            
-              
-                <span>markdown语法</span>
-              
-            
-          </a>
-        </div>
-      </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1264-%E5%AD%97%E7%AC%A6%E4%B8%8D%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2"><span class="toc-text">1264. 字符不重复子串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <div class="post-item" title="别人的博客">
-        <div class="time-m-d">2021-07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/other_blog/">
-            
-              
-                <span>别人的博客</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——0.概述">
-        <div class="time-m-d">2021-07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/0/">
-            
-              
-                <span>计算机网络——0.概述</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——1.物理层">
-        <div class="time-m-d">2021-07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/1/">
-            
-              
-                <span>计算机网络——1.物理层</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——2.链路层">
-        <div class="time-m-d">2021-07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/2/">
-            
-              
-                <span>计算机网络——2.链路层</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——3.网络层">
-        <div class="time-m-d">2021-07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/3/">
-            
-              
-                <span>计算机网络——3.网络层</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——4.运输层">
-        <div class="time-m-d">2021-07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/4/">
-            
-              
-                <span>计算机网络——4.运输层</span>
-              
-            
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
       </div>
     
   </div>
-  <nav class="post-navigation">
-    
-      <a href="/page/3/"><i class="iconfont icon-angleleft"></i></a>
-    
-    <span class="page-num">4 / 5</span>
-    
-      <a href="/page/5/"><i class="iconfont icon-angleright"></i></a>
-    
-  </nav>
-</div>
+
 
         <div class="footer">
   <div class="social">
