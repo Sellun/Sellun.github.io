@@ -11,7 +11,7 @@
   
   <title>
     
-      数字1的个数 
+      XTU 1264. 1390字母计数 
       
       
       |
@@ -138,19 +138,19 @@ MathJax = {
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">数字1的个数</div>
+      <div class="post-title">XTU 1264. 1390字母计数</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime" title="Update time"></i>
-          2021-08-13 17:47:35
+          2021-08-19 16:47:35
         </span>
         
               <span class="post-categories">
                 <i class="iconfont icon-bookmark" title="Categories"></i>
                 
                 <span class="span--category">
-                  <a href="/categories/leetcode/" title="leetcode">
-                    <b>#</b> leetcode
+                  <a href="/categories/xtuoj/" title="xtuoj">
+                    <b>#</b> xtuoj
                   </a>
                 </span>
                 
@@ -160,8 +160,8 @@ MathJax = {
                 <i class="iconfont icon-tags" title="Tags"></i>
                 
                 <span class="span--tag">
-                  <a href="/tags/leetcode/" title="leetcode">
-                    <b>#</b> leetcode
+                  <a href="/tags/xtuoj/" title="xtuoj">
+                    <b>#</b> xtuoj
                   </a>
                 </span>
                 
@@ -169,22 +169,20 @@ MathJax = {
           
       </div>
       <div class="markdown-body">
-        <h1 id="233-数字-1-的个数"><a href="#233-数字-1-的个数" class="headerlink" title="233. 数字 1 的个数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-digit-one/">233. 数字 1 的个数</a></h1><p>给定一个整数 n，计算所有小于等于 n 的非负整数中数字 1 出现的个数。</p>
-<p>示例 1：</p>
-<p>输入：n = 13<br>输出：6<br>示例 2：</p>
-<p>输入：n = 0<br>输出：0</p>
-<p>提示：</p>
-<p>0 &lt;= n &lt;= 2 * 109</p>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p><img src="https://gitee.com/sellun/cnblog/raw/master/leetcodeImg/1.png"></p>
-<p>注意溢出</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">countDigitOne</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">long</span> digit=<span class="number">1</span>;</span><br><span class="line">    	<span class="keyword">long</span> sum=<span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">long</span> k=n;</span><br><span class="line">    	<span class="keyword">while</span>(k&gt;<span class="number">0</span>)</span><br><span class="line">    	&#123;</span><br><span class="line">    		<span class="keyword">long</span> r=k%<span class="number">10</span>;</span><br><span class="line">    		k/=<span class="number">10</span>;</span><br><span class="line">    		<span class="keyword">if</span>(r&gt;<span class="number">1</span>)</span><br><span class="line">    			sum+=n/(digit*<span class="number">10</span>)*digit+digit;</span><br><span class="line">    		<span class="keyword">else</span> <span class="keyword">if</span>(r==<span class="number">1</span>)</span><br><span class="line">    			sum+=n/(digit*<span class="number">10</span>)*digit+n%digit+<span class="number">1</span>;</span><br><span class="line">    		<span class="keyword">else</span></span><br><span class="line">    			sum+=(n/(digit*<span class="number">10</span>)-<span class="number">1</span>)*digit+digit;</span><br><span class="line">    		<span class="keyword">if</span>(n/(digit*<span class="number">10</span>)==<span class="number">0</span>)</span><br><span class="line">    			<span class="keyword">break</span>;</span><br><span class="line">    		digit*=<span class="number">10</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">return</span> (<span class="keyword">int</span>)sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h1 id="1264-1390字母计数"><a href="#1264-1390字母计数" class="headerlink" title="1264. 1390字母计数"></a><a target="_blank" rel="noopener" href="http://202.197.224.59/exam/index.php/problem/read/id/1390">1264. 1390字母计数</a></h1><p>字母计数<br>题目描述<br>为了压缩一个只含小写英文字母的字符串，我们使用下面的方式表示它</p>
+<p>任一字母c是表达式<br>任一字母c后接一个整数n也是一个表达式，表示把字母c重复n次，n是一个没有前导零的10进制整数，且 n≥2。<br>如果s1,s2是表达式，那么s1s2也是表达式。<br>S是一个表达式，那么(S)n也是表达式，表示将S这个表达式表示的字符串重复n次，n是一个没有前导零的10进制整数，且 n≥2。<br>比如表达式 ((a2b)2b)2a 表示字符串aabaabbaabaabba。</p>
+<p>现在给你一个表达式，请统计一下其中各个字符出现的次数。</p>
+<p>输入<br>存在多组样例，每样一个样例，为一个字符串。 字符串只含小写英文字母，数字和括号，其长度不超过50个字符，输入数据保证符合表达式要求，且展开后的字符出现次数最高不超过109。</p>
+<p>输出<br>依次输出每个样例的结果。 每个样例按照字母顺序，每个出现的字母输出一行。格式为”c : n”,其中c为字母，n为出现的次数。 每个样例之后输出一个空行。</p>
+<p>样例输入<br>((a2b)2b)2a<br>a2c3<br>样例输出<br>a : 9<br>b : 6</p>
+<p>a : 2<br>c : 3</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span>(in.hasNext())</span><br><span class="line">        &#123;</span><br><span class="line">            String s= in.next();</span><br><span class="line">            <span class="keyword">int</span> res[]=get(s);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; res.length; i++) &#123;</span><br><span class="line">                <span class="keyword">char</span> ch=(<span class="keyword">char</span>)(i+<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">                <span class="keyword">if</span>(res[i]!=<span class="number">0</span>)</span><br><span class="line">                    System.out.println(ch+<span class="string">&quot; : &quot;</span>+res[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">&quot;&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[] get(String s) &#123;</span><br><span class="line">        <span class="keyword">int</span> res[]= <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">int</span> l=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> pre=<span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(pre&lt;s.length()&amp;&amp;s.charAt(pre)!=<span class="string">&#x27;(&#x27;</span>)pre++;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> ch=s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span>(ch==<span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">                l++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(ch==<span class="string">&#x27;)&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                l--;</span><br><span class="line">                <span class="keyword">if</span>(l==<span class="number">0</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">int</span> a[]= <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">26</span>];</span><br><span class="line">                         </span><br><span class="line">                        String kk=s.substring(pre+<span class="number">1</span>,i);</span><br><span class="line">                        a=get(kk);</span><br><span class="line">                        <span class="keyword">if</span>(i&lt;s.length()-<span class="number">1</span>)</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="keyword">char</span> q=s.charAt(i+<span class="number">1</span>);</span><br><span class="line">                            <span class="keyword">int</span> t=i+<span class="number">1</span>;</span><br><span class="line">                            <span class="keyword">if</span>(Character.isDigit(q))</span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line">                                <span class="keyword">while</span>(t&lt;s.length()&amp;&amp;Character.isDigit(s.charAt(t)))</span><br><span class="line">                                &#123;</span><br><span class="line">                                    num=num*<span class="number">10</span>+(<span class="keyword">int</span>)(s.charAt(t)-<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">                                    t++;</span><br><span class="line">                                &#125;</span><br><span class="line">                                i=t-<span class="number">1</span>;</span><br><span class="line">                                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; a.length; j++) &#123;</span><br><span class="line">                                    a[j]*=num;</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">int</span> t=i;</span><br><span class="line">                        <span class="keyword">while</span>(t&lt;s.length()&amp;&amp;s.charAt(t)!=<span class="string">&#x27;(&#x27;</span>)t++;</span><br><span class="line">                        pre=t;</span><br><span class="line">                        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; a.length; j++) &#123;</span><br><span class="line">                            res[j]+=a[j];</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (Character.isLetter(ch)&amp;&amp;l==<span class="number">0</span>)</span><br><span class="line">                res[ch-<span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(Character.isDigit(ch)&amp;&amp;l==<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">char</span> q=s.charAt(i-<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span>(Character.isLetter(q))</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">while</span>(i&lt;s.length()&amp;&amp;Character.isDigit(s.charAt(i)))</span><br><span class="line">                    &#123;</span><br><span class="line">                        num=num*<span class="number">10</span>+(<span class="keyword">int</span>)(s.charAt(i)-<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">                        i++;</span><br><span class="line">                    &#125;</span><br><span class="line">                    i--;</span><br><span class="line">                    res[q-<span class="string">&#x27;a&#x27;</span>]+=num-<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure>
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2021/08/12/leetcode/%E5%9B%9E%E6%96%87%E4%B8%B2%E5%AD%90%E5%BA%8F%E5%88%97/" target="_self">
+              <a href="/2021/08/18/xtuoj/1264%E5%AD%97%E7%AC%A6%E4%B8%8D%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>Prev</span>
               </a>
@@ -193,15 +191,15 @@ MathJax = {
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime" title="Update time"></i>
-              2021-08-13 17:47:35
+              2021-08-19 16:47:35
             </span>
             
                   <span class="post-categories">
                     <i class="iconfont icon-bookmark" title="Categories"></i>
                     
                     <span class="span--category">
-                      <a href="/categories/leetcode/" title="leetcode">
-                        <b>#</b> leetcode
+                      <a href="/categories/xtuoj/" title="xtuoj">
+                        <b>#</b> xtuoj
                       </a>
                     </span>
                     
@@ -211,8 +209,8 @@ MathJax = {
                     <i class="iconfont icon-tags" title="Tags"></i>
                     
                     <span class="span--tag">
-                      <a href="/tags/leetcode/" title="leetcode">
-                        <b>#</b> leetcode
+                      <a href="/tags/xtuoj/" title="xtuoj">
+                        <b>#</b> xtuoj
                       </a>
                     </span>
                     
@@ -220,11 +218,6 @@ MathJax = {
               
           </div>
           <div class="post-foot-prev">
-            
-              <a href="/2021/08/14/leetcode/%E4%B8%8D%E9%AB%98%E5%85%B4%E7%9A%84%E6%9C%8B%E5%8F%8B/" target="_self">
-                <span>Next</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
             
           </div>
         </div>
@@ -237,7 +230,7 @@ MathJax = {
   <div class="post-catalog hidden" id="catalog">
     <div class="title">Contents</div>
     <div class="catalog-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#233-%E6%95%B0%E5%AD%97-1-%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="toc-text">233. 数字 1 的个数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1264-1390%E5%AD%97%E6%AF%8D%E8%AE%A1%E6%95%B0"><span class="toc-text">1264. 1390字母计数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a></li></ol>
     </div>
   </div>
 

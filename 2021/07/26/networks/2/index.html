@@ -200,14 +200,14 @@ MathJax = {
 <li>链路控制协议 LCP (Link Control Protocol)。</li>
 <li>网络控制协议 NCP (Network Control Protocol)。 </li>
 </ol>
-<h2 id="PPP-协议的帧格式"><a href="#PPP-协议的帧格式" class="headerlink" title="PPP 协议的帧格式"></a>PPP 协议的帧格式</h2><p>PPP 是面向字节的，所有的 PPP 帧的长度都是整数字节。<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/ppp%E5%B8%A7%E6%A0%BC%E5%BC%8F.png" alt="ppp帧格式"></p>
+<h2 id="PPP-协议的帧格式"><a href="#PPP-协议的帧格式" class="headerlink" title="PPP 协议的帧格式"></a>PPP 协议的帧格式</h2><p>PPP 是面向字节的，所有的 PPP 帧的长度都是整数字节。<br><img src="https://gitee.com/sellun/cnblog/raw/master/computerNetwork/ppp%E5%B8%A7%E6%A0%BC%E5%BC%8F.png" alt="ppp帧格式"></p>
 <h3 id="透明传输问题"><a href="#透明传输问题" class="headerlink" title="透明传输问题"></a>透明传输问题</h3><p>当 PPP 用在异步传输时，就使用一种特殊的字符填充法。<br>当 PPP 用在同步传输链路时，协议规定采用硬件来完成比特填充</p>
 <h4 id="字符填充"><a href="#字符填充" class="headerlink" title="字符填充"></a>字符填充</h4><p> 0x7E-&gt;(0x7D, 0x5E)<br> 0x7D-&gt;(0x7D, 0x5D)<br>若信息字段中出现 ASCII 码的控制字符（即数值小于 0x20 的字符），则在该字符前面要加入一个 0x7D 字节，同时将该字符的编码加以改变。 </p>
 <h4 id="零比特填充"><a href="#零比特填充" class="headerlink" title="零比特填充"></a>零比特填充</h4><p> 5 个连续 1，则立即填入一个 0</p>
 <h3 id="不提供使用序号和确认的可靠传输"><a href="#不提供使用序号和确认的可靠传输" class="headerlink" title="不提供使用序号和确认的可靠传输"></a>不提供使用序号和确认的可靠传输</h3><ol>
 <li>在数据链路层出现差错的概率不大时，使用比较简单的 PPP 协议较为合理。</li>
 <li>在因特网环境下，PPP 的信息字段放入的数据是 IP  数据报。数据链路层的可靠传输并不能够保证网络层的传输也是可靠的。</li>
-<li>帧检验序列 FCS 字段可保证无差错接受。<h2 id="PPP-协议的工作状态"><a href="#PPP-协议的工作状态" class="headerlink" title="PPP 协议的工作状态"></a>PPP 协议的工作状态</h2>PPP 协议已不是纯粹的数据链路层的协议，它还包含了物理层和网络层的内容<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/ppp%E5%8D%8F%E8%AE%AE%E7%8A%B6%E6%80%81%E5%9B%BE.png" alt="ppp协议状态图"><h1 id="用广播信道的数据链路层"><a href="#用广播信道的数据链路层" class="headerlink" title="用广播信道的数据链路层"></a>用广播信道的数据链路层</h1><h2 id="局域网的数据链路层"><a href="#局域网的数据链路层" class="headerlink" title="局域网的数据链路层"></a>局域网的数据链路层</h2><h3 id="局域网特点"><a href="#局域网特点" class="headerlink" title="局域网特点"></a>局域网特点</h3></li>
+<li>帧检验序列 FCS 字段可保证无差错接受。<h2 id="PPP-协议的工作状态"><a href="#PPP-协议的工作状态" class="headerlink" title="PPP 协议的工作状态"></a>PPP 协议的工作状态</h2>PPP 协议已不是纯粹的数据链路层的协议，它还包含了物理层和网络层的内容<br><img src="https://gitee.com/sellun/cnblog/raw/master/computerNetwork/ppp%E5%8D%8F%E8%AE%AE%E7%8A%B6%E6%80%81%E5%9B%BE.png" alt="ppp协议状态图"><h1 id="用广播信道的数据链路层"><a href="#用广播信道的数据链路层" class="headerlink" title="用广播信道的数据链路层"></a>用广播信道的数据链路层</h1><h2 id="局域网的数据链路层"><a href="#局域网的数据链路层" class="headerlink" title="局域网的数据链路层"></a>局域网的数据链路层</h2><h3 id="局域网特点"><a href="#局域网特点" class="headerlink" title="局域网特点"></a>局域网特点</h3></li>
 <li>网络为一个单位所拥有；</li>
 <li>地理范围和站点数目均有限；<h3 id="局域网优点"><a href="#局域网优点" class="headerlink" title="局域网优点"></a>局域网优点</h3></li>
 <li>具有广播功能，从一个站点可很方便地访问全网。局域网上的主机可共享连接在局域网上的各种硬件和软件资源。 </li>
@@ -220,7 +220,7 @@ MathJax = {
 <li>进行串行/并行转换。</li>
 <li>对数据进行缓存。</li>
 <li>在计算机的操作系统安装设备驱动程序。</li>
-<li>实现以太网协议。<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/%E7%BD%91%E5%8D%A1.png" alt="网卡作用"></li>
+<li>实现以太网协议。<br><img src="https://gitee.com/sellun/cnblog/raw/master/computerNetwork/%E7%BD%91%E5%8D%A1.png" alt="网卡作用"></li>
 </ol>
 <h3 id="以太网采取的两种重要的措施"><a href="#以太网采取的两种重要的措施" class="headerlink" title="以太网采取的两种重要的措施"></a>以太网采取的两种重要的措施</h3><ol>
 <li>采用较为灵活的无连接的工作方式   <ul>
@@ -233,7 +233,7 @@ MathJax = {
 </li>
 <li>以太网发送的数据都使用曼彻斯特 (Manchester) 编码<br>曼彻斯特编码缺点是：它所占的频带宽度比原始的基带信号增加了一倍。</li>
 </ol>
-<h2 id="CSMA-CD-协议"><a href="#CSMA-CD-协议" class="headerlink" title="CSMA/CD 协议"></a>CSMA/CD 协议</h2><p>CSMA/CD 含义：载波监听多点接入 / 碰撞检测  (Carrier Sense Multiple Access with Collision Detection) 。<br>CSMA/CD 协议工作流程<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/CSMACD%20%E5%8D%8F%E8%AE%AE%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png" alt="CSMA/CD 协议工作流程"></p>
+<h2 id="CSMA-CD-协议"><a href="#CSMA-CD-协议" class="headerlink" title="CSMA/CD 协议"></a>CSMA/CD 协议</h2><p>CSMA/CD 含义：载波监听多点接入 / 碰撞检测  (Carrier Sense Multiple Access with Collision Detection) 。<br>CSMA/CD 协议工作流程<br><img src="https://gitee.com/sellun/cnblog/raw/master/computerNetwork/CSMACD%20%E5%8D%8F%E8%AE%AE%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png" alt="CSMA/CD 协议工作流程"></p>
 <h3 id="争用期"><a href="#争用期" class="headerlink" title="争用期"></a>争用期</h3><ul>
 <li>最先发送数据帧的站，在发送数据帧后至多经过时间 2 （两倍的端到端往返时延）就可知道发送的数据帧是否遭受了碰撞。</li>
 <li>以太网的端到端往返时延 2  称为争用期，或碰撞窗口。</li>
@@ -256,7 +256,7 @@ MathJax = {
 <ul>
 <li>使用 CSMA/CD 协议的以太网不能进行全双工通信而只能进行双向交替通信（半双工通信）。</li>
 <li>每个站在发送数据之后的一小段时间内，存在着遭遇碰撞的可能性。 </li>
-<li>这种发送的不确定性使整个以太网的平均通信量远小于以太网的最高数据率。<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/csma.png" alt="csma"><h2 id="使用集线器的星形拓扑"><a href="#使用集线器的星形拓扑" class="headerlink" title="使用集线器的星形拓扑"></a>使用集线器的星形拓扑</h2></li>
+<li>这种发送的不确定性使整个以太网的平均通信量远小于以太网的最高数据率。<br><img src="https://gitee.com/sellun/cnblog/raw/master/computerNetwork/csma.png" alt="csma"><h2 id="使用集线器的星形拓扑"><a href="#使用集线器的星形拓扑" class="headerlink" title="使用集线器的星形拓扑"></a>使用集线器的星形拓扑</h2></li>
 <li>传统以太网最初是使用粗同轴电缆，后来演进到使用比较便宜的细同轴电缆，最后发展为使用更便宜和更灵活的双绞线。</li>
 <li>采用双绞线的以太网采用星形拓扑，在星形的中心则增加了一种可靠性非常高的设备，叫做集线器 (hub)。  </li>
 </ul>
@@ -275,10 +275,10 @@ MathJax = {
 <li>集线器很像一个多接口的转发器，工作在物理层。</li>
 <li>集线器采用了专门的芯片，进行自适应串音回波抵消，减少了近端串音。</li>
 </ul>
-<h2 id="以太网的信道利用率"><a href="#以太网的信道利用率" class="headerlink" title="以太网的信道利用率"></a>以太网的信道利用率</h2><p><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/%E4%BF%A1%E9%81%93%E5%88%A9%E7%94%A8%E7%8E%87.png" alt="信道利用率"></p>
+<h2 id="以太网的信道利用率"><a href="#以太网的信道利用率" class="headerlink" title="以太网的信道利用率"></a>以太网的信道利用率</h2><p><img src="https://gitee.com/sellun/cnblog/raw/master/computerNetwork/%E4%BF%A1%E9%81%93%E5%88%A9%E7%94%A8%E7%8E%87.png" alt="信道利用率"></p>
 <h2 id="以太网的-MAC-层"><a href="#以太网的-MAC-层" class="headerlink" title="以太网的 MAC 层"></a>以太网的 MAC 层</h2><ol>
-<li>MAC 层的硬件地址<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/mac%E5%B1%82%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%9C%B0%E5%9D%80.png" alt="MAC 层的硬件地址"><br>生产适配器时，6 字节的 MAC 地址已被固化在适配器的 ROM，因此，MAC 地址也叫做硬件地址 (hardware address) 或物理地址。</li>
-<li>MAC 帧的格式<br>常用的以太网 MAC 帧格式有两种标准：<br>DIX Ethernet V2 标准<br>IEEE 的 802.3 标准<br>最常用的 MAC 帧是以太网 V2 的格式。<br><img src="https://gitee.com/aqeb/cnblog/raw/master/computerNetwork/%E4%BB%A5%E5%A4%AA%E7%BD%91%20V2%20%E7%9A%84%20MAC%20%E5%B8%A7%E6%A0%BC%E5%BC%8F.png" alt="以太网V2的MAC帧格式">    </li>
+<li>MAC 层的硬件地址<br><img src="https://gitee.com/sellun/cnblog/raw/master/computerNetwork/mac%E5%B1%82%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%9C%B0%E5%9D%80.png" alt="MAC 层的硬件地址"><br>生产适配器时，6 字节的 MAC 地址已被固化在适配器的 ROM，因此，MAC 地址也叫做硬件地址 (hardware address) 或物理地址。</li>
+<li>MAC 帧的格式<br>常用的以太网 MAC 帧格式有两种标准：<br>DIX Ethernet V2 标准<br>IEEE 的 802.3 标准<br>最常用的 MAC 帧是以太网 V2 的格式。<br><img src="https://gitee.com/sellun/cnblog/raw/master/computerNetwork/%E4%BB%A5%E5%A4%AA%E7%BD%91%20V2%20%E7%9A%84%20MAC%20%E5%B8%A7%E6%A0%BC%E5%BC%8F.png" alt="以太网V2的MAC帧格式">    </li>
 </ol>
 <p>无效的 MAC 帧</p>
 <ul>

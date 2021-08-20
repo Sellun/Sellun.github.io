@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-08-18T06:41:16.266Z</updated>
+  <updated>2021-08-20T07:26:37.609Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,18 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>1264. 字符不重复子串</title>
+    <title>XTU 1264. 1390字母计数</title>
+    <link href="http://example.com/2021/08/19/xtuoj/1390%E5%AD%97%E6%AF%8D%E8%AE%A1%E6%95%B0/"/>
+    <id>http://example.com/2021/08/19/xtuoj/1390%E5%AD%97%E6%AF%8D%E8%AE%A1%E6%95%B0/</id>
+    <published>2021-08-19T08:47:35.000Z</published>
+    <updated>2021-08-20T07:26:37.609Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1264-1390字母计数&quot;&gt;&lt;a href=&quot;#1264-1390字母计数&quot; class=&quot;headerlink&quot; title=&quot;1264. 1390字母计数&quot;&gt;&lt;/a&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="xtuoj" scheme="http://example.com/categories/xtuoj/"/>
+    
+    
+    <category term="xtuoj" scheme="http://example.com/tags/xtuoj/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>XTU 1264. 字符不重复子串</title>
     <link href="http://example.com/2021/08/18/xtuoj/1264%E5%AD%97%E7%AC%A6%E4%B8%8D%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/"/>
     <id>http://example.com/2021/08/18/xtuoj/1264%E5%AD%97%E7%AC%A6%E4%B8%8D%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/</id>
     <published>2021-08-18T08:47:35.000Z</published>
-    <updated>2021-08-18T06:41:16.266Z</updated>
+    <updated>2021-08-20T07:22:29.516Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;1264-字符不重复子串&quot;&gt;&lt;a href=&quot;#1264-字符不重复子串&quot; class=&quot;headerlink&quot; title=&quot;1264. 字符不重复子串&quot;&gt;&lt;/a&gt;1264.</summary>
+    <summary type="html">&lt;h1 id=&quot;1264-字符不重复子串&quot;&gt;&lt;a href=&quot;#1264-字符不重复子串&quot; class=&quot;headerlink&quot; title=&quot;1264. 字符不重复子串&quot;&gt;&lt;/a&gt;&lt;a</summary>
         
       
     
@@ -173,7 +198,7 @@
     <link href="http://example.com/2021/08/13/leetcode/%E6%95%B0%E5%AD%971%E7%9A%84%E4%B8%AA%E6%95%B0/"/>
     <id>http://example.com/2021/08/13/leetcode/%E6%95%B0%E5%AD%971%E7%9A%84%E4%B8%AA%E6%95%B0/</id>
     <published>2021-08-13T09:47:35.000Z</published>
-    <updated>2021-08-14T07:51:10.377Z</updated>
+    <updated>2021-08-20T07:18:43.384Z</updated>
     
     
       
@@ -356,11 +381,11 @@
   </entry>
   
   <entry>
-    <title>1040. 零件</title>
+    <title>XTU 1040. 零件</title>
     <link href="http://example.com/2021/08/07/xtuoj/1040/"/>
     <id>http://example.com/2021/08/07/xtuoj/1040/</id>
     <published>2021-08-07T08:47:35.000Z</published>
-    <updated>2021-08-07T08:59:46.862Z</updated>
+    <updated>2021-08-20T07:22:31.524Z</updated>
     
     
       
@@ -511,31 +536,6 @@
     <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
     
     <category term="单调栈" scheme="http://example.com/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试题 17.21. 直方图的水量</title>
-    <link href="http://example.com/2021/08/02/leetcode/%E9%9D%A2%E8%AF%95%E9%A2%98%2017.21.%20%E7%9B%B4%E6%96%B9%E5%9B%BE%E7%9A%84%E6%B0%B4%E9%87%8F/"/>
-    <id>http://example.com/2021/08/02/leetcode/%E9%9D%A2%E8%AF%95%E9%A2%98%2017.21.%20%E7%9B%B4%E6%96%B9%E5%9B%BE%E7%9A%84%E6%B0%B4%E9%87%8F/</id>
-    <published>2021-08-02T09:47:35.000Z</published>
-    <updated>2021-08-03T07:59:16.688Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
-    
-    
-    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
     
   </entry>
   
