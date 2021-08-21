@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="Sellun" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      灯泡 
+      
+      
+      |
+    
+     Sellun
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/1.png">
+    <link rel="icon" href="/images/1.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Sellun" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/2.jpg" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Sellun</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">灯泡</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-08-21 00:00:00
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/leetcode/" title="leetcode">
+                    <b>#</b> leetcode
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/leetcode/" title="leetcode">
+                    <b>#</b> leetcode
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="319-灯泡开关"><a href="#319-灯泡开关" class="headerlink" title="319. 灯泡开关"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/bulb-switcher/">319. 灯泡开关</a></h1><p>初始时有 n 个灯泡处于关闭状态。</p>
+<p>对某个灯泡切换开关意味着：如果灯泡状态为关闭，那该灯泡就会被开启；而灯泡状态为开启，那该灯泡就会被关闭。</p>
+<p>第 1 轮，每个灯泡切换一次开关。即，打开所有的灯泡。</p>
+<p>第 2 轮，每两个灯泡切换一次开关。 即，每两个灯泡关闭一个。</p>
+<p>第 3 轮，每三个灯泡切换一次开关。</p>
+<p>第 i 轮，每 i 个灯泡切换一次开关。 而第 n 轮，你只切换最后一个灯泡的开关。</p>
+<p>找出 n 轮后有多少个亮着的灯泡。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>现有 nn 盏灯编号为1,2,\cdots,n1,2,⋯,n，按题意理解共存在 nn 轮调整。模拟自然是一种角度（会超时）；不妨换一个角度，考察单盏灯。请看示例：</p>
+<p>示例11：对于 1010 号灯，在第 1,2,5,101,2,5,10 轮会进行调整；<br>示例22：对于 1616 号灯，在第 1,2,4,8,161,2,4,8,16 轮会进行调整；<br>\qquad从以上两个例子可以看出，第 ii 盏灯会在它全部的因数处发生调整；进一步地，我们并不关心因数具体值，关心的是因数的总数。我们发现：「若存在奇数个因数，对应调整奇数次，最后保持亮灯；否则灯灭。」问题转换——求在区间 [1, n][1,n] 上，因数总数为奇数的数字个数。<br>\qquad非常遗憾，如果你不知道下面的这个结论，即使思考到此处依然不能够顺利解题。</p>
+<p>完全平方数的因数个数是奇数，非完全平方数因数个数为偶数。</p>
+<p>\qquad简单证明：对于数值 xx ，按对来统计因数。例如 10=1\times10=2\times510=1×10=2×5 ，两对 44 个；再例如 16=1\times16=2\times8=4\times416=1×16=2×8=4×4 ，三对却是 55 个，因为因数 44 只可以统计 11 次。意会一下，证毕。</p>
+<p>作者：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/bulb-switcher/solution/319deng-pao-kai-guan-by-loveyuchuwei-133e/">LoveYuChuWei</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">bulbSwitch</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> k=(<span class="keyword">int</span>)Math.sqrt(n);</span><br><span class="line">    	<span class="keyword">return</span> k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="672-灯泡开关-Ⅱ"><a href="#672-灯泡开关-Ⅱ" class="headerlink" title="672. 灯泡开关 Ⅱ"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/bulb-switcher-ii/">672. 灯泡开关 Ⅱ</a></h1><p>现有一个房间，墙上挂有 n 只已经打开的灯泡和 4 个按钮。在进行了 m 次未知操作后，你需要返回这 n 只灯泡可能有多少种不同的状态。</p>
+<p>假设这 n 只灯泡被编号为 [1, 2, 3 …, n]，这 4 个按钮的功能如下：</p>
+<p>a.将所有灯泡的状态反转（即开变为关，关变为开）<br>b.将编号为偶数的灯泡的状态反转<br>c.将编号为奇数的灯泡的状态反转<br>d.将编号为 3k+1 的灯泡的状态反转（k = 0, 1, 2, …)</p>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><p>每6个状态的灯是一样的,所以只要看前6个灯有多少个状态就可以了</p>
+<p>用abcd分别代表其操作次数   </p>
+<pre><code>Light 1 = (1 + a + c + d)%2
+Light 2 = (1 + a + b)%2
+Light 3 = (1 + a + c)%2
+Light 4 = (1 + a + b + d)%2
+Light 5 = (1 + a + c)%2
+Light 6 = (1 + a + b)%2
+</code></pre>
+<p>5,6灯分别和3,2灯的状态是一样的,所以只要看前面四个灯有几种状态即可   </p>
+<p>又因为第四盏灯可以由前三盏灯决定,证明如下:</p>
+<pre><code>Light 1 = (1 + a + c + d)%2
+Light 2 = (1 + a + b)%2
+Light 3 = (1 + a + c)%2
+Light 4 = (1 + a + b + d)%2
+</code></pre>
+<p>前四盏灯的状态如上</p>
+<ul>
+<li>当Light 1== Light 3,d是偶数,则Light 2==Light 4</li>
+<li>当Light 1!= Light 3,d是奇数,则Light 2!=Light 4</li>
+</ul>
+<p>所以前三个灯的状态就可以决定所有灯泡的状态</p>
+<p>然后自己写一下,推一下前几种的情况就可以得出表了.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">flipLights</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> presses)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span>[][] res = &#123;</span><br><span class="line">    			&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;,&#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;,&#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>&#125;,&#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">8</span>&#125;</span><br><span class="line">    	&#125;;</span><br><span class="line">    	<span class="keyword">if</span>(presses==<span class="number">0</span>)</span><br><span class="line">    		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    	<span class="keyword">else</span> <span class="keyword">if</span>(presses&lt;=<span class="number">2</span>)</span><br><span class="line">    		<span class="keyword">return</span> res[presses][n&lt;<span class="number">3</span>?n:<span class="number">3</span>];</span><br><span class="line">    	<span class="keyword">else</span></span><br><span class="line">    		<span class="keyword">return</span> res[presses&lt;<span class="number">3</span>?presses:<span class="number">3</span>][n&lt;<span class="number">3</span>?n:<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="1375-灯泡开关-III"><a href="#1375-灯泡开关-III" class="headerlink" title="1375. 灯泡开关 III"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/bulb-switcher-iii/">1375. 灯泡开关 III</a></h1><p>房间中有 n 枚灯泡，编号从 1 到 n，自左向右排成一排。最初，所有的灯都是关着的。</p>
+<p>在 k  时刻（ k 的取值范围是 0 到 n - 1），我们打开 light[k] 这个灯。</p>
+<p>灯的颜色要想 变成蓝色 就必须同时满足下面两个条件：</p>
+<p>灯处于打开状态。<br>排在它之前（左侧）的所有灯也都处于打开状态。<br>请返回能够让 所有开着的 灯都 变成蓝色 的时刻 数目 。</p>
+<p>示例 1 :</p>
+<p>输入：light = [2,1,3,5,4]<br>输出：3<br>解释：所有开着的灯都变蓝的时刻分别是 1，2 和 4 。<br>示例 2：</p>
+<p>输入：light = [3,2,4,1,5]<br>输出：2<br>解释：所有开着的灯都变蓝的时刻分别是 3 和 4（index-0）。<br>示例 3：</p>
+<p>输入：light = [4,1,2,3]<br>输出：1<br>解释：所有开着的灯都变蓝的时刻是 3（index-0）。<br>第 4 个灯在时刻 3 变蓝。<br>示例 4：</p>
+<p>输入：light = [2,1,4,3,6,5]<br>输出：3<br>示例 5：</p>
+<p>输入：light = [1,2,3,4,5,6]<br>输出：6
+ </p>
+<p>提示：</p>
+<p>n == light.length<br>1 &lt;= n &lt;= 5 * 10^4<br>light 是 [1, 2, …, n] 的一个排列。</p>
+<h2 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h2><p>遍历数组，记录当前最大亮起来的灯，如果最大亮起来的灯等于遍历过的灯的数量，那么说明前面灯都亮了。举个例子，[2,1,3]，当遍历到3的时候，最大的灯是3，等于当前已经亮起来的灯的个数，因此3左侧的灯全部亮了，算一个可行解。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numTimesAllBlue</span><span class="params">(<span class="keyword">int</span>[] light)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> max=<span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">int</span> c=<span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; light.length; i++) &#123;</span><br><span class="line">			max=Math.max(max, light[i]);</span><br><span class="line">			<span class="keyword">if</span>(max==i+<span class="number">1</span>)</span><br><span class="line">				c++;</span><br><span class="line">		&#125;</span><br><span class="line">    	<span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="1529-灯泡开关-IV"><a href="#1529-灯泡开关-IV" class="headerlink" title="1529. 灯泡开关 IV"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/bulb-switcher-iv/">1529. 灯泡开关 IV</a></h1><p>房间中有 n 个灯泡，编号从 0 到 n-1 ，自左向右排成一行。最开始的时候，所有的灯泡都是 关 着的。</p>
+<p>请你设法使得灯泡的开关状态和 target 描述的状态一致，其中 target[i] 等于 1 第 i 个灯泡是开着的，等于 0 意味着第 i 个灯是关着的。</p>
+<p>有一个开关可以用于翻转灯泡的状态，翻转操作定义如下：</p>
+<p>选择当前配置下的任意一个灯泡（下标为 i ）<br>翻转下标从 i 到 n-1 的每个灯泡<br>翻转时，如果灯泡的状态为 0 就变为 1，为 1 就变为 0 。</p>
+<p>返回达成 target 描述的状态所需的 最少 翻转次数。</p>
+<h2 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h2><p>从前往后模拟一遍就行了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minFlips</span><span class="params">(String target)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">char</span> ch[] = target.toCharArray();</span><br><span class="line">    	<span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">char</span> cur=<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ch.length; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(ch[i]!=cur)</span><br><span class="line">			&#123;</span><br><span class="line">				count++;</span><br><span class="line">				cur=cur==<span class="string">&#x27;1&#x27;</span>?<span class="string">&#x27;0&#x27;</span>:<span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">    	<span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="683-K-个关闭的灯泡"><a href="#683-K-个关闭的灯泡" class="headerlink" title="683. K 个关闭的灯泡"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/k-empty-slots/">683. K 个关闭的灯泡</a></h1><p>N 个灯泡排成一行，编号从 1 到 N 。最初，所有灯泡都关闭。每天只打开一个灯泡，直到 N 天后所有灯泡都打开。</p>
+<p>给你一个长度为 N 的灯泡数组 blubs ，其中 bulls[i] = x 意味着在第 (i+1) 天，我们会把在位置 x 的灯泡打开，其中 i 从 0 开始，x 从 1 开始。</p>
+<p>给你一个整数 K ，请你输出在第几天恰好有两个打开的灯泡，使得它们中间 正好 有 K 个灯泡且这些灯泡 全部是关闭的 。</p>
+<p>如果不存在这种情况，返回 -1 。如果有多天都出现这种情况，请返回 最小的天数 。</p>
+<p> </p>
+<p>示例 1：</p>
+<p>输入：<br>bulbs: [1,3,2]<br>K: 1<br>输出：2<br>解释：<br>第一天 bulbs[0] = 1，打开第一个灯泡 [1,0,0]<br>第二天 bulbs[1] = 3，打开第三个灯泡 [1,0,1]<br>第三天 bulbs[2] = 2，打开第二个灯泡 [1,1,1]<br>返回2，因为在第二天，两个打开的灯泡之间恰好有一个关闭的灯泡。<br>示例 2：</p>
+<p>输入：<br>bulbs: [1,2,3]<br>k: 1<br>输出：-1
+ </p>
+<p>提示：</p>
+<p>1 &lt;= N &lt;= 20000<br>1 &lt;= bulbs[i] &lt;= N<br>bulbs 是一个由从 1 到 N 的数字构成的排列<br>0 &lt;= K &lt;= 20000<br>通过次数2,061提交次数4,820</p>
+<h2 id="题解-4"><a href="#题解-4" class="headerlink" title="题解"></a>题解</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.TreeSet;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">kEmptySlots</span><span class="params">(<span class="keyword">int</span>[] bulbs, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    	TreeSet&lt;Integer&gt; set = <span class="keyword">new</span> TreeSet&lt;Integer&gt;();</span><br><span class="line">    	<span class="keyword">int</span> res=-<span class="number">1</span>;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; bulbs.length; i++) &#123;</span><br><span class="line">			set.add(bulbs[i]);</span><br><span class="line">			<span class="keyword">if</span>(set.lower(bulbs[i])!=<span class="keyword">null</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(bulbs[i]-set.lower(bulbs[i])==k+<span class="number">1</span>)</span><br><span class="line">				&#123;res=i+<span class="number">1</span>;<span class="keyword">break</span>;&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(set.higher(bulbs[i])!=<span class="keyword">null</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(set.higher(bulbs[i])-bulbs[i]==k+<span class="number">1</span>)</span><br><span class="line">				&#123;res=i+<span class="number">1</span>;<span class="keyword">break</span>;&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">    	<span class="keyword">return</span> res;</span><br><span class="line">    	</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/08/21/little_thing/%E5%B9%B6%E6%9F%A5%E9%9B%86/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-08-21 00:00:00
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/leetcode/" title="leetcode">
+                        <b>#</b> leetcode
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/leetcode/" title="leetcode">
+                        <b>#</b> leetcode
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#319-%E7%81%AF%E6%B3%A1%E5%BC%80%E5%85%B3"><span class="toc-text">319. 灯泡开关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#672-%E7%81%AF%E6%B3%A1%E5%BC%80%E5%85%B3-%E2%85%A1"><span class="toc-text">672. 灯泡开关 Ⅱ</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-1"><span class="toc-text">题解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1375-%E7%81%AF%E6%B3%A1%E5%BC%80%E5%85%B3-III"><span class="toc-text">1375. 灯泡开关 III</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-2"><span class="toc-text">题解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1529-%E7%81%AF%E6%B3%A1%E5%BC%80%E5%85%B3-IV"><span class="toc-text">1529. 灯泡开关 IV</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-3"><span class="toc-text">题解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#683-K-%E4%B8%AA%E5%85%B3%E9%97%AD%E7%9A%84%E7%81%AF%E6%B3%A1"><span class="toc-text">683. K 个关闭的灯泡</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-4"><span class="toc-text">题解</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/Sellun">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" target="_blank" rel="noopener" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=GCksLSwrKS0vLixYaWk2e3d1">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" target="_blank" rel="noopener" href="https://gitee.com/aqeb/cnblog/raw/master/wechat.jpg">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://sellun.github.io/">Copyright © Sellun 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  </body>
+</html>
