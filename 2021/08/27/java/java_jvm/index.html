@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="Sellun" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      jvm 
+      
+      
+      |
+    
+     Sellun
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/1.png">
+    <link rel="icon" href="/images/1.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Sellun" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/2.jpg" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Sellun</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">jvm</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-08-27 13:03:35
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/java/" title="java">
+                    <b>#</b> java
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/java%E5%9F%BA%E7%A1%80/" title="java基础">
+                    <b>#</b> java基础
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <p>nyimac.gitee.io<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/belongtocode/article/details/104234114">https://blog.csdn.net/belongtocode/article/details/104234114</a></p>
+<h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><p><img src="https://gitee.com/sellun/cnblog/raw/master/jvm/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%8C%BA.png" alt="虚拟机数据区"></p>
+<h2 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h2><p>在Java虚拟机规范中，对这个区域规定了两种异常状况：如果线程请求的栈深度大于虚 拟机所允许的深度，将抛出StackOverflowError异常；如果虚拟机栈可以动态扩展（当前大部 分的Java虚拟机都可动态扩展，只不过Java虚拟机规范中也允许固定长度的虚拟机栈），如 果扩展时无法申请到足够的内存，就会抛出OutOfMemoryError异常。</p>
+<h2 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h2><p>本地方法栈（Native Method Stack）与虚拟机栈所发挥的作用是非常相似的，它们之间 的区别不过是虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈则为虚 拟机使用到的Native方法服务。在虚拟机规范中对本地方法栈中方法使用的语言、使用方式 与数据结构并没有强制规定，因此具体的虚拟机可以自由实现它。甚至有的虚拟机（譬如 Sun HotSpot虚拟机）直接就把本地方法栈和虚拟机栈合二为一。与虚拟机栈一样，本地方法 栈区域也会抛出StackOverflowError和OutOfMemoryError异常。</p>
+<h2 id="给对象分配内存"><a href="#给对象分配内存" class="headerlink" title="给对象分配内存"></a>给对象分配内存</h2><p>选择哪种分配方式由 Java堆是否规整决定，而Java堆是否规整又由所采用的垃圾收集器是否带有压缩整理功能决 定。因此，在使用Serial、ParNew等带Compact过程的收集器时，系统采用的分配算法是指针 碰撞，而使用CMS这种基于Mark-Sweep算法的收集器时，通常采用空闲列表。</p>
+<h2 id="线程安全性问题"><a href="#线程安全性问题" class="headerlink" title="线程安全性问题"></a>线程安全性问题</h2><p>除如何划分可用空间之外，还有另外一个需要考虑的问题是对象创建在虚拟机中是非常 频繁的行为，即使是仅仅修改一个指针所指向的位置，在并发情况下也并不是线程安全的， 可能出现正在给对象A分配内存，指针还没来得及修改，对象B又同时使用了原来的指针来 分配内存的情况。解决这个问题有两种方案，一种是对分配内存空间的动作进行同步处理 ——实际上虚拟机采用CAS配上失败重试的方式保证更新操作的原子性；另一种是把内存分 配的动作按照线程划分在不同的空间之中进行，即每个线程在Java堆中预先分配一小块内 存，称为本地线程分配缓冲（Thread Local Allocation Buffer,TLAB）。哪个线程要分配内 存，就在哪个线程的TLAB上分配，只有TLAB用完并分配新的TLAB时，才需要同步锁定。 虚拟机是否使用TLAB，可以通过-XX：+/-UseTLAB参数来设定。</p>
+<h2 id="对象的结构"><a href="#对象的结构" class="headerlink" title="对象的结构"></a>对象的结构</h2><p>HotSpot虚拟机的对象头包括两部分信息，第一部分用于存储对象自身的运行时数据， 如哈希码（HashCode）、GC分代年龄、锁状态标志、线程持有的锁、偏向线程ID、偏向时 间戳等，对象头的另外一部分是类型指针，即对象指向它的类元数据的指针，虚拟机通过这个指 针来确定这个对象是哪个类的实例。并不是所有的虚拟机实现都必须在对象数据上保留类型 指针，换句话说，查找对象的元数据信息并不一定要经过对象本身，另外，如果对象是一个Java数组，那在对象头中还必须有一块用于记录数组长度的数据，因 为虚拟机可以通过普通Java对象的元数据信息确定Java对象的大小，但是从数组的元数据中 却无法确定数组的大小。</p>
+<p>对齐填充（Padding）：第三部分对齐填充并不是必然存在的，也没有特别的含义，它仅仅起着占位符的作用。 由于HotSpot VM的自动内存管理系统要求对象起始地址必须是8字节的整数倍，换句话说， 就是对象的大小必须是8字节的整数倍。而对象头部分正好是8字节的倍数（1倍或者2倍）， 因此，当对象实例数据部分没有对齐时，就需要通过对齐填充来补全。</p>
+<h2 id="对象的访问"><a href="#对象的访问" class="headerlink" title="对象的访问"></a>对象的访问</h2><p><img src="https://gitee.com/sellun/cnblog/raw/master/jvm/%E5%8F%A5%E6%9F%84%E8%AE%BF%E9%97%AE.png" alt="句柄访问">   </p>
+<p><img src="https://gitee.com/sellun/cnblog/raw/master/jvm/%E7%9B%B4%E6%8E%A5%E6%8C%87%E9%92%88.png" alt="直接指针"> </p>
+<h1 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h1><h2 id="再谈引用"><a href="#再谈引用" class="headerlink" title="再谈引用"></a>再谈引用</h2><p>我们希望能描述这样一类对象：当内存空间还足够时，则能保留在内存之中；如果内存 空间在进行垃圾收集后还是非常紧张，则可以抛弃这些对象。很多系统的缓存功能都符合这 样的应用场景。</p>
+<p>将引用分为强引用（Strong Reference）、软引用（Soft Reference）、弱引用（Weak Reference）、虚引用（Phantom Reference）4种，这4种引用强度依次逐渐减弱。   </p>
+<p>强引用就是指在程序代码之中普遍存在的，类似“Object obj=new Object（）”这类的引 用，只要强引用还存在，垃圾收集器永远不会回收掉被引用的对象。  </p>
+<p>软引用是用来描述一些还有用但并非必需的对象。对于软引用关联着的对象，在系统将 要发生内存溢出异常之前，将会把这些对象列进回收范围之中进行第二次回收。如果这次回 收还没有足够的内存，才会抛出内存溢出异常。在JDK 1.2之后，提供了SoftReference类来实 现软引用。   </p>
+<p>弱引用也是用来描述非必需对象的，但是它的强度比软引用更弱一些，被弱引用关联的 对象只能生存到下一次垃圾收集发生之前。当垃圾收集器工作时，无论当前内存是否足够， 都会回收掉只被弱引用关联的对象。在JDK 1.2之后，提供了WeakReference类来实现弱引 用。  </p>
+<p>虚引用也称为幽灵引用或者幻影引用，它是最弱的一种引用关系。一个对象是否有虚引 用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一 个对象设置虚引用关联的唯一目的就是能在这个对象被收集器回收时收到一个系统通知。在 JDK 1.2之后，提供了PhantomReference类来实现虚引用。</p>
+<h2 id="对象被回收的过程"><a href="#对象被回收的过程" class="headerlink" title="对象被回收的过程"></a>对象被回收的过程</h2><p>当对象进行可达性分析没有与GC Roots相连的引用链，将会被第一次标记，并根据是否需要执行finalize()方法进行一次筛选，对象没有重写finalize()或者虚拟机已经调用过finalize(),都被视为不需要执行<br>如果对象有必要执行finalize，会被放入到F-Queue队列中，并在稍后由虚拟机自动创建的低优先级的Finalizer线程去触发它，并不保证等待此方法执行结束。<br>如果对象在finalize()方法执行中，重新和GC Roots产生了引用链，则可以逃脱此次被回收的命运，但finalize()方法只能运行一次，所以并不能通过此方法逃脱下一次被回收<br>建议大家完全忘掉这个方法的存在。finalize（）能做的所有工作，使用try-finally或者其他方式都可以做得更好、更及时，所以笔 者建议大家完全可以忘掉Java语言中有这个方法的存在。</p>
+<h2 id="回收方法区"><a href="#回收方法区" class="headerlink" title="回收方法区"></a>回收方法区</h2><p>Java虚拟机规 范中确实说过可以不要求虚拟机在方法区实现垃圾收集，而且在方法区中进行垃圾收集 的“性价比”一般比较低：在堆中，尤其是在新生代中，常规应用进行一次垃圾收集一般可以 回收70%～95%的空间，而永久代的垃圾收集效率远低于此。   </p>
+<p>永久代的垃圾收集主要回收两部分内容：废弃常量和无用的类。回收废弃常量与回收 Java堆中的对象非常类似。常量池中的其他类（接 口）、方法、字段的符号引用也与此类似。</p>
+<p>判定一个常量是否是“废弃常量”比较简单，而要判定一个类是否是“无用的类”的条件则 相对苛刻许多。类需要同时满足下面3个条件才能算是“无用的类”：</p>
+<ul>
+<li>该类所有的实例都已经被回收，也就是Java堆中不存在该类的任何实例。 </li>
+<li>加载该类的ClassLoader已经被回收。 </li>
+<li>该类对应的java.lang.Class对象没有在任何地方被引用，无法在任何地方通过反射访问该 类的方法。 </li>
+</ul>
+<p>虚拟机可以对满足上述3个条件的无用类进行回收，这里说的仅仅是“可以”，而并不是 和对象一样，不使用了就必然会回收。 </p>
+<p>在大量使用反射、动态代理、CGLib等ByteCode框架、动态生成JSP以及OSGi这类频繁 自定义ClassLoader的场景都需要虚拟机具备类卸载的功能，以保证永久代不会溢出。   </p>
+<h2 id="安全点"><a href="#安全点" class="headerlink" title="安全点"></a>安全点</h2><p>对于Sefepoint，另一个需要考虑的问题是如何在GC发生时让所有线程（这里不包括执行 JNI调用的线程）都“跑”到最近的安全点上再停顿下来。这里有两种方案可供选择：抢先式 中断（Preemptive Suspension）和主动式中断（Voluntary Suspension），其中抢先式中断不需 要线程的执行代码主动去配合，在GC发生时，首先把所有线程全部中断，如果发现有线程 中断的地方不在安全点上，就恢复线程，让它“跑”到安全点上。现在几乎没有虚拟机实现采 用抢先式中断来暂停线程从而响应GC事件。 而主动式中断的思想是当GC需要中断线程的时候，不直接对线程操作，仅仅简单地设 置一个标志，各个线程执行时主动去轮询这个标志，发现中断标志为真时就自己中断挂起。 轮询标志的地方和安全点是重合的，另外再加上创建对象需要分配内存的地方。下面代码清 单3-4中的test指令是HotSpot生成的轮询指令，当需要暂停线程时，虚拟机把0x160100的内存 页设置为不可读，线程执行到test指令时就会产生一个自陷异常信号，在预先注册的异常处 理器中暂停线程实现等待，这样一条汇编指令便完成安全点轮询和触发线程中断。</p>
+<h2 id="安全区"><a href="#安全区" class="headerlink" title="安全区"></a>安全区</h2><p>安全区域是指在一段代码片段之中，引用关系不会发生变化。在这个区域中的任意地方 开始GC都是安全的。我们也可以把Safe Region看做是被扩展了的Safepoint。 在线程执行到Safe Region中的代码时，首先标识自己已经进入了Safe Region，那样，当 在这段时间里JVM要发起GC时，就不用管标识自己为Safe Region状态的线程了。在线程要离 开Safe Region时，它要检查系统是否已经完成了根节点枚举（或者是整个GC过程），如果完 成了，那线程就继续执行，否则它就必须等待直到收到可以安全离开Safe Region的信号为 止。   </p>
+<h2 id="G1收集器"><a href="#G1收集器" class="headerlink" title="G1收集器"></a>G1收集器</h2><p>的收集器，从局部（两个Region之间）上来看是基于“复制”算法实现的，但无论如何，这 两种算法都意味着G1运作期间不会产生内存空间碎片，收集后能提供规整的可用内存。这种 特性有利于程序长时间运行，分配大对象时不会因为无法找到连续内存空间而提前触发下一 次GC。     </p>
+<p>可预测的停顿：这是G1相对于CMS的另一大优势，降低停顿时间是G1和CMS共同的关 注点，但G1除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定在一 个长度为M毫秒的时间片段内，消耗在垃圾收集上的时间不得超过N毫秒，这几乎已经是实 时Java（RTSJ）的垃圾收集器的特征了。G1收集器之所以能建立可预测的停顿时间模型，是因为它可以有计划地避免在整个Java 堆中进行全区域的垃圾收集。G1跟踪各个Region里面的垃圾堆积的价值大小（回收所获得的 空间大小以及回收所需时间的经验值），在后台维护一个优先列表，每次根据允许的收集时 间，优先回收价值最大的Region（这也就是Garbage-First名称的来由）。这种使用Region划分 内存空间以及有优先级的区域回收方式，保证了G1收集器在有限的时间内可以获取尽可能高 的收集效率。</p>
+<p>在G1收集器中，Region之间的对象引用以及其他收集器中的新生代与老年代之间的对象 引用，虚拟机都是使用Remembered Set来避免全堆扫描的。G1中每个Region都有一个与之对 应的Remembered Set，虚拟机发现程序在对Reference类型的数据进行写操作时，会产生一个 Write Barrier暂时中断写操作，检查Reference引用的对象是否处于不同的Region之中（在分代 的例子中就是检查是否老年代中的对象引用了新生代中的对象），如果是，便通过 CardTable把相关引用信息记录到被引用对象所属的Region的Remembered Set之中。当进行内 存回收时，在GC根节点的枚举范围中加入Remembered Set即可保证不对全堆扫描也不会有遗 漏<br><img src="https://gitee.com/sellun/cnblog/raw/master/jvm/ParNew_SerialOld%E6%94%B6%E9%9B%86%E5%99%A8%E8%BF%90%E8%A1%8C%E7%A4%BA%E6%84%8F%E5%9B%BE.png"><br><img src="https://gitee.com/sellun/cnblog/raw/master/jvm/Serial_SerialOld%E6%94%B6%E9%9B%86%E5%99%A8%E8%BF%90%E8%A1%8C%E7%A4%BA%E6%84%8F%E5%9B%BE.png"></p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/08/22/algorithm/%E6%9C%80%E7%9F%AD%E8%B7%AF(DijkstraAndFloyd)/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-08-27 13:03:35
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/java/" title="java">
+                        <b>#</b> java
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/java%E5%9F%BA%E7%A1%80/" title="java基础">
+                        <b>#</b> java基础
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/08/27/java/java_stream/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-text">内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="toc-text">虚拟机栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="toc-text">本地方法栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%99%E5%AF%B9%E8%B1%A1%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98"><span class="toc-text">给对象分配内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-text">线程安全性问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-text">对象的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="toc-text">对象的访问</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="toc-text">垃圾收集器与内存分配策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%8D%E8%B0%88%E5%BC%95%E7%94%A8"><span class="toc-text">再谈引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E8%A2%AB%E5%9B%9E%E6%94%B6%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">对象被回收的过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E6%94%B6%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="toc-text">回收方法区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E7%82%B9"><span class="toc-text">安全点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E5%8C%BA"><span class="toc-text">安全区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G1%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-text">G1收集器</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/Sellun">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" target="_blank" rel="noopener" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=GCksLSwrKS0vLixYaWk2e3d1">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" target="_blank" rel="noopener" href="https://gitee.com/aqeb/cnblog/raw/master/wechat.jpg">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://sellun.github.io/">Copyright © Sellun 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  </body>
+</html>

@@ -11,9 +11,9 @@
   
   <title>
     
-      Category 
+      1771大餐计数 
       
-       : leetcode
+      
       |
     
      Sellun
@@ -110,115 +110,152 @@
 
 
       <div class="flex-container">
-        <!-- 标签详情页，展示某个标签下的文章列表，url形式：https://yoursite/tags/某个标签/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<div class="container category-details">
-  <div class="content-title">
-    <h2>
-      <span>leetcode</span>
-    </h2>
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">1771大餐计数</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-09-03 00:00:00
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/leetcode/" title="leetcode">
+                    <b>#</b> leetcode
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/leetcode/" title="leetcode">
+                    <b>#</b> leetcode
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="1711-大餐计数"><a href="#1711-大餐计数" class="headerlink" title="1711. 大餐计数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-good-meals/">1711. 大餐计数</a></h1><p>大餐 是指 恰好包含两道不同餐品 的一餐，其美味程度之和等于 2 的幂。</p>
+<p>你可以搭配 任意 两道餐品做一顿大餐。</p>
+<p>给你一个整数数组 deliciousness ，其中 deliciousness[i] 是第 i​​​​​​​​​​​​​​ 道餐品的美味程度，返回你可以用数组中的餐品做出的不同 大餐 的数量。结果需要对 109 + 7 取余。</p>
+<p>注意，只要餐品下标不同，就可以认为是不同的餐品，即便它们的美味程度相同。</p>
+<p> </p>
+<p>示例 1：</p>
+<p>输入：deliciousness = [1,3,5,7,9]<br>输出：4<br>解释：大餐的美味程度组合为 (1,3) 、(1,7) 、(3,5) 和 (7,9) 。<br>它们各自的美味程度之和分别为 4 、8 、8 和 16 ，都是 2 的幂。<br>示例 2：</p>
+<p>输入：deliciousness = [1,1,1,3,3,3,7]<br>输出：15<br>解释：大餐的美味程度组合为 3 种 (1,1) ，9 种 (1,3) ，和 3 种 (1,7) 。
+ </p>
+<p>提示：</p>
+<p>1 &lt;= deliciousness.length &lt;= 105<br>0 &lt;= deliciousness[i] &lt;= 220</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">countPairs</span><span class="params">(<span class="keyword">int</span>[] deliciousness)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">final</span> <span class="keyword">int</span> MOD=(<span class="keyword">int</span>)<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line">    	HashMap&lt;Long, Long&gt; map= <span class="keyword">new</span> HashMap&lt;Long,Long&gt;();</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">long</span> i : deliciousness) &#123;</span><br><span class="line">			map.put(i, map.getOrDefault(i, <span class="number">0l</span>)+<span class="number">1</span>);</span><br><span class="line">		&#125;<span class="keyword">long</span> res=<span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">long</span> i : map.keySet()) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= <span class="number">21</span>; j++) &#123;<span class="comment">//[2^20,2^20],所以需要算到21 </span></span><br><span class="line">				<span class="keyword">int</span> pow=(<span class="keyword">int</span>)Math.pow(<span class="number">2</span>, j);<span class="comment">//可以使用左移位来达到算幂的目的,也可以先把2的幂预先算出来存好,都比这样效率高</span></span><br><span class="line">				<span class="keyword">if</span>(map.containsKey(pow-i))</span><br><span class="line">				&#123;</span><br><span class="line">					<span class="keyword">long</span> k=<span class="number">0</span>;</span><br><span class="line">					</span><br><span class="line">					<span class="keyword">if</span>(pow-i==i)</span><br><span class="line">						k=(map.get(pow-i)*(map.get(i)-<span class="number">1</span>));</span><br><span class="line">						</span><br><span class="line">					<span class="keyword">else</span></span><br><span class="line">						k=(map.get(pow-i)*map.get(i));</span><br><span class="line">					res=(res+k) ;<span class="comment">//之前这里边取余便算导致后面除2的时候结果错误了</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">        res=res/<span class="number">2</span>;</span><br><span class="line">    	<span class="keyword">return</span> (<span class="keyword">int</span>)(res%MOD);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/08/27/java/java_ioStream/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-09-03 00:00:00
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/leetcode/" title="leetcode">
+                        <b>#</b> leetcode
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/leetcode/" title="leetcode">
+                        <b>#</b> leetcode
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
   </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="平衡字符串">
-        <span class="time-m-d">2021-08-10</span>
-        <a href="/2021/08/10/leetcode/%E5%B9%B3%E8%A1%A1%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-          <span>平衡字符串</span>
-        </a>
-      </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1711-%E5%A4%A7%E9%A4%90%E8%AE%A1%E6%95%B0"><span class="toc-text">1711. 大餐计数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a></li></ol>
     </div>
+  </div>
+
   
-    <div class="post-list">
-      <div class="post-item" title="丑数">
-        <span class="time-m-d">2021-08-09</span>
-        <a href="/2021/08/09/leetcode/%E4%B8%91%E6%95%B0/">
-          <span>丑数</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="最长递增子序列">
-        <span class="time-m-d">2021-08-08</span>
-        <a href="/2021/08/08/leetcode/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">
-          <span>最长递增子序列</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="1856. 子数组最小乘积的最大值">
-        <span class="time-m-d">2021-08-05</span>
-        <a href="/2021/08/05/leetcode/1856/">
-          <span>1856. 子数组最小乘积的最大值</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="316. 去除重复字母">
-        <span class="time-m-d">2021-08-04</span>
-        <a href="/2021/08/04/leetcode/316/">
-          <span>316. 去除重复字母</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="581. 最短无序连续子数组">
-        <span class="time-m-d">2021-08-04</span>
-        <a href="/2021/08/04/leetcode/581/">
-          <span>581. 最短无序连续子数组</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="91. 股票价格跨度">
-        <span class="time-m-d">2021-08-04</span>
-        <a href="/2021/08/04/leetcode/91/">
-          <span>91. 股票价格跨度</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="84. 柱状图中最大的矩形">
-        <span class="time-m-d">2021-08-03</span>
-        <a href="/2021/08/03/leetcode/84/">
-          <span>84. 柱状图中最大的矩形</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="面试题 17.21. 直方图的水量">
-        <span class="time-m-d">2021-08-02</span>
-        <a href="/2021/08/02/leetcode/%E9%9D%A2%E8%AF%95%E9%A2%98%2017.21.%20%E7%9B%B4%E6%96%B9%E5%9B%BE%E7%9A%84%E6%B0%B4%E9%87%8F/">
-          <span>面试题 17.21. 直方图的水量</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="1850. 邻位交换的最小次数">
-        <span class="time-m-d">2021-07-30</span>
-        <a href="/2021/07/30/leetcode/1850/">
-          <span>1850. 邻位交换的最小次数</span>
-        </a>
-      </div>
-    </div>
-  
-  <nav class="post-navigation">
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <a href="/categories/leetcode/"><i class="iconfont icon-angleleft"></i></a>
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
     
-    <span class="page-num">2 / 3</span>
-    
-      <a href="/categories/leetcode/page/3/"><i class="iconfont icon-angleright"></i></a>
-    
-  </nav>
-</div>
+  </div>
+
 
         <div class="footer">
   <div class="social">
