@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-09-03T05:35:14.872Z</updated>
+  <updated>2021-09-03T13:29:35.455Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>单例模式</title>
+    <link href="http://example.com/2021/09/03/design_patterns/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://example.com/2021/09/03/design_patterns/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</id>
+    <published>2021-09-03T04:03:35.000Z</published>
+    <updated>2021-09-03T13:29:35.455Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在有些系统中，为了节省内存资源、保证数据内容的一致性，对某些类要求只能创建一个实例，这就是所谓的单例模式。&lt;/p&gt;
+&lt;h2 id=&quot;单例模式的定义与特点&quot;&gt;&lt;a href=&quot;#单例模式的定义与特点&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="design_patterns" scheme="http://example.com/categories/design-patterns/"/>
+    
+    
+    <category term="设计模式" scheme="http://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="创建者模式" scheme="http://example.com/tags/%E5%88%9B%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>1771大餐计数</title>
@@ -498,33 +526,6 @@
     <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
     
     <category term="贪心" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>丑数</title>
-    <link href="http://example.com/2021/08/09/leetcode/%E4%B8%91%E6%95%B0/"/>
-    <id>http://example.com/2021/08/09/leetcode/%E4%B8%91%E6%95%B0/</id>
-    <published>2021-08-09T09:47:35.000Z</published>
-    <updated>2021-08-11T08:51:54.470Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;丑数&quot;&gt;&lt;a href=&quot;#丑数&quot; class=&quot;headerlink&quot; title=&quot;丑数&quot;&gt;&lt;/a&gt;丑数&lt;/h1&gt;&lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
-    
-    
-    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
-    
-    <category term="动态规划" scheme="http://example.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
