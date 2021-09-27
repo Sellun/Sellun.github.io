@@ -8,10 +8,13 @@
   <meta name="author" content="Sellun" />
   <meta name="description" content="" />
   
-    <meta name="robots" content="noindex" />
-  
   
   <title>
+    
+      java异常断言和日志 
+      
+      
+      |
     
      Sellun
   </title>
@@ -107,151 +110,187 @@
 
 
       <div class="flex-container">
-        <div class="container index">
-  <div class="post-list">
-    <!-- 遍历渲染文章 -->
-    
-      <div class="post-item" title="linux基本指令">
-        <div class="time-m-d">2021-07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/linux/linux1/">
-            
-              
-                <span>linux基本指令</span>
-              
-            
-          </a>
-        </div>
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">java异常断言和日志</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-09-25 12:03:35
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/java/" title="java">
+                    <b>#</b> java
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/java%E5%9F%BA%E7%A1%80/" title="java基础">
+                    <b>#</b> java基础
+                  </a>
+                </span>
+                
+              </span>
+          
       </div>
-    
-      <div class="post-item" title="算法课题小结">
-        <div class="time-m-d">2021-07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/algorithm/">
-            
-              
-                <span>算法课题小结</span>
-              
-            
-          </a>
-        </div>
+      <div class="markdown-body">
+        <p>在 Java 语言中3 种处理系统错误的机制</p>
+<h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><pre><code>    Throwable
+    /     \
+Error     Exception
+            /    \
+    IOException  RuntimeException    
+</code></pre>
+<p>unchecked异常 ：Error和RuntimeError</p>
+<p>checked异常</p>
+<h1 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h1><h2 id="断言基本概念"><a href="#断言基本概念" class="headerlink" title="断言基本概念"></a>断言基本概念</h2><p>断言机制允许在测试期间向代码中插入一些检査语句。当代码发布时，这些插人的检测语句将会被自动地移走。</p>
+<p><code>assert 条件;</code><br><code>assert 条件：表达式;</code></p>
+<p>这两种形式都会对条件进行检测， 如果结果为 false, 则抛出一个 AssertionError 异常。<br>在第二种形式中，表达式将被传人 AssertionError 的构造器， 并转换成一个消息字符串。</p>
+<p>“ 表达式” 部分的唯一目的是产生一个消息字符串。</p>
+<h2 id="启用和禁用断言"><a href="#启用和禁用断言" class="headerlink" title="启用和禁用断言"></a>启用和禁用断言</h2><p>在默认情况下， 断言被禁用。可以在运行程序时用 -enableassertions 或 -ea 选项启用：<br>java -enableassertions MyApp</p>
+<p>在启用或禁用断言时不必重新编译程序。启用或禁用断言是类加载器( class loader) 的功能。当断言被禁用时， 类加载器将跳过断言代码， 因此，不会降低程序运行的速度。也可以在某个类或整个包中使用断言</p>
+<h2 id="何时使用断言"><a href="#何时使用断言" class="headerlink" title="何时使用断言"></a>何时使用断言</h2><ul>
+<li>断言失败是致命的、 不可恢复的错误。</li>
+<li>断言检查只用于开发和测试阶段段确定程序内部的错误位置</li>
+</ul>
+<p>当有前置条件时，设置断言<br><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/6/docs/technotes/guides/language/assert.html">断言</a></p>
+<h1 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h1><h2 id="基本日志"><a href="#基本日志" class="headerlink" title="基本日志"></a>基本日志</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.logging.*;</span><br><span class="line">Logger.getGlobal().info(<span class="string">&quot;sdd&quot;</span>);<span class="comment">//全局日志记录器</span></span><br><span class="line">Logger.getGlobal().setLevel(Level.OFF);<span class="comment">//从这里开始，取消所有日志</span></span><br></pre></td></tr></table></figure>
+<h2 id="高级日志"><a href="#高级日志" class="headerlink" title="高级日志"></a>高级日志</h2><p>不要将所有的日志都记录到一个全局日志记录器中，而是可以自定义日志记录器。<br>调用 getLogger 方法创建或获取记录器：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger myLogger = Logger.getLogger(<span class="string">&quot;com.mycompany.myapp&quot;</span>):</span><br></pre></td></tr></table></figure>
+<p>未被任何变量引用的日志记录器可能会被垃圾回收。 为了防止这种情况发生，要像上面的例子中一样， 用一个静态变量存储日志记录器的一个引用。</p>
+<p>与包名类似，日志记录器名也具有层次结构。事实上， 与包名相比，日志记录器的层次性更强。 对于包来说，一个包的名字与其父包的名字之间没有语义关系，但是日志记录器的父与子之间将共享某些属性。例如， 如果对 com.mycompany 日志记录器设置了日志级别，<br>它的子记录器也会继承这个级别 </p>
+<p>七个级别</p>
+<ul>
+<li>SEVERE</li>
+<li>WARNING</li>
+<li>INFO</li>
+<li>CONFIG</li>
+<li>FINE</li>
+<li>FINER</li>
+<li>FINEST</li>
+</ul>
+<p>在默认情况下，只记录前三个级别的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> Logger myLogger = Logger.getLogger(<span class="string">&quot;com.mycompany.myapp&quot;</span>);</span><br><span class="line">		myLogger.setLevel(Level.ALL);<span class="comment">//开启所有级别记录</span></span><br><span class="line">		myLogger.setLevel(Level.OFF);</span><br><span class="line">		myLogger.setLevel(Level.FINE);<span class="comment">//设置其他级别</span></span><br><span class="line">		<span class="comment">//不同级别的记录方法</span></span><br><span class="line">		myLogger.warning(<span class="string">&quot;this is warning&quot;</span>);</span><br><span class="line">		<span class="comment">//也可以这样</span></span><br><span class="line">		myLogger.log(Level.WARNING,<span class="string">&quot;message&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>如果将记录级别设计为 INFO 或者更低， 则需要修改日志处理器的配置。 默认的日志处理器不会处理低于 INFO 级别的信息</p>
+<p>常用示例  在异常中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Logger.getLogger(<span class="string">&quot;com.mycompany.myapp&quot;</span>).log(Level .WARNING , <span class="string">&quot;Reading image&quot;</span>, e);<span class="comment">//e is exception</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="日志-1"><a href="#日志-1" class="headerlink" title="日志"></a>日志</h2>
       </div>
-    
-      <div class="post-item" title="c语言">
-        <div class="time-m-d">2021-07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/c_language/">
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
             
-              
-                <span>c语言</span>
-              
+              <a href="/2021/09/25/java/java_reflect/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
             
-          </a>
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-09-25 12:03:35
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/java/" title="java">
+                        <b>#</b> java
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/java%E5%9F%BA%E7%A1%80/" title="java基础">
+                        <b>#</b> java基础
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/09/25/java/java_inner_class/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
-      </div>
+      
+    </div>
     
-      <div class="post-item" title="markdown语法">
-        <div class="time-m-d">2021-07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/markdown/">
-            
-              
-                <span>markdown语法</span>
-              
-            
-          </a>
-        </div>
-      </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8"><span class="toc-text">异常</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%AD%E8%A8%80"><span class="toc-text">断言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">断言基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E7%94%A8%E5%92%8C%E7%A6%81%E7%94%A8%E6%96%AD%E8%A8%80"><span class="toc-text">启用和禁用断言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E6%96%AD%E8%A8%80"><span class="toc-text">何时使用断言</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A5%E5%BF%97"><span class="toc-text">日志</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%97%A5%E5%BF%97"><span class="toc-text">基本日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E6%97%A5%E5%BF%97"><span class="toc-text">高级日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97-1"><span class="toc-text">日志</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <div class="post-item" title="别人的博客">
-        <div class="time-m-d">2021-07-27</div>
-        <div class="title">
-          <a href="/2021/07/27/little_thing/other_blog/">
-            
-              
-                <span>别人的博客</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——0.概述">
-        <div class="time-m-d">2021-07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/0/">
-            
-              
-                <span>计算机网络——0.概述</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——1.物理层">
-        <div class="time-m-d">2021-07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/1/">
-            
-              
-                <span>计算机网络——1.物理层</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——2.链路层">
-        <div class="time-m-d">2021-07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/2/">
-            
-              
-                <span>计算机网络——2.链路层</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——3.网络层">
-        <div class="time-m-d">2021-07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/3/">
-            
-              
-                <span>计算机网络——3.网络层</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="计算机网络——4.运输层">
-        <div class="time-m-d">2021-07-26</div>
-        <div class="title">
-          <a href="/2021/07/26/networks/4/">
-            
-              
-                <span>计算机网络——4.运输层</span>
-              
-            
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
       </div>
     
   </div>
-  <nav class="post-navigation">
-    
-      <a href="/page/5/"><i class="iconfont icon-angleleft"></i></a>
-    
-    <span class="page-num">6 / 7</span>
-    
-      <a href="/page/7/"><i class="iconfont icon-angleright"></i></a>
-    
-  </nav>
-</div>
+
 
         <div class="footer">
   <div class="social">

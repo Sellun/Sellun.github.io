@@ -11,7 +11,7 @@
   
   <title>
     
-      linux软件安装 
+      java反射 
       
       
       |
@@ -138,19 +138,19 @@ MathJax = {
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">linux软件安装</div>
+      <div class="post-title">java反射</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime" title="Update time"></i>
-          2021-07-27 19:18:35
+          2021-09-25 12:03:35
         </span>
         
               <span class="post-categories">
                 <i class="iconfont icon-bookmark" title="Categories"></i>
                 
                 <span class="span--category">
-                  <a href="/categories/linux/" title="linux">
-                    <b>#</b> linux
+                  <a href="/categories/java/" title="java">
+                    <b>#</b> java
                   </a>
                 </span>
                 
@@ -160,8 +160,8 @@ MathJax = {
                 <i class="iconfont icon-tags" title="Tags"></i>
                 
                 <span class="span--tag">
-                  <a href="/tags/linux/" title="linux">
-                    <b>#</b> linux
+                  <a href="/tags/java%E5%9F%BA%E7%A1%80/" title="java基础">
+                    <b>#</b> java基础
                   </a>
                 </span>
                 
@@ -169,34 +169,13 @@ MathJax = {
           
       </div>
       <div class="markdown-body">
-        <h1 id="源码安装"><a href="#源码安装" class="headerlink" title="源码安装"></a>源码安装</h1><p><code>./configure</code>：./configure是为了检测目标安装平台的特征，并且检查依赖的软件包是否可用或者是否缺少依赖软件包，configure事实上是个脚本，最终的目的是生成Makefile。<br><code>make</code>：编译源码包<br><code>make install</code>：正常编译完之后如果没有报错，就生成了可执行文件，make install指令就是将可执行文件放到指定目录并配置环境变量，允许我们在任何目录下使用这个软件     </p>
-<h1 id="apt-get"><a href="#apt-get" class="headerlink" title="apt-get"></a>apt-get</h1><h2 id="sudo-apt-get-install-XXX"><a href="#sudo-apt-get-install-XXX" class="headerlink" title="sudo apt-get install XXX"></a>sudo apt-get install XXX</h2><p>一键安装并自动安装依赖<br><code>-y</code>：不要重复确认安装<br><code>-q</code>：静默安装，屏蔽低等级的log指令</p>
-<h2 id="sudo-apt-get-remove-XXX"><a href="#sudo-apt-get-remove-XXX" class="headerlink" title="sudo apt-get remove XXX"></a>sudo apt-get remove XXX</h2><p>卸载软件，但不卸载配置文件</p>
-<h2 id="sudo-apt-get-purge-XXX"><a href="#sudo-apt-get-purge-XXX" class="headerlink" title="sudo apt-get purge XXX"></a>sudo apt-get purge XXX</h2><p>卸载软件，且卸载相应的配置文件</p>
-<h2 id="sudo-apt-get-autoremove"><a href="#sudo-apt-get-autoremove" class="headerlink" title="sudo apt-get autoremove"></a>sudo apt-get autoremove</h2><p>卸载的同时也卸载依赖，慎用</p>
-<h2 id="sudo-apt-get-update"><a href="#sudo-apt-get-update" class="headerlink" title="sudo apt-get update"></a>sudo apt-get update</h2><p>更新所有包的来源</p>
-<h2 id="sudo-apt-get-upgrade"><a href="#sudo-apt-get-upgrade" class="headerlink" title="sudo apt-get upgrade"></a>sudo apt-get upgrade</h2><p>升级所有包，慎用   </p>
-<h2 id="sudo-apt-get-upgrade-XXX"><a href="#sudo-apt-get-upgrade-XXX" class="headerlink" title="sudo apt-get upgrade XXX"></a>sudo apt-get upgrade XXX</h2><p>升级某个包</p>
-<h2 id="apt-get-dist-upgrade"><a href="#apt-get-dist-upgrade" class="headerlink" title="apt-get dist-upgrade"></a>apt-get dist-upgrade</h2><p>升级系统版本</p>
-<h2 id="apt-list-–upgradable"><a href="#apt-list-–upgradable" class="headerlink" title="apt list –upgradable"></a>apt list –upgradable</h2><p>列出可更新软件    </p>
-<h1 id="dpkg"><a href="#dpkg" class="headerlink" title="dpkg"></a>dpkg</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/li-mei/p/5832099.html">dpkg</a></p>
-<h1 id="snap"><a href="#snap" class="headerlink" title="snap"></a>snap</h1><p>Snap是Canonical推出的一种新的软件打包格式，彻底解决linux依赖性的问题，Snap 软件包拥有更加稳定和安全的特性。snap也就是安装snap软件包的命令。</p>
-<p>如果您正在运行Ubuntu 16.04 LTS或更高版本，您可以在命令行中使用snap。</p>
-<h2 id="sudo-snap-list"><a href="#sudo-snap-list" class="headerlink" title="sudo snap list"></a>sudo snap list</h2><p>列出计算机上所有snap安装情况： </p>
-<h2 id="sudo-snap-find-lt-软件包名-gt"><a href="#sudo-snap-find-lt-软件包名-gt" class="headerlink" title="sudo snap find &lt;软件包名&gt;"></a>sudo snap find &lt;软件包名&gt;</h2><p>在应用商店中查找snap：</p>
-<h2 id="sudo-snap-install-lt-snap软件包名-gt"><a href="#sudo-snap-install-lt-snap软件包名-gt" class="headerlink" title="sudo snap install &lt;snap软件包名&gt;"></a>sudo snap install &lt;snap软件包名&gt;</h2><p>安装Snap软件：</p>
-<h2 id="sudo-snap-refresh-lt-snap软件包名-gt"><a href="#sudo-snap-refresh-lt-snap软件包名-gt" class="headerlink" title="sudo snap refresh &lt;snap软件包名&gt;"></a>sudo snap refresh &lt;snap软件包名&gt;</h2><p>更新Snap软件：</p>
-<h2 id="sudo-snap-refresh-all"><a href="#sudo-snap-refresh-all" class="headerlink" title="sudo snap refresh all"></a>sudo snap refresh all</h2><p>更新所有的snap软件包：</p>
-<h2 id="sudo-snap-revert-lt-snap软件包名-gt"><a href="#sudo-snap-revert-lt-snap软件包名-gt" class="headerlink" title="sudo snap revert &lt;snap软件包名&gt;"></a>sudo snap revert &lt;snap软件包名&gt;</h2><p>要将Snap还原到以前安装的版本：</p>
-<h2 id="sudo-snap-remove-lt-snap软件包名-gt"><a href="#sudo-snap-remove-lt-snap软件包名-gt" class="headerlink" title="sudo snap remove &lt;snap软件包名&gt;"></a>sudo snap remove &lt;snap软件包名&gt;</h2><p>卸载snap软件：</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/downey-blog/p/10473893.html">apt-get的使用及原理</a><br><a target="_blank" rel="noopener" href="https://ipcmen.com/snap">snap用法</a></p>
-
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.*;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException </span>&#123;</span><br><span class="line">		Solution s=<span class="keyword">new</span> Solution();</span><br><span class="line">		Class c1=s.getClass();<span class="comment">//Object 类中的 getClass( ) 方法将会返回一个 Class 类型的实例</span></span><br><span class="line">		Class c2=s.getClass();</span><br><span class="line">	</span><br><span class="line">		System.out.println(c1==c2);<span class="comment">//true</span></span><br><span class="line">		System.out.println(c1.getName());<span class="comment">//最常用的 Class 方法是 getName。 这个方法将返回类的名字</span></span><br><span class="line">		<span class="comment">//如果类在一个包里，包的名字也作为类名的一部分</span></span><br><span class="line">		Random rand= <span class="keyword">new</span> Random();</span><br><span class="line">		System.out.println(rand.getClass().getName());<span class="comment">//java.util.Random</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		 * 获得 Class类对象T.class</span></span><br><span class="line"><span class="comment">		 * 一个 Class 对象实际上表示的是一个类型，而这个类型未必一定是一种类。例如，</span></span><br><span class="line"><span class="comment">		 * int 不是类， 但 int.class 是一个 Class 类型的对象。</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//newlnstance( )来动态地创建一个类的实例</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		 * java.lang.reflect 包中有三个类 Field、 Method 和 Constructor 分别用于描述类的域、 方</span></span><br><span class="line"><span class="comment">		 * 法和构造器。 这三个类都有一个叫做 getName 的方法， 用来返回项目的名称。Held 类有一</span></span><br><span class="line"><span class="comment">		 * 个 getType 方法， 用来返回描述域所属类型的 Class 对象。Method 和 Constructor 类有能够</span></span><br><span class="line"><span class="comment">		 * 报告参数类型的方法，Method 类还有一个可以报告返回类型的方法。这 &lt;个类还有一个叫</span></span><br><span class="line"><span class="comment">		 * 做 getModifiers 的方法， 它将返回一个整型数值，用不同的位开关描述 public 和 static 这样</span></span><br><span class="line"><span class="comment">		 * 的修饰符使用状况。另外， 还可以利用java.lang.refleCt 包中的 Modifiei•类的静态方法分析</span></span><br><span class="line"><span class="comment">		 * getModifiers 返回的整型数值。例如， 可以使用 Modifier 类中的 isPublic、 isPrivate 或 isFinal</span></span><br><span class="line"><span class="comment">		 * 判断方法或构造器是否是 public、 private 或 final。</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		</span><br><span class="line">		Field[] field=c1.getFields();<span class="comment">//记录了这个类或其超类的公有域</span></span><br><span class="line">		Field[] field1=c1.getDeclaredFields();<span class="comment">//记录了这个类全部域</span></span><br><span class="line">		</span><br><span class="line">		Field f=c1.getDeclaredField(<span class="string">&quot;aChar&quot;</span>);</span><br><span class="line">		f.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">		Object  object=f.get(s);<span class="comment">//f.set(obj，value) 可以将 obj 对象的 f 域设置成新值</span></span><br><span class="line">		System.out.println(object);<span class="comment">//返回 obj 对象中用 Field 对象表示的域值。</span></span><br><span class="line">		<span class="comment">//使用get可以直接转换为包装类型</span></span><br><span class="line">		System.out.println(object.getClass().getName());<span class="comment">//java.lang.Character</span></span><br><span class="line">		<span class="keyword">for</span> (Field field2 : field1) &#123;</span><br><span class="line">			System.out.println(field2);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		Method[] method=c1.getMethods();<span class="comment">//返回所有的公有方法， 包括从超类继承的公有方法；</span></span><br><span class="line">		System.out.println(method.length);<span class="comment">//10</span></span><br><span class="line">		Method[] method2=c1.getDeclaredMethods();<span class="comment">//返回这个类或接口的全部方法， 但不包括由超类继承了的方法。</span></span><br><span class="line">		System.out.println(method2.length);<span class="comment">//2</span></span><br><span class="line">		<span class="keyword">for</span> (Method method3 : method2) &#123;</span><br><span class="line">			System.out.println(method3);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//Constructor[] getConstructors()  getDeclaredConstructors()</span></span><br><span class="line">		<span class="comment">//返回包含 Constructor 对象的数组， 其中包含了 Class 对象所描述的类的所有公有构造</span></span><br><span class="line">		<span class="comment">//器（getConstructors) 或所有构造器（getDeclaredConstructors)。</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//返回对应 modifiers 中位设置的修饰符的字符串表示</span></span><br><span class="line">		System.out.println(Modifier.toString(method2[<span class="number">0</span>].getModifiers()));<span class="comment">//public</span></span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		 * 除非拥有访问权限，否则Java 安全机制只允许査看任意对象有哪些域， 而不允许读取它们的值。</span></span><br><span class="line"><span class="comment">		 *  如果一个 Java 程序没有受到安 全管理器的控制，</span></span><br><span class="line"><span class="comment">		 * 就可以覆盖访问控制。 为了达到这个目的， 需要调用 Field、 Method 或 Constructor 对象的 setAccessible 方法</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		<span class="comment">//AccessibleObject.setAccessible(array, flag);置对象数组可访问标志的快捷方法</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">int</span> a[]= &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">		System.out.println(	Array.get(a, <span class="number">0</span>));</span><br><span class="line">		<span class="comment">//Array.getXXX;</span></span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		 *  xxx 是 boolean、byte、 char、 double、 float、 int、 long、 short 之中的一种基本类M</span></span><br><span class="line"><span class="comment">		 *  这些方法将返回存储在给定位置上的给定数组的内容。</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2021/07/27/linux/add_env_path/" target="_self">
+              <a href="/2021/09/08/leetcode/rand7/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>Prev</span>
               </a>
@@ -205,15 +184,15 @@ MathJax = {
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime" title="Update time"></i>
-              2021-07-27 19:18:35
+              2021-09-25 12:03:35
             </span>
             
                   <span class="post-categories">
                     <i class="iconfont icon-bookmark" title="Categories"></i>
                     
                     <span class="span--category">
-                      <a href="/categories/linux/" title="linux">
-                        <b>#</b> linux
+                      <a href="/categories/java/" title="java">
+                        <b>#</b> java
                       </a>
                     </span>
                     
@@ -223,8 +202,8 @@ MathJax = {
                     <i class="iconfont icon-tags" title="Tags"></i>
                     
                     <span class="span--tag">
-                      <a href="/tags/linux/" title="linux">
-                        <b>#</b> linux
+                      <a href="/tags/java%E5%9F%BA%E7%A1%80/" title="java基础">
+                        <b>#</b> java基础
                       </a>
                     </span>
                     
@@ -233,7 +212,7 @@ MathJax = {
           </div>
           <div class="post-foot-prev">
             
-              <a href="/2021/07/28/java/java_face_basis/" target="_self">
+              <a href="/2021/09/25/java/java.error/" target="_self">
                 <span>Next</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
@@ -243,21 +222,6 @@ MathJax = {
       
     </div>
     
-  <div id="btn-catalog" class="btn-catalog">
-    <i class="iconfont icon-catalog"></i>
-  </div>
-  <div class="post-catalog hidden" id="catalog">
-    <div class="title">Contents</div>
-    <div class="catalog-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85"><span class="toc-text">源码安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#apt-get"><span class="toc-text">apt-get</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo-apt-get-install-XXX"><span class="toc-text">sudo apt-get install XXX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo-apt-get-remove-XXX"><span class="toc-text">sudo apt-get remove XXX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo-apt-get-purge-XXX"><span class="toc-text">sudo apt-get purge XXX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo-apt-get-autoremove"><span class="toc-text">sudo apt-get autoremove</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo-apt-get-update"><span class="toc-text">sudo apt-get update</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo-apt-get-upgrade"><span class="toc-text">sudo apt-get upgrade</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo-apt-get-upgrade-XXX"><span class="toc-text">sudo apt-get upgrade XXX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apt-get-dist-upgrade"><span class="toc-text">apt-get dist-upgrade</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apt-list-%E2%80%93upgradable"><span class="toc-text">apt list –upgradable</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dpkg"><span class="toc-text">dpkg</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#snap"><span class="toc-text">snap</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo-snap-list"><span class="toc-text">sudo snap list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo-snap-find-lt-%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%90%8D-gt"><span class="toc-text">sudo snap find &lt;软件包名&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo-snap-install-lt-snap%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%90%8D-gt"><span class="toc-text">sudo snap install &lt;snap软件包名&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo-snap-refresh-lt-snap%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%90%8D-gt"><span class="toc-text">sudo snap refresh &lt;snap软件包名&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo-snap-refresh-all"><span class="toc-text">sudo snap refresh all</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo-snap-revert-lt-snap%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%90%8D-gt"><span class="toc-text">sudo snap revert &lt;snap软件包名&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo-snap-remove-lt-snap%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%90%8D-gt"><span class="toc-text">sudo snap remove &lt;snap软件包名&gt;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol>
-    </div>
-  </div>
-
-  
-<script src="/js/catalog.js"></script>
-
-
-
 
     
       <div class="comments-container">
