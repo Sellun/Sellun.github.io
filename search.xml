@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>linux初安装配置</title>
+      <link href="/2021/10/24/linux/linux/"/>
+      <url>/2021/10/24/linux/linux/</url>
+      
+        <content type="html"><![CDATA[<h4 id="删除firefox"><a href="#删除firefox" class="headerlink" title="删除firefox"></a>删除firefox</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dpkg --get-selections |grep firefox   </span><br><span class="line">sudo apt-get purge firefox  firefox-locale-en firefox-locale-zh-hans</span><br></pre></td></tr></table></figure><h4 id="nvm安装到hexo"><a href="#nvm安装到hexo" class="headerlink" title="nvm安装到hexo"></a>nvm安装到hexo</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  29  sudo apt install curl</span><br><span class="line">  30  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash</span><br><span class="line"><span class="meta">  #</span><span class="bash"> .bashrc  add</span></span><br><span class="line">   export NVM_DIR=&quot;$([ -z &quot;$&#123;XDG_CONFIG_HOME-&#125;&quot; ] &amp;&amp; printf %s &quot;$&#123;HOME&#125;/.nvm&quot; || printf %s &quot;$&#123;XDG_CONFIG_HOME&#125;/nvm&quot;)&quot;</span><br><span class="line">   [ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot; # This loads nvm</span><br><span class="line">   </span><br><span class="line">  nvm ls-remote# 列出版本号</span><br><span class="line">  nvm install v16.12.0# 下载</span><br><span class="line"> nvm ls# 列出已安装</span><br><span class="line"> nvm alias default v16.12.0</span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="安装typora"><a href="#安装typora" class="headerlink" title="安装typora"></a>安装typora</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">13  sudo apt-get install wget</span><br><span class="line">14  wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -</span><br><span class="line">15  # add Typora&#x27;s repository</span><br><span class="line">16  sudo add-apt-repository &#x27;deb https://typora.io/linux ./&#x27;</span><br><span class="line">17  sudo apt-get update</span><br><span class="line">18  # install typora</span><br><span class="line">19  sudo apt-get install typora</span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Sellun&quot;</span><br><span class="line">git config --global user.email &quot;1454315764@qq.com&quot;</span><br><span class="line">ssh-keygen -t rsa -C 1454315764@qq.com</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/hosts</span><br><span class="line">127.0.0.1localhost</span><br><span class="line">127.0.1.1yuancuicui-PC</span><br><span class="line"></span><br><span class="line"># The following lines are desirable for IPv6 capable hosts</span><br><span class="line">::1     ip6-localhost ip6-loopback</span><br><span class="line">fe00::0 ip6-localnet</span><br><span class="line">ff00::0 ip6-mcastprefix</span><br><span class="line">ff02::1 ip6-allnodes</span><br><span class="line">ff02::2 ip6-allrouters</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#github related website</span><br><span class="line">52.69.186.44 github.com</span><br><span class="line">151.101.185.194 github.global.ssl.fastly.net</span><br><span class="line">203.98.7.65 gist.github.com</span><br><span class="line">13.229.189.0 codeload.github.com</span><br><span class="line">185.199.109.153 desktop.github.com</span><br><span class="line">185.199.108.153 guides.github.com</span><br><span class="line">185.199.108.153 blog.github.com</span><br><span class="line">18.204.240.114 status.github.com</span><br><span class="line">185.199.108.153 developer.github.com</span><br><span class="line">185.199.108.153 services.github.com</span><br><span class="line">192.30.253.175 enterprise.github.com</span><br><span class="line">34.195.49.195 education.github.com</span><br><span class="line">185.199.108.153 pages.github.com</span><br><span class="line">34.196.237.103 classroom.github.com</span><br><span class="line"></span><br><span class="line">185.199.111.133 raw.githubusercontent.com</span><br><span class="line">185.199.109.133 raw.githubusercontent.com</span><br><span class="line">185.199.108.133 raw.githubusercontent.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>678. 有效的括号字符串</title>
       <link href="/2021/09/27/leetcode/%E4%B8%8D%E5%90%AB%E8%BF%9E%E7%BB%AD1%E7%9A%84%E9%9D%9E%E8%B4%9F%E6%95%B4%E6%95%B0/"/>
       <url>/2021/09/27/leetcode/%E4%B8%8D%E5%90%AB%E8%BF%9E%E7%BB%AD1%E7%9A%84%E9%9D%9E%E8%B4%9F%E6%95%B4%E6%95%B0/</url>
@@ -1549,31 +1574,6 @@
         <tags>
             
             <tag> 计算机网络 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>hexo</title>
-      <link href="/2019/05/03/hello-world/"/>
-      <url>/2019/05/03/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> hello </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> hexo </tag>
             
         </tags>
       

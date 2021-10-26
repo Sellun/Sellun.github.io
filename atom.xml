@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-09-27T05:58:38.743Z</updated>
+  <updated>2021-10-26T05:46:43.573Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux初安装配置</title>
+    <link href="http://example.com/2021/10/24/linux/linux/"/>
+    <id>http://example.com/2021/10/24/linux/linux/</id>
+    <published>2021-10-24T07:47:35.000Z</published>
+    <updated>2021-10-26T05:46:43.573Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;删除firefox&quot;&gt;&lt;a href=&quot;#删除firefox&quot; class=&quot;headerlink&quot; title=&quot;删除firefox&quot;&gt;&lt;/a&gt;删除firefox&lt;/h4&gt;&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://example.com/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://example.com/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>678. 有效的括号字符串</title>
@@ -499,31 +524,6 @@ Error</summary>
     
     
     <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XTU  1390. 字母计数</title>
-    <link href="http://example.com/2021/08/19/xtuoj/1390%E5%AD%97%E6%AF%8D%E8%AE%A1%E6%95%B0/"/>
-    <id>http://example.com/2021/08/19/xtuoj/1390%E5%AD%97%E6%AF%8D%E8%AE%A1%E6%95%B0/</id>
-    <published>2021-08-19T08:47:35.000Z</published>
-    <updated>2021-08-20T07:31:10.080Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;1390字母计数&quot;&gt;&lt;a href=&quot;#1390字母计数&quot; class=&quot;headerlink&quot; title=&quot;1390字母计数&quot;&gt;&lt;/a&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="xtuoj" scheme="http://example.com/categories/xtuoj/"/>
-    
-    
-    <category term="xtuoj" scheme="http://example.com/tags/xtuoj/"/>
     
   </entry>
   
