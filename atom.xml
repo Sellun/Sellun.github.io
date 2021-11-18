@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-26T05:46:43.573Z</updated>
+  <updated>2021-11-18T13:24:33.039Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,159 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JDBC</title>
+    <link href="http://example.com/2021/11/18/java_web/JDBC/"/>
+    <id>http://example.com/2021/11/18/java_web/JDBC/</id>
+    <published>2021-11-18T04:03:35.000Z</published>
+    <updated>2021-11-18T13:24:33.039Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;JDBC&quot;&gt;&lt;a href=&quot;#JDBC&quot; class=&quot;headerlink&quot; title=&quot;JDBC&quot;&gt;&lt;/a&gt;JDBC&lt;/h1&gt;&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="javaWeb" scheme="http://example.com/categories/javaWeb/"/>
+    
+    
+    <category term="javaWeb" scheme="http://example.com/tags/javaWeb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>servlet</title>
+    <link href="http://example.com/2021/11/18/java_web/Servlet/"/>
+    <id>http://example.com/2021/11/18/java_web/Servlet/</id>
+    <published>2021-11-18T04:03:35.000Z</published>
+    <updated>2021-11-18T13:25:47.671Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;servlet&quot;&gt;&lt;a href=&quot;#servlet&quot; class=&quot;headerlink&quot; title=&quot;servlet&quot;&gt;&lt;/a&gt;servlet&lt;/h1&gt;&lt;p&gt;1、Servlet 是 JavaEE 规范之一。规范就是接口 &lt;/p&gt;
+&lt;p&gt;2、Servlet</summary>
+        
+      
+    
+    
+    
+    <category term="javaWeb" scheme="http://example.com/categories/javaWeb/"/>
+    
+    
+    <category term="javaWeb" scheme="http://example.com/tags/javaWeb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat</title>
+    <link href="http://example.com/2021/11/18/java_web/tomcat/"/>
+    <id>http://example.com/2021/11/18/java_web/tomcat/</id>
+    <published>2021-11-18T04:03:35.000Z</published>
+    <updated>2021-11-18T13:26:03.647Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Tomcat&quot;&gt;&lt;a href=&quot;#Tomcat&quot; class=&quot;headerlink&quot; title=&quot;Tomcat&quot;&gt;&lt;/a&gt;Tomcat&lt;/h1&gt;&lt;h2 id=&quot;Tomcat使用&quot;&gt;&lt;a href=&quot;#Tomcat使用&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="javaWeb" scheme="http://example.com/categories/javaWeb/"/>
+    
+    
+    <category term="javaWeb" scheme="http://example.com/tags/javaWeb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js</title>
+    <link href="http://example.com/2021/11/18/java_web/js/"/>
+    <id>http://example.com/2021/11/18/java_web/js/</id>
+    <published>2021-11-18T04:03:35.000Z</published>
+    <updated>2021-11-18T13:25:23.143Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;js&quot;&gt;&lt;a href=&quot;#js&quot; class=&quot;headerlink&quot; title=&quot;js&quot;&gt;&lt;/a&gt;js&lt;/h1&gt;&lt;h2 id=&quot;引用&quot;&gt;&lt;a href=&quot;#引用&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="javaWeb" scheme="http://example.com/categories/javaWeb/"/>
+    
+    
+    <category term="javaWeb" scheme="http://example.com/tags/javaWeb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>xml</title>
+    <link href="http://example.com/2021/11/18/java_web/xml/"/>
+    <id>http://example.com/2021/11/18/java_web/xml/</id>
+    <published>2021-11-18T04:03:35.000Z</published>
+    <updated>2021-11-18T13:26:14.655Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;xml&quot;&gt;&lt;a href=&quot;#xml&quot; class=&quot;headerlink&quot; title=&quot;xml&quot;&gt;&lt;/a&gt;xml&lt;/h1&gt;&lt;p&gt;xml 是可扩展的标记性语言&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;用来保存数据，而且这些数据具有自我描述性</summary>
+        
+      
+    
+    
+    
+    <category term="javaWeb" scheme="http://example.com/categories/javaWeb/"/>
+    
+    
+    <category term="javaWeb" scheme="http://example.com/tags/javaWeb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jQuery</title>
+    <link href="http://example.com/2021/11/18/java_web/jQuery/"/>
+    <id>http://example.com/2021/11/18/java_web/jQuery/</id>
+    <published>2021-11-18T04:03:35.000Z</published>
+    <updated>2021-11-18T13:25:14.411Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;jQuery&quot;&gt;&lt;a href=&quot;#jQuery&quot; class=&quot;headerlink&quot; title=&quot;jQuery&quot;&gt;&lt;/a&gt;jQuery&lt;/h1&gt;&lt;h2 id=&quot;初识&quot;&gt;&lt;a href=&quot;#初识&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="javaWeb" scheme="http://example.com/categories/javaWeb/"/>
+    
+    
+    <category term="javaWeb" scheme="http://example.com/tags/javaWeb/"/>
+    
+  </entry>
   
   <entry>
     <title>linux初安装配置</title>
@@ -199,14 +352,15 @@ Error</summary>
     <link href="http://example.com/2021/09/25/java/java_reflect/"/>
     <id>http://example.com/2021/09/25/java/java_reflect/</id>
     <published>2021-09-25T04:03:35.000Z</published>
-    <updated>2021-09-27T06:03:02.727Z</updated>
+    <updated>2021-11-18T13:04:35.982Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://note.youdao.com/ynoteshare1/index.html?id=128508bf6a04968eced81ede9ac1b304&amp;type=note&quot;&gt;反射&lt;/a&gt;&lt;/p&gt;
+&lt;figure</summary>
         
       
     
@@ -372,158 +526,6 @@ Error</summary>
     
     
     <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java流库的使用</title>
-    <link href="http://example.com/2021/08/27/java/java_stream/"/>
-    <id>http://example.com/2021/08/27/java/java_stream/</id>
-    <published>2021-08-27T05:03:35.000Z</published>
-    <updated>2021-08-27T08:10:28.624Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="java" scheme="http://example.com/categories/java/"/>
-    
-    
-    <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jvm</title>
-    <link href="http://example.com/2021/08/27/java/java_jvm/"/>
-    <id>http://example.com/2021/08/27/java/java_jvm/</id>
-    <published>2021-08-27T05:03:35.000Z</published>
-    <updated>2021-09-03T08:53:40.768Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;nyimac.gitee.io&lt;br&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="java" scheme="http://example.com/categories/java/"/>
-    
-    
-    <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最短路</title>
-    <link href="http://example.com/2021/08/22/algorithm/%E6%9C%80%E7%9F%AD%E8%B7%AF(DijkstraAndFloyd)/"/>
-    <id>http://example.com/2021/08/22/algorithm/%E6%9C%80%E7%9F%AD%E8%B7%AF(DijkstraAndFloyd)/</id>
-    <published>2021-08-21T16:00:00.000Z</published>
-    <updated>2021-08-24T09:01:19.233Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Dijkstra朴素解法&quot;&gt;&lt;a href=&quot;#Dijkstra朴素解法&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="algorithm" scheme="http://example.com/categories/algorithm/"/>
-    
-    
-    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>743. 网络延迟时间</title>
-    <link href="http://example.com/2021/08/22/leetcode/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://example.com/2021/08/22/leetcode/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</id>
-    <published>2021-08-21T16:00:00.000Z</published>
-    <updated>2021-08-24T07:43:51.671Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/network-delay-time/&quot;&gt;743. 网络延迟时间&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;有 n 个网络节点，标记为 1 到 n。&lt;/p&gt;
-&lt;p&gt;给你一个列表 times，表示信号经过 有向</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
-    
-    
-    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>灯泡</title>
-    <link href="http://example.com/2021/08/21/leetcode/%E7%81%AF%E6%B3%A1/"/>
-    <id>http://example.com/2021/08/21/leetcode/%E7%81%AF%E6%B3%A1/</id>
-    <published>2021-08-20T16:00:00.000Z</published>
-    <updated>2021-08-21T13:45:12.942Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;319-灯泡开关&quot;&gt;&lt;a href=&quot;#319-灯泡开关&quot; class=&quot;headerlink&quot; title=&quot;319. 灯泡开关&quot;&gt;&lt;/a&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
-    
-    
-    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>并查集</title>
-    <link href="http://example.com/2021/08/21/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
-    <id>http://example.com/2021/08/21/algorithm/%E5%B9%B6%E6%9F%A5%E9%9B%86/</id>
-    <published>2021-08-20T16:00:00.000Z</published>
-    <updated>2021-08-22T05:43:23.025Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="algorithm" scheme="http://example.com/categories/algorithm/"/>
-    
-    
-    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
