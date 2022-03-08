@@ -320,34 +320,6 @@
   </entry>
   
   <entry>
-    <title>java异常断言和日志</title>
-    <link href="http://example.com/2021/09/25/java/java.error/"/>
-    <id>http://example.com/2021/09/25/java/java.error/</id>
-    <published>2021-09-25T04:03:35.000Z</published>
-    <updated>2021-09-27T06:05:11.438Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;在 Java 语言中3 种处理系统错误的机制&lt;/p&gt;
-&lt;h1 id=&quot;异常&quot;&gt;&lt;a href=&quot;#异常&quot; class=&quot;headerlink&quot; title=&quot;异常&quot;&gt;&lt;/a&gt;异常&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;    Throwable
-    /     \
-Error</summary>
-        
-      
-    
-    
-    
-    <category term="java" scheme="http://example.com/categories/java/"/>
-    
-    
-    <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
     <title>java反射</title>
     <link href="http://example.com/2021/09/25/java/java_reflect/"/>
     <id>http://example.com/2021/09/25/java/java_reflect/</id>
@@ -361,6 +333,34 @@ Error</summary>
         
     <summary type="html">&lt;p&gt;&lt;a href=&quot;https://note.youdao.com/ynoteshare1/index.html?id=128508bf6a04968eced81ede9ac1b304&amp;type=note&quot;&gt;反射&lt;/a&gt;&lt;/p&gt;
 &lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="http://example.com/categories/java/"/>
+    
+    
+    <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java异常断言和日志</title>
+    <link href="http://example.com/2021/09/25/java/java_error/"/>
+    <id>http://example.com/2021/09/25/java/java_error/</id>
+    <published>2021-09-25T04:03:35.000Z</published>
+    <updated>2021-09-27T06:05:11.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在 Java 语言中3 种处理系统错误的机制&lt;/p&gt;
+&lt;h1 id=&quot;异常&quot;&gt;&lt;a href=&quot;#异常&quot; class=&quot;headerlink&quot; title=&quot;异常&quot;&gt;&lt;/a&gt;异常&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;    Throwable
+    /     \
+Error</summary>
         
       
     

@@ -80,16 +80,8 @@
           <a href="/">Home</a>
         </li>
       
-        <li class="nav-item" data-path="/archives/">
-          <a href="/archives/">Archives</a>
-        </li>
-      
         <li class="nav-item" data-path="/categories/">
           <a href="/categories/">Categories</a>
-        </li>
-      
-        <li class="nav-item" data-path="/tags/">
-          <a href="/tags/">Tags</a>
         </li>
       
         <li class="nav-item" data-path="/friends/">
@@ -156,17 +148,6 @@ MathJax = {
                 
               </span>
           
-              <span class="post-tags">
-                <i class="iconfont icon-tags" title="Tags"></i>
-                
-                <span class="span--tag">
-                  <a href="/tags/java%E5%9F%BA%E7%A1%80/" title="java基础">
-                    <b>#</b> java基础
-                  </a>
-                </span>
-                
-              </span>
-          
       </div>
       <div class="markdown-body">
         <h1 id="文本输入输出"><a href="#文本输入输出" class="headerlink" title="文本输入输出"></a>文本输入输出</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.StandardCharsets;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ioStream</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		InputStreamReader in= <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(<span class="string">&quot;hhh.txt&quot;</span>));</span><br><span class="line">		PrintWriter print= <span class="keyword">new</span> PrintWriter(<span class="string">&quot;h1.txt&quot;</span>,StandardCharsets.UTF_8);<span class="comment">//与system.out一样的方法</span></span><br><span class="line">		<span class="comment">//该类总是带缓存区的，自动冲刷器总是禁用的autoflush=true，可以自行设置</span></span><br><span class="line">		print.println(<span class="string">&quot;kkk&quot;</span>);</span><br><span class="line">		print.print(<span class="string">&quot;ll:&quot;</span>);</span><br><span class="line">		<span class="comment">//print方法不抛异常，可使用checkError来查看输出流是否输出了错误，boolean</span></span><br><span class="line">		System.out.println(print.checkError());</span><br><span class="line">		System.out.print(System.getProperty(<span class="string">&quot;line.separator&quot;</span>));<span class="comment">//获得系统的行结束符</span></span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -196,17 +177,6 @@ MathJax = {
                     <span class="span--category">
                       <a href="/categories/java/" title="java">
                         <b>#</b> java
-                      </a>
-                    </span>
-                    
-                  </span>
-              
-                  <span class="post-tags">
-                    <i class="iconfont icon-tags" title="Tags"></i>
-                    
-                    <span class="span--tag">
-                      <a href="/tags/java%E5%9F%BA%E7%A1%80/" title="java基础">
-                        <b>#</b> java基础
                       </a>
                     </span>
                     
