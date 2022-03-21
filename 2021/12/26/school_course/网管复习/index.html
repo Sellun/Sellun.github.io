@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="Sellun" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      网络管理复习 
+      
+      
+      |
+    
+     Sellun
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/1.png">
+    <link rel="icon" href="/images/1.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Sellun" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/2.jpg" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Sellun</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">网络管理复习</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-12-26 12:03:35
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/school-course/" title="school_course">
+                    <b>#</b> school_course
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​    OSI七层网络模型<br>​         </p>
+<img src="C:\Users\袁24\AppData\Roaming\Typora\typora-user-images\image-20220108155026381.png" alt="image-20220108155026381" style="zoom:67%;" />
+
+<img src="C:\Users\袁24\AppData\Roaming\Typora\typora-user-images\image-20220108155153750.png" alt="image-20220108155153750" style="zoom:60%;" />
+
+<img src="C:\Users\袁24\AppData\Roaming\Typora\typora-user-images\image-20220108155303005.png" alt="image-20220108155303005" style="zoom:67%;" />
+
+<p>物理层（1层）：网线、光纤、无线电波等</p>
+<p>数据链路层（2层):无线AP,网卡、二层交换机</p>
+<p>网络层（3层）：路由器、三层交换机、三层防火墙</p>
+<p>应用层（7层）：服务器、终端设备、七层防火墙</p>
+<p>将控制信息添加到一个PDU的过程称作封装</p>
+<img src="C:\Users\袁24\AppData\Roaming\Typora\typora-user-images\image-20220108155434976.png" alt="image-20220108155434976" style="zoom:80%;" />
+
+<p>将控制信息从PDU剥离的过程就称作解封装</p>
+<img src="C:\Users\袁24\AppData\Roaming\Typora\typora-user-images\image-20220108155457631.png" alt="image-20220108155457631" style="zoom:80%;" />
+
+
+
+
+
+<p>分层设计的意义</p>
+<p>用户服务层的模块设计可相对独立于具体的通信线路和通信硬件接口的差别<br>而通信服务层的模块设计又可相对独立于具体用户应用要求的不同<br>便于设计<br>利于大规模生产<br>保证互通性</p>
+<p>网络操作系统<br>网络协议<br>网络服务器软件：web、FTP、文件、邮件、数据库服务器软件<br>网络应用软件：网络浏览器软件、上传下载软件、及时通信软件<br>计算机网络硬件系统<br>    计算机系统<br>    数据通信系统：信控制处理机、网络互连设备和通信线路<br>常见通信接口<br>    串行通信接口：RS-232-C接口， SATA接口<br>    并行通信接口：Normal并口，ECP口，Epp并口<br>    USB（Universal Serial BUS），即通用串行总线，它是应用在PC领域的接口技术。<br>    IEEE1394接口是Apple和TI公司开发的高速串行接口标准<br>    高清多媒体接口（High Definition Multimedia Interface，HDMI [1]  ）是一种全数字化视频和声音发送接口，可以发送未压缩的音频及视频信号。HDMI可用于机顶盒、DVD播放机、个人计算机、电视、游戏主机、综合扩大机、数字音响与电视机等设备。HDMI可以同时发送音频和视频信号，由于音频和视频信号采用同一条线材，大大简化系统线路的安装难度<br>双绞线<br>    屏蔽双绞线，非屏蔽双绞线（UTP）<br>    双绞线的制作 </p>
+<p><strong>EIA/TIA 568A的线序定义依次为绿白、绿、橙白、蓝、蓝白、橙、棕白、棕。</strong><br><strong>EIA/TIA 568B指的是线序的定义依次为橙白、橙、绿白、蓝、蓝白、绿、棕白、棕。</strong><br><strong>直通线的做法：两端都按同标准</strong><br>剥线，排线，剪线，插线，压线，测试</p>
+<p>同轴电缆<br>光纤：石英玻璃(Sio2)、塑料，所用的光源是激光，单模光纤，多模光纤</p>
+<p>（1）直接端接<br>    ①干燥箱固化的环氧树脂型端接<br>    ②预装环氧树脂型端接<br>    ③冷固化环氧树脂型端接<br>（2）接合端接<br>    ①机械接合<br>    ②熔断接合<br>    ③预先端接</p>
+<p>1.无线电波</p>
+<p>2.微波<br>（1）地面微波<br>（2）卫星微波<br>3.红外系统<br>（1）点到点红外系统<br>（2）广播式红外系统</p>
+<h1 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h1><p>网络部分和主机部分</p>
+<blockquote>
+<p>IP地址与MAC地址的区别<br>MAC地址(48bit)不含有位置信息，是物理地址，是二层协议范畴，一般不可更改。<br>IP地址是为了方便寻址人划分的地址，是逻辑地址，是三层协议范畴，可以更改。</p>
+</blockquote>
+<p>为了实现IPv4-IPv6互通，IPv4地址会嵌入IPv6地址中，此时地址常表示为：X:X:X:X:X:X:d.d.d.d，前96b采用冒分十六进制表示，而最后32b地址则使用IPv4的点分十进制表示，例如::192.168.0.1与::FFFF:192.168.0.1就是两个典型的例子，注意在前96b中，压缩0位的方法依旧适用</p>
+<blockquote>
+<p>0.0.0.0 用于默认路由DHCP等<br>127.0.0.1用于本地回路<br>255.255.255.255用于全网广播，默认为本地有限广播地址<br>169.254.x.x在windows电脑上，请求DHCP失效后，windows自动分配的地址</p>
+</blockquote>
+<p> 222.101.9.251，它第一个字节在192-223范围内，属于C类地址，所以网络是24bit，网络号222.101.9.0；主机位8bit，主机号是0.0.0.251</p>
+<blockquote>
+<p>A类私有地址：10.0.0.0-10.255.255.255<br>B类私有地址：172.16.0.0-172.31.255.255<br>C类私有地址：192.168.0.0-192.168.255.255</p>
+</blockquote>
+<p>计算</p>
+<h1 id="中继器、集线器、网桥、网关"><a href="#中继器、集线器、网桥、网关" class="headerlink" title="中继器、集线器、网桥、网关"></a>中继器、集线器、网桥、网关</h1><blockquote>
+<p>​    中继器（RP，Repeater），物理层，完成信号的复制、调整和放大功能</p>
+</blockquote>
+<blockquote>
+<p>集线器，简称Hub，物理层，又叫多口中继器，集中电缆并再生放大信号、扩大网络的规模和传输距离<br>1.集线器的作用<br>(1)在所有网段上强制冲突；<br>(2)恢复信号幅度；<br>(3)信号重计时(本身有计时电路)；<br>(4)恢复信号对称性；<br>(5)重构前同步信号(帧前64位同步信号)；<br>(6)分段扩展(扩展少于96位信号)；<br>(7)故障隔离。<br>2.集线器的缺陷<br>⑴用户带宽共享，带宽受限。<br>⑵广播方式，易造成网络风暴。<br>⑶非双工传输，网络通信效率低。</p>
+</blockquote>
+<blockquote>
+<p>透明网桥又叫生成树网桥，源路由选择网桥</p>
+</blockquote>
+<blockquote>
+<p>网关（Gateway）是一种协议转换器，使用网关，可以将两个类型完全不同的网络连接在一起，网关是工作在OSI应用层，无连接/面向网关连接</p>
+</blockquote>
+<h1 id="交换机的基本配置"><a href="#交换机的基本配置" class="headerlink" title="交换机的基本配置"></a>交换机的基本配置</h1><p>交换机与集线器的区别<br>集线器1，2层，半双工；交换机2，3，4层全双工<br>集线器的数据传输方式是广播（broadcast）方式，而交换机的数据传输是有目的的，数据只对目的节点发送，只是在自己的MAC地址表中找不到的情况下第一次使用广播方式发送<br>在带宽占用方面，集线器所有端口是共享集线器的总带宽，而交换机的每个端口都具有自己的带宽</p>
+<p>⒈二层交换机<br>        二层交换机能够识别数据包中的MAC地址信息，然后根据MAC地址进行数据包的转发，并将这些MAC地址与对应的端口记录在内部的地址列表中。<br>⒉三层交换机<br>        三层交换技术又称为多层交换技术、IP交换技术等，相对于二层交换技术根据数据链路层地址信息进行交换的特点，三层交换技术在网络层实现了数据包的高速转发。它检查数据包信息，并根据网络层目标地址（IP地址）转发数据包。<br>⒊四层交换机<br>        四层交换机工作于OSI参考模型的第四层，即传输层。四层交换机在决定传输时不仅仅依据MAC地址（数据链路层信息）或源/目标IP地址（网络层信息），它可以直接面对网络中的具体应用，通过分析数据包中的TCP/UDP（传输层信息）应用端口号，四层交换机可以做出向何处转发数据流的智能决定。</p>
+<h1 id="vlan实验"><a href="#vlan实验" class="headerlink" title="vlan实验"></a>vlan实验</h1><p>减小广播域、增强安全性、灵活组网<br>交换机的两种端口类型</p>
+<blockquote>
+<p>Access连接终端，承载标准的以太网帧，只能关联一个VLAN<br>Trunk交换机互联，承载802.1Q帧 (增加TAG字段)，缺省关联交换机上配置的所有VLAN</p>
+</blockquote>
+<ol>
+<li>交换机之间的端口设为trunk，交换机和主机之间使用access模式，trunk模式使用802.1Q帧（在802.3以太网帧头部增加TAG字段，通过vlan id 来区分帧从哪来往哪去）</li>
+<li>四种模式： <code>Switch&gt;</code>用户模式–(enable)–&gt;<code>Switch#</code>特权模式–(configure terminal)–&gt;<code>Switch(config)#</code>全局模式–(interface Fa0/1)–&gt;<code>Switch(config-if)#</code>接口模式 。exit返回上一级</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#配置Access接口</span><br><span class="line">步骤1：创建VLAN</span><br><span class="line">Switch(config)#vlan vlan-id</span><br><span class="line">步骤2：命名VLAN</span><br><span class="line">Switch(config-vlan)#name vlan-name</span><br><span class="line">步骤3：进入接口配置</span><br><span class="line">Swtich(config)#interface Fa0/1</span><br><span class="line">Swtich(config)#interface range Fa0/1-7,Fa0/9</span><br><span class="line">步骤4：配置接口模式</span><br><span class="line">Switch(config-if)#switchport mode access</span><br><span class="line">Switch(config-range-if)#switchport mode access</span><br><span class="line">步骤5：端口添加到特定VLAN</span><br><span class="line">Switch(config-if)#switchport access vlan vlan-id</span><br><span class="line">Switch(config-range-if)#swtichport access vlan vlan-id </span><br><span class="line"></span><br><span class="line">#配置Trunk接口</span><br><span class="line">步骤1：进入需要配置的端口</span><br><span class="line">swtich(config)#interface interface</span><br><span class="line">步骤2：将端口的模式设置为Trunk</span><br><span class="line">Switch(config-if)#switchport mode trunk</span><br><span class="line">步骤3：定义Trunk的VLAN列表 （可选，慎用）</span><br><span class="line">Switch(config-if)#switchport trunk allowed vlan &#123; all | [ add | remove | except ] &#125; vlan-list</span><br></pre></td></tr></table></figure>
+
+<p>​     </p>
+<h1 id="交换机远程配置实验"><a href="#交换机远程配置实验" class="headerlink" title="交换机远程配置实验"></a>交换机远程配置实验</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">步骤1：设置特权模式下的密码为123</span><br><span class="line">Switch(config)#enable password 123</span><br><span class="line"></span><br><span class="line">步骤2：设置全局用户名为你的名字和设置密码</span><br><span class="line">Switch(config)#username xxx password xxx</span><br><span class="line"></span><br><span class="line">步骤3：设置vlan1的IP地址，该地址为管理地址</span><br><span class="line">Switch(config)#interface vlan 1</span><br><span class="line">Switch(config-if)#ip address 192.168.0.1 255.255.255.0</span><br><span class="line">#192.168.0.1就是该交换机的管理地址</span><br><span class="line">Switch(config-if)#no shutdown   #开启vlan 1端口</span><br><span class="line">Switch(config-if)#exit          #退回全局模式</span><br><span class="line"></span><br><span class="line">步骤4：设置远程访问接口和密码</span><br><span class="line">Switch(config)#line vty 0 4     #开启远程控制端口0-4号，就是说可以同时5个人访问</span><br><span class="line">Switch(config-line)#password 321  </span><br><span class="line">Switch(config-line)#login [local] </span><br><span class="line"># login 使用远程控制的密码登陆</span><br><span class="line"># login local 使用用户名和密码</span><br><span class="line">Switch(config-line)#end         #end保存并退出</span><br><span class="line"></span><br><span class="line">步骤5：在电脑上设置默认网关</span><br><span class="line"></span><br><span class="line">步骤6：在电脑上telnet远程连接</span><br></pre></td></tr></table></figure>
+
+<h1 id="VTP配置实验"><a href="#VTP配置实验" class="headerlink" title="VTP配置实验"></a>VTP配置实验</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 建立vtp domain</span><br><span class="line">switch(config)# vtp domain name </span><br><span class="line"># 设置模式</span><br><span class="line">switch (config)# vtp mode server/client/transparent</span><br><span class="line"># 隔断两个域</span><br><span class="line">在连接的端口SWITCHPORT NONEGOTIATE</span><br></pre></td></tr></table></figure>
+
+<h1 id="生成树协议及实验"><a href="#生成树协议及实验" class="headerlink" title="生成树协议及实验"></a>生成树协议及实验</h1><p>冗余链路可以带来容错<br><strong>STP收敛时间50s</strong><br>IEEE 802.1d STP（生成树协议，Spanning-Tree Protocol）协议：<br>使冗余端口置于“阻塞状态”<br>网络中的计算机在通信时，只有一条链路生效<br>当这个链路出现故障时，将处于“阻塞状态”的端口重新打开，从而确保网络连接稳定可靠 </p>
+<blockquote>
+<p>STP的工作过程<br>第一步：选举一个根网桥(ROOT)；<br>第二步：在每个非根网桥上选举一个根端口(RP)；<br>第三步：在每个网段上选举一个指定端口(DP)；(根桥的所有端口都是指定端口,根端口的对端一定是指定端口，反过来未必.选举依据：根路径成本最小,所在交换机的网桥ID最小,端口ID最小)<br>第四步：阻塞非根、非指定端口。</p>
+</blockquote>
+<p><img src="C:\Users\袁24\AppData\Roaming\Typora\typora-user-images\image-20220108160857601.png" alt="image-20220108160857601"></p>
+<p>​     </p>
+<p><img src="C:\Users\袁24\AppData\Roaming\Typora\typora-user-images\image-20220108160924294.png" alt="image-20220108160924294"></p>
+<blockquote>
+<p>端口状态转换</p>
+<p>关闭状态：（Disabled)<br>未开启STP<br>阻塞状态（Blocking）<br>不能接收或者传输数据，不能把MAC地址加入地址表，只能接收BPDU<br>监听状态（Listening）<br>不能接收或者传输数据，也不能把MAC地址加入地址表，但可以接收和发送BPDU<br>学习状态（Learning）<br>不能传输数据，但可以发送和接收BPDU，也可以学习MAC地址<br>转发状态（Forwarding）<br>能够发送和接收数据、学习MAC地址、发送和接收BPDU </p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># 打开、关闭STP</span><br><span class="line">Switch(config)# spanning-tree vlan id</span><br><span class="line">Switch(config)# no spanning-tree vlan-id</span><br><span class="line"># 修改生成树协议的类型</span><br><span class="line">Switch(config)#spanning-tree mode &#123;pvst|rapid-pvst&#125;</span><br><span class="line"></span><br><span class="line"># 配置交换机的优先级 </span><br><span class="line">Switch(config)#spanning-tree vlan-id priority &lt;0-61440&gt;</span><br><span class="line"># 注意：网桥优先级配置只能为4096的倍数</span><br><span class="line"># 设置交换机基于vlan的生成树的主根网桥</span><br><span class="line">Switch(config-if)#spanning-tree vlan vlan-id root primary</span><br><span class="line"># 设置交换机基于vlan的生成树的备份根网桥</span><br><span class="line">Switch(config-if)#spanning-tree vlan vlan-id root secondary</span><br><span class="line"># 打开、关闭STP</span><br><span class="line">Switch(config)# spanning-tree vlan id</span><br><span class="line">Switch(config)# no spanning-tree vlan-id</span><br><span class="line"># 修改生成树协议的类型</span><br><span class="line">Switch(config)#spanning-tree mode &#123;pvst|rapid-pvst&#125;</span><br><span class="line"></span><br><span class="line"># 配置交换机的优先级 </span><br><span class="line">Switch(config)#spanning-tree vlan-id priority &lt;0-61440&gt;</span><br><span class="line"># 注意：网桥优先级配置只能为4096的倍数</span><br><span class="line"># 设置交换机基于vlan的生成树的主根网桥</span><br><span class="line">Switch(config-if)#spanning-tree vlan vlan-id root primary</span><br><span class="line"># 设置交换机基于vlan的生成树的备份根网桥</span><br><span class="line">Switch(config-if)#spanning-tree vlan vlan-id root secondary</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="C:\Users\袁24\AppData\Roaming\Typora\typora-user-images\image-20220108172136950.png" alt="image-20220108172136950"></p>
+<h1 id="链路聚合及实验"><a href="#链路聚合及实验" class="headerlink" title="链路聚合及实验"></a>链路聚合及实验</h1><p>作用：增加链路带宽,提供链路可靠性,降低费用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Switch(config)#port-channel  load-balance src-dst-mac</span><br><span class="line">Switch(config)#interface range fa0/1-3</span><br><span class="line">Switch(config-if-range)#channel-protocol &#123;lacp/pagp&#125;  //可以不敲，默认lacp</span><br><span class="line">Switch(config-if-range)#channel-group 1 mode active</span><br><span class="line">此时应设置端口通道为共享模式，对应命令为：           </span><br><span class="line">Switch(config)#int port-channel 1</span><br><span class="line">Switch(config-if)#switchport mode trunk</span><br></pre></td></tr></table></figure>
+
+<h1 id="路由器及实验"><a href="#路由器及实验" class="headerlink" title="路由器及实验"></a>路由器及实验</h1><p>作用：连接网络,隔离广播,路由选择,网络安全</p>
+<h2 id="静态路由项配置实验"><a href="#静态路由项配置实验" class="headerlink" title="静态路由项配置实验"></a><strong>静态路由项配置实验</strong></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">配置路由器端口IP</span><br><span class="line">Router(config)#int gigabitEthernet0/0/0   //进入到路由器0号接口</span><br><span class="line">Router(config-if)#ip address 192.168.1.254 255.255.255.0   //配置路由器端口IP和掩码</span><br><span class="line">Router(config-if)#no shutdown   //配置IP后重启端口</span><br><span class="line">查询路由表</span><br><span class="line">Router#show ip route</span><br><span class="line">配置静态路由项</span><br><span class="line">Router(config)#ip route 目的网络号 目的子网俺码   下一跳ip（另一个与之相连的路由器端口地址）</span><br></pre></td></tr></table></figure>
+
+<img src="C:\Users\袁24\AppData\Roaming\Typora\typora-user-images\image-20220108174105043.png" alt="image-20220108174105043" style="zoom:80%;" />
+
+<h2 id="超网（CIDR-设置实验"><a href="#超网（CIDR-设置实验" class="headerlink" title="超网（CIDR)设置实验"></a>超网（CIDR)设置实验</h2><p>为了减少路由表的工作，将有相同前缀的路由聚合</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">删除静态路由</span><br><span class="line">Router(config)# no ip route 目的网络号 目的子网俺码 下一跳ip</span><br><span class="line">添加路由</span><br><span class="line">略</span><br></pre></td></tr></table></figure>
+
+<h2 id="默认路由实验"><a href="#默认路由实验" class="headerlink" title="默认路由实验"></a>默认路由实验</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip route 0.0.0.0   0.0.0.0 下一跳地址</span><br><span class="line">由于子网掩码为0.0.0.0，所以与任何IP地址相与都为0，也就是可以接受任何网络</span><br></pre></td></tr></table></figure>
+
+<h1 id="路由协议及实验"><a href="#路由协议及实验" class="headerlink" title="路由协议及实验"></a>路由协议及实验</h1><p>常见的AS内部路由协议：RIP，OSPF</p>
+<h2 id="RIP"><a href="#RIP" class="headerlink" title="RIP"></a>RIP</h2><blockquote>
+<p>距离向量路由算法<br>距离度量:跳步数（max=15hops)，每条链路算一跳<br>每隔30秒，邻居之间交换DV(距离向量）,成为通告<br>到直连网络距离向量为1（cisco网中为0）<br>每次通告，最多25个目的子网<br>基于UDP协议，采用520端口接发<br>当距离向量相同时，也可以进行等价负载均衡<br>三个要点<br>仅与自己邻居交换信息<br>交换的是自己的路由表<br>周期性交换，30s一交换</p>
+</blockquote>
+<p><strong>RIP路由表更新过程</strong></p>
+<p><img src="C:\Users\袁24\AppData\Roaming\Typora\typora-user-images\image-20220108175153742.png" alt="image-20220108175153742"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Router(config)#router rip  //进入配置模式</span><br><span class="line">Router(config-router)#version 2   //启用2版本的rip协议</span><br><span class="line">Router(config-router)#network 19.0.0.0  //把连接该子网的接口启动RIP协议</span><br><span class="line">Router(config-router)#no auto-summary   //关闭路由聚合</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h2><blockquote>
+<p>RIP的不足 </p>
+<p>以跳数来评估路由，可能导致带宽小的路径被选择，非最优路径<br>最大跳数为15跳，网络规模小<br>更新发布全部RIP路由表，浪费网络资源<br>收敛速度慢，为抑制环路导致性能降低</p>
+</blockquote>
+<blockquote>
+<p>OSPF简介</p>
+<p>工作于IP层之上，IP协议号为89<br>以组播224.0.0.5发送协议包<br>基于最短路径优先算法<br>不限制网络规模，更新效率高，收敛速度快<br>思科路由器中对链路代价的定义是：100M带宽/链路带宽（结果小于1的仍为1，大于1的舍去小数）<br>数字越小代表链路越好</p>
+<p>建立邻接关系<br>只有建立邻接关系的路由器才交换信息<br>在网络中选举DR/BDR，网络中所有路由器只与DR和BDR建立邻接关系<br>广播型网络会选举DR/BDR，PPP网络中不会选举</p>
+<p>触发更新或每隔30分钟，每台设备都有一个LSDB</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Router(config)#route ospf 10   //表示进入OSPF配置，10表示进程号，这个数字可以自己拟定</span><br><span class="line">Router(config-router)#network 30.0.0.0 0.255.255.255 area 0</span><br><span class="line">30.0.0.0表示对直接相邻网络号采用OSPF协议</span><br><span class="line">0.255.255.255表示是反掩码</span><br><span class="line">area 0 表示是骨干区域号0，其他数字表示非骨干区域号</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<img src="C:\Users\袁24\AppData\Roaming\Typora\typora-user-images\image-20220108180221888.png" alt="image-20220108180221888" style="zoom:80%;" />
+
+<h2 id="BGP"><a href="#BGP" class="headerlink" title="BGP"></a>BGP</h2><img src="C:\Users\袁24\AppData\Roaming\Typora\typora-user-images\image-20220108180641056.png" alt="image-20220108180641056" style="zoom:80%;" />
+
+<p><img src="C:\Users\袁24\AppData\Roaming\Typora\typora-user-images\image-20220108180751014.png" alt="image-20220108180751014"></p>
+<p><img src="C:\Users\袁24\AppData\Roaming\Typora\typora-user-images\image-20220108180907069.png" alt="image-20220108180907069"></p>
+<img src="C:\Users\袁24\AppData\Roaming\Typora\typora-user-images\image-20220108181007549.png" alt="image-20220108181007549" style="zoom: 50%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Router(config)#router bgp 100    //启动bgp协议，并设置AS编号为100</span><br><span class="line">Router(config-router)#neighbor 10.0.0.1 remote-as 200   //把200号AS且地址为10.0.0.1的路由器作为相邻路由器</span><br><span class="line">Router(config-router)#network 10.0.0.0 mask 255.0.0.0   //设置自己直连网络号</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\袁24\AppData\Roaming\Typora\typora-user-images\image-20220108181147631.png" alt="image-20220108181147631"></p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/11/18/java_web/JDBC/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-12-26 12:03:35
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/school-course/" title="school_course">
+                        <b>#</b> school_course
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/12/26/school_course/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%AE%9E%E9%AA%8C/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IP%E5%9C%B0%E5%9D%80"><span class="toc-text">IP地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AD%E7%BB%A7%E5%99%A8%E3%80%81%E9%9B%86%E7%BA%BF%E5%99%A8%E3%80%81%E7%BD%91%E6%A1%A5%E3%80%81%E7%BD%91%E5%85%B3"><span class="toc-text">中继器、集线器、网桥、网关</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="toc-text">交换机的基本配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vlan%E5%AE%9E%E9%AA%8C"><span class="toc-text">vlan实验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%BF%9C%E7%A8%8B%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C"><span class="toc-text">交换机远程配置实验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VTP%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C"><span class="toc-text">VTP配置实验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE%E5%8F%8A%E5%AE%9E%E9%AA%8C"><span class="toc-text">生成树协议及实验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88%E5%8F%8A%E5%AE%9E%E9%AA%8C"><span class="toc-text">链路聚合及实验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E5%8F%8A%E5%AE%9E%E9%AA%8C"><span class="toc-text">路由器及实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E9%A1%B9%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C"><span class="toc-text">静态路由项配置实验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E7%BD%91%EF%BC%88CIDR-%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C"><span class="toc-text">超网（CIDR)设置实验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E8%B7%AF%E7%94%B1%E5%AE%9E%E9%AA%8C"><span class="toc-text">默认路由实验</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE%E5%8F%8A%E5%AE%9E%E9%AA%8C"><span class="toc-text">路由协议及实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RIP"><span class="toc-text">RIP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF"><span class="toc-text">OSPF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BGP"><span class="toc-text">BGP</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/Sellun">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" target="_blank" rel="noopener" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=GCksLSwrKS0vLixYaWk2e3d1">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" target="_blank" rel="noopener" href="https://gitee.com/sellun/cnblog/raw/master/wechat.jpg">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://sellun.github.io/">Copyright © Sellun 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  </body>
+</html>

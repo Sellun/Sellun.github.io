@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-11-18T13:24:33.039Z</updated>
+  <updated>2022-03-21T06:59:15.338Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,82 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>阿里cto线一面凉经</title>
+    <link href="http://example.com/2022/03/21/%E9%9D%A2%E8%AF%95/%E9%98%BF%E9%87%8C-CTO-%E9%9D%A2%E8%AF%95/"/>
+    <id>http://example.com/2022/03/21/%E9%9D%A2%E8%AF%95/%E9%98%BF%E9%87%8C-CTO-%E9%9D%A2%E8%AF%95/</id>
+    <published>2022-03-21T04:03:35.000Z</published>
+    <updated>2022-03-21T06:59:15.338Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;阿里巴巴22-3-10&quot;&gt;&lt;a href=&quot;#阿里巴巴22-3-10&quot; class=&quot;headerlink&quot; title=&quot;阿里巴巴22/3/10&quot;&gt;&lt;/a&gt;阿里巴巴22/3/10&lt;/h4&gt;&lt;h6 id=&quot;一面凉经3-21&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="school_course" scheme="http://example.com/categories/school-course/"/>
+    
+    
+    <category term="面经" scheme="http://example.com/tags/%E9%9D%A2%E7%BB%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网络管理实验</title>
+    <link href="http://example.com/2021/12/26/school_course/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
+    <id>http://example.com/2021/12/26/school_course/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%AE%9E%E9%AA%8C/</id>
+    <published>2021-12-26T04:03:35.000Z</published>
+    <updated>2022-03-17T07:38:08.799Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;网络管理实验&quot;&gt;&lt;a href=&quot;#网络管理实验&quot; class=&quot;headerlink&quot; title=&quot;网络管理实验&quot;&gt;&lt;/a&gt;网络管理实验&lt;/h1&gt;&lt;h2 id=&quot;相同定长子网掩码&quot;&gt;&lt;a href=&quot;#相同定长子网掩码&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="school_course" scheme="http://example.com/categories/school-course/"/>
+    
+    
+    <category term="网管" scheme="http://example.com/tags/%E7%BD%91%E7%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网络管理复习</title>
+    <link href="http://example.com/2021/12/26/school_course/%E7%BD%91%E7%AE%A1%E5%A4%8D%E4%B9%A0/"/>
+    <id>http://example.com/2021/12/26/school_course/%E7%BD%91%E7%AE%A1%E5%A4%8D%E4%B9%A0/</id>
+    <published>2021-12-26T04:03:35.000Z</published>
+    <updated>2022-03-17T07:39:09.680Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;​    OSI七层网络模型&lt;br&gt;​         &lt;/p&gt;
+&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="school_course" scheme="http://example.com/categories/school-course/"/>
+    
+    
+    <category term="网管" scheme="http://example.com/tags/%E7%BD%91%E7%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>JDBC</title>
@@ -448,84 +524,6 @@ Error</summary>
     <category term="设计模式" scheme="http://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     <category term="创建者模式" scheme="http://example.com/tags/%E5%88%9B%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>单例模式</title>
-    <link href="http://example.com/2021/09/03/design_patterns/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://example.com/2021/09/03/design_patterns/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</id>
-    <published>2021-09-03T04:03:35.000Z</published>
-    <updated>2021-09-03T13:29:35.455Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;在有些系统中，为了节省内存资源、保证数据内容的一致性，对某些类要求只能创建一个实例，这就是所谓的单例模式。&lt;/p&gt;
-&lt;h2 id=&quot;单例模式的定义与特点&quot;&gt;&lt;a href=&quot;#单例模式的定义与特点&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="design_patterns" scheme="http://example.com/categories/design-patterns/"/>
-    
-    
-    <category term="设计模式" scheme="http://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    <category term="创建者模式" scheme="http://example.com/tags/%E5%88%9B%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1771大餐计数</title>
-    <link href="http://example.com/2021/09/03/leetcode/1771%E5%A4%A7%E9%A4%90%E8%AE%A1%E6%95%B0/"/>
-    <id>http://example.com/2021/09/03/leetcode/1771%E5%A4%A7%E9%A4%90%E8%AE%A1%E6%95%B0/</id>
-    <published>2021-09-02T16:00:00.000Z</published>
-    <updated>2021-09-03T05:35:14.872Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;1711-大餐计数&quot;&gt;&lt;a href=&quot;#1711-大餐计数&quot; class=&quot;headerlink&quot; title=&quot;1711. 大餐计数&quot;&gt;&lt;/a&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
-    
-    
-    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java文件流</title>
-    <link href="http://example.com/2021/08/27/java/java_ioStream/"/>
-    <id>http://example.com/2021/08/27/java/java_ioStream/</id>
-    <published>2021-08-27T12:03:35.000Z</published>
-    <updated>2021-08-27T13:40:39.151Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;文本输入输出&quot;&gt;&lt;a href=&quot;#文本输入输出&quot; class=&quot;headerlink&quot; title=&quot;文本输入输出&quot;&gt;&lt;/a&gt;文本输入输出&lt;/h1&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
-        
-      
-    
-    
-    
-    <category term="java" scheme="http://example.com/categories/java/"/>
-    
-    
-    <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
