@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-21T07:04:39.980Z</updated>
+  <updated>2024-01-01T10:02:48.560Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,133 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux是怎样工作的</title>
+    <link href="http://example.com/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/"/>
+    <id>http://example.com/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/</id>
+    <published>2023-12-31T16:00:00.000Z</published>
+    <updated>2024-01-01T10:02:48.560Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-计算机系统概要&quot;&gt;&lt;a href=&quot;#1-计算机系统概要&quot; class=&quot;headerlink&quot; title=&quot;1.计算机系统概要&quot;&gt;&lt;/a&gt;1.计算机系统概要&lt;/h1&gt;&lt;h1 id=&quot;2-用户模式要实现的功能&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="读书笔记" scheme="http://example.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="读书笔记" scheme="http://example.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>滑动窗口</title>
+    <link href="http://example.com/2022/09/04/algorithm/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E6%9D%BF%E5%AD%90/"/>
+    <id>http://example.com/2022/09/04/algorithm/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E6%9D%BF%E5%AD%90/</id>
+    <published>2022-09-03T16:00:00.000Z</published>
+    <updated>2022-09-04T08:58:22.266Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;滑动窗口板子&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="http://example.com/categories/algorithm/"/>
+    
+    
+    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前缀树板子</title>
+    <link href="http://example.com/2022/09/04/algorithm/%E5%89%8D%E7%BC%80%E6%A0%91%E6%9D%BF%E5%AD%90/"/>
+    <id>http://example.com/2022/09/04/algorithm/%E5%89%8D%E7%BC%80%E6%A0%91%E6%9D%BF%E5%AD%90/</id>
+    <published>2022-09-03T16:00:00.000Z</published>
+    <updated>2022-09-04T14:19:38.677Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;前缀树板子&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="http://example.com/categories/algorithm/"/>
+    
+    
+    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>spring</title>
+    <link href="http://example.com/2022/04/12/framework/spring/"/>
+    <id>http://example.com/2022/04/12/framework/spring/</id>
+    <published>2022-04-12T09:47:35.000Z</published>
+    <updated>2022-08-28T05:52:33.900Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Spring程序开发步骤&quot;&gt;&lt;a href=&quot;#Spring程序开发步骤&quot; class=&quot;headerlink&quot; title=&quot;Spring程序开发步骤&quot;&gt;&lt;/a&gt;Spring程序开发步骤&lt;/h1&gt;&lt;h2 id=&quot;①-导入-Spring-开发的基本包坐标&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="framework" scheme="http://example.com/categories/framework/"/>
+    
+    
+    <category term="framework" scheme="http://example.com/tags/framework/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Maven学习</title>
+    <link href="http://example.com/2022/04/12/framework/maven/"/>
+    <id>http://example.com/2022/04/12/framework/maven/</id>
+    <published>2022-04-12T09:47:35.000Z</published>
+    <updated>2022-08-28T05:52:21.132Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Maven简介&quot;&gt;&lt;a href=&quot;#Maven简介&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="framework" scheme="http://example.com/categories/framework/"/>
+    
+    
+    <category term="framework" scheme="http://example.com/tags/framework/"/>
+    
+  </entry>
   
   <entry>
     <title>阿里cto线一面凉经</title>
@@ -46,7 +173,7 @@
     <link href="http://example.com/2021/12/26/school_course/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
     <id>http://example.com/2021/12/26/school_course/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%AE%9E%E9%AA%8C/</id>
     <published>2021-12-26T04:03:35.000Z</published>
-    <updated>2022-03-17T07:38:08.799Z</updated>
+    <updated>2022-10-31T09:46:51.865Z</updated>
     
     
       
@@ -392,138 +519,6 @@
     
     
     <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java反射</title>
-    <link href="http://example.com/2021/09/25/java/java_reflect/"/>
-    <id>http://example.com/2021/09/25/java/java_reflect/</id>
-    <published>2021-09-25T04:03:35.000Z</published>
-    <updated>2021-11-18T13:04:35.982Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://note.youdao.com/ynoteshare1/index.html?id=128508bf6a04968eced81ede9ac1b304&amp;type=note&quot;&gt;反射&lt;/a&gt;&lt;/p&gt;
-&lt;figure</summary>
-        
-      
-    
-    
-    
-    <category term="java" scheme="http://example.com/categories/java/"/>
-    
-    
-    <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java异常断言和日志</title>
-    <link href="http://example.com/2021/09/25/java/java_error/"/>
-    <id>http://example.com/2021/09/25/java/java_error/</id>
-    <published>2021-09-25T04:03:35.000Z</published>
-    <updated>2021-09-27T06:05:11.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;在 Java 语言中3 种处理系统错误的机制&lt;/p&gt;
-&lt;h1 id=&quot;异常&quot;&gt;&lt;a href=&quot;#异常&quot; class=&quot;headerlink&quot; title=&quot;异常&quot;&gt;&lt;/a&gt;异常&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;    Throwable
-    /     \
-Error</summary>
-        
-      
-    
-    
-    
-    <category term="java" scheme="http://example.com/categories/java/"/>
-    
-    
-    <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>470. 用 Rand7() 实现 Rand10()</title>
-    <link href="http://example.com/2021/09/08/leetcode/rand7/"/>
-    <id>http://example.com/2021/09/08/leetcode/rand7/</id>
-    <published>2021-09-07T16:00:00.000Z</published>
-    <updated>2021-09-08T06:29:15.080Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;470-用-Rand7-实现-Rand10&quot;&gt;&lt;a href=&quot;#470-用-Rand7-实现-Rand10&quot; class=&quot;headerlink&quot; title=&quot;470. 用 Rand7() 实现 Rand10()&quot;&gt;&lt;/a&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
-    
-    
-    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1419.数青蛙</title>
-    <link href="http://example.com/2021/09/08/leetcode/%E6%95%B0%E9%9D%92%E8%9B%99/"/>
-    <id>http://example.com/2021/09/08/leetcode/%E6%95%B0%E9%9D%92%E8%9B%99/</id>
-    <published>2021-09-07T16:00:00.000Z</published>
-    <updated>2021-09-08T06:27:56.116Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;数青蛙&quot;&gt;&lt;a href=&quot;#数青蛙&quot; class=&quot;headerlink&quot; title=&quot;数青蛙&quot;&gt;&lt;/a&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
-    
-    
-    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>原型模式</title>
-    <link href="http://example.com/2021/09/04/design_patterns/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://example.com/2021/09/04/design_patterns/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</id>
-    <published>2021-09-03T16:00:00.000Z</published>
-    <updated>2021-09-04T06:51:42.675Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;在有些系统中，存在大量相同或相似对象的创建问题，如果用传统的构造函数来创建对象，会比较复杂且耗时耗资源，用原型模式生成对象就很高效，就像孙悟空拔下猴毛轻轻一吹就变出很多孙悟空一样简单。&lt;/p&gt;
-&lt;h2 id=&quot;原型模式的定义与特点&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="design_patterns" scheme="http://example.com/categories/design-patterns/"/>
-    
-    
-    <category term="设计模式" scheme="http://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    <category term="创建者模式" scheme="http://example.com/tags/%E5%88%9B%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   

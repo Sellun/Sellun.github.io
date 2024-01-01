@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="Sellun" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      spring 
+      
+      
+      |
+    
+     Sellun
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/1.png">
+    <link rel="icon" href="/images/1.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Sellun" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/2.jpg" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Sellun</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">spring</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2022-04-12 17:47:35
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/framework/" title="framework">
+                    <b>#</b> framework
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="Spring程序开发步骤"><a href="#Spring程序开发步骤" class="headerlink" title="Spring程序开发步骤"></a>Spring程序开发步骤</h1><h2 id="①-导入-Spring-开发的基本包坐标"><a href="#①-导入-Spring-开发的基本包坐标" class="headerlink" title="① 导入 Spring 开发的基本包坐标"></a>① 导入 Spring 开发的基本包坐标</h2><p>建立Maven项目，导入坐标</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.0.15.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="②-编写-Dao-接口和实现类"><a href="#②-编写-Dao-接口和实现类" class="headerlink" title="② 编写 Dao 接口和实现类"></a>② 编写 Dao 接口和实现类</h2><h2 id="③-创建-Spring-核心配置文件"><a href="#③-创建-Spring-核心配置文件" class="headerlink" title="③ 创建 Spring 核心配置文件"></a>③ 创建 Spring 核心配置文件</h2><p><code>src/main/resources</code>中建立applicationContext.xml配置文件  </p>
+<h2 id="④-在-Spring-配置文件中配置-UserDaoImpl"><a href="#④-在-Spring-配置文件中配置-UserDaoImpl" class="headerlink" title="④ 在 Spring 配置文件中配置 UserDaoImpl"></a>④ 在 Spring 配置文件中配置 UserDaoImpl</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;userDao&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.example.dao.impl.UserDaoImpl&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="⑤-使用-Spring-的-API-获得-Bean-实例"><a href="#⑤-使用-Spring-的-API-获得-Bean-实例" class="headerlink" title="⑤ 使用 Spring 的 API 获得 Bean 实例"></a>⑤ 使用 Spring 的 API 获得 Bean 实例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    ApplicationContext app = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">&quot;applicationContext.xml&quot;</span>);</span><br><span class="line">    UserDao userDao= (UserDao) app.getBean(<span class="string">&quot;userDao&quot;</span>);</span><br><span class="line">    userDao.save();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Spring配置文件"><a href="#Spring配置文件" class="headerlink" title="Spring配置文件"></a>Spring配置文件</h1><p>Bean标签属性</p>
+<ol>
+<li>id</li>
+<li>class</li>
+<li>scope 默认单例（singleton），多例（prototype）<br> 单例在加载配置文件的时候就执行构造方法了，只要容器在，对象一直活着，当应用卸载，销毁容器时，对象就被销毁了<br> 多例创建对象时是getBean时，运行和回收与new出来的差不多     <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;userDao&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.example.dao.impl.UserDaoImpl&quot;</span> <span class="attr">scope</span>=<span class="string">&quot;prototype&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>init-method：指定类中的初始化方法名称,destroy-method：指定类中销毁方法名称 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;userDao&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.example.dao.impl.UserDaoImpl&quot;</span> <span class="attr">scope</span>=<span class="string">&quot;prototype&quot;</span> <span class="attr">init-method</span>=<span class="string">&quot;init&quot;</span> <span class="attr">destroy-method</span>=<span class="string">&quot;destory&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>Bean实例化三种方式  </p>
+<pre><code>无参构造方法实例化  
+工厂静态方法实例化  
+工厂实例方法实例化  
+</code></pre>
+<ol start="5">
+<li>依赖注入<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span>&gt;</span>标签</span><br><span class="line">id属性:在容器中Bean实例的唯一标识，不允许重复</span><br><span class="line">class属性:要实例化的Bean的全限定名</span><br><span class="line">scope属性:Bean的作用范围，常用是Singleton(默认)和prototype</span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span>标签：属性注入</span><br><span class="line">name属性：属性名称</span><br><span class="line">value属性：注入的普通属性值</span><br><span class="line">ref属性：注入的对象引用值</span><br><span class="line"><span class="tag">&lt;<span class="name">list</span>&gt;</span>标签</span><br><span class="line"><span class="tag">&lt;<span class="name">map</span>&gt;</span>标签</span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span>标签</span><br><span class="line"><span class="tag">&lt;<span class="name">constructor-arg</span>&gt;</span>标签</span><br><span class="line"><span class="tag">&lt;<span class="name">import</span>&gt;</span>标签:导入其他的Spring的分文件</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="Spring配置数据源"><a href="#Spring配置数据源" class="headerlink" title="Spring配置数据源"></a>Spring配置数据源</h1><h2 id="①-导入数据源的坐标和数据库驱动坐标"><a href="#①-导入数据源的坐标和数据库驱动坐标" class="headerlink" title="① 导入数据源的坐标和数据库驱动坐标"></a>① 导入数据源的坐标和数据库驱动坐标</h2><h2 id="②-创建数据源对象"><a href="#②-创建数据源对象" class="headerlink" title="② 创建数据源对象"></a>② 创建数据源对象</h2><h2 id="③-设置数据源的基本连接数据"><a href="#③-设置数据源的基本连接数据" class="headerlink" title="③ 设置数据源的基本连接数据"></a>③ 设置数据源的基本连接数据</h2><h2 id="④-使用数据源获取连接资源和归还连接资源"><a href="#④-使用数据源获取连接资源和归还连接资源" class="headerlink" title="④ 使用数据源获取连接资源和归还连接资源"></a>④ 使用数据源获取连接资源和归还连接资源</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> SQLException, PropertyVetoException </span>&#123;</span><br><span class="line">    ComboPooledDataSource dataSource = <span class="keyword">new</span> ComboPooledDataSource();</span><br><span class="line">    dataSource.setDriverClass(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line">    dataSource.setJdbcUrl(<span class="string">&quot;jdbc:mysql://localhost:3306/test&quot;</span>);</span><br><span class="line">    dataSource.setUser(<span class="string">&quot;root&quot;</span>);</span><br><span class="line">    dataSource.setPassword(<span class="string">&quot;password&quot;</span>);</span><br><span class="line">    Connection connection = dataSource.getConnection();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="注解开发"><a href="#注解开发" class="headerlink" title="注解开发"></a>注解开发</h1><h2 id="原始注解"><a href="#原始注解" class="headerlink" title="原始注解"></a>原始注解</h2><table>
+<thead>
+<tr>
+<th>注解</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@Component</td>
+<td>使用在类上用于实例化Bean</td>
+</tr>
+<tr>
+<td>@Controller</td>
+<td>使用在web层类上用于实例化Bean</td>
+</tr>
+<tr>
+<td>@Service</td>
+<td>使用在service层类上用于实例化Bean</td>
+</tr>
+<tr>
+<td>@Repository</td>
+<td>使用在dao层类上用于实例化Bean</td>
+</tr>
+<tr>
+<td>@Autowired</td>
+<td>使用在字段上用于根据类型依赖注入</td>
+</tr>
+<tr>
+<td>@Qualifier</td>
+<td>结合@Autowired一起使用用于根据名称进行依赖注入</td>
+</tr>
+<tr>
+<td>@Resource</td>
+<td>相当于@Autowired+ @Qualifier，按照名称进行注入</td>
+</tr>
+<tr>
+<td>@Value</td>
+<td>注入普通属性</td>
+</tr>
+<tr>
+<td>@Scope</td>
+<td>标注Bean的作用范围</td>
+</tr>
+<tr>
+<td>@PostConstruct</td>
+<td>使用在方法上标注该方法是Bean的初始化方法</td>
+</tr>
+<tr>
+<td>@PreDestroy</td>
+<td>使用在方法上标注该方法是Bean的销毁方法</td>
+</tr>
+<tr>
+<td>@Configuration</td>
+<td>用于指定当前类是一个 Spring 配置类，当创建容器时会从该类上加载注解用于指定 Spring 在初始化容器时要扫描的包。</td>
+</tr>
+<tr>
+<td>@ComponentScan</td>
+<td>扫描配置某个包下配置了@Component</td>
+</tr>
+<tr>
+<td>@Bean</td>
+<td>使用在方法上，标注将该方法的返回值存储到 Spring 容器中</td>
+</tr>
+<tr>
+<td>@PropertySource</td>
+<td>用于加载.properties 文件中的配置</td>
+</tr>
+<tr>
+<td>@Import</td>
+<td>用于导入其他配置类,数组类型</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ComponentScan(&quot;org.example.dao.impl&quot;)</span></span><br><span class="line"><span class="meta">@Import(&#123;DataSourceConfig.class&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringConfig</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@PropertySource(&quot;classpath:jdbc.properties&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataSourceConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;jdbc.driver&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String driver;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;jdbc.url&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String url;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;userk&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;jdbc.password&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean(name=&quot;dataSource&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> javax.sql.<span class="function">DataSource <span class="title">getDataSource</span><span class="params">()</span> <span class="keyword">throws</span> PropertyVetoException, SQLException </span>&#123;</span><br><span class="line">        <span class="comment">// 创建数据源</span></span><br><span class="line">        ComboPooledDataSource dataSource = <span class="keyword">new</span> ComboPooledDataSource();</span><br><span class="line">        <span class="comment">// 设置数据库连接参数</span></span><br><span class="line">        dataSource.setDriverClass(driver);</span><br><span class="line">        dataSource.setJdbcUrl(url);</span><br><span class="line">        dataSource.setUser(username);</span><br><span class="line">        dataSource.setPassword(password);</span><br><span class="line">        <span class="comment">// 获得连接对象</span></span><br><span class="line">        <span class="keyword">return</span> dataSource;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Spring集成Junit"><a href="#Spring集成Junit" class="headerlink" title="Spring集成Junit"></a>Spring集成Junit</h1><pre><code>① 导入spring集成Junit的坐标
+② 使用@Runwith注解替换原来的运行期
+③ 使用@ContextConfiguration指定配置文件或配置类
+④ 使用@Autowired注入需要测试的对象
+⑤ 创建测试方法进行测试
+</code></pre>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 此处需要注意的是， spring5 及以上版本要求 junit 的版本必须是 4.12 及以上 ，spring-test和spring-context一样 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>5.0.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringJUnit4ClassRunner.class)</span></span><br><span class="line"><span class="meta">@ContextConfiguration(&quot;classpath:applicationContext.xml&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserDao userDao;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    DataSource dataSource;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        userDao.save();</span><br><span class="line">        System.out.println(<span class="string">&quot;test....&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Spring集成web环境"><a href="#Spring集成web环境" class="headerlink" title="Spring集成web环境"></a>Spring集成web环境</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>5.0.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 全局参数 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--Spring 的监听器  在web.xml里面配置--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 全局参数 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--Spring 的监听器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">listener-class</span>&gt;</span></span><br><span class="line">org.springframework.web.context.ContextLoaderListener</span><br><span class="line"><span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse res)</span></span>&#123;</span><br><span class="line">         </span><br><span class="line">        ServletContext servletContext = <span class="keyword">this</span>.getServletContext();</span><br><span class="line">        ApplicationContext app =WebApplicationContextUtils.getWebApplicationContext(servletContext);</span><br><span class="line">        UserService userService = (UserService) app.getBean(<span class="string">&quot;userService&quot;</span>);</span><br><span class="line">        </span><br><span class="line">    &#125; </span><br></pre></td></tr></table></figure>
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2022/04/12/framework/maven/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2022-04-12 17:47:35
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/framework/" title="framework">
+                        <b>#</b> framework
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2022/09/04/algorithm/%E5%89%8D%E7%BC%80%E6%A0%91%E6%9D%BF%E5%AD%90/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4"><span class="toc-text">Spring程序开发步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%91%A0-%E5%AF%BC%E5%85%A5-Spring-%E5%BC%80%E5%8F%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8C%85%E5%9D%90%E6%A0%87"><span class="toc-text">① 导入 Spring 开发的基本包坐标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%91%A1-%E7%BC%96%E5%86%99-Dao-%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="toc-text">② 编写 Dao 接口和实现类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%91%A2-%E5%88%9B%E5%BB%BA-Spring-%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">③ 创建 Spring 核心配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%91%A3-%E5%9C%A8-Spring-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%AD%E9%85%8D%E7%BD%AE-UserDaoImpl"><span class="toc-text">④ 在 Spring 配置文件中配置 UserDaoImpl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%91%A4-%E4%BD%BF%E7%94%A8-Spring-%E7%9A%84-API-%E8%8E%B7%E5%BE%97-Bean-%E5%AE%9E%E4%BE%8B"><span class="toc-text">⑤ 使用 Spring 的 API 获得 Bean 实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">Spring配置文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%90"><span class="toc-text">Spring配置数据源</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%91%A0-%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E6%BA%90%E7%9A%84%E5%9D%90%E6%A0%87%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A9%B1%E5%8A%A8%E5%9D%90%E6%A0%87"><span class="toc-text">① 导入数据源的坐标和数据库驱动坐标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%91%A1-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E6%BA%90%E5%AF%B9%E8%B1%A1"><span class="toc-text">② 创建数据源对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%91%A2-%E8%AE%BE%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%90%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE"><span class="toc-text">③ 设置数据源的基本连接数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%91%A3-%E4%BD%BF%E7%94%A8%E6%95%B0%E6%8D%AE%E6%BA%90%E8%8E%B7%E5%8F%96%E8%BF%9E%E6%8E%A5%E8%B5%84%E6%BA%90%E5%92%8C%E5%BD%92%E8%BF%98%E8%BF%9E%E6%8E%A5%E8%B5%84%E6%BA%90"><span class="toc-text">④ 使用数据源获取连接资源和归还连接资源</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91"><span class="toc-text">注解开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E6%B3%A8%E8%A7%A3"><span class="toc-text">原始注解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring%E9%9B%86%E6%88%90Junit"><span class="toc-text">Spring集成Junit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring%E9%9B%86%E6%88%90web%E7%8E%AF%E5%A2%83"><span class="toc-text">Spring集成web环境</span></a></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/Sellun">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" target="_blank" rel="noopener" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=GCksLSwrKS0vLixYaWk2e3d1">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" target="_blank" rel="noopener" href="https://gitee.com/sellun/cnblog/raw/master/wechat.jpg">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://sellun.github.io/">Copyright © Sellun 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  </body>
+</html>

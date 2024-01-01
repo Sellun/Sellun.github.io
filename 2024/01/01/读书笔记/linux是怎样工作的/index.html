@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="Sellun" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      linux是怎样工作的 
+      
+      
+      |
+    
+     Sellun
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/1.png">
+    <link rel="icon" href="/images/1.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Sellun" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/2.jpg" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Sellun</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">linux是怎样工作的</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2024-01-01 00:00:00
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="读书笔记">
+                    <b>#</b> 读书笔记
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="1-计算机系统概要"><a href="#1-计算机系统概要" class="headerlink" title="1.计算机系统概要"></a>1.计算机系统概要</h1><h1 id="2-用户模式要实现的功能"><a href="#2-用户模式要实现的功能" class="headerlink" title="2.用户模式要实现的功能"></a>2.用户模式要实现的功能</h1><h2 id="2-1系统调用"><a href="#2-1系统调用" class="headerlink" title="2.1系统调用"></a>2.1系统调用</h2><p>进程在执行创建进程、操控硬件等依赖于内核的处理时，必须通过系统调用向内核发起请求。系统调用种类：</p>
+<ul>
+<li><strong>进程控制（创建和删除）</strong></li>
+<li><strong>内存管理（分配和释放）</strong></li>
+<li><strong>进程间通信</strong></li>
+<li><strong>网络管理</strong></li>
+<li><strong>文件系统操作</strong></li>
+<li><strong>文件操作（访问设备）</strong></li>
+</ul>
+<p>用户模式下的进程向内核发送系统调用时，cpu会发生<strong>中断</strong>的事件，进入内核态，处理相应的事件后回到用户态进程，继续运行。</p>
+<h3 id="2-1-1-实验strace"><a href="#2-1-1-实验strace" class="headerlink" title="2.1.1.实验strace"></a>2.1.1.实验strace</h3><p>可以使用<code>strace -o hello.log ./hello</code>来追踪运行内核态。</p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231207222343255.png" alt="image-20231207222343255"></p>
+<h3 id="2-1-2-实验sar"><a href="#2-1-2-实验sar" class="headerlink" title="2.1.2.实验sar"></a>2.1.2.实验sar</h3><p><code>sar</code> 命令用于获取进程分别在用户模式与内核模式下运行的时间比例.idle表空闲状态</p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231207224006354.png" alt="image-20231207224006354"></p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231207224547300.png" alt="image-20231207224547300"></p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231207224948032.png" alt="image-20231207224948032"></p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231207225108239.png" alt="image-20231207225108239"></p>
+<p>当 %system 的值高达几十时，大多是陷入了系统调用发起过多，或者系统负载过高等糟糕的状态。</p>
+<h1 id="3-进程管理"><a href="#3-进程管理" class="headerlink" title="3.进程管理"></a>3.进程管理</h1><h2 id="3-1-fork"><a href="#3-1-fork" class="headerlink" title="3.1.fork"></a>3.1.fork</h2><p>在 Linux 中，创建进程有如下两个目的。</p>
+<ul>
+<li><strong>将同一个程序分成多个进程进行处理（例如，使用 Web 服务器接收多个请求）</strong></li>
+<li><strong>创建另一个程序（例如，从 <code>bash</code> 启动一个新的程序）</strong></li>
+</ul>
+<p>　　为了达成这两个目的，Linux 提供了 <code>fork()</code> 函数与 <code>execve()</code> 函数（其底层分别请求名为 <code>clone()</code> 与 <code>execve()</code> 的系统调用）</p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231208223233312.png" alt="image-20231208223233312"></p>
+<h2 id="3-2-execve"><a href="#3-2-execve" class="headerlink" title="3.2.execve"></a>3.2.execve</h2><p>　在打算启动另一个程序时，需要调用 <code>execve()</code> 函数。首先，我们来看一下内核在运行进程时的流程。</p>
+<p>　　<strong>① 读取可执行文件，并读取创建进程的内存映像所需的信息。</strong></p>
+<p>　　<strong>② 用新进程的数据覆盖当前进程的内存。</strong></p>
+<p>　　<strong>③ 从最初的命令开始运行新的进程。</strong></p>
+<p>　　也就是说，在启动另一个程序时，并非新增一个进程，而是替换了当前进程</p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231208224146747.png" alt="image-20231208224146747"></p>
+<h2 id="3-3-可执行文件"><a href="#3-3-可执行文件" class="headerlink" title="3.3.可执行文件"></a>3.3.可执行文件</h2><p>运行程序所需的内存大小为：代码段的大小 + 数据段的大小 = 100 + 200</p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231208224943520.png" alt="image-20231208224943520"></p>
+<p>Linux 的可执行文件的结构遵循的是名为 ELF（Executable and Linkable Format，可执行与可链接格式）的格式，并非之前描述的那样简单的结构。ELF 的相关信息可以通过 readelf 命令来获取 Entry point address。</p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231208225250365.png" alt="image-20231208225250365"></p>
+<h2 id="3-4-创建新进程"><a href="#3-4-创建新进程" class="headerlink" title="3.4.创建新进程"></a>3.4.创建新进程</h2><p>新建一个别的进程时，通常采用被称为 fork and exec 的方式，即由父进程调用 fork() 创建子进程，再由子进程调用 exec()。图 3-6 所示为由 bash 进程创建 echo 进程的流程。</p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231208225826564.png" alt="image-20231208225826564"></p>
+<h1 id="4-进程调度器"><a href="#4-进程调度器" class="headerlink" title="4.进程调度器"></a>4.进程调度器</h1><h2 id="4-1-上下文切换"><a href="#4-1-上下文切换" class="headerlink" title="4.1.上下文切换"></a>4.1.上下文切换</h2><p>a进程切换为b进程</p>
+<h2 id="4-2-进程的状态"><a href="#4-2-进程的状态" class="headerlink" title="4.2.进程的状态"></a>4.2.进程的状态</h2><p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231208233436888.png" alt="image-20231208233436888"></p>
+<p>ps ax命令查看进程处于那个状态，只要看第一个字段</p>
+<table>
+<thead>
+<tr>
+<th>STAT 字段的首字母</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>R</td>
+<td>运行态或者就绪态</td>
+</tr>
+<tr>
+<td>S或D</td>
+<td>睡眠态。<code>S</code> 指可通过接收信号回到运行态，<code>D</code> 指 <code>S</code> 以外的情况（<code>D</code> 主要出现于等待外部存储器的访问时，或内核发生问题），长时间处于D状态的进程需要考虑括号内的问题</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>僵死状态</td>
+</tr>
+</tbody></table>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231208233238012.png" alt="image-20231208233238012"></p>
+<p>进程有个空闲状态，在此期间，逻辑 CPU 会运行一个被称为空闲进程的不执行任何处理的特殊进程。空闲进程最简单的实现方式就是创建一个新进程，或者在唤醒处于睡眠态的进程之前执行无意义的循环。但因为这样会浪费电，所以通常并不会这样处理，而是使用特殊的 CPU 指令使逻辑 CPU 进入休眠状态，直到出现就绪态的进程。</p>
+<h1 id="5-内存管理"><a href="#5-内存管理" class="headerlink" title="5.内存管理"></a>5.内存管理</h1><h2 id="5-1-内存统计"><a href="#5-1-内存统计" class="headerlink" title="5.1.内存统计"></a>5.1.内存统计</h2><ul>
+<li><code>total</code> 字段：系统搭载的物理内存总量。</li>
+<li><strong><code>free</code> 字段：表面上的可用内存量（详情请参考下面的 <code>available</code> 字段的说明）</strong></li>
+<li><strong><code>buff/cache</code> 字段：缓冲区缓存与页面缓存占用的内存。当系统的可用内存量（<code>free</code> 字段的值）减少时，可通过内核将它们释放出来</strong></li>
+<li><strong><code>available</code> 字段：实际的可用内存量。本字段的值为 <code>free</code> 字段的值加上当内存不足时内核中可释放的内存量。“可释放的内存</strong>”<strong>指缓冲区缓存与页面缓存中的大部分内存，以及内核中除此以外的用于其他地方的部分内存</strong></li>
+</ul>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231212211215965.png" alt="image-20231212211215965"></p>
+<p>free空间内存不够时，内存管理系统将回收内核中可释放的内存，如果内存使用量继续增加，系统就会陷入做什么都缺乏足够的内存，以至于无法运行的<strong>内存不足</strong>（Out Of Memory，OOM）状态，在进入 OOM 状态后，内存管理系统会运行被称为 <strong>OOM killer</strong> 的可怕功能，该功能会选出合适的进程并将其强制终止（kill 掉），以释放出更多内存，服务器上的 sysctl 的 vm.panic_on_oom 参数从默认的 0（在发生 OOM 时运行 OOM killer）变更为 1（在发生 OOM 时强制关闭系统）这样的做法。</p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231212211408047.png" alt="image-20231212211408047"></p>
+<h2 id="5-2-内存分配"><a href="#5-2-内存分配" class="headerlink" title="5.2.内存分配"></a>5.2.内存分配</h2><p>内核为进程分配内存的时机大体上分为以下两种。</p>
+<ul>
+<li><strong>在创建进程时</strong></li>
+<li><strong>在创建完进程后，动态分配内存时</strong></li>
+</ul>
+<p>​         现代 CPU 搭载了被称为虚拟内存的功能，Linux 也利用了这一功能。简而言之，虚拟内存使进程无法直接访问系统上搭载的内存，取而代之的是通过虚拟地址间接访问。进程可以看见的是虚拟地址，系统上搭载的内存的实际地址称为物理地址。此外，可以通过地址访问的范围称为地址空间，进程无法直接访问真实的内存，也就是说不存在直接访问物理地址的方法。</p>
+<p>　　通过保存在内核使用的内存中的页表，可以完成从虚拟地址到物理地址的转换。在虚拟内存中，所有内存以页为单位划分并进行管理，地址转换也以页为单位进行。在页表中，一个页面对应的数据条目称为页表项。页表项记录着虚拟地址与物理地址的对应关系。</p>
+<p>　　页面大小取决于 CPU 架构。在 x86_64 架构中，页面大小为 4 KB。</p>
+<p>　　如果进程访问地址 300 ~ 500，则在 CPU 上会发生<strong>缺页中断</strong>。缺页中断可以中止正在执行的命令，并启动内核中的<strong>缺页中断机构</strong>的处理。内核的缺页中断机构检测到非法访问，向进程发送 SIGSEGV 信号。接收到该信号的进程通常会被强制结束运行。</p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231212215311136.png" alt="image-20231212215311136"></p>
+<p>虚拟地址空间是每个进程独有的。相应地，页表也是每个进程独有的。得益于虚拟内存，进程根本无法访问其他进程的内存</p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231214225139803.png" alt="image-20231214225139803"></p>
+<h2 id="5-3-虚拟内存的应用"><a href="#5-3-虚拟内存的应用" class="headerlink" title="5.3.虚拟内存的应用"></a>5.3.虚拟内存的应用</h2><p>虚拟内存不足与剩余多少物理内存无关，物理内存不足与进程的虚拟内存剩余多少无关。在 x86 架构上，虚拟地址空间仅有 4 GB，因此数据库之类的大型程序经常会引发虚拟内存不足；但是在 x86_64 架构上，由于虚拟地址空间扩充到了 128 TB。</p>
+<ul>
+<li><strong>文件映射</strong></li>
+</ul>
+<p>通过mmap（）把文件映射到虚拟内存，对虚拟内存的读写即可完成对文件的读写</p>
+<ul>
+<li><strong>请求分页</strong></li>
+</ul>
+<p>在已获取100M内存但尚未进行访问这段时间内，虚拟内存量比获取前增加了约 100 MB，但物理内存量并没有发生变化；<br>在开始每秒访问内存后，物理内存量每秒增加 10 MB 左右，会发生缺页中断，但虚拟内存量没有发生变化；<br>在访问结束后，物理内存量比开始访问前多了约 100 MB；</p>
+<ul>
+<li><strong>利用写时复制快速创建进程</strong></li>
+</ul>
+<p>在发起 fork() 系统调用时，并非把父进程的所有内存数据复制给子进程，而是仅复制父进程的页表。虽然在父进程和子进程双方的页表项内都存在表示写入权限的字段，但此时双方的写入权限都将失效（即变得无法进行写入）</p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231216153113277.png" alt="image-20231216153113277"></p>
+<p>在这之后，假如只进行读取操作，那么父进程和子进程双方都能访问共享的物理页面。但是，当其中一方打算更改任意页面的数据时，则将按照下述流程解除共享。</p>
+<p>　　① 由于没有写入权限，所以在尝试写入时，CPU 将引发缺页中断。</p>
+<p>　　② CPU 转换到内核模式，缺页中断机构开始运行。</p>
+<p>　　③对于被访问的页面，缺页中断机构将复制一份放到别的地方，然后将其分配给尝试写入的进程，并根据请求更新其中的内容。</p>
+<p>　　④为父进程和子进程双方更新与已解除共享的页面对应的页表项。</p>
+<p>对于执行写入操作的一方，将其页表项重新连接到新分配的物理页面，并赋予写入权限<br>对于另一方，也只需对其页表项重新赋予写入权限即可。</p>
+<p>在这之后，对于已解除共享关系的页面，父进程和子进程双方都可以自由地进行读写操作。因为物理内存并非在发起 fork() 系统调用时进行复制，而是在尝试写入时才进行复制，所以这个机制被称为写时复制（Copy on Write，CoW）。</p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231216153340900.png" alt="image-20231216153340900"></p>
+<ul>
+<li><strong>Swap</strong></li>
+</ul>
+<p>当物理内存耗尽时，系统就会进入 OOM 状态。但实际上，Linux 提供了针对 OOM 状态的补救措施，即 Swap 这一利用了虚拟内存机制的功能。</p>
+<p>　　通过这个功能，我们可以将外部存储器的一部分容量暂时当作内存使用。具体来说，在系统物理内存不足的情况下，当出现获取物理内存的申请时，物理内存中的一部分页面将被保存到外部存储器中，从而空出充足的可用内存。这里用于保存页面的区域称为交换分区 4（Swap 分区）。交换分区由系统管理员在构建系统时进行设置。</p>
+<p>换出与换入这两个处理统称为<strong>交换</strong>。在 Linux 中，由于交换是以页为单位进行的，所以也称为<strong>分页</strong>。同时，换入与换出也分别称为<strong>页面调入</strong>与<strong>页面调出</strong>。当系统长期处于内存不足时，访问内存的操作将导致页面不断地被换入和换出，从而导致系统陷入<strong>系统抖动</strong>（颠簸）状态。</p>
+<p>　类似于交换这类需要访问外部存储器的缺页中断称为<strong>硬性页缺失</strong>。与此相对，无须访问外部存储器的缺页中断称为<strong>软性页缺失</strong>。虽然无论发生硬性页缺失还是软性页缺失，都需要内核进行处理，进而影响性能，但硬性页缺失所产生的影响要更大。</p>
+<ul>
+<li><strong>多级页表</strong></li>
+<li><strong>标准大页</strong></li>
+</ul>
+<h1 id="6-存储层次"><a href="#6-存储层次" class="headerlink" title="6.存储层次"></a>6.存储层次</h1><h2 id="6-1-局部性"><a href="#6-1-局部性" class="headerlink" title="6.1.局部性"></a>6.1.局部性</h2><ul>
+<li><strong>时间局部性：在某一时间点被访问过的数据，有很大的可能性在不久的将来会再次被访问，例如循环处理中的代码段</strong></li>
+<li><strong>空间局部性：在某一时间点访问过某个数据后，有很大的可能性会继续访问其附近的其他数据，例如遍历数组元素</strong></li>
+</ul>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231216232430288.png" alt="image-20231216232430288"></p>
+<h2 id="6-2-高速缓存"><a href="#6-2-高速缓存" class="headerlink" title="6.2.高速缓存"></a>6.2.高速缓存</h2><p>CPU读取地址300的数据时，从内存往寄存器读取数据时，数据先被送往高速缓存，再被送往寄存器。所读取的数据的大小取决于<strong>缓存块大小</strong>（cache line size）的值，该值由各个 CPU 规定。此后，当 CPU 需要再次读取地址 300 上的数据时，比如需要再次把同样的数据读取到 寄存器R1 时，将不用从内存读取数据，只需读取已经存在于高速缓存上的数据即可。当改写R1上的数据时，当需要将寄存器上的数据重新写回到地址 300 上时，首先会把改写后的数据写入高速缓存，此时依然以缓存块大小为单位写入数据。然后，为这些缓存块添加一个标记，以表明这部分从内存读取的数据被改写了。通常我们会称这些被标记的缓存块“脏了”。　这些被标记的数据会在写入高速缓存后的某个指定时间点，通过后台处理写入内存。随之，这些缓存块就不再脏了。（这种模式称为回写（write back）。另外还存在一种名为直写（write through）的模式。在直写模式下，缓存块会在变脏的一瞬间被立刻写入内存）。在进程运行一段时间后，高速缓存中就会充满各种各样的数据，在这样的状态下，当 CPU 仅访问位于高速缓存上的数据时，访问速度比没有高速缓存时快得多，因为数据访问速度达到了高速缓存的读写速度。　在高速缓存不足时，如果要读写高速缓存中尚不存在的数据，就要销毁一个现有的缓存块。当需要销毁的缓存块脏了的时候，数据将在被销毁前被同步到内存中。如果在高速缓存不足，且所有缓存块都脏了的时候向内存发起访问，那么将因高速缓存频繁执行读写处理而发生系统抖动，与此同时性能也会大幅降低。</p>
+<p>进程需要通过下述步骤访问虚拟地址上的特定数据。</p>
+<p>　　<strong>① 对照物理内存中的页表，把虚拟地址转换为物理地址。</strong></p>
+<p>　　<strong>② 访问通过步骤①得到的物理地址。</strong></p>
+<p>　　敏锐的人可能已经发现了，这里能发挥高速缓存优势的只有步骤②。这是因为步骤①依然需要访问物理内存，以读取物理内存中的页表。这样一来，特意准备的高速缓存就浪费了。</p>
+<p>　　为了解决这一问题，在 CPU 上存在一个具有与高速缓存同样的访问速度的区域，名为<strong>转译后备缓冲区</strong>（Translation Lookaside Buffer，TLB），又称为快表或页表缓冲，该区域用于保存虚拟地址与物理地址的转换表。利用这一区域，即可提高步骤①的执行速度。</p>
+<h2 id="6-3-页面缓存"><a href="#6-3-页面缓存" class="headerlink" title="6.3.页面缓存"></a>6.3.页面缓存</h2><p>　　与 CPU 访问内存的速度比起来，访问外部存储器的速度慢了几个数量级。内核中用于填补这一速度差的机构称为<strong>页面缓存</strong>(内核所占用的内存)。下面将介绍页面缓存的机制及其注意事项。</p>
+<p>　　页面缓存和高速缓存非常相似。高速缓存是把内存上的数据缓存到高速缓存上，而页面缓存则是将外部存储器上的文件数据缓存到内存上。高速缓存以缓存块为单位处理数据，而页面缓存则以页为单位处理数据。</p>
+<p>​        在内核自身的内存中有一个管理区域，该区域中保存着页面缓存所缓存的文件以及这些文件的范围信息等.在这之后，如果再次读取已经位于页面缓存的数据，内核将直接返回页面缓存中的数据,与直接从外部存储器读取相比，从页面缓存读取的速度更快。而且，由于页面缓存是由全部进程共享的资源，所以发起读取的进程也可以不是最初访问该文件数据的进程。在进程向文件写入数据后，内核会把数据写入页面缓存中。这时，管理区域中与这部分数据对应的条目会被添加一个标记，以表明“这些是脏数据，其内容比外部存储器中的数据新”。这些被标记的页面称为脏页。与读取操作时一样，比起直接写入外部存储器，写入页面缓存的速度更快。之后，脏页中的数据将在指定时间通过内核的后台处理反映到外部存储器上。与此同时，脏标记也会被去除.</p>
+<p>​        如果各个进程想要访问的文件数据都已存在于页面缓存中，那么系统的文件访问速度将能超越外部存储器的访问速度，接近内存的访问速度，因此可以期待系统整体运行速度的提升。</p>
+<p>　　需要注意的是，只要系统上还存在可用内存，则每当各个进程访问那些尚未读取到页面缓存中的文件时，页面缓存的大小就会随之增大。</p>
+<p>　　而当系统内存不足时，内核将释放页面缓存以空出可用内存。此时，首先丢弃脏页以外的页面。如果还是无法空出足够内存，就对脏页执行回写，然后继续释放页面。当需要释放脏页时，由于需要访问外部存储器，所以恐怕会导致系统性能下降。尤其是当系统上存在大量文件写入操作而导致出现大量脏页时，系统负载往往会变得非常大。内存不足引发大量脏页的回写处理，进而导致系统性能下降的情况非常常见。</p>
+<p>​        强制断电将导致页面缓存中的脏页丢失。如果不希望文件访问出现这种情况，请在利用 <code>open()</code> 系统调用打开文件时将 <code>flag</code> 参数设定为 <code>O_SYNC</code>。这样一来，之后每当对该文件执行 <code>write()</code> 系统调用，都会在往页面缓存写入数据时，将数据同步写入外部存储器。</p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231217195156882.png" alt="image-20231217195156882"></p>
+<p>　　</p>
+<h1 id="7-文件系统"><a href="#7-文件系统" class="headerlink" title="7.文件系统"></a>7.文件系统</h1><p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231217201858175.png" alt="image-20231217201858175"></p>
+<p>　Linux 能使用的文件系统不止一种，ext4、XFS、Btrfs 等不同的文件系统可以共存于 Linux 上。这些文件系统在外部存储器中的数据结构以及用于处理数据的程序各不相同。各种文件系统所支持的文件大小、文件系统本身的大小以及各种文件操作（创建、删除与读写文件等）的速度也不相同。</p>
+<p>　　但是，不管使用哪种文件系统，面向用户的访问接口都统一为下面这些系统调用。</p>
+<ul>
+<li><strong>创建与删除文件：<code>create()</code>、<code>unlink()</code></strong></li>
+<li><strong>打开与关闭文件：<code>open()</code>、<code>close()</code></strong></li>
+<li><strong>从已打开的文件中读取数据：<code>read()</code></strong></li>
+<li><strong>往已打开的文件中写入数据：<code>write()</code></strong></li>
+<li><strong>将已打开的文件移动到指定位置：<code>lseek()</code></strong></li>
+<li><strong>除了以上这些操作以外的依赖于文件系统的特殊处理：<code>ioctl()</code></strong></li>
+</ul>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20231217202116914.png" alt="image-20231217202116914"></p>
+<h2 id="7-1-数据与元数据"><a href="#7-1-数据与元数据" class="headerlink" title="7.1.数据与元数据"></a>7.1.数据与元数据</h2><p>　　文件系统上存在两种数据类型，分别是<strong>数据</strong>与<strong>元数据</strong>。</p>
+<ul>
+<li><strong>数据：用户创建的文档、图片、视频和程序等数据内容</strong></li>
+<li><strong>元数据：文件的名称、文件在外部存储器中的位置和文件大小等辅助信息</strong></li>
+</ul>
+<p>　　另外，元数据分为以下几种。</p>
+<ul>
+<li><strong>种类：用于判断文件是保存数据的普通文件，还是目录或其他类型的文件的信息</strong> <strong>2</strong></li>
+<li><strong>时间信息：包括文件的创建时间、最后一次访问的时间，以及最后一次修改的时间</strong></li>
+<li><strong>权限信息：表明该文件允许哪些用户访问</strong></li>
+</ul>
+<h2 id="7-2-文件的种类"><a href="#7-2-文件的种类" class="headerlink" title="7.2.文件的种类"></a>7.2.文件的种类</h2><p>普通文件，目录文件，设备文件（字符设备终端，键鼠/dev/tty，块设备/dev/sda）</p>
+<p>以终端为例，我们可以对其设备文件执行下列操作。</p>
+<p>write() 系统调用：向终端输出数据<br>read() 系统调用：从终端输入数据</p>
+<p>块设备除了能执行普通的读写操作以外，还能进行随机访问，比较具有代表性的块设备是 HDD 与 SSD 等外部存储器。只需像读写文件一样读写块设备的数据，即可访问外部存储器中指定的数据。</p>
+<p>　　正如之前提到的那样，通常不会直接访问块设备，而是在设备上创建一个文件系统并将其挂载，然后通过文件系统进行访问，但在以下几种情况下，需要直接操作块设备。</p>
+<ul>
+<li><strong>更新分区表（利用 <code>parted</code> 命令等）</strong></li>
+<li><strong>块设备级别的数据备份与还原（利用 <code>dd</code> 命令等）</strong></li>
+<li><strong>创建文件系统（利用各文件系统的 <code>mkfs</code> 命令等）</strong></li>
+<li><strong>挂载文件系统（利用 <code>mount</code> 命令等）</strong></li>
+<li><strong><code>fsck</code></strong></li>
+</ul>
+<h2 id="7-3-基于内存的文件系统"><a href="#7-3-基于内存的文件系统" class="headerlink" title="7.3.基于内存的文件系统"></a>7.3.基于内存的文件系统</h2><p>tmpfs 是一种创建于内存（而非外部存储器）上的文件系统。虽然这个文件系统中保存的数据会在切断电源后消失，但由于访问该文件系统时不再需要访问外部存储器，所以能提高访问速度。tmpfs 通常被用于 <code>/tmp</code> 与 <code>/var/run</code> 这种“文件内容无须保存到下一次启动时”的文件上</p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20240101164744448.png" alt="image-20240101164744448"></p>
+<h2 id="7-4-网络文件系统"><a href="#7-4-网络文件系统" class="headerlink" title="7.4.网络文件系统"></a>7.4.网络文件系统</h2><p>网络文件系统则可以通过网络访问远程主机上的文件</p>
+<p>　虽然网络文件系统同样存在许多种类，但基本上，在访问 Windows 主机上的文件时，使用名为 cifs 的文件系统；而在访问搭载 Linux 等类 UNIX 系统的主机上的文件时，则使用名为 nfs 的文件系统。</p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20240101164916280.png" alt="image-20240101164916280"></p>
+<h2 id="7-4-虚拟文件系统"><a href="#7-4-虚拟文件系统" class="headerlink" title="7.4.虚拟文件系统"></a>7.4.虚拟文件系统</h2><h3 id="procfs"><a href="#procfs" class="headerlink" title="procfs"></a>procfs</h3><p>procfs 用于获取系统上所有进程的信息。它通常被挂载在 /proc 目录下。通过访问 /proc// 目录下的文件，即可获取各个进程的信息。</p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20240101165808546.png" alt="image-20240101165808546"></p>
+<ul>
+<li><strong><code>/proc/</code>pid<code>/maps</code>：进程的内存映射</strong></li>
+<li><strong><code>/proc/</code>pid<code>/cmdline</code>：进程的命令行参数</strong></li>
+<li><strong><code>/proc/</code>pid<code>/stat</code>：进程的状态，比如 CPU 时间、优先级和内存使用量等信息</strong></li>
+</ul>
+<p>　　除了进程的信息之外，使用 procfs 还能得到以下几点信息。</p>
+<ul>
+<li><strong><code>/proc/cpuinfo</code>：搭载于系统上的 CPU 的相关信息</strong></li>
+<li><strong><code>/proc/diskstat</code>：搭载于系统上的外部存储器的相关信息</strong></li>
+<li><strong><code>/proc/meminfo</code>：搭载于系统上的内存的相关信息</strong></li>
+<li><strong><code>/proc/sys</code> 目录下的文件：内核的各种调优参数，与 <code>sysctl</code> 命令和 <code>/etc/sysctl.conf</code> 中的调优参数一一对应</strong></li>
+</ul>
+<p>　　到此为止使用过的 <code>ps</code>、<code>sar</code>、<code>top</code> 和 <code>free</code> 等用于显示 OS 提供的各种信息的命令，都是从 procfs 中采集信息的。</p>
+<h3 id="sysfs"><a href="#sysfs" class="headerlink" title="sysfs"></a>sysfs</h3><p>　在 Linux 引入 procfs 后不久，越来越多的乱七八糟的信息也被塞入其中，导致出现了许多与进程无关的信息。为了防止 procfs 被滥用，Linux 又引入了一个名为 sysfs 的文件系统，用来存放那些信息。sysfs 通常被挂载在 /sys 目录下。</p>
+<p>/sys/devices 目录下的文件：搭载于系统上的设备的相关信息<br>/sys/fs 目录下的文件：系统上的各种文件系统的相关信息</p>
+<h3 id="cgroupfs"><a href="#cgroupfs" class="headerlink" title="cgroupfs"></a>cgroupfs</h3><p>cgroup 用于限制单个进程或者由多个进程组成的群组的资源使用量，它需要通过文件系统 cgroupfs 来操作。另外，只有 root 用户可以操作 cgroup。cgroupfs 通常被挂载在 <code>/sys/fs/cgroup</code> 目录下。</p>
+<p>　　通过 cgroup 添加限制的资源有很多种，举例如下。</p>
+<ul>
+<li><strong>CPU：设置能够使用的比例，比如令某群组只能够使用 CPU 资源总量的 50% 等。通过读写 <code>/sys/fs/cgroup/cpu</code> 目录下的文件进行控制</strong></li>
+<li><strong>内存：限制群组的物理内存使用量，比如令某群组最多只能够使用 1 GB 内存等。通过读写 <code>/sys/fs/cgroup/memory</code> 目录下的文件进行控制</strong></li>
+</ul>
+<p>　　cgroup 通常被用于通过 Docker 之类的容器管理软件，或者 virt-manager 等虚拟机管理软件来限制各个容器或虚拟机的资源使用量。特别是多租户技术架构的系统上经常使用 cgroup，在这些系统上往往有多个客户的容器与虚拟机同时存在。</p>
+<h1 id="8-外部存储器"><a href="#8-外部存储器" class="headerlink" title="8.外部存储器"></a>8.外部存储器</h1><h2 id="8-1-HDD"><a href="#8-1-HDD" class="headerlink" title="8.1.HDD"></a>8.1.HDD</h2><p>HDD 用磁性信息表示数据，并将这些磁性数据记录在被称为盘片（platter）的磁盘上。HDD 读写数据的单位是扇区1，而非字节。</p>
+<p>​    　<strong>① 设备驱动程序将读写数据所需的信息传递给 HDD，其中包含扇区序列号、扇区数量以及访问类型（读取或写入）等信息。</strong></p>
+<p>　　<strong>② 通过摆动磁头摆臂并转动盘片，将磁头对准需要访问的扇区。</strong></p>
+<p>　　<strong>③ 执行数据读写操作。</strong></p>
+<p>　　<strong>④ 在执行读取的情况下，执行完 HDD 的读取处理就能结束数据传输。</strong></p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20240101171333959.png" alt="image-20240101171333959"></p>
+<p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20240101171446055.png" alt="image-20240101171446055"></p>
+<p>各种文件系统都会尽量把文件中的数据存放在连续的区域上。大家在编写程序时也一样，尽量设计成下面这样比较好。</p>
+<p>尽量将文件中的数据存放在连续的或者相近的区域上<br>把针对连续区域的访问请求汇集到一次访问请求中<br>对于文件，尽量以顺序访问的方式访问尽可能大的数据量</p>
+<h2 id="8-2-SSD"><a href="#8-2-SSD" class="headerlink" title="8.2.SSD"></a>8.2.SSD</h2><p><img src="/2024/01/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/linux%E6%98%AF%E6%80%8E%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84/image-20240101172011523.png" alt="image-20240101172011523"></p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2022/09/04/algorithm/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E6%9D%BF%E5%AD%90/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2024-01-01 00:00:00
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="读书笔记">
+                        <b>#</b> 读书笔记
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%A6%81"><span class="toc-text">1.计算机系统概要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E7%94%A8%E6%88%B7%E6%A8%A1%E5%BC%8F%E8%A6%81%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-text">2.用户模式要实现的功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="toc-text">2.1系统调用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-%E5%AE%9E%E9%AA%8Cstrace"><span class="toc-text">2.1.1.实验strace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-%E5%AE%9E%E9%AA%8Csar"><span class="toc-text">2.1.2.实验sar</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-text">3.进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-fork"><span class="toc-text">3.1.fork</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-execve"><span class="toc-text">3.2.execve</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6"><span class="toc-text">3.3.可执行文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E5%88%9B%E5%BB%BA%E6%96%B0%E8%BF%9B%E7%A8%8B"><span class="toc-text">3.4.创建新进程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="toc-text">4.进程调度器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2"><span class="toc-text">4.1.上下文切换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81"><span class="toc-text">4.2.进程的状态</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-text">5.内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E5%86%85%E5%AD%98%E7%BB%9F%E8%AE%A1"><span class="toc-text">5.1.内存统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="toc-text">5.2.内存分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">5.3.虚拟内存的应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E5%AD%98%E5%82%A8%E5%B1%82%E6%AC%A1"><span class="toc-text">6.存储层次</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E5%B1%80%E9%83%A8%E6%80%A7"><span class="toc-text">6.1.局部性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98"><span class="toc-text">6.2.高速缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-%E9%A1%B5%E9%9D%A2%E7%BC%93%E5%AD%98"><span class="toc-text">6.3.页面缓存</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">7.文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E6%95%B0%E6%8D%AE%E4%B8%8E%E5%85%83%E6%95%B0%E6%8D%AE"><span class="toc-text">7.1.数据与元数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E6%96%87%E4%BB%B6%E7%9A%84%E7%A7%8D%E7%B1%BB"><span class="toc-text">7.2.文件的种类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AD%98%E7%9A%84%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">7.3.基于内存的文件系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-%E7%BD%91%E7%BB%9C%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">7.4.网络文件系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-%E8%99%9A%E6%8B%9F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">7.4.虚拟文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#procfs"><span class="toc-text">procfs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sysfs"><span class="toc-text">sysfs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cgroupfs"><span class="toc-text">cgroupfs</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E5%A4%96%E9%83%A8%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text">8.外部存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-HDD"><span class="toc-text">8.1.HDD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-SSD"><span class="toc-text">8.2.SSD</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/Sellun">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" target="_blank" rel="noopener" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=GCksLSwrKS0vLixYaWk2e3d1">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" target="_blank" rel="noopener" href="https://gitee.com/sellun/cnblog/raw/master/wechat.jpg">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://sellun.github.io/">Copyright © Sellun 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  </body>
+</html>
