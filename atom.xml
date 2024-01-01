@@ -144,31 +144,6 @@
   </entry>
   
   <entry>
-    <title>阿里cto线一面凉经</title>
-    <link href="http://example.com/2022/03/21/%E9%9D%A2%E8%AF%95/%E9%98%BF%E9%87%8C-CTO-%E9%9D%A2%E8%AF%95/"/>
-    <id>http://example.com/2022/03/21/%E9%9D%A2%E8%AF%95/%E9%98%BF%E9%87%8C-CTO-%E9%9D%A2%E8%AF%95/</id>
-    <published>2022-03-21T04:03:35.000Z</published>
-    <updated>2022-03-21T07:04:39.980Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;阿里巴巴22-3-10&quot;&gt;&lt;a href=&quot;#阿里巴巴22-3-10&quot; class=&quot;headerlink&quot; title=&quot;阿里巴巴22/3/10&quot;&gt;&lt;/a&gt;阿里巴巴22/3/10&lt;/h4&gt;&lt;h6 id=&quot;一面凉经3-21&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="school_course" scheme="http://example.com/categories/school-course/"/>
-    
-    
-    <category term="面经" scheme="http://example.com/tags/%E9%9D%A2%E7%BB%8F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>网络管理实验</title>
     <link href="http://example.com/2021/12/26/school_course/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
     <id>http://example.com/2021/12/26/school_course/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%AE%9E%E9%AA%8C/</id>
@@ -510,6 +485,32 @@
         
         
     <summary type="html">&lt;h1 id=&quot;内部类&quot;&gt;&lt;a href=&quot;#内部类&quot; class=&quot;headerlink&quot; title=&quot;内部类&quot;&gt;&lt;/a&gt;内部类&lt;/h1&gt;&lt;h2 id=&quot;使用内部类访问对象状态&quot;&gt;&lt;a href=&quot;#使用内部类访问对象状态&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="http://example.com/categories/java/"/>
+    
+    
+    <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java反射</title>
+    <link href="http://example.com/2021/09/25/java/java_reflect/"/>
+    <id>http://example.com/2021/09/25/java/java_reflect/</id>
+    <published>2021-09-25T04:03:35.000Z</published>
+    <updated>2021-11-18T13:04:35.982Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://note.youdao.com/ynoteshare1/index.html?id=128508bf6a04968eced81ede9ac1b304&amp;type=note&quot;&gt;反射&lt;/a&gt;&lt;/p&gt;
+&lt;figure</summary>
         
       
     
